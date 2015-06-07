@@ -2,8 +2,6 @@ grammar org.xtext.compilador.java.MyDsl with org.eclipse.xtext.common.Terminals
 
 generate myDsl "http://www.xtext.org/compilador/java/MyDsl"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+arglist: expression {expression};
+
+expression:"null" | "super" | "this";
