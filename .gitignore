@@ -23,4 +23,5 @@ hs_err_pid*
 /org.xtext.compilador.java/src/org/xtext/compilador/java/generator/
 /org.xtext.compilador.java/src/org/xtext/compilador/java/scoping/
 /org.xtext.compilador.java/src/org/xtext/compilador/java/validation/
-
+/org.xtext.compilador.java.ui/plugin.xml_gen
+/org.xtext.compilador.java/plugin.xml_gen
