@@ -1,7 +1,34 @@
 grammar org.xtext.compilador.java.MyDsl with org.eclipse.xtext.common.Terminals
-
+/*
+ * {} 0 ou + -> ()*
+ * [] 0 ou 1 - > ()?
+ *           ->  ()+   
+ */
 generate myDsl "http://www.xtext.org/compilador/java/MyDsl"
 
-arglist: expression {expression};
+Model:
+  greetings+=Compilation_unit;
+  
+Compilation_unit: name = (Package_statement)? | imports += (Import_statement)*;
 
-expression:"null" | "super" | "this";
+Import_statement: 
+	"import" ((pacName = Package_name".*;") | className = Class_name";")
+;
+
+Class_name:
+	Package_name	
+;
+
+Package_statement:
+	"package" pac_name=Package_name ";";
+
+Package_name: 
+	ID Package_name_line
+;
+Package_name_line: 
+	("."ID)+
+;
+
+terminal ID:
+	('a'..'z'|'A'..'Z'|'_' | '$')('a'..'z'|'A'..'Z'|'_'|'0'..'9' | '$' | '\u00C0' .. '\uFFFF')*	
+;
