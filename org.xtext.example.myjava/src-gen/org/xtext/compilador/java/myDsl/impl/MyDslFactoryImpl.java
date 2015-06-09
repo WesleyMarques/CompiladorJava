@@ -80,6 +80,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATIC_INITIALIZER: return createStatic_initializer();
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
+      case MyDslPackage.TRY_STATEMENT: return createTry_statement();
       case MyDslPackage.IMPORT_STATEMENT: return createImport_statement();
       case MyDslPackage.PACKAGE_STATEMENT: return createPackage_statement();
       default:
@@ -261,6 +262,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Try_statement createTry_statement()
+  {
+    Try_statementImpl try_statement = new Try_statementImpl();
+    return try_statement;
   }
 
   /**

@@ -88,11 +88,18 @@ terminal STATIC:
 
 
 Statement_block:
-	{Statement} "{" statments += Statement* "}"
+	"{" statments += Statement* "}"
 ;
 //FIXME: resolver o resto das operações 
 Statement:
-	Variable_declaration | "break" (name = ID)? ";" | "continue" (name = ID)? ";" | (";")
+	Statement_block | nameStatement = ID ":" statement = Statement | Variable_declaration |
+	tryStatement = Try_statement | {Statement} "break" (name = ID)? ";" |
+	 {Statement}"continue" (name = ID)? ";" | (";")
+;
+
+Try_statement:
+	"try" tryStatement = Statement (=>"catch" "(" parameters += Parameter ")" statement += Statement)* 
+	(=>"finally" statementFinally = Statement)?
 ;
 
 //FIXME:força a descer por className --  | interfaceName = Interface_name";"

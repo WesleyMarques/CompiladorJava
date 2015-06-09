@@ -24,7 +24,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected MyDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Method_declaration_LeftSquareBracketRightSquareBracketKeyword_6_a;
 	protected AbstractElementAlias match_Parameter_LeftSquareBracketRightSquareBracketKeyword_2_a;
-	protected AbstractElementAlias match_Statement_SemicolonKeyword_3_or___BreakKeyword_1_0_SemicolonKeyword_1_2___or___ContinueKeyword_2_0_SemicolonKeyword_2_2__;
+	protected AbstractElementAlias match_Statement___BreakKeyword_4_1_SemicolonKeyword_4_3___or___ContinueKeyword_5_1_SemicolonKeyword_5_3__;
 	protected AbstractElementAlias match_Type_LeftSquareBracketRightSquareBracketKeyword_1_a;
 	protected AbstractElementAlias match_Variable_declarator_LeftSquareBracketRightSquareBracketKeyword_1_a;
 	
@@ -33,7 +33,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (MyDslGrammarAccess) access;
 		match_Method_declaration_LeftSquareBracketRightSquareBracketKeyword_6_a = new TokenAlias(true, true, grammarAccess.getMethod_declarationAccess().getLeftSquareBracketRightSquareBracketKeyword_6());
 		match_Parameter_LeftSquareBracketRightSquareBracketKeyword_2_a = new TokenAlias(true, true, grammarAccess.getParameterAccess().getLeftSquareBracketRightSquareBracketKeyword_2());
-		match_Statement_SemicolonKeyword_3_or___BreakKeyword_1_0_SemicolonKeyword_1_2___or___ContinueKeyword_2_0_SemicolonKeyword_2_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getBreakKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getContinueKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_2_2())), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_3()));
+		match_Statement___BreakKeyword_4_1_SemicolonKeyword_4_3___or___ContinueKeyword_5_1_SemicolonKeyword_5_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getBreakKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_4_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getContinueKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_5_3())));
 		match_Type_LeftSquareBracketRightSquareBracketKeyword_1_a = new TokenAlias(true, true, grammarAccess.getTypeAccess().getLeftSquareBracketRightSquareBracketKeyword_1());
 		match_Variable_declarator_LeftSquareBracketRightSquareBracketKeyword_1_a = new TokenAlias(true, true, grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketRightSquareBracketKeyword_1());
 	}
@@ -54,8 +54,8 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Method_declaration_LeftSquareBracketRightSquareBracketKeyword_6_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Parameter_LeftSquareBracketRightSquareBracketKeyword_2_a.equals(syntax))
 				emit_Parameter_LeftSquareBracketRightSquareBracketKeyword_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Statement_SemicolonKeyword_3_or___BreakKeyword_1_0_SemicolonKeyword_1_2___or___ContinueKeyword_2_0_SemicolonKeyword_2_2__.equals(syntax))
-				emit_Statement_SemicolonKeyword_3_or___BreakKeyword_1_0_SemicolonKeyword_1_2___or___ContinueKeyword_2_0_SemicolonKeyword_2_2__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Statement___BreakKeyword_4_1_SemicolonKeyword_4_3___or___ContinueKeyword_5_1_SemicolonKeyword_5_3__.equals(syntax))
+				emit_Statement___BreakKeyword_4_1_SemicolonKeyword_4_3___or___ContinueKeyword_5_1_SemicolonKeyword_5_3__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Type_LeftSquareBracketRightSquareBracketKeyword_1_a.equals(syntax))
 				emit_Type_LeftSquareBracketRightSquareBracketKeyword_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Variable_declarator_LeftSquareBracketRightSquareBracketKeyword_1_a.equals(syntax))
@@ -91,12 +91,12 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ';' | ('break' ';') | ('continue' ';')
+	 *     ('break' ';') | ('continue' ';')
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_Statement_SemicolonKeyword_3_or___BreakKeyword_1_0_SemicolonKeyword_1_2___or___ContinueKeyword_2_0_SemicolonKeyword_2_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Statement___BreakKeyword_4_1_SemicolonKeyword_4_3___or___ContinueKeyword_5_1_SemicolonKeyword_5_3__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

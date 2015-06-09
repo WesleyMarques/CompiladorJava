@@ -29,7 +29,9 @@ import org.xtext.compilador.java.myDsl.Package_statement;
 import org.xtext.compilador.java.myDsl.Parameter;
 import org.xtext.compilador.java.myDsl.Parameter_list;
 import org.xtext.compilador.java.myDsl.Statement;
+import org.xtext.compilador.java.myDsl.Statement_block;
 import org.xtext.compilador.java.myDsl.Static_initializer;
+import org.xtext.compilador.java.myDsl.Try_statement;
 import org.xtext.compilador.java.myDsl.Type;
 import org.xtext.compilador.java.myDsl.Type_declaration;
 import org.xtext.compilador.java.myDsl.Variable_declaration;
@@ -79,17 +81,16 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Parameter_list(context, (Parameter_list) semanticObject); 
 				return; 
 			case MyDslPackage.STATEMENT:
-				if(context == grammarAccess.getStatementRule()) {
-					sequence_Statement(context, (Statement) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getStatement_blockRule()) {
-					sequence_Statement_block(context, (Statement) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Statement(context, (Statement) semanticObject); 
+				return; 
+			case MyDslPackage.STATEMENT_BLOCK:
+				sequence_Statement_block(context, (Statement_block) semanticObject); 
+				return; 
 			case MyDslPackage.STATIC_INITIALIZER:
 				sequence_Static_initializer(context, (Static_initializer) semanticObject); 
+				return; 
+			case MyDslPackage.TRY_STATEMENT:
+				sequence_Try_statement(context, (Try_statement) semanticObject); 
 				return; 
 			case MyDslPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -231,7 +232,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? | name=ID?)?
+	 *     ((name=ID?) | (name=ID?))
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -240,9 +241,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (statments+=Statement*)
+	 *     statments+=Statement*
 	 */
-	protected void sequence_Statement_block(EObject context, Statement semanticObject) {
+	protected void sequence_Statement_block(EObject context, Statement_block semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -263,6 +264,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getStatic_initializerAccess().getStaticSTATICTerminalRuleCall_0_0(), semanticObject.getStatic());
 		feeder.accept(grammarAccess.getStatic_initializerAccess().getNameStatement_blockParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (tryStatement=Statement (parameters+=Parameter statement+=Statement)* statementFinally=Statement?)
+	 */
+	protected void sequence_Try_statement(EObject context, Try_statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

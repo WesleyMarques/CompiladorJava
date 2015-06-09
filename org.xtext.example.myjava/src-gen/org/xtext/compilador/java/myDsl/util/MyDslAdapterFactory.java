@@ -155,6 +155,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseTry_statement(Try_statement object)
+      {
+        return createTry_statementAdapter();
+      }
+      @Override
       public Adapter caseImport_statement(Import_statement object)
       {
         return createImport_statementAdapter();
@@ -422,6 +427,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Try_statement <em>Try statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Try_statement
+   * @generated
+   */
+  public Adapter createTry_statementAdapter()
   {
     return null;
   }

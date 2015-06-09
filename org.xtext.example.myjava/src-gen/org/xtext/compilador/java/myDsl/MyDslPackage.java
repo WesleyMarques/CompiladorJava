@@ -562,25 +562,6 @@ public interface MyDslPackage extends EPackage
   int PARAMETER_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Statement_blockImpl <em>Statement block</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.compilador.java.myDsl.impl.Statement_blockImpl
-   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getStatement_block()
-   * @generated
-   */
-  int STATEMENT_BLOCK = 14;
-
-  /**
-   * The number of structural features of the '<em>Statement block</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -591,13 +572,31 @@ public interface MyDslPackage extends EPackage
   int STATEMENT = 15;
 
   /**
-   * The feature id for the '<em><b>Statments</b></em>' containment reference list.
+   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__STATMENTS = STATEMENT_BLOCK_FEATURE_COUNT + 0;
+  int STATEMENT__NAME_STATEMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__STATEMENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__TRY_STATEMENT = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -606,7 +605,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = STATEMENT_BLOCK_FEATURE_COUNT + 1;
+  int STATEMENT__NAME = 3;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -615,7 +614,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = STATEMENT_BLOCK_FEATURE_COUNT + 2;
+  int STATEMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl <em>Variable declaration</em>}' class.
@@ -628,13 +627,31 @@ public interface MyDslPackage extends EPackage
   int VARIABLE_DECLARATION = 10;
 
   /**
-   * The feature id for the '<em><b>Statments</b></em>' containment reference list.
+   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__STATMENTS = STATEMENT__STATMENTS;
+  int VARIABLE_DECLARATION__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__STATEMENT = STATEMENT__STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -784,6 +801,125 @@ public interface MyDslPackage extends EPackage
   int STATIC_INITIALIZER_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Statement_blockImpl <em>Statement block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.compilador.java.myDsl.impl.Statement_blockImpl
+   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getStatement_block()
+   * @generated
+   */
+  int STATEMENT_BLOCK = 14;
+
+  /**
+   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__STATEMENT = STATEMENT__STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__NAME = STATEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Statments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__STATMENTS = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Statement block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Try_statementImpl <em>Try statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.compilador.java.myDsl.impl.Try_statementImpl
+   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getTry_statement()
+   * @generated
+   */
+  int TRY_STATEMENT = 16;
+
+  /**
+   * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_STATEMENT__TRY_STATEMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_STATEMENT__PARAMETERS = 1;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_STATEMENT__STATEMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Statement Finally</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_STATEMENT__STATEMENT_FINALLY = 3;
+
+  /**
+   * The number of structural features of the '<em>Try statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRY_STATEMENT_FEATURE_COUNT = 4;
+
+  /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Import_statementImpl <em>Import statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -791,7 +927,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getImport_statement()
    * @generated
    */
-  int IMPORT_STATEMENT = 16;
+  int IMPORT_STATEMENT = 17;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -828,7 +964,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getPackage_statement()
    * @generated
    */
-  int PACKAGE_STATEMENT = 17;
+  int PACKAGE_STATEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Pac Name</b></em>' attribute.
@@ -1473,6 +1609,17 @@ public interface MyDslPackage extends EPackage
   EClass getStatement_block();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.compilador.java.myDsl.Statement_block#getStatments <em>Statments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statments</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement_block#getStatments()
+   * @see #getStatement_block()
+   * @generated
+   */
+  EReference getStatement_block_Statments();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1483,15 +1630,37 @@ public interface MyDslPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.compilador.java.myDsl.Statement#getStatments <em>Statments</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.compilador.java.myDsl.Statement#getNameStatement <em>Name Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statments</em>'.
-   * @see org.xtext.compilador.java.myDsl.Statement#getStatments()
+   * @return the meta object for the attribute '<em>Name Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getNameStatement()
    * @see #getStatement()
    * @generated
    */
-  EReference getStatement_Statments();
+  EAttribute getStatement_NameStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_Statement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getTryStatement <em>Try Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Try Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getTryStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_TryStatement();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.compilador.java.myDsl.Statement#getName <em>Name</em>}'.
@@ -1503,6 +1672,60 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EAttribute getStatement_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.Try_statement <em>Try statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Try statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Try_statement
+   * @generated
+   */
+  EClass getTry_statement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Try_statement#getTryStatement <em>Try Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Try Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Try_statement#getTryStatement()
+   * @see #getTry_statement()
+   * @generated
+   */
+  EReference getTry_statement_TryStatement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.compilador.java.myDsl.Try_statement#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.xtext.compilador.java.myDsl.Try_statement#getParameters()
+   * @see #getTry_statement()
+   * @generated
+   */
+  EReference getTry_statement_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.compilador.java.myDsl.Try_statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Try_statement#getStatement()
+   * @see #getTry_statement()
+   * @generated
+   */
+  EReference getTry_statement_Statement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Try_statement#getStatementFinally <em>Statement Finally</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement Finally</em>'.
+   * @see org.xtext.compilador.java.myDsl.Try_statement#getStatementFinally()
+   * @see #getTry_statement()
+   * @generated
+   */
+  EReference getTry_statement_StatementFinally();
 
   /**
    * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.Import_statement <em>Import statement</em>}'.
@@ -2075,6 +2298,14 @@ public interface MyDslPackage extends EPackage
     EClass STATEMENT_BLOCK = eINSTANCE.getStatement_block();
 
     /**
+     * The meta object literal for the '<em><b>Statments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT_BLOCK__STATMENTS = eINSTANCE.getStatement_block_Statments();
+
+    /**
      * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.StatementImpl <em>Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2085,12 +2316,28 @@ public interface MyDslPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Statments</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Name Statement</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENT__STATMENTS = eINSTANCE.getStatement_Statments();
+    EAttribute STATEMENT__NAME_STATEMENT = eINSTANCE.getStatement_NameStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
+
+    /**
+     * The meta object literal for the '<em><b>Try Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__TRY_STATEMENT = eINSTANCE.getStatement_TryStatement();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2099,6 +2346,48 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute STATEMENT__NAME = eINSTANCE.getStatement_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.Try_statementImpl <em>Try statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.compilador.java.myDsl.impl.Try_statementImpl
+     * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getTry_statement()
+     * @generated
+     */
+    EClass TRY_STATEMENT = eINSTANCE.getTry_statement();
+
+    /**
+     * The meta object literal for the '<em><b>Try Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__TRY_STATEMENT = eINSTANCE.getTry_statement_TryStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__PARAMETERS = eINSTANCE.getTry_statement_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__STATEMENT = eINSTANCE.getTry_statement_Statement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement Finally</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRY_STATEMENT__STATEMENT_FINALLY = eINSTANCE.getTry_statement_StatementFinally();
 
     /**
      * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.Import_statementImpl <em>Import statement</em>}' class.
