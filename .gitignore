@@ -12,16 +12,5 @@
 hs_err_pid*
 
 /org.xtext.compilador.java.tests/bin/
-/org.xtext.compilador.java.tests/src-gen/
-/org.xtext.compilador.java.tests/xtend-gen/
 /org.xtext.compilador.java.ui/bin/
-/org.xtext.compilador.java.ui/src-gen/
-/org.xtext.compilador.java/src-gen/
-/org.xtext.compilador.java.ui/src/
-/org.xtext.compilador.java/xtend-gen/
-/org.xtext.compilador.java/src/org/xtext/compilador/java/formatting/
-/org.xtext.compilador.java/src/org/xtext/compilador/java/generator/
-/org.xtext.compilador.java/src/org/xtext/compilador/java/scoping/
-/org.xtext.compilador.java/src/org/xtext/compilador/java/validation/
-/org.xtext.compilador.java.ui/plugin.xml_gen
-/org.xtext.compilador.java/plugin.xml_gen
+/org.xtext.compilador.java/bin/
