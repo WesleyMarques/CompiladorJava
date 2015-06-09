@@ -18,9 +18,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.compilador.java.myDsl.For_Statement;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
-import org.xtext.compilador.java.myDsl.Statement;
 import org.xtext.compilador.java.myDsl.Type;
 import org.xtext.compilador.java.myDsl.Variable_declaration;
 import org.xtext.compilador.java.myDsl.Variable_declarator;
@@ -32,7 +30,6 @@ import org.xtext.compilador.java.myDsl.Variable_declarator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl#getStatementInFor <em>Statement In For</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl#getModifiersVariable <em>Modifiers Variable</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl#getNameVariable <em>Name Variable</em>}</li>
@@ -42,18 +39,8 @@ import org.xtext.compilador.java.myDsl.Variable_declarator;
  *
  * @generated
  */
-public class Variable_declarationImpl extends StatementImpl implements Variable_declaration
+public class Variable_declarationImpl extends For_StatementImpl implements Variable_declaration
 {
-  /**
-   * The cached value of the '{@link #getStatementInFor() <em>Statement In For</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatementInFor()
-   * @generated
-   * @ordered
-   */
-  protected Statement statementInFor;
-
   /**
    * The cached value of the '{@link #getModifiersVariable() <em>Modifiers Variable</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -113,54 +100,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.VARIABLE_DECLARATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Statement getStatementInFor()
-  {
-    return statementInFor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStatementInFor(Statement newStatementInFor, NotificationChain msgs)
-  {
-    Statement oldStatementInFor = statementInFor;
-    statementInFor = newStatementInFor;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR, oldStatementInFor, newStatementInFor);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStatementInFor(Statement newStatementInFor)
-  {
-    if (newStatementInFor != statementInFor)
-    {
-      NotificationChain msgs = null;
-      if (statementInFor != null)
-        msgs = ((InternalEObject)statementInFor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR, null, msgs);
-      if (newStatementInFor != null)
-        msgs = ((InternalEObject)newStatementInFor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR, null, msgs);
-      msgs = basicSetStatementInFor(newStatementInFor, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR, newStatementInFor, newStatementInFor));
   }
 
   /**
@@ -297,8 +236,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR:
-        return basicSetStatementInFor(null, msgs);
       case MyDslPackage.VARIABLE_DECLARATION__TYPE:
         return basicSetType(null, msgs);
       case MyDslPackage.VARIABLE_DECLARATION__NAME_VARIABLE:
@@ -319,8 +256,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR:
-        return getStatementInFor();
       case MyDslPackage.VARIABLE_DECLARATION__MODIFIERS_VARIABLE:
         return getModifiersVariable();
       case MyDslPackage.VARIABLE_DECLARATION__TYPE:
@@ -344,9 +279,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR:
-        setStatementInFor((Statement)newValue);
-        return;
       case MyDslPackage.VARIABLE_DECLARATION__MODIFIERS_VARIABLE:
         getModifiersVariable().clear();
         getModifiersVariable().addAll((Collection<? extends String>)newValue);
@@ -375,9 +307,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR:
-        setStatementInFor((Statement)null);
-        return;
       case MyDslPackage.VARIABLE_DECLARATION__MODIFIERS_VARIABLE:
         getModifiersVariable().clear();
         return;
@@ -404,8 +333,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
   {
     switch (featureID)
     {
-      case MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR:
-        return statementInFor != null;
       case MyDslPackage.VARIABLE_DECLARATION__MODIFIERS_VARIABLE:
         return modifiersVariable != null && !modifiersVariable.isEmpty();
       case MyDslPackage.VARIABLE_DECLARATION__TYPE:
@@ -416,44 +343,6 @@ public class Variable_declarationImpl extends StatementImpl implements Variable_
         return names != null && !names.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == For_Statement.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR: return MyDslPackage.FOR_STATEMENT__STATEMENT_IN_FOR;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == For_Statement.class)
-    {
-      switch (baseFeatureID)
-      {
-        case MyDslPackage.FOR_STATEMENT__STATEMENT_IN_FOR: return MyDslPackage.VARIABLE_DECLARATION__STATEMENT_IN_FOR;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**

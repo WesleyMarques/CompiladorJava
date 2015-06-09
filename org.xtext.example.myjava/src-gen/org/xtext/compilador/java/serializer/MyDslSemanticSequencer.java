@@ -16,13 +16,10 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.compilador.java.myDsl.Arglist;
 import org.xtext.compilador.java.myDsl.Class_declaration;
 import org.xtext.compilador.java.myDsl.Compilation_unit;
 import org.xtext.compilador.java.myDsl.Constructor_declaration;
 import org.xtext.compilador.java.myDsl.Do_Statement;
-import org.xtext.compilador.java.myDsl.Expression;
-import org.xtext.compilador.java.myDsl.Expression_line;
 import org.xtext.compilador.java.myDsl.Field_declaration;
 import org.xtext.compilador.java.myDsl.For_Statement;
 import org.xtext.compilador.java.myDsl.Import_statement;
@@ -36,7 +33,6 @@ import org.xtext.compilador.java.myDsl.Parameter_list;
 import org.xtext.compilador.java.myDsl.Statement;
 import org.xtext.compilador.java.myDsl.Statement_block;
 import org.xtext.compilador.java.myDsl.Static_initializer;
-import org.xtext.compilador.java.myDsl.Switch_statement;
 import org.xtext.compilador.java.myDsl.Try_statement;
 import org.xtext.compilador.java.myDsl.Type;
 import org.xtext.compilador.java.myDsl.Type_declaration;
@@ -54,9 +50,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == MyDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case MyDslPackage.ARGLIST:
-				sequence_Arglist(context, (Arglist) semanticObject); 
-				return; 
 			case MyDslPackage.CLASS_DECLARATION:
 				sequence_Class_declaration(context, (Class_declaration) semanticObject); 
 				return; 
@@ -68,12 +61,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.DO_STATEMENT:
 				sequence_Do_Statement(context, (Do_Statement) semanticObject); 
-				return; 
-			case MyDslPackage.EXPRESSION:
-				sequence_Expression(context, (Expression) semanticObject); 
-				return; 
-			case MyDslPackage.EXPRESSION_LINE:
-				sequence_Expression_line(context, (Expression_line) semanticObject); 
 				return; 
 			case MyDslPackage.FIELD_DECLARATION:
 				sequence_Field_declaration(context, (Field_declaration) semanticObject); 
@@ -126,9 +113,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.STATIC_INITIALIZER:
 				sequence_Static_initializer(context, (Static_initializer) semanticObject); 
 				return; 
-			case MyDslPackage.SWITCH_STATEMENT:
-				sequence_Switch_statement(context, (Switch_statement) semanticObject); 
-				return; 
 			case MyDslPackage.TRY_STATEMENT:
 				sequence_Try_statement(context, (Try_statement) semanticObject); 
 				return; 
@@ -143,12 +127,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 					sequence_For_Statement_Variable_declaration(context, (Variable_declaration) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getIf_statementRule()) {
-					sequence_If_statement_Variable_declaration(context, (Variable_declaration) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getVariable_declarationRule()) {
+				else if(context == grammarAccess.getVariable_declarationRule()) {
 					sequence_Variable_declaration(context, (Variable_declaration) semanticObject); 
 					return; 
 				}
@@ -162,15 +141,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Constraint:
-	 *     (expression=Expression expressions+=Expression*)
-	 */
-	protected void sequence_Arglist(EObject context, Arglist semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Constraint:
@@ -224,34 +194,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         (expression=Expression expressionLine=Expression_line) | 
-	 *         (expression=Expression expressionLine=Expression_line) | 
-	 *         (expression=Expression expressionLine=Expression_line) | 
-	 *         (expression=Expression expressionLine=Expression_line) | 
-	 *         (name=ID expression=Expression_line) | 
-	 *         expression=Expression_line | 
-	 *         expression=Expression_line | 
-	 *         expression=Expression_line | 
-	 *         (className=Class_name expression=Expression_line)
-	 *     )
-	 */
-	protected void sequence_Expression(EObject context, Expression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (args=Arglist? expression=Expression_line)
-	 */
-	protected void sequence_Expression_line(EObject context, Expression_line semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     {Field_declaration}
+	 *         (comment=DOC_COMMENT? (variableDeclaration=Variable_declaration | contructorName=Constructor_declaration | methodName=Method_declaration)) | 
+	 *         staticinitializer=Static_initializer
+	 *     )?
 	 */
 	protected void sequence_Field_declaration(EObject context, Field_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -294,18 +239,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (statments+=Statement+ elseStatement=Statement?)
+	 *     (statments+=Statement* elseStatement=Statement?)
 	 */
 	protected void sequence_If_statement_Statement_block(EObject context, Statement_block semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (modifiersVariable+=Modifier* type=Type nameVariable=Variable_declarator names+=Variable_declarator* elseStatement=Statement?)
-	 */
-	protected void sequence_If_statement_Variable_declaration(EObject context, Variable_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -330,7 +266,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (modifiersMethod+=Modifier* typeMethod=Type nameMethod=ID parameterListMethod=Parameter_list? statementMethod=Statement_block?)
+	 *     (modifiersMethod+=Modifier* typeMethod=Type nameMethod=ID parameterListMethod=Parameter_list? (statementMethod=Statement_block | debug=';'))
 	 */
 	protected void sequence_Method_declaration(EObject context, Method_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -401,7 +337,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     statments+=Statement*
+	 *     (statments+=Statement*)
 	 */
 	protected void sequence_Statement_block(EObject context, Statement_block semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -424,15 +360,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getStatic_initializerAccess().getStaticSTATICTerminalRuleCall_0_0(), semanticObject.getStatic());
 		feeder.accept(grammarAccess.getStatic_initializerAccess().getNameStatement_blockParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     statement+=Statement*
-	 */
-	protected void sequence_Switch_statement(EObject context, Switch_statement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

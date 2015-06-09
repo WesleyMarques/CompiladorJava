@@ -35,6 +35,7 @@ import org.xtext.compilador.java.myDsl.Type;
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Method_declarationImpl#getNameMethod <em>Name Method</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Method_declarationImpl#getParameterListMethod <em>Parameter List Method</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Method_declarationImpl#getStatementMethod <em>Statement Method</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.Method_declarationImpl#getDebug <em>Debug</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +102,26 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
    * @ordered
    */
   protected Statement_block statementMethod;
+
+  /**
+   * The default value of the '{@link #getDebug() <em>Debug</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDebug()
+   * @generated
+   * @ordered
+   */
+  protected static final String DEBUG_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDebug() <em>Debug</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDebug()
+   * @generated
+   * @ordered
+   */
+  protected String debug = DEBUG_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -309,6 +330,29 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDebug()
+  {
+    return debug;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDebug(String newDebug)
+  {
+    String oldDebug = debug;
+    debug = newDebug;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.METHOD_DECLARATION__DEBUG, oldDebug, debug));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -344,6 +388,8 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
         return getParameterListMethod();
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
         return getStatementMethod();
+      case MyDslPackage.METHOD_DECLARATION__DEBUG:
+        return getDebug();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -375,6 +421,9 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
         setStatementMethod((Statement_block)newValue);
         return;
+      case MyDslPackage.METHOD_DECLARATION__DEBUG:
+        setDebug((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -404,6 +453,9 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
         setStatementMethod((Statement_block)null);
         return;
+      case MyDslPackage.METHOD_DECLARATION__DEBUG:
+        setDebug(DEBUG_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -428,6 +480,8 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
         return parameterListMethod != null;
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
         return statementMethod != null;
+      case MyDslPackage.METHOD_DECLARATION__DEBUG:
+        return DEBUG_EDEFAULT == null ? debug != null : !DEBUG_EDEFAULT.equals(debug);
     }
     return super.eIsSet(featureID);
   }
@@ -447,6 +501,8 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
     result.append(modifiersMethod);
     result.append(", nameMethod: ");
     result.append(nameMethod);
+    result.append(", debug: ");
+    result.append(debug);
     result.append(')');
     return result.toString();
   }

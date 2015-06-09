@@ -11,13 +11,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.compilador.java.myDsl.Do_Statement;
-import org.xtext.compilador.java.myDsl.Expression;
 import org.xtext.compilador.java.myDsl.For_Statement;
 import org.xtext.compilador.java.myDsl.If_statement;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Statement;
-import org.xtext.compilador.java.myDsl.Switch_statement;
 import org.xtext.compilador.java.myDsl.Try_statement;
+import org.xtext.compilador.java.myDsl.Variable_declaration;
 import org.xtext.compilador.java.myDsl.While_Statement;
 
 /**
@@ -27,16 +26,15 @@ import org.xtext.compilador.java.myDsl.While_Statement;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getExpressionStatement <em>Expression Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getVariableDeclaration <em>Variable Declaration</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getWhileStatement <em>While Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getForStatement <em>For Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSwitchStatement <em>Switch Statement</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getElseStatement <em>Else Statement</em>}</li>
  * </ul>
@@ -47,14 +45,14 @@ import org.xtext.compilador.java.myDsl.While_Statement;
 public class StatementImpl extends If_statementImpl implements Statement
 {
   /**
-   * The cached value of the '{@link #getExpressionStatement() <em>Expression Statement</em>}' containment reference.
+   * The cached value of the '{@link #getVariableDeclaration() <em>Variable Declaration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpressionStatement()
+   * @see #getVariableDeclaration()
    * @generated
    * @ordered
    */
-  protected Expression expressionStatement;
+  protected Variable_declaration variableDeclaration;
 
   /**
    * The cached value of the '{@link #getIfStatement() <em>If Statement</em>}' containment reference.
@@ -107,26 +105,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   protected Try_statement tryStatement;
 
   /**
-   * The cached value of the '{@link #getSwitchStatement() <em>Switch Statement</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSwitchStatement()
-   * @generated
-   * @ordered
-   */
-  protected Switch_statement switchStatement;
-
-  /**
-   * The cached value of the '{@link #getSyncStatement() <em>Sync Statement</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSyncStatement()
-   * @generated
-   * @ordered
-   */
-  protected Statement syncStatement;
-
-  /**
    * The default value of the '{@link #getNameStatement() <em>Name Statement</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -155,6 +133,16 @@ public class StatementImpl extends If_statementImpl implements Statement
    * @ordered
    */
   protected Statement statement;
+
+  /**
+   * The cached value of the '{@link #getSyncStatement() <em>Sync Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSyncStatement()
+   * @generated
+   * @ordered
+   */
+  protected Statement syncStatement;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -212,9 +200,9 @@ public class StatementImpl extends If_statementImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpressionStatement()
+  public Variable_declaration getVariableDeclaration()
   {
-    return expressionStatement;
+    return variableDeclaration;
   }
 
   /**
@@ -222,13 +210,13 @@ public class StatementImpl extends If_statementImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpressionStatement(Expression newExpressionStatement, NotificationChain msgs)
+  public NotificationChain basicSetVariableDeclaration(Variable_declaration newVariableDeclaration, NotificationChain msgs)
   {
-    Expression oldExpressionStatement = expressionStatement;
-    expressionStatement = newExpressionStatement;
+    Variable_declaration oldVariableDeclaration = variableDeclaration;
+    variableDeclaration = newVariableDeclaration;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, oldExpressionStatement, newExpressionStatement);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__VARIABLE_DECLARATION, oldVariableDeclaration, newVariableDeclaration);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -239,20 +227,20 @@ public class StatementImpl extends If_statementImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpressionStatement(Expression newExpressionStatement)
+  public void setVariableDeclaration(Variable_declaration newVariableDeclaration)
   {
-    if (newExpressionStatement != expressionStatement)
+    if (newVariableDeclaration != variableDeclaration)
     {
       NotificationChain msgs = null;
-      if (expressionStatement != null)
-        msgs = ((InternalEObject)expressionStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, null, msgs);
-      if (newExpressionStatement != null)
-        msgs = ((InternalEObject)newExpressionStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, null, msgs);
-      msgs = basicSetExpressionStatement(newExpressionStatement, msgs);
+      if (variableDeclaration != null)
+        msgs = ((InternalEObject)variableDeclaration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__VARIABLE_DECLARATION, null, msgs);
+      if (newVariableDeclaration != null)
+        msgs = ((InternalEObject)newVariableDeclaration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__VARIABLE_DECLARATION, null, msgs);
+      msgs = basicSetVariableDeclaration(newVariableDeclaration, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, newExpressionStatement, newExpressionStatement));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__VARIABLE_DECLARATION, newVariableDeclaration, newVariableDeclaration));
   }
 
   /**
@@ -500,102 +488,6 @@ public class StatementImpl extends If_statementImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Switch_statement getSwitchStatement()
-  {
-    return switchStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSwitchStatement(Switch_statement newSwitchStatement, NotificationChain msgs)
-  {
-    Switch_statement oldSwitchStatement = switchStatement;
-    switchStatement = newSwitchStatement;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SWITCH_STATEMENT, oldSwitchStatement, newSwitchStatement);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSwitchStatement(Switch_statement newSwitchStatement)
-  {
-    if (newSwitchStatement != switchStatement)
-    {
-      NotificationChain msgs = null;
-      if (switchStatement != null)
-        msgs = ((InternalEObject)switchStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SWITCH_STATEMENT, null, msgs);
-      if (newSwitchStatement != null)
-        msgs = ((InternalEObject)newSwitchStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SWITCH_STATEMENT, null, msgs);
-      msgs = basicSetSwitchStatement(newSwitchStatement, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SWITCH_STATEMENT, newSwitchStatement, newSwitchStatement));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Statement getSyncStatement()
-  {
-    return syncStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSyncStatement(Statement newSyncStatement, NotificationChain msgs)
-  {
-    Statement oldSyncStatement = syncStatement;
-    syncStatement = newSyncStatement;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SYNC_STATEMENT, oldSyncStatement, newSyncStatement);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSyncStatement(Statement newSyncStatement)
-  {
-    if (newSyncStatement != syncStatement)
-    {
-      NotificationChain msgs = null;
-      if (syncStatement != null)
-        msgs = ((InternalEObject)syncStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SYNC_STATEMENT, null, msgs);
-      if (newSyncStatement != null)
-        msgs = ((InternalEObject)newSyncStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SYNC_STATEMENT, null, msgs);
-      msgs = basicSetSyncStatement(newSyncStatement, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SYNC_STATEMENT, newSyncStatement, newSyncStatement));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getNameStatement()
   {
     return nameStatement;
@@ -660,6 +552,54 @@ public class StatementImpl extends If_statementImpl implements Statement
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, newStatement, newStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement getSyncStatement()
+  {
+    return syncStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSyncStatement(Statement newSyncStatement, NotificationChain msgs)
+  {
+    Statement oldSyncStatement = syncStatement;
+    syncStatement = newSyncStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SYNC_STATEMENT, oldSyncStatement, newSyncStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSyncStatement(Statement newSyncStatement)
+  {
+    if (newSyncStatement != syncStatement)
+    {
+      NotificationChain msgs = null;
+      if (syncStatement != null)
+        msgs = ((InternalEObject)syncStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SYNC_STATEMENT, null, msgs);
+      if (newSyncStatement != null)
+        msgs = ((InternalEObject)newSyncStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SYNC_STATEMENT, null, msgs);
+      msgs = basicSetSyncStatement(newSyncStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SYNC_STATEMENT, newSyncStatement, newSyncStatement));
   }
 
   /**
@@ -743,8 +683,8 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
-        return basicSetExpressionStatement(null, msgs);
+      case MyDslPackage.STATEMENT__VARIABLE_DECLARATION:
+        return basicSetVariableDeclaration(null, msgs);
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return basicSetIfStatement(null, msgs);
       case MyDslPackage.STATEMENT__DO_STATEMENT:
@@ -755,12 +695,10 @@ public class StatementImpl extends If_statementImpl implements Statement
         return basicSetForStatement(null, msgs);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return basicSetTryStatement(null, msgs);
-      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
-        return basicSetSwitchStatement(null, msgs);
-      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
-        return basicSetSyncStatement(null, msgs);
       case MyDslPackage.STATEMENT__STATEMENT:
         return basicSetStatement(null, msgs);
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        return basicSetSyncStatement(null, msgs);
       case MyDslPackage.STATEMENT__ELSE_STATEMENT:
         return basicSetElseStatement(null, msgs);
     }
@@ -777,8 +715,8 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
-        return getExpressionStatement();
+      case MyDslPackage.STATEMENT__VARIABLE_DECLARATION:
+        return getVariableDeclaration();
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return getIfStatement();
       case MyDslPackage.STATEMENT__DO_STATEMENT:
@@ -789,14 +727,12 @@ public class StatementImpl extends If_statementImpl implements Statement
         return getForStatement();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
-      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
-        return getSwitchStatement();
-      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
-        return getSyncStatement();
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
         return getNameStatement();
       case MyDslPackage.STATEMENT__STATEMENT:
         return getStatement();
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        return getSyncStatement();
       case MyDslPackage.STATEMENT__NAME:
         return getName();
       case MyDslPackage.STATEMENT__ELSE_STATEMENT:
@@ -815,8 +751,8 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
-        setExpressionStatement((Expression)newValue);
+      case MyDslPackage.STATEMENT__VARIABLE_DECLARATION:
+        setVariableDeclaration((Variable_declaration)newValue);
         return;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         setIfStatement((If_statement)newValue);
@@ -833,17 +769,14 @@ public class StatementImpl extends If_statementImpl implements Statement
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
         return;
-      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
-        setSwitchStatement((Switch_statement)newValue);
-        return;
-      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
-        setSyncStatement((Statement)newValue);
-        return;
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
         setNameStatement((String)newValue);
         return;
       case MyDslPackage.STATEMENT__STATEMENT:
         setStatement((Statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        setSyncStatement((Statement)newValue);
         return;
       case MyDslPackage.STATEMENT__NAME:
         setName((String)newValue);
@@ -865,8 +798,8 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
-        setExpressionStatement((Expression)null);
+      case MyDslPackage.STATEMENT__VARIABLE_DECLARATION:
+        setVariableDeclaration((Variable_declaration)null);
         return;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         setIfStatement((If_statement)null);
@@ -883,17 +816,14 @@ public class StatementImpl extends If_statementImpl implements Statement
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
         return;
-      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
-        setSwitchStatement((Switch_statement)null);
-        return;
-      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
-        setSyncStatement((Statement)null);
-        return;
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
         setNameStatement(NAME_STATEMENT_EDEFAULT);
         return;
       case MyDslPackage.STATEMENT__STATEMENT:
         setStatement((Statement)null);
+        return;
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        setSyncStatement((Statement)null);
         return;
       case MyDslPackage.STATEMENT__NAME:
         setName(NAME_EDEFAULT);
@@ -915,8 +845,8 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
-        return expressionStatement != null;
+      case MyDslPackage.STATEMENT__VARIABLE_DECLARATION:
+        return variableDeclaration != null;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return ifStatement != null;
       case MyDslPackage.STATEMENT__DO_STATEMENT:
@@ -927,14 +857,12 @@ public class StatementImpl extends If_statementImpl implements Statement
         return forStatement != null;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
-      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
-        return switchStatement != null;
-      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
-        return syncStatement != null;
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
         return NAME_STATEMENT_EDEFAULT == null ? nameStatement != null : !NAME_STATEMENT_EDEFAULT.equals(nameStatement);
       case MyDslPackage.STATEMENT__STATEMENT:
         return statement != null;
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        return syncStatement != null;
       case MyDslPackage.STATEMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.STATEMENT__ELSE_STATEMENT:

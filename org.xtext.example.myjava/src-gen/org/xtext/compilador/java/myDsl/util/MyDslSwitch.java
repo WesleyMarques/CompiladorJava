@@ -146,9 +146,7 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Variable_declaration variable_declaration = (Variable_declaration)theEObject;
         T result = caseVariable_declaration(variable_declaration);
-        if (result == null) result = caseStatement(variable_declaration);
         if (result == null) result = caseFor_Statement(variable_declaration);
-        if (result == null) result = caseIf_statement(variable_declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -190,38 +188,10 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.EXPRESSION_LINE:
-      {
-        Expression_line expression_line = (Expression_line)theEObject;
-        T result = caseExpression_line(expression_line);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.ARGLIST:
-      {
-        Arglist arglist = (Arglist)theEObject;
-        T result = caseArglist(arglist);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyDslPackage.FOR_STATEMENT:
       {
         For_Statement for_Statement = (For_Statement)theEObject;
         T result = caseFor_Statement(for_Statement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.SWITCH_STATEMENT:
-      {
-        Switch_statement switch_statement = (Switch_statement)theEObject;
-        T result = caseSwitch_statement(switch_statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -528,54 +498,6 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression line</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression line</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression_line(Expression_line object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Arglist</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Arglist</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArglist(Arglist object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>For Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -587,22 +509,6 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFor_Statement(For_Statement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Switch statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Switch statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSwitch_statement(Switch_statement object)
   {
     return null;
   }

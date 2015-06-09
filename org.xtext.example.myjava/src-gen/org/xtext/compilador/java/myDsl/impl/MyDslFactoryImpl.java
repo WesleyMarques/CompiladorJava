@@ -80,11 +80,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATIC_INITIALIZER: return createStatic_initializer();
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
-      case MyDslPackage.EXPRESSION: return createExpression();
-      case MyDslPackage.EXPRESSION_LINE: return createExpression_line();
-      case MyDslPackage.ARGLIST: return createArglist();
       case MyDslPackage.FOR_STATEMENT: return createFor_Statement();
-      case MyDslPackage.SWITCH_STATEMENT: return createSwitch_statement();
       case MyDslPackage.WHILE_STATEMENT: return createWhile_Statement();
       case MyDslPackage.DO_STATEMENT: return createDo_Statement();
       case MyDslPackage.IF_STATEMENT: return createIf_statement();
@@ -277,54 +273,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression createExpression()
-  {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression_line createExpression_line()
-  {
-    Expression_lineImpl expression_line = new Expression_lineImpl();
-    return expression_line;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Arglist createArglist()
-  {
-    ArglistImpl arglist = new ArglistImpl();
-    return arglist;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public For_Statement createFor_Statement()
   {
     For_StatementImpl for_Statement = new For_StatementImpl();
     return for_Statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Switch_statement createSwitch_statement()
-  {
-    Switch_statementImpl switch_statement = new Switch_statementImpl();
-    return switch_statement;
   }
 
   /**

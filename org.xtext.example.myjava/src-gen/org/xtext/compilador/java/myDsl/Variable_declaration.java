@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Variable_declaration extends Statement, For_Statement
+public interface Variable_declaration extends For_Statement
 {
   /**
    * Returns the value of the '<em><b>Modifiers Variable</b></em>' attribute list.

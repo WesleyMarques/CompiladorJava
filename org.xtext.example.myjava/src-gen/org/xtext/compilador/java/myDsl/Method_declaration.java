@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.compilador.java.myDsl.Method_declaration#getNameMethod <em>Name Method</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Method_declaration#getParameterListMethod <em>Parameter List Method</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Method_declaration#getStatementMethod <em>Statement Method</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.Method_declaration#getDebug <em>Debug</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,5 +148,31 @@ public interface Method_declaration extends EObject
    * @generated
    */
   void setStatementMethod(Statement_block value);
+
+  /**
+   * Returns the value of the '<em><b>Debug</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Debug</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Debug</em>' attribute.
+   * @see #setDebug(String)
+   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getMethod_declaration_Debug()
+   * @model
+   * @generated
+   */
+  String getDebug();
+
+  /**
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Method_declaration#getDebug <em>Debug</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Debug</em>' attribute.
+   * @see #getDebug()
+   * @generated
+   */
+  void setDebug(String value);
 
 } // Method_declaration

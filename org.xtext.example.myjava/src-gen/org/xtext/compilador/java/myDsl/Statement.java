@@ -11,16 +11,15 @@ package org.xtext.compilador.java.myDsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getExpressionStatement <em>Expression Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getVariableDeclaration <em>Variable Declaration</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getWhileStatement <em>While Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getForStatement <em>For Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getTryStatement <em>Try Statement</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getSwitchStatement <em>Switch Statement</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getElseStatement <em>Else Statement</em>}</li>
  * </ul>
@@ -33,30 +32,30 @@ package org.xtext.compilador.java.myDsl;
 public interface Statement extends If_statement
 {
   /**
-   * Returns the value of the '<em><b>Expression Statement</b></em>' containment reference.
+   * Returns the value of the '<em><b>Variable Declaration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression Statement</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Variable Declaration</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression Statement</em>' containment reference.
-   * @see #setExpressionStatement(Expression)
-   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_ExpressionStatement()
+   * @return the value of the '<em>Variable Declaration</em>' containment reference.
+   * @see #setVariableDeclaration(Variable_declaration)
+   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_VariableDeclaration()
    * @model containment="true"
    * @generated
    */
-  Expression getExpressionStatement();
+  Variable_declaration getVariableDeclaration();
 
   /**
-   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getExpressionStatement <em>Expression Statement</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getVariableDeclaration <em>Variable Declaration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression Statement</em>' containment reference.
-   * @see #getExpressionStatement()
+   * @param value the new value of the '<em>Variable Declaration</em>' containment reference.
+   * @see #getVariableDeclaration()
    * @generated
    */
-  void setExpressionStatement(Expression value);
+  void setVariableDeclaration(Variable_declaration value);
 
   /**
    * Returns the value of the '<em><b>If Statement</b></em>' containment reference.
@@ -189,58 +188,6 @@ public interface Statement extends If_statement
   void setTryStatement(Try_statement value);
 
   /**
-   * Returns the value of the '<em><b>Switch Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Switch Statement</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Switch Statement</em>' containment reference.
-   * @see #setSwitchStatement(Switch_statement)
-   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_SwitchStatement()
-   * @model containment="true"
-   * @generated
-   */
-  Switch_statement getSwitchStatement();
-
-  /**
-   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getSwitchStatement <em>Switch Statement</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Switch Statement</em>' containment reference.
-   * @see #getSwitchStatement()
-   * @generated
-   */
-  void setSwitchStatement(Switch_statement value);
-
-  /**
-   * Returns the value of the '<em><b>Sync Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Sync Statement</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Sync Statement</em>' containment reference.
-   * @see #setSyncStatement(Statement)
-   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_SyncStatement()
-   * @model containment="true"
-   * @generated
-   */
-  Statement getSyncStatement();
-
-  /**
-   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sync Statement</em>' containment reference.
-   * @see #getSyncStatement()
-   * @generated
-   */
-  void setSyncStatement(Statement value);
-
-  /**
    * Returns the value of the '<em><b>Name Statement</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -291,6 +238,32 @@ public interface Statement extends If_statement
    * @generated
    */
   void setStatement(Statement value);
+
+  /**
+   * Returns the value of the '<em><b>Sync Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sync Statement</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sync Statement</em>' containment reference.
+   * @see #setSyncStatement(Statement)
+   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_SyncStatement()
+   * @model containment="true"
+   * @generated
+   */
+  Statement getSyncStatement();
+
+  /**
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sync Statement</em>' containment reference.
+   * @see #getSyncStatement()
+   * @generated
+   */
+  void setSyncStatement(Statement value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

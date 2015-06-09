@@ -167,33 +167,6 @@ public interface MyDslFactory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
-   * @generated
-   */
-  Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Expression line</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression line</em>'.
-   * @generated
-   */
-  Expression_line createExpression_line();
-
-  /**
-   * Returns a new object of class '<em>Arglist</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arglist</em>'.
-   * @generated
-   */
-  Arglist createArglist();
-
-  /**
    * Returns a new object of class '<em>For Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -201,15 +174,6 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   For_Statement createFor_Statement();
-
-  /**
-   * Returns a new object of class '<em>Switch statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Switch statement</em>'.
-   * @generated
-   */
-  Switch_statement createSwitch_statement();
 
   /**
    * Returns a new object of class '<em>While Statement</em>'.

@@ -10,7 +10,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 Model:
   greetings+=Compilation_unit;
   
-Compilation_unit: name = (Package_statement)? imports += (Import_statement)* typeDeclarations += (Type_declaration)*;
+Compilation_unit:
+	name = (Package_statement)? imports += (Import_statement)* typeDeclarations += (Type_declaration)*
+;
 
 Type_declaration:
 	comment = DOC_COMMENT?(classDec = Class_declaration | interfaceDec = Interface_declaration)";"
@@ -21,16 +23,16 @@ Interface_declaration:
 ;
 
 Class_declaration:
-	modifiers += Modifier* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? "{" (fieldsDeclaration += (Field_declaration)*) "}"
+	modifiers += Modifier* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? "{" (fieldsDeclaration += Field_declaration*) "}"
 ;
 
 Field_declaration:
-	(comment = DOC_COMMENT? ( variableDeclaration = Variable_declaration | contructorName = Constructor_declaration | methodName = Method_declaration )) | staticinitializer = Static_initializer | {Field_declaration}";"
+	(comment = DOC_COMMENT? ( variableDeclaration = Variable_declaration | contructorName = Constructor_declaration | methodName = Method_declaration )) | staticinitializer = Static_initializer | ";"
 ;
 
 Method_declaration:
 	(modifiersMethod += Modifier*) typeMethod = Type nameMethod = ID 
-	"(" parameterListMethod = Parameter_list? ")" ("[]")* (statementMethod = Statement_block | ";")
+	"(" parameterListMethod = Parameter_list? ")" ("[]")* (statementMethod = Statement_block | debug = ";")
 ;
 
 Constructor_declaration:
@@ -78,65 +80,66 @@ Modifier:
 	(MOD | STATIC)
 ;
 
+terminal STATIC: 
+	"static"	
+;
 Static_initializer:
 	static = STATIC name = Statement_block
 ;
 
-terminal STATIC: 
-	"static"	
-;
 
 
 Statement_block:
-	"{" statments += Statement* "}"
+	{Statement_block}"{" statments += Statement* "}"
 ;
 //FIXME: resolver Expression em todas operações 
 Statement:
-	Statement_block |
-	expressionStatement = Expression ";" |
-	Variable_declaration |
+	variableDeclaration = Variable_declaration |
+	//expressionStatement = Expression ";" |
 	ifStatement = If_statement | 
 	doStatement = Do_Statement| 
 	whileStatement = While_Statement |
 	forStatement = For_Statement |
+	//switchStatement = Switch_statement |
+	Statement_block |
 	tryStatement = Try_statement |
-	switchStatement = Switch_statement |
-	{Statement}"synchronized(" /*Expression */ ")" syncStatement = Statement |
+	nameStatement = ID ":" statement = Statement | 
+	{Statement}"synchronized(" /*Expression */ ")" syncStatement = Statement|
 	{Statement}"return" /*(Expression)? */ ";" |
-	{Statement}"throw" /*(Expression)? */ ";" |
-	nameStatement = ID ":" statement = Statement |  	
-	{Statement} "break" name = ID? ";" |
+	{Statement}"throw" /*(Expression)? */ ";" | 	
+	{Statement}"break" name = ID? ";" |
 	{Statement}"continue" name = ID? ";" | 
-	{Statement}(";")
+	{Statement}";"
 ;
+//
+//Expression:
+//	"(" expression = Expression ")" expressionLine = Expression_line|
+//	"[" expression = Expression "]" expressionLine = Expression_line|
+//	"." expression = Expression expressionLine = Expression_line|
+//	"," expression = Expression expressionLine = Expression_line|
+//	name = ID expression = Expression_line|
+//	"null" expression = Expression_line|
+//	"super" expression = Expression_line| 
+//	"this" expression = Expression_line | 
+//	"instanceof" (className = Class_name) expression = Expression_line
+//;
+//
+//Expression_line:
+//	"(" (args = Arglist)? ")" expression = Expression_line
+//;
+//
+//Arglist:
+//	expression = Expression ("," expressions += Expression)*
+//;
 
-Expression:
-	"(" expression = Expression ")" expressionLine = Expression_line|
-	"[" expression = Expression "]" expressionLine = Expression_line|
-	"." expression = Expression expressionLine = Expression_line|
-	"," expression = Expression expressionLine = Expression_line|
-	name = ID expression = Expression_line|
-	"null" expression = Expression_line|
-	"super" expression = Expression_line| 
-	"this" expression = Expression_line | 
-	"instanceof" (className = Class_name) expression = Expression_line
-;
 
-Expression_line:
-	"(" (args = Arglist)? ")" expression = Expression_line
-;
-
-Arglist:
-	expression = Expression ("," expressions += Expression)*
-;
+//Switch_statement:
+//	{Switch_statement}"switch("/*Expression */"){" (("case" /*Expression */ ":") | ("default:") | (statements += Statement))*"}"
+//;
 
 For_Statement:
 	"for(" (Variable_declaration | /*(Expression  ";") |*/ ";") /*(Expression)?*/ ";"
 	 /*(Expression)?*/ ";)" statementInFor = Statement
-;
-
-Switch_statement:
-	"switch("/*Expression */"){" ("case" /*Expression */ ":" | "default:" | statement += Statement)*"}"
 ;
 
 While_Statement:
@@ -152,7 +155,8 @@ If_statement:
 ;
 
 Try_statement:
-	"try" tryStatement = Statement (=>"catch" "(" parameters += Parameter ")" statement += Statement)* 
+	"try" tryStatement = Statement 
+	(=>"catch" "(" parameters += Parameter ")" statement += Statement)* 
 	(=>"finally" statementFinally = Statement)?
 ;
 
