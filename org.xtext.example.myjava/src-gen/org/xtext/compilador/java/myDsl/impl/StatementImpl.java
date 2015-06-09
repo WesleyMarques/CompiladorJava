@@ -9,11 +9,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.compilador.java.myDsl.Do_Statement;
+import org.xtext.compilador.java.myDsl.If_statement;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Statement;
 import org.xtext.compilador.java.myDsl.Try_statement;
+import org.xtext.compilador.java.myDsl.While_Statement;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,14 +26,18 @@ import org.xtext.compilador.java.myDsl.Try_statement;
  * <ul>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getIfStatement <em>If Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getDoStatement <em>Do Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getWhileStatement <em>While Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getElseStatement <em>Else Statement</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StatementImpl extends MinimalEObjectImpl.Container implements Statement
+public class StatementImpl extends If_statementImpl implements Statement
 {
   /**
    * The default value of the '{@link #getNameStatement() <em>Name Statement</em>}' attribute.
@@ -64,6 +70,36 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   protected Statement statement;
 
   /**
+   * The cached value of the '{@link #getIfStatement() <em>If Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIfStatement()
+   * @generated
+   * @ordered
+   */
+  protected If_statement ifStatement;
+
+  /**
+   * The cached value of the '{@link #getDoStatement() <em>Do Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDoStatement()
+   * @generated
+   * @ordered
+   */
+  protected Do_Statement doStatement;
+
+  /**
+   * The cached value of the '{@link #getWhileStatement() <em>While Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhileStatement()
+   * @generated
+   * @ordered
+   */
+  protected While_Statement whileStatement;
+
+  /**
    * The cached value of the '{@link #getTryStatement() <em>Try Statement</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -92,6 +128,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getElseStatement() <em>Else Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElseStatement()
+   * @generated
+   * @ordered
+   */
+  protected Statement elseStatement;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,6 +236,150 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
+  public If_statement getIfStatement()
+  {
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIfStatement(If_statement newIfStatement, NotificationChain msgs)
+  {
+    If_statement oldIfStatement = ifStatement;
+    ifStatement = newIfStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__IF_STATEMENT, oldIfStatement, newIfStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIfStatement(If_statement newIfStatement)
+  {
+    if (newIfStatement != ifStatement)
+    {
+      NotificationChain msgs = null;
+      if (ifStatement != null)
+        msgs = ((InternalEObject)ifStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__IF_STATEMENT, null, msgs);
+      if (newIfStatement != null)
+        msgs = ((InternalEObject)newIfStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__IF_STATEMENT, null, msgs);
+      msgs = basicSetIfStatement(newIfStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__IF_STATEMENT, newIfStatement, newIfStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Do_Statement getDoStatement()
+  {
+    return doStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDoStatement(Do_Statement newDoStatement, NotificationChain msgs)
+  {
+    Do_Statement oldDoStatement = doStatement;
+    doStatement = newDoStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__DO_STATEMENT, oldDoStatement, newDoStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDoStatement(Do_Statement newDoStatement)
+  {
+    if (newDoStatement != doStatement)
+    {
+      NotificationChain msgs = null;
+      if (doStatement != null)
+        msgs = ((InternalEObject)doStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__DO_STATEMENT, null, msgs);
+      if (newDoStatement != null)
+        msgs = ((InternalEObject)newDoStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__DO_STATEMENT, null, msgs);
+      msgs = basicSetDoStatement(newDoStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__DO_STATEMENT, newDoStatement, newDoStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public While_Statement getWhileStatement()
+  {
+    return whileStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetWhileStatement(While_Statement newWhileStatement, NotificationChain msgs)
+  {
+    While_Statement oldWhileStatement = whileStatement;
+    whileStatement = newWhileStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__WHILE_STATEMENT, oldWhileStatement, newWhileStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWhileStatement(While_Statement newWhileStatement)
+  {
+    if (newWhileStatement != whileStatement)
+    {
+      NotificationChain msgs = null;
+      if (whileStatement != null)
+        msgs = ((InternalEObject)whileStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__WHILE_STATEMENT, null, msgs);
+      if (newWhileStatement != null)
+        msgs = ((InternalEObject)newWhileStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__WHILE_STATEMENT, null, msgs);
+      msgs = basicSetWhileStatement(newWhileStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__WHILE_STATEMENT, newWhileStatement, newWhileStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Try_statement getTryStatement()
   {
     return tryStatement;
@@ -261,6 +451,54 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
+  public Statement getElseStatement()
+  {
+    return elseStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetElseStatement(Statement newElseStatement, NotificationChain msgs)
+  {
+    Statement oldElseStatement = elseStatement;
+    elseStatement = newElseStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__ELSE_STATEMENT, oldElseStatement, newElseStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setElseStatement(Statement newElseStatement)
+  {
+    if (newElseStatement != elseStatement)
+    {
+      NotificationChain msgs = null;
+      if (elseStatement != null)
+        msgs = ((InternalEObject)elseStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__ELSE_STATEMENT, null, msgs);
+      if (newElseStatement != null)
+        msgs = ((InternalEObject)newElseStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__ELSE_STATEMENT, null, msgs);
+      msgs = basicSetElseStatement(newElseStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__ELSE_STATEMENT, newElseStatement, newElseStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -268,8 +506,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
     {
       case MyDslPackage.STATEMENT__STATEMENT:
         return basicSetStatement(null, msgs);
+      case MyDslPackage.STATEMENT__IF_STATEMENT:
+        return basicSetIfStatement(null, msgs);
+      case MyDslPackage.STATEMENT__DO_STATEMENT:
+        return basicSetDoStatement(null, msgs);
+      case MyDslPackage.STATEMENT__WHILE_STATEMENT:
+        return basicSetWhileStatement(null, msgs);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return basicSetTryStatement(null, msgs);
+      case MyDslPackage.STATEMENT__ELSE_STATEMENT:
+        return basicSetElseStatement(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -288,10 +534,18 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return getNameStatement();
       case MyDslPackage.STATEMENT__STATEMENT:
         return getStatement();
+      case MyDslPackage.STATEMENT__IF_STATEMENT:
+        return getIfStatement();
+      case MyDslPackage.STATEMENT__DO_STATEMENT:
+        return getDoStatement();
+      case MyDslPackage.STATEMENT__WHILE_STATEMENT:
+        return getWhileStatement();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
       case MyDslPackage.STATEMENT__NAME:
         return getName();
+      case MyDslPackage.STATEMENT__ELSE_STATEMENT:
+        return getElseStatement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -312,11 +566,23 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case MyDslPackage.STATEMENT__STATEMENT:
         setStatement((Statement)newValue);
         return;
+      case MyDslPackage.STATEMENT__IF_STATEMENT:
+        setIfStatement((If_statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__DO_STATEMENT:
+        setDoStatement((Do_Statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__WHILE_STATEMENT:
+        setWhileStatement((While_Statement)newValue);
+        return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
         return;
       case MyDslPackage.STATEMENT__NAME:
         setName((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__ELSE_STATEMENT:
+        setElseStatement((Statement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -338,11 +604,23 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case MyDslPackage.STATEMENT__STATEMENT:
         setStatement((Statement)null);
         return;
+      case MyDslPackage.STATEMENT__IF_STATEMENT:
+        setIfStatement((If_statement)null);
+        return;
+      case MyDslPackage.STATEMENT__DO_STATEMENT:
+        setDoStatement((Do_Statement)null);
+        return;
+      case MyDslPackage.STATEMENT__WHILE_STATEMENT:
+        setWhileStatement((While_Statement)null);
+        return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
         return;
       case MyDslPackage.STATEMENT__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__ELSE_STATEMENT:
+        setElseStatement((Statement)null);
         return;
     }
     super.eUnset(featureID);
@@ -362,10 +640,18 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return NAME_STATEMENT_EDEFAULT == null ? nameStatement != null : !NAME_STATEMENT_EDEFAULT.equals(nameStatement);
       case MyDslPackage.STATEMENT__STATEMENT:
         return statement != null;
+      case MyDslPackage.STATEMENT__IF_STATEMENT:
+        return ifStatement != null;
+      case MyDslPackage.STATEMENT__DO_STATEMENT:
+        return doStatement != null;
+      case MyDslPackage.STATEMENT__WHILE_STATEMENT:
+        return whileStatement != null;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
       case MyDslPackage.STATEMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyDslPackage.STATEMENT__ELSE_STATEMENT:
+        return elseStatement != null;
     }
     return super.eIsSet(featureID);
   }

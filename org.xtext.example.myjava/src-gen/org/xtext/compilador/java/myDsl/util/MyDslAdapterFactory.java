@@ -155,6 +155,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseWhile_Statement(While_Statement object)
+      {
+        return createWhile_StatementAdapter();
+      }
+      @Override
+      public Adapter caseDo_Statement(Do_Statement object)
+      {
+        return createDo_StatementAdapter();
+      }
+      @Override
+      public Adapter caseIf_statement(If_statement object)
+      {
+        return createIf_statementAdapter();
+      }
+      @Override
       public Adapter caseTry_statement(Try_statement object)
       {
         return createTry_statementAdapter();
@@ -427,6 +442,51 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.While_Statement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.While_Statement
+   * @generated
+   */
+  public Adapter createWhile_StatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Do_Statement <em>Do Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Do_Statement
+   * @generated
+   */
+  public Adapter createDo_StatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.If_statement <em>If statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.If_statement
+   * @generated
+   */
+  public Adapter createIf_statementAdapter()
   {
     return null;
   }

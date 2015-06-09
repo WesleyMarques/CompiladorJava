@@ -167,6 +167,33 @@ public interface MyDslFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While Statement</em>'.
+   * @generated
+   */
+  While_Statement createWhile_Statement();
+
+  /**
+   * Returns a new object of class '<em>Do Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Do Statement</em>'.
+   * @generated
+   */
+  Do_Statement createDo_Statement();
+
+  /**
+   * Returns a new object of class '<em>If statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If statement</em>'.
+   * @generated
+   */
+  If_statement createIf_statement();
+
+  /**
    * Returns a new object of class '<em>Try statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

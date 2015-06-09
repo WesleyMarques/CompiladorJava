@@ -562,6 +562,25 @@ public interface MyDslPackage extends EPackage
   int PARAMETER_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.If_statementImpl <em>If statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.compilador.java.myDsl.impl.If_statementImpl
+   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getIf_statement()
+   * @generated
+   */
+  int IF_STATEMENT = 18;
+
+  /**
+   * The number of structural features of the '<em>If statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -578,7 +597,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME_STATEMENT = 0;
+  int STATEMENT__NAME_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -587,7 +606,34 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__STATEMENT = 1;
+  int STATEMENT__STATEMENT = IF_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>If Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__IF_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__DO_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>While Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__WHILE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -596,7 +642,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__TRY_STATEMENT = 2;
+  int STATEMENT__TRY_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -605,7 +651,16 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = 3;
+  int STATEMENT__NAME = IF_STATEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Else Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__ELSE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -614,7 +669,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 4;
+  int STATEMENT_FEATURE_COUNT = IF_STATEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl <em>Variable declaration</em>}' class.
@@ -645,6 +700,33 @@ public interface MyDslPackage extends EPackage
   int VARIABLE_DECLARATION__STATEMENT = STATEMENT__STATEMENT;
 
   /**
+   * The feature id for the '<em><b>If Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__IF_STATEMENT = STATEMENT__IF_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__DO_STATEMENT = STATEMENT__DO_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>While Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__WHILE_STATEMENT = STATEMENT__WHILE_STATEMENT;
+
+  /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -661,6 +743,15 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int VARIABLE_DECLARATION__NAME = STATEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Else Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__ELSE_STATEMENT = STATEMENT__ELSE_STATEMENT;
 
   /**
    * The feature id for the '<em><b>Modifiers Variable</b></em>' attribute list.
@@ -829,6 +920,33 @@ public interface MyDslPackage extends EPackage
   int STATEMENT_BLOCK__STATEMENT = STATEMENT__STATEMENT;
 
   /**
+   * The feature id for the '<em><b>If Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__IF_STATEMENT = STATEMENT__IF_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__DO_STATEMENT = STATEMENT__DO_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>While Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__WHILE_STATEMENT = STATEMENT__WHILE_STATEMENT;
+
+  /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -845,6 +963,15 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int STATEMENT_BLOCK__NAME = STATEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Else Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__ELSE_STATEMENT = STATEMENT__ELSE_STATEMENT;
 
   /**
    * The feature id for the '<em><b>Statments</b></em>' containment reference list.
@@ -865,6 +992,62 @@ public interface MyDslPackage extends EPackage
   int STATEMENT_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.While_StatementImpl <em>While Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.compilador.java.myDsl.impl.While_StatementImpl
+   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getWhile_Statement()
+   * @generated
+   */
+  int WHILE_STATEMENT = 16;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_STATEMENT__STATEMENT = 0;
+
+  /**
+   * The number of structural features of the '<em>While Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_STATEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Do_StatementImpl <em>Do Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.compilador.java.myDsl.impl.Do_StatementImpl
+   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getDo_Statement()
+   * @generated
+   */
+  int DO_STATEMENT = 17;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DO_STATEMENT__STATEMENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Do Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DO_STATEMENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Try_statementImpl <em>Try statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -872,7 +1055,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getTry_statement()
    * @generated
    */
-  int TRY_STATEMENT = 16;
+  int TRY_STATEMENT = 19;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -927,7 +1110,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getImport_statement()
    * @generated
    */
-  int IMPORT_STATEMENT = 17;
+  int IMPORT_STATEMENT = 20;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -964,7 +1147,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getPackage_statement()
    * @generated
    */
-  int PACKAGE_STATEMENT = 18;
+  int PACKAGE_STATEMENT = 21;
 
   /**
    * The feature id for the '<em><b>Pac Name</b></em>' attribute.
@@ -1652,6 +1835,39 @@ public interface MyDslPackage extends EPackage
   EReference getStatement_Statement();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getIfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>If Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getIfStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_IfStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getDoStatement <em>Do Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Do Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getDoStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_DoStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getWhileStatement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>While Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getWhileStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_WhileStatement();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getTryStatement <em>Try Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1672,6 +1888,69 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EAttribute getStatement_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getElseStatement <em>Else Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getElseStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_ElseStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.While_Statement <em>While Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>While Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.While_Statement
+   * @generated
+   */
+  EClass getWhile_Statement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.While_Statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.While_Statement#getStatement()
+   * @see #getWhile_Statement()
+   * @generated
+   */
+  EReference getWhile_Statement_Statement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.Do_Statement <em>Do Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Do Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Do_Statement
+   * @generated
+   */
+  EClass getDo_Statement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Do_Statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Do_Statement#getStatement()
+   * @see #getDo_Statement()
+   * @generated
+   */
+  EReference getDo_Statement_Statement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.If_statement <em>If statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.If_statement
+   * @generated
+   */
+  EClass getIf_statement();
 
   /**
    * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.Try_statement <em>Try statement</em>}'.
@@ -2332,6 +2611,30 @@ public interface MyDslPackage extends EPackage
     EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
 
     /**
+     * The meta object literal for the '<em><b>If Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__IF_STATEMENT = eINSTANCE.getStatement_IfStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Do Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__DO_STATEMENT = eINSTANCE.getStatement_DoStatement();
+
+    /**
+     * The meta object literal for the '<em><b>While Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__WHILE_STATEMENT = eINSTANCE.getStatement_WhileStatement();
+
+    /**
      * The meta object literal for the '<em><b>Try Statement</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2346,6 +2649,60 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute STATEMENT__NAME = eINSTANCE.getStatement_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Else Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__ELSE_STATEMENT = eINSTANCE.getStatement_ElseStatement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.While_StatementImpl <em>While Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.compilador.java.myDsl.impl.While_StatementImpl
+     * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getWhile_Statement()
+     * @generated
+     */
+    EClass WHILE_STATEMENT = eINSTANCE.getWhile_Statement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE_STATEMENT__STATEMENT = eINSTANCE.getWhile_Statement_Statement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.Do_StatementImpl <em>Do Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.compilador.java.myDsl.impl.Do_StatementImpl
+     * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getDo_Statement()
+     * @generated
+     */
+    EClass DO_STATEMENT = eINSTANCE.getDo_Statement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DO_STATEMENT__STATEMENT = eINSTANCE.getDo_Statement_Statement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.If_statementImpl <em>If statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.compilador.java.myDsl.impl.If_statementImpl
+     * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getIf_statement()
+     * @generated
+     */
+    EClass IF_STATEMENT = eINSTANCE.getIf_statement();
 
     /**
      * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.Try_statementImpl <em>Try statement</em>}' class.

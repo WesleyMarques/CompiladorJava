@@ -105,14 +105,31 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="statments" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Statement" eSuperTypes="#//If_statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifStatement" eType="#//If_statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doStatement" eType="#//Do_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whileStatement" eType="#//While_Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tryStatement" eType="#//Try_statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="#//Statement"
+        containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="While_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Do_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="If_statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Try_statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tryStatement" eType="#//Statement"
         containment="true"/>

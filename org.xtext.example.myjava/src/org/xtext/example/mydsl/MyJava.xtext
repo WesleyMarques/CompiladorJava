@@ -93,8 +93,22 @@ Statement_block:
 //FIXME: resolver o resto das operações 
 Statement:
 	Statement_block | nameStatement = ID ":" statement = Statement | Variable_declaration |
-	tryStatement = Try_statement | {Statement} "break" (name = ID)? ";" |
-	 {Statement}"continue" (name = ID)? ";" | (";")
+	ifStatement = If_statement | doStatement = Do_Statement| whileStatement = While_Statement |
+	tryStatement = Try_statement | 
+	{Statement} "break" name = ID? ";" |
+	 {Statement}"continue" name = ID? ";" | {Statement}(";")
+;
+
+While_Statement:
+	"while("/*Epression */")" statement = Statement 
+;
+
+Do_Statement:
+	"do" statement = Statement "while(" /*doWhileExpression = Expression*/ ");" 
+;
+
+If_statement:
+	"if("/*expression*/")" Statement (=>"else" elseStatement = Statement)?
 ;
 
 Try_statement:

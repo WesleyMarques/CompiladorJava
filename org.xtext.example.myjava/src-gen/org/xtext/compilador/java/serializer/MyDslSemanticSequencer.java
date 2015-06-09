@@ -19,6 +19,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.compilador.java.myDsl.Class_declaration;
 import org.xtext.compilador.java.myDsl.Compilation_unit;
 import org.xtext.compilador.java.myDsl.Constructor_declaration;
+import org.xtext.compilador.java.myDsl.Do_Statement;
 import org.xtext.compilador.java.myDsl.Field_declaration;
 import org.xtext.compilador.java.myDsl.Import_statement;
 import org.xtext.compilador.java.myDsl.Interface_declaration;
@@ -36,6 +37,7 @@ import org.xtext.compilador.java.myDsl.Type;
 import org.xtext.compilador.java.myDsl.Type_declaration;
 import org.xtext.compilador.java.myDsl.Variable_declaration;
 import org.xtext.compilador.java.myDsl.Variable_declarator;
+import org.xtext.compilador.java.myDsl.While_Statement;
 import org.xtext.compilador.java.services.MyDslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -55,6 +57,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.CONSTRUCTOR_DECLARATION:
 				sequence_Constructor_declaration(context, (Constructor_declaration) semanticObject); 
+				return; 
+			case MyDslPackage.DO_STATEMENT:
+				sequence_Do_Statement(context, (Do_Statement) semanticObject); 
 				return; 
 			case MyDslPackage.FIELD_DECLARATION:
 				sequence_Field_declaration(context, (Field_declaration) semanticObject); 
@@ -81,11 +86,26 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Parameter_list(context, (Parameter_list) semanticObject); 
 				return; 
 			case MyDslPackage.STATEMENT:
-				sequence_Statement(context, (Statement) semanticObject); 
-				return; 
+				if(context == grammarAccess.getIf_statementRule()) {
+					sequence_If_statement_Statement(context, (Statement) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getStatementRule()) {
+					sequence_Statement(context, (Statement) semanticObject); 
+					return; 
+				}
+				else break;
 			case MyDslPackage.STATEMENT_BLOCK:
-				sequence_Statement_block(context, (Statement_block) semanticObject); 
-				return; 
+				if(context == grammarAccess.getIf_statementRule()) {
+					sequence_If_statement_Statement_block(context, (Statement_block) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStatement_blockRule()) {
+					sequence_Statement_block(context, (Statement_block) semanticObject); 
+					return; 
+				}
+				else break;
 			case MyDslPackage.STATIC_INITIALIZER:
 				sequence_Static_initializer(context, (Static_initializer) semanticObject); 
 				return; 
@@ -99,10 +119,21 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Type_declaration(context, (Type_declaration) semanticObject); 
 				return; 
 			case MyDslPackage.VARIABLE_DECLARATION:
-				sequence_Variable_declaration(context, (Variable_declaration) semanticObject); 
-				return; 
+				if(context == grammarAccess.getIf_statementRule()) {
+					sequence_If_statement_Variable_declaration(context, (Variable_declaration) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getVariable_declarationRule()) {
+					sequence_Variable_declaration(context, (Variable_declaration) semanticObject); 
+					return; 
+				}
+				else break;
 			case MyDslPackage.VARIABLE_DECLARATOR:
 				sequence_Variable_declarator(context, (Variable_declarator) semanticObject); 
+				return; 
+			case MyDslPackage.WHILE_STATEMENT:
+				sequence_While_Statement(context, (While_Statement) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -143,9 +174,52 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     statement=Statement
+	 */
+	protected void sequence_Do_Statement(EObject context, Do_Statement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.DO_STATEMENT__STATEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.DO_STATEMENT__STATEMENT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDo_StatementAccess().getStatementStatementParserRuleCall_1_0(), semanticObject.getStatement());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {Field_declaration}
 	 */
 	protected void sequence_Field_declaration(EObject context, Field_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (((name=ID?) | (name=ID?)) elseStatement=Statement?)
+	 */
+	protected void sequence_If_statement_Statement(EObject context, Statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (statments+=Statement+ elseStatement=Statement?)
+	 */
+	protected void sequence_If_statement_Statement_block(EObject context, Statement_block semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (modifiersVariable+=Modifier* type=Type nameVariable=Variable_declarator names+=Variable_declarator* elseStatement=Statement?)
+	 */
+	protected void sequence_If_statement_Variable_declaration(EObject context, Variable_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -322,6 +396,22 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getVariable_declaratorAccess().getNameVariableIDTerminalRuleCall_0_0(), semanticObject.getNameVariable());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     statement=Statement
+	 */
+	protected void sequence_While_Statement(EObject context, While_Statement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.WHILE_STATEMENT__STATEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.WHILE_STATEMENT__STATEMENT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWhile_StatementAccess().getStatementStatementParserRuleCall_2_0(), semanticObject.getStatement());
 		feeder.finish();
 	}
 }

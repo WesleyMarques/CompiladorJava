@@ -147,6 +147,7 @@ public class MyDslSwitch<T> extends Switch<T>
         Variable_declaration variable_declaration = (Variable_declaration)theEObject;
         T result = caseVariable_declaration(variable_declaration);
         if (result == null) result = caseStatement(variable_declaration);
+        if (result == null) result = caseIf_statement(variable_declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,6 +177,7 @@ public class MyDslSwitch<T> extends Switch<T>
         Statement_block statement_block = (Statement_block)theEObject;
         T result = caseStatement_block(statement_block);
         if (result == null) result = caseStatement(statement_block);
+        if (result == null) result = caseIf_statement(statement_block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,6 +185,28 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Statement statement = (Statement)theEObject;
         T result = caseStatement(statement);
+        if (result == null) result = caseIf_statement(statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.WHILE_STATEMENT:
+      {
+        While_Statement while_Statement = (While_Statement)theEObject;
+        T result = caseWhile_Statement(while_Statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.DO_STATEMENT:
+      {
+        Do_Statement do_Statement = (Do_Statement)theEObject;
+        T result = caseDo_Statement(do_Statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.IF_STATEMENT:
+      {
+        If_statement if_statement = (If_statement)theEObject;
+        T result = caseIf_statement(if_statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -463,6 +487,54 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhile_Statement(While_Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Do Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Do Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDo_Statement(Do_Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIf_statement(If_statement object)
   {
     return null;
   }

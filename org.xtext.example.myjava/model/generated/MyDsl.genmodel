@@ -84,9 +84,20 @@
     <genClasses ecoreClass="MyDsl.ecore#//Statement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/nameStatement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/statement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/ifStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/doStatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/whileStatement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/tryStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/elseStatement"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//While_Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//While_Statement/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Do_Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Do_Statement/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//If_statement"/>
     <genClasses ecoreClass="MyDsl.ecore#//Try_statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Try_statement/tryStatement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Try_statement/parameters"/>

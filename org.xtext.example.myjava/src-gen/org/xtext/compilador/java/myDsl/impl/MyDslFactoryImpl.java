@@ -80,6 +80,9 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATIC_INITIALIZER: return createStatic_initializer();
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
+      case MyDslPackage.WHILE_STATEMENT: return createWhile_Statement();
+      case MyDslPackage.DO_STATEMENT: return createDo_Statement();
+      case MyDslPackage.IF_STATEMENT: return createIf_statement();
       case MyDslPackage.TRY_STATEMENT: return createTry_statement();
       case MyDslPackage.IMPORT_STATEMENT: return createImport_statement();
       case MyDslPackage.PACKAGE_STATEMENT: return createPackage_statement();
@@ -262,6 +265,39 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public While_Statement createWhile_Statement()
+  {
+    While_StatementImpl while_Statement = new While_StatementImpl();
+    return while_Statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Do_Statement createDo_Statement()
+  {
+    Do_StatementImpl do_Statement = new Do_StatementImpl();
+    return do_Statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public If_statement createIf_statement()
+  {
+    If_statementImpl if_statement = new If_statementImpl();
+    return if_statement;
   }
 
   /**
