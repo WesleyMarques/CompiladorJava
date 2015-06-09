@@ -24,12 +24,13 @@ import org.xtext.compilador.java.myDsl.While_Statement;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getWhileStatement <em>While Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getElseStatement <em>Else Statement</em>}</li>
  * </ul>
@@ -39,36 +40,6 @@ import org.xtext.compilador.java.myDsl.While_Statement;
  */
 public class StatementImpl extends If_statementImpl implements Statement
 {
-  /**
-   * The default value of the '{@link #getNameStatement() <em>Name Statement</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNameStatement()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_STATEMENT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNameStatement() <em>Name Statement</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNameStatement()
-   * @generated
-   * @ordered
-   */
-  protected String nameStatement = NAME_STATEMENT_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatement()
-   * @generated
-   * @ordered
-   */
-  protected Statement statement;
-
   /**
    * The cached value of the '{@link #getIfStatement() <em>If Statement</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -108,6 +79,46 @@ public class StatementImpl extends If_statementImpl implements Statement
    * @ordered
    */
   protected Try_statement tryStatement;
+
+  /**
+   * The cached value of the '{@link #getSyncStatement() <em>Sync Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSyncStatement()
+   * @generated
+   * @ordered
+   */
+  protected Statement syncStatement;
+
+  /**
+   * The default value of the '{@link #getNameStatement() <em>Name Statement</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameStatement()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_STATEMENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameStatement() <em>Name Statement</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameStatement()
+   * @generated
+   * @ordered
+   */
+  protected String nameStatement = NAME_STATEMENT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatement()
+   * @generated
+   * @ordered
+   */
+  protected Statement statement;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -158,77 +169,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.STATEMENT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getNameStatement()
-  {
-    return nameStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setNameStatement(String newNameStatement)
-  {
-    String oldNameStatement = nameStatement;
-    nameStatement = newNameStatement;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__NAME_STATEMENT, oldNameStatement, nameStatement));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Statement getStatement()
-  {
-    return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStatement(Statement newStatement, NotificationChain msgs)
-  {
-    Statement oldStatement = statement;
-    statement = newStatement;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, oldStatement, newStatement);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStatement(Statement newStatement)
-  {
-    if (newStatement != statement)
-    {
-      NotificationChain msgs = null;
-      if (statement != null)
-        msgs = ((InternalEObject)statement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
-      if (newStatement != null)
-        msgs = ((InternalEObject)newStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
-      msgs = basicSetStatement(newStatement, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, newStatement, newStatement));
   }
 
   /**
@@ -428,6 +368,125 @@ public class StatementImpl extends If_statementImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
+  public Statement getSyncStatement()
+  {
+    return syncStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSyncStatement(Statement newSyncStatement, NotificationChain msgs)
+  {
+    Statement oldSyncStatement = syncStatement;
+    syncStatement = newSyncStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SYNC_STATEMENT, oldSyncStatement, newSyncStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSyncStatement(Statement newSyncStatement)
+  {
+    if (newSyncStatement != syncStatement)
+    {
+      NotificationChain msgs = null;
+      if (syncStatement != null)
+        msgs = ((InternalEObject)syncStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SYNC_STATEMENT, null, msgs);
+      if (newSyncStatement != null)
+        msgs = ((InternalEObject)newSyncStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SYNC_STATEMENT, null, msgs);
+      msgs = basicSetSyncStatement(newSyncStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SYNC_STATEMENT, newSyncStatement, newSyncStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNameStatement()
+  {
+    return nameStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameStatement(String newNameStatement)
+  {
+    String oldNameStatement = nameStatement;
+    nameStatement = newNameStatement;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__NAME_STATEMENT, oldNameStatement, nameStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement getStatement()
+  {
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatement(Statement newStatement, NotificationChain msgs)
+  {
+    Statement oldStatement = statement;
+    statement = newStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, oldStatement, newStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatement(Statement newStatement)
+  {
+    if (newStatement != statement)
+    {
+      NotificationChain msgs = null;
+      if (statement != null)
+        msgs = ((InternalEObject)statement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
+      if (newStatement != null)
+        msgs = ((InternalEObject)newStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT, null, msgs);
+      msgs = basicSetStatement(newStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT, newStatement, newStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -504,8 +563,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__STATEMENT:
-        return basicSetStatement(null, msgs);
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return basicSetIfStatement(null, msgs);
       case MyDslPackage.STATEMENT__DO_STATEMENT:
@@ -514,6 +571,10 @@ public class StatementImpl extends If_statementImpl implements Statement
         return basicSetWhileStatement(null, msgs);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return basicSetTryStatement(null, msgs);
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        return basicSetSyncStatement(null, msgs);
+      case MyDslPackage.STATEMENT__STATEMENT:
+        return basicSetStatement(null, msgs);
       case MyDslPackage.STATEMENT__ELSE_STATEMENT:
         return basicSetElseStatement(null, msgs);
     }
@@ -530,10 +591,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__NAME_STATEMENT:
-        return getNameStatement();
-      case MyDslPackage.STATEMENT__STATEMENT:
-        return getStatement();
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return getIfStatement();
       case MyDslPackage.STATEMENT__DO_STATEMENT:
@@ -542,6 +599,12 @@ public class StatementImpl extends If_statementImpl implements Statement
         return getWhileStatement();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        return getSyncStatement();
+      case MyDslPackage.STATEMENT__NAME_STATEMENT:
+        return getNameStatement();
+      case MyDslPackage.STATEMENT__STATEMENT:
+        return getStatement();
       case MyDslPackage.STATEMENT__NAME:
         return getName();
       case MyDslPackage.STATEMENT__ELSE_STATEMENT:
@@ -560,12 +623,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__NAME_STATEMENT:
-        setNameStatement((String)newValue);
-        return;
-      case MyDslPackage.STATEMENT__STATEMENT:
-        setStatement((Statement)newValue);
-        return;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         setIfStatement((If_statement)newValue);
         return;
@@ -577,6 +634,15 @@ public class StatementImpl extends If_statementImpl implements Statement
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        setSyncStatement((Statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__NAME_STATEMENT:
+        setNameStatement((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__STATEMENT:
+        setStatement((Statement)newValue);
         return;
       case MyDslPackage.STATEMENT__NAME:
         setName((String)newValue);
@@ -598,12 +664,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__NAME_STATEMENT:
-        setNameStatement(NAME_STATEMENT_EDEFAULT);
-        return;
-      case MyDslPackage.STATEMENT__STATEMENT:
-        setStatement((Statement)null);
-        return;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         setIfStatement((If_statement)null);
         return;
@@ -615,6 +675,15 @@ public class StatementImpl extends If_statementImpl implements Statement
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
+        return;
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        setSyncStatement((Statement)null);
+        return;
+      case MyDslPackage.STATEMENT__NAME_STATEMENT:
+        setNameStatement(NAME_STATEMENT_EDEFAULT);
+        return;
+      case MyDslPackage.STATEMENT__STATEMENT:
+        setStatement((Statement)null);
         return;
       case MyDslPackage.STATEMENT__NAME:
         setName(NAME_EDEFAULT);
@@ -636,10 +705,6 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
-      case MyDslPackage.STATEMENT__NAME_STATEMENT:
-        return NAME_STATEMENT_EDEFAULT == null ? nameStatement != null : !NAME_STATEMENT_EDEFAULT.equals(nameStatement);
-      case MyDslPackage.STATEMENT__STATEMENT:
-        return statement != null;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return ifStatement != null;
       case MyDslPackage.STATEMENT__DO_STATEMENT:
@@ -648,6 +713,12 @@ public class StatementImpl extends If_statementImpl implements Statement
         return whileStatement != null;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
+      case MyDslPackage.STATEMENT__SYNC_STATEMENT:
+        return syncStatement != null;
+      case MyDslPackage.STATEMENT__NAME_STATEMENT:
+        return NAME_STATEMENT_EDEFAULT == null ? nameStatement != null : !NAME_STATEMENT_EDEFAULT.equals(nameStatement);
+      case MyDslPackage.STATEMENT__STATEMENT:
+        return statement != null;
       case MyDslPackage.STATEMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.STATEMENT__ELSE_STATEMENT:

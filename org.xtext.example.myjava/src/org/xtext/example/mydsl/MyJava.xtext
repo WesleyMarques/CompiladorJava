@@ -90,13 +90,21 @@ terminal STATIC:
 Statement_block:
 	"{" statments += Statement* "}"
 ;
-//FIXME: resolver o resto das operações 
+//FIXME: resolver Expression em todas operações 
 Statement:
-	Statement_block | nameStatement = ID ":" statement = Statement | Variable_declaration |
-	ifStatement = If_statement | doStatement = Do_Statement| whileStatement = While_Statement |
-	tryStatement = Try_statement | 
+	Statement_block | 
+	Variable_declaration |
+	ifStatement = If_statement | 
+	doStatement = Do_Statement| 
+	whileStatement = While_Statement |
+	tryStatement = Try_statement |
+	{Statement}"synchronized(" /*Expression */ ")" syncStatement = Statement |
+	{Statement}"return" /*(Expression)? */ ";" |
+	{Statement}"throw" /*(Expression)? */ ";" |
+	nameStatement = ID ":" statement = Statement |  	
 	{Statement} "break" name = ID? ";" |
-	 {Statement}"continue" name = ID? ";" | {Statement}(";")
+	{Statement}"continue" name = ID? ";" | 
+	{Statement}(";")
 ;
 
 While_Statement:

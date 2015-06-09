@@ -864,29 +864,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_NameStatement()
-  {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStatement_Statement()
-  {
-    return (EReference)statementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getStatement_IfStatement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(2);
+    return (EReference)statementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -896,7 +876,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EReference getStatement_DoStatement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(3);
+    return (EReference)statementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -906,7 +886,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EReference getStatement_WhileStatement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(4);
+    return (EReference)statementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -916,7 +896,37 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EReference getStatement_TryStatement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(5);
+    return (EReference)statementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_SyncStatement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_NameStatement()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_Statement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -926,7 +936,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EAttribute getStatement_Name()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(6);
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -936,7 +946,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EReference getStatement_ElseStatement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(7);
+    return (EReference)statementEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1194,12 +1204,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(statement_blockEClass, STATEMENT_BLOCK__STATMENTS);
 
     statementEClass = createEClass(STATEMENT);
-    createEAttribute(statementEClass, STATEMENT__NAME_STATEMENT);
-    createEReference(statementEClass, STATEMENT__STATEMENT);
     createEReference(statementEClass, STATEMENT__IF_STATEMENT);
     createEReference(statementEClass, STATEMENT__DO_STATEMENT);
     createEReference(statementEClass, STATEMENT__WHILE_STATEMENT);
     createEReference(statementEClass, STATEMENT__TRY_STATEMENT);
+    createEReference(statementEClass, STATEMENT__SYNC_STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__NAME_STATEMENT);
+    createEReference(statementEClass, STATEMENT__STATEMENT);
     createEAttribute(statementEClass, STATEMENT__NAME);
     createEReference(statementEClass, STATEMENT__ELSE_STATEMENT);
 
@@ -1334,12 +1345,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getStatement_block_Statments(), this.getStatement(), null, "statments", null, 0, -1, Statement_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStatement_NameStatement(), ecorePackage.getEString(), "nameStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_IfStatement(), this.getIf_statement(), null, "ifStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_DoStatement(), this.getDo_Statement(), null, "doStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_WhileStatement(), this.getWhile_Statement(), null, "whileStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_TryStatement(), this.getTry_statement(), null, "tryStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_SyncStatement(), this.getStatement(), null, "syncStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_NameStatement(), ecorePackage.getEString(), "nameStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_ElseStatement(), this.getStatement(), null, "elseStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

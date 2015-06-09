@@ -591,31 +591,13 @@ public interface MyDslPackage extends EPackage
   int STATEMENT = 15;
 
   /**
-   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__NAME_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT__STATEMENT = IF_STATEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>If Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__IF_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 2;
+  int STATEMENT__IF_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
@@ -624,7 +606,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__DO_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 3;
+  int STATEMENT__DO_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>While Statement</b></em>' containment reference.
@@ -633,7 +615,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__WHILE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 4;
+  int STATEMENT__WHILE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -642,7 +624,34 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__TRY_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 5;
+  int STATEMENT__TRY_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__SYNC_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__NAME_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__STATEMENT = IF_STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -651,7 +660,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = IF_STATEMENT_FEATURE_COUNT + 6;
+  int STATEMENT__NAME = IF_STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Else Statement</b></em>' containment reference.
@@ -660,7 +669,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__ELSE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 7;
+  int STATEMENT__ELSE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 8;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -669,7 +678,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = IF_STATEMENT_FEATURE_COUNT + 8;
+  int STATEMENT_FEATURE_COUNT = IF_STATEMENT_FEATURE_COUNT + 9;
 
   /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl <em>Variable declaration</em>}' class.
@@ -680,24 +689,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   int VARIABLE_DECLARATION = 10;
-
-  /**
-   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATION__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_DECLARATION__STATEMENT = STATEMENT__STATEMENT;
 
   /**
    * The feature id for the '<em><b>If Statement</b></em>' containment reference.
@@ -734,6 +725,33 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int VARIABLE_DECLARATION__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__SYNC_STATEMENT = STATEMENT__SYNC_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__STATEMENT = STATEMENT__STATEMENT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -902,24 +920,6 @@ public interface MyDslPackage extends EPackage
   int STATEMENT_BLOCK = 14;
 
   /**
-   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__STATEMENT = STATEMENT__STATEMENT;
-
-  /**
    * The feature id for the '<em><b>If Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -954,6 +954,33 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int STATEMENT_BLOCK__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__SYNC_STATEMENT = STATEMENT__SYNC_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__STATEMENT = STATEMENT__STATEMENT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1813,28 +1840,6 @@ public interface MyDslPackage extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.compilador.java.myDsl.Statement#getNameStatement <em>Name Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name Statement</em>'.
-   * @see org.xtext.compilador.java.myDsl.Statement#getNameStatement()
-   * @see #getStatement()
-   * @generated
-   */
-  EAttribute getStatement_NameStatement();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getStatement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Statement</em>'.
-   * @see org.xtext.compilador.java.myDsl.Statement#getStatement()
-   * @see #getStatement()
-   * @generated
-   */
-  EReference getStatement_Statement();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getIfStatement <em>If Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1877,6 +1882,39 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getStatement_TryStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sync Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getSyncStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_SyncStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.compilador.java.myDsl.Statement#getNameStatement <em>Name Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getNameStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EAttribute getStatement_NameStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_Statement();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.compilador.java.myDsl.Statement#getName <em>Name</em>}'.
@@ -2595,22 +2633,6 @@ public interface MyDslPackage extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '<em><b>Name Statement</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATEMENT__NAME_STATEMENT = eINSTANCE.getStatement_NameStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
-
-    /**
      * The meta object literal for the '<em><b>If Statement</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2641,6 +2663,30 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference STATEMENT__TRY_STATEMENT = eINSTANCE.getStatement_TryStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Sync Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__SYNC_STATEMENT = eINSTANCE.getStatement_SyncStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Name Statement</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMENT__NAME_STATEMENT = eINSTANCE.getStatement_NameStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__STATEMENT = eINSTANCE.getStatement_Statement();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

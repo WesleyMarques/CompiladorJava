@@ -199,7 +199,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (((name=ID?) | (name=ID?)) elseStatement=Statement?)
+	 *     ((syncStatement=Statement | (name=ID?) | (name=ID?)) elseStatement=Statement?)
 	 */
 	protected void sequence_If_statement_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -306,7 +306,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((name=ID?) | (name=ID?))
+	 *     (syncStatement=Statement | (name=ID?) | (name=ID?))
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
