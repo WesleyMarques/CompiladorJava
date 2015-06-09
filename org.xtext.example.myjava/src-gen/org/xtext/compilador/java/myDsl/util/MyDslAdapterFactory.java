@@ -155,6 +155,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseSwitch_statement(Switch_statement object)
+      {
+        return createSwitch_statementAdapter();
+      }
+      @Override
       public Adapter caseWhile_Statement(While_Statement object)
       {
         return createWhile_StatementAdapter();
@@ -442,6 +447,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Switch_statement <em>Switch statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Switch_statement
+   * @generated
+   */
+  public Adapter createSwitch_statementAdapter()
   {
     return null;
   }

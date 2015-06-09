@@ -803,53 +803,57 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWhileStatementWhile_StatementParserRuleCall_4_0 = (RuleCall)cWhileStatementAssignment_4.eContents().get(0);
 		private final Assignment cTryStatementAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
 		private final RuleCall cTryStatementTry_statementParserRuleCall_5_0 = (RuleCall)cTryStatementAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Action cStatementAction_6_0 = (Action)cGroup_6.eContents().get(0);
-		private final Keyword cSynchronizedKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Assignment cSyncStatementAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final RuleCall cSyncStatementStatementParserRuleCall_6_3_0 = (RuleCall)cSyncStatementAssignment_6_3.eContents().get(0);
+		private final Assignment cSwitchStatementAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final RuleCall cSwitchStatementSwitch_statementParserRuleCall_6_0 = (RuleCall)cSwitchStatementAssignment_6.eContents().get(0);
 		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
 		private final Action cStatementAction_7_0 = (Action)cGroup_7.eContents().get(0);
-		private final Keyword cReturnKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Keyword cSemicolonKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Keyword cSynchronizedKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cSyncStatementAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cSyncStatementStatementParserRuleCall_7_3_0 = (RuleCall)cSyncStatementAssignment_7_3.eContents().get(0);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
 		private final Action cStatementAction_8_0 = (Action)cGroup_8.eContents().get(0);
-		private final Keyword cThrowKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Keyword cReturnKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Keyword cSemicolonKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
 		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Assignment cNameStatementAssignment_9_0 = (Assignment)cGroup_9.eContents().get(0);
-		private final RuleCall cNameStatementIDTerminalRuleCall_9_0_0 = (RuleCall)cNameStatementAssignment_9_0.eContents().get(0);
-		private final Keyword cColonKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
-		private final Assignment cStatementAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final RuleCall cStatementStatementParserRuleCall_9_2_0 = (RuleCall)cStatementAssignment_9_2.eContents().get(0);
+		private final Action cStatementAction_9_0 = (Action)cGroup_9.eContents().get(0);
+		private final Keyword cThrowKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Keyword cSemicolonKeyword_9_2 = (Keyword)cGroup_9.eContents().get(2);
 		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
-		private final Action cStatementAction_10_0 = (Action)cGroup_10.eContents().get(0);
-		private final Keyword cBreakKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cNameAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_10_2_0 = (RuleCall)cNameAssignment_10_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_10_3 = (Keyword)cGroup_10.eContents().get(3);
+		private final Assignment cNameStatementAssignment_10_0 = (Assignment)cGroup_10.eContents().get(0);
+		private final RuleCall cNameStatementIDTerminalRuleCall_10_0_0 = (RuleCall)cNameStatementAssignment_10_0.eContents().get(0);
+		private final Keyword cColonKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cStatementAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cStatementStatementParserRuleCall_10_2_0 = (RuleCall)cStatementAssignment_10_2.eContents().get(0);
 		private final Group cGroup_11 = (Group)cAlternatives.eContents().get(11);
 		private final Action cStatementAction_11_0 = (Action)cGroup_11.eContents().get(0);
-		private final Keyword cContinueKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
+		private final Keyword cBreakKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
 		private final Assignment cNameAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_11_2_0 = (RuleCall)cNameAssignment_11_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_11_3 = (Keyword)cGroup_11.eContents().get(3);
 		private final Group cGroup_12 = (Group)cAlternatives.eContents().get(12);
 		private final Action cStatementAction_12_0 = (Action)cGroup_12.eContents().get(0);
-		private final Keyword cSemicolonKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final Keyword cContinueKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final Assignment cNameAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_12_2_0 = (RuleCall)cNameAssignment_12_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_12_3 = (Keyword)cGroup_12.eContents().get(3);
+		private final Group cGroup_13 = (Group)cAlternatives.eContents().get(13);
+		private final Action cStatementAction_13_0 = (Action)cGroup_13.eContents().get(0);
+		private final Keyword cSemicolonKeyword_13_1 = (Keyword)cGroup_13.eContents().get(1);
 		
 		////FIXME: resolver Expression em todas operações 
 		//Statement:
-		//	Statement_block | Variable_declaration | ifStatement=If_statement | doStatement=Do_Statement |
-		//	whileStatement=While_Statement | tryStatement=Try_statement | {Statement} "synchronized(" / *Expression * / ")"
+		//	Statement_block | / *expressionStatement = Expression ";" * / Variable_declaration | ifStatement=If_statement |
+		//	doStatement=Do_Statement | whileStatement=While_Statement | / *forStatement = For_Statement |* /
+		//	tryStatement=Try_statement | switchStatement=Switch_statement | {Statement} "synchronized(" / *Expression * / ")"
 		//	syncStatement=Statement | {Statement} "return" / *(Expression)? * / ";" | {Statement} "throw" / *(Expression)? * / ";" |
 		//	nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement} "continue" name=ID? ";" |
 		//	{Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//Statement_block | Variable_declaration | ifStatement=If_statement | doStatement=Do_Statement |
-		//whileStatement=While_Statement | tryStatement=Try_statement | {Statement} "synchronized(" / *Expression * / ")"
+		//Statement_block | / *expressionStatement = Expression ";" * / Variable_declaration | ifStatement=If_statement |
+		//doStatement=Do_Statement | whileStatement=While_Statement | / *forStatement = For_Statement |* /
+		//tryStatement=Try_statement | switchStatement=Switch_statement | {Statement} "synchronized(" / *Expression * / ")"
 		//syncStatement=Statement | {Statement} "return" / *(Expression)? * / ";" | {Statement} "throw" / *(Expression)? * / ";" |
 		//nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement} "continue" name=ID? ";" |
 		//{Statement} ";"
@@ -858,7 +862,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement_block
 		public RuleCall getStatement_blockParserRuleCall_0() { return cStatement_blockParserRuleCall_0; }
 
-		//Variable_declaration
+		/// *expressionStatement = Expression ";" * / Variable_declaration
 		public RuleCall getVariable_declarationParserRuleCall_1() { return cVariable_declarationParserRuleCall_1; }
 
 		//ifStatement=If_statement
@@ -879,98 +883,86 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//While_Statement
 		public RuleCall getWhileStatementWhile_StatementParserRuleCall_4_0() { return cWhileStatementWhile_StatementParserRuleCall_4_0; }
 
-		//tryStatement=Try_statement
+		/// *forStatement = For_Statement |* / tryStatement=Try_statement
 		public Assignment getTryStatementAssignment_5() { return cTryStatementAssignment_5; }
 
 		//Try_statement
 		public RuleCall getTryStatementTry_statementParserRuleCall_5_0() { return cTryStatementTry_statementParserRuleCall_5_0; }
 
+		//switchStatement=Switch_statement
+		public Assignment getSwitchStatementAssignment_6() { return cSwitchStatementAssignment_6; }
+
+		//Switch_statement
+		public RuleCall getSwitchStatementSwitch_statementParserRuleCall_6_0() { return cSwitchStatementSwitch_statementParserRuleCall_6_0; }
+
 		//{Statement} "synchronized(" / *Expression * / ")" syncStatement=Statement
-		public Group getGroup_6() { return cGroup_6; }
-
-		//{Statement}
-		public Action getStatementAction_6_0() { return cStatementAction_6_0; }
-
-		//"synchronized("
-		public Keyword getSynchronizedKeyword_6_1() { return cSynchronizedKeyword_6_1; }
-
-		/// *Expression * / ")"
-		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
-
-		//syncStatement=Statement
-		public Assignment getSyncStatementAssignment_6_3() { return cSyncStatementAssignment_6_3; }
-
-		//Statement
-		public RuleCall getSyncStatementStatementParserRuleCall_6_3_0() { return cSyncStatementStatementParserRuleCall_6_3_0; }
-
-		//{Statement} "return" / *(Expression)? * / ";"
 		public Group getGroup_7() { return cGroup_7; }
 
 		//{Statement}
 		public Action getStatementAction_7_0() { return cStatementAction_7_0; }
 
-		//"return"
-		public Keyword getReturnKeyword_7_1() { return cReturnKeyword_7_1; }
+		//"synchronized("
+		public Keyword getSynchronizedKeyword_7_1() { return cSynchronizedKeyword_7_1; }
 
-		/// *(Expression)? * / ";"
-		public Keyword getSemicolonKeyword_7_2() { return cSemicolonKeyword_7_2; }
+		/// *Expression * / ")"
+		public Keyword getRightParenthesisKeyword_7_2() { return cRightParenthesisKeyword_7_2; }
 
-		//{Statement} "throw" / *(Expression)? * / ";"
+		//syncStatement=Statement
+		public Assignment getSyncStatementAssignment_7_3() { return cSyncStatementAssignment_7_3; }
+
+		//Statement
+		public RuleCall getSyncStatementStatementParserRuleCall_7_3_0() { return cSyncStatementStatementParserRuleCall_7_3_0; }
+
+		//{Statement} "return" / *(Expression)? * / ";"
 		public Group getGroup_8() { return cGroup_8; }
 
 		//{Statement}
 		public Action getStatementAction_8_0() { return cStatementAction_8_0; }
 
-		//"throw"
-		public Keyword getThrowKeyword_8_1() { return cThrowKeyword_8_1; }
+		//"return"
+		public Keyword getReturnKeyword_8_1() { return cReturnKeyword_8_1; }
 
 		/// *(Expression)? * / ";"
 		public Keyword getSemicolonKeyword_8_2() { return cSemicolonKeyword_8_2; }
 
-		//nameStatement=ID ":" statement=Statement
+		//{Statement} "throw" / *(Expression)? * / ";"
 		public Group getGroup_9() { return cGroup_9; }
 
-		//nameStatement=ID
-		public Assignment getNameStatementAssignment_9_0() { return cNameStatementAssignment_9_0; }
+		//{Statement}
+		public Action getStatementAction_9_0() { return cStatementAction_9_0; }
 
-		//ID
-		public RuleCall getNameStatementIDTerminalRuleCall_9_0_0() { return cNameStatementIDTerminalRuleCall_9_0_0; }
+		//"throw"
+		public Keyword getThrowKeyword_9_1() { return cThrowKeyword_9_1; }
 
-		//":"
-		public Keyword getColonKeyword_9_1() { return cColonKeyword_9_1; }
+		/// *(Expression)? * / ";"
+		public Keyword getSemicolonKeyword_9_2() { return cSemicolonKeyword_9_2; }
 
-		//statement=Statement
-		public Assignment getStatementAssignment_9_2() { return cStatementAssignment_9_2; }
-
-		//Statement
-		public RuleCall getStatementStatementParserRuleCall_9_2_0() { return cStatementStatementParserRuleCall_9_2_0; }
-
-		//{Statement} "break" name=ID? ";"
+		//nameStatement=ID ":" statement=Statement
 		public Group getGroup_10() { return cGroup_10; }
 
-		//{Statement}
-		public Action getStatementAction_10_0() { return cStatementAction_10_0; }
-
-		//"break"
-		public Keyword getBreakKeyword_10_1() { return cBreakKeyword_10_1; }
-
-		//name=ID?
-		public Assignment getNameAssignment_10_2() { return cNameAssignment_10_2; }
+		//nameStatement=ID
+		public Assignment getNameStatementAssignment_10_0() { return cNameStatementAssignment_10_0; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_10_2_0() { return cNameIDTerminalRuleCall_10_2_0; }
+		public RuleCall getNameStatementIDTerminalRuleCall_10_0_0() { return cNameStatementIDTerminalRuleCall_10_0_0; }
 
-		//";"
-		public Keyword getSemicolonKeyword_10_3() { return cSemicolonKeyword_10_3; }
+		//":"
+		public Keyword getColonKeyword_10_1() { return cColonKeyword_10_1; }
 
-		//{Statement} "continue" name=ID? ";"
+		//statement=Statement
+		public Assignment getStatementAssignment_10_2() { return cStatementAssignment_10_2; }
+
+		//Statement
+		public RuleCall getStatementStatementParserRuleCall_10_2_0() { return cStatementStatementParserRuleCall_10_2_0; }
+
+		//{Statement} "break" name=ID? ";"
 		public Group getGroup_11() { return cGroup_11; }
 
 		//{Statement}
 		public Action getStatementAction_11_0() { return cStatementAction_11_0; }
 
-		//"continue"
-		public Keyword getContinueKeyword_11_1() { return cContinueKeyword_11_1; }
+		//"break"
+		public Keyword getBreakKeyword_11_1() { return cBreakKeyword_11_1; }
 
 		//name=ID?
 		public Assignment getNameAssignment_11_2() { return cNameAssignment_11_2; }
@@ -981,14 +973,84 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_11_3() { return cSemicolonKeyword_11_3; }
 
-		//{Statement} ";"
+		//{Statement} "continue" name=ID? ";"
 		public Group getGroup_12() { return cGroup_12; }
 
 		//{Statement}
 		public Action getStatementAction_12_0() { return cStatementAction_12_0; }
 
+		//"continue"
+		public Keyword getContinueKeyword_12_1() { return cContinueKeyword_12_1; }
+
+		//name=ID?
+		public Assignment getNameAssignment_12_2() { return cNameAssignment_12_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_12_2_0() { return cNameIDTerminalRuleCall_12_2_0; }
+
 		//";"
-		public Keyword getSemicolonKeyword_12_1() { return cSemicolonKeyword_12_1; }
+		public Keyword getSemicolonKeyword_12_3() { return cSemicolonKeyword_12_3; }
+
+		//{Statement} ";"
+		public Group getGroup_13() { return cGroup_13; }
+
+		//{Statement}
+		public Action getStatementAction_13_0() { return cStatementAction_13_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_13_1() { return cSemicolonKeyword_13_1; }
+	}
+
+	public class Switch_statementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Switch_statement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSwitchKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cRightParenthesisLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
+		private final Keyword cCaseKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Keyword cColonKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
+		private final Keyword cDefaultKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final Assignment cStatementAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
+		private final RuleCall cStatementStatementParserRuleCall_2_2_0 = (RuleCall)cStatementAssignment_2_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Switch_statement:
+		//	"switch(" / *Expression * / "){" ("case" / *Expression * / ":" | "default:" | statement+=Statement)* "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"switch(" / *Expression * / "){" ("case" / *Expression * / ":" | "default:" | statement+=Statement)* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"switch("
+		public Keyword getSwitchKeyword_0() { return cSwitchKeyword_0; }
+
+		/// *Expression * / "){"
+		public Keyword getRightParenthesisLeftCurlyBracketKeyword_1() { return cRightParenthesisLeftCurlyBracketKeyword_1; }
+
+		//("case" / *Expression * / ":" | "default:" | statement+=Statement)*
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//"case" / *Expression * / ":"
+		public Group getGroup_2_0() { return cGroup_2_0; }
+
+		//"case"
+		public Keyword getCaseKeyword_2_0_0() { return cCaseKeyword_2_0_0; }
+
+		/// *Expression * / ":"
+		public Keyword getColonKeyword_2_0_1() { return cColonKeyword_2_0_1; }
+
+		//"default:"
+		public Keyword getDefaultKeyword_2_1() { return cDefaultKeyword_2_1; }
+
+		//statement+=Statement
+		public Assignment getStatementAssignment_2_2() { return cStatementAssignment_2_2; }
+
+		//Statement
+		public RuleCall getStatementStatementParserRuleCall_2_2_0() { return cStatementStatementParserRuleCall_2_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class While_StatementElements extends AbstractParserRuleElementFinder {
@@ -1330,6 +1392,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSTATIC;
 	private final Statement_blockElements pStatement_block;
 	private final StatementElements pStatement;
+	private final Switch_statementElements pSwitch_statement;
 	private final While_StatementElements pWhile_Statement;
 	private final Do_StatementElements pDo_Statement;
 	private final If_statementElements pIf_statement;
@@ -1371,6 +1434,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSTATIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STATIC");
 		this.pStatement_block = new Statement_blockElements();
 		this.pStatement = new StatementElements();
+		this.pSwitch_statement = new Switch_statementElements();
 		this.pWhile_Statement = new While_StatementElements();
 		this.pDo_Statement = new Do_StatementElements();
 		this.pIf_statement = new If_statementElements();
@@ -1600,8 +1664,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	////FIXME: resolver Expression em todas operações 
 	//Statement:
-	//	Statement_block | Variable_declaration | ifStatement=If_statement | doStatement=Do_Statement |
-	//	whileStatement=While_Statement | tryStatement=Try_statement | {Statement} "synchronized(" / *Expression * / ")"
+	//	Statement_block | / *expressionStatement = Expression ";" * / Variable_declaration | ifStatement=If_statement |
+	//	doStatement=Do_Statement | whileStatement=While_Statement | / *forStatement = For_Statement |* /
+	//	tryStatement=Try_statement | switchStatement=Switch_statement | {Statement} "synchronized(" / *Expression * / ")"
 	//	syncStatement=Statement | {Statement} "return" / *(Expression)? * / ";" | {Statement} "throw" / *(Expression)? * / ";" |
 	//	nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement} "continue" name=ID? ";" |
 	//	{Statement} ";";
@@ -1611,6 +1676,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getStatementRule() {
 		return getStatementAccess().getRule();
+	}
+
+	//Switch_statement:
+	//	"switch(" / *Expression * / "){" ("case" / *Expression * / ":" | "default:" | statement+=Statement)* "}";
+	public Switch_statementElements getSwitch_statementAccess() {
+		return pSwitch_statement;
+	}
+	
+	public ParserRule getSwitch_statementRule() {
+		return getSwitch_statementAccess().getRule();
 	}
 
 	//While_Statement:

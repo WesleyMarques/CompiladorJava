@@ -167,6 +167,15 @@ public interface MyDslFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Switch statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Switch statement</em>'.
+   * @generated
+   */
+  Switch_statement createSwitch_statement();
+
+  /**
    * Returns a new object of class '<em>While Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

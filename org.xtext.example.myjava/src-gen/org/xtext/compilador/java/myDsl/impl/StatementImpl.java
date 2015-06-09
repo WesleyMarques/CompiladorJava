@@ -14,6 +14,7 @@ import org.xtext.compilador.java.myDsl.Do_Statement;
 import org.xtext.compilador.java.myDsl.If_statement;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Statement;
+import org.xtext.compilador.java.myDsl.Switch_statement;
 import org.xtext.compilador.java.myDsl.Try_statement;
 import org.xtext.compilador.java.myDsl.While_Statement;
 
@@ -28,6 +29,7 @@ import org.xtext.compilador.java.myDsl.While_Statement;
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getWhileStatement <em>While Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSwitchStatement <em>Switch Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
@@ -79,6 +81,16 @@ public class StatementImpl extends If_statementImpl implements Statement
    * @ordered
    */
   protected Try_statement tryStatement;
+
+  /**
+   * The cached value of the '{@link #getSwitchStatement() <em>Switch Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSwitchStatement()
+   * @generated
+   * @ordered
+   */
+  protected Switch_statement switchStatement;
 
   /**
    * The cached value of the '{@link #getSyncStatement() <em>Sync Statement</em>}' containment reference.
@@ -368,6 +380,54 @@ public class StatementImpl extends If_statementImpl implements Statement
    * <!-- end-user-doc -->
    * @generated
    */
+  public Switch_statement getSwitchStatement()
+  {
+    return switchStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSwitchStatement(Switch_statement newSwitchStatement, NotificationChain msgs)
+  {
+    Switch_statement oldSwitchStatement = switchStatement;
+    switchStatement = newSwitchStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SWITCH_STATEMENT, oldSwitchStatement, newSwitchStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwitchStatement(Switch_statement newSwitchStatement)
+  {
+    if (newSwitchStatement != switchStatement)
+    {
+      NotificationChain msgs = null;
+      if (switchStatement != null)
+        msgs = ((InternalEObject)switchStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SWITCH_STATEMENT, null, msgs);
+      if (newSwitchStatement != null)
+        msgs = ((InternalEObject)newSwitchStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__SWITCH_STATEMENT, null, msgs);
+      msgs = basicSetSwitchStatement(newSwitchStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__SWITCH_STATEMENT, newSwitchStatement, newSwitchStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Statement getSyncStatement()
   {
     return syncStatement;
@@ -571,6 +631,8 @@ public class StatementImpl extends If_statementImpl implements Statement
         return basicSetWhileStatement(null, msgs);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return basicSetTryStatement(null, msgs);
+      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
+        return basicSetSwitchStatement(null, msgs);
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         return basicSetSyncStatement(null, msgs);
       case MyDslPackage.STATEMENT__STATEMENT:
@@ -599,6 +661,8 @@ public class StatementImpl extends If_statementImpl implements Statement
         return getWhileStatement();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
+      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
+        return getSwitchStatement();
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         return getSyncStatement();
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
@@ -634,6 +698,9 @@ public class StatementImpl extends If_statementImpl implements Statement
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
+        setSwitchStatement((Switch_statement)newValue);
         return;
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         setSyncStatement((Statement)newValue);
@@ -676,6 +743,9 @@ public class StatementImpl extends If_statementImpl implements Statement
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
         return;
+      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
+        setSwitchStatement((Switch_statement)null);
+        return;
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         setSyncStatement((Statement)null);
         return;
@@ -713,6 +783,8 @@ public class StatementImpl extends If_statementImpl implements Statement
         return whileStatement != null;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
+      case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
+        return switchStatement != null;
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         return syncStatement != null;
       case MyDslPackage.STATEMENT__NAME_STATEMENT:

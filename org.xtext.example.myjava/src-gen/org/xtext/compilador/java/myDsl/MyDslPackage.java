@@ -569,7 +569,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getIf_statement()
    * @generated
    */
-  int IF_STATEMENT = 18;
+  int IF_STATEMENT = 19;
 
   /**
    * The number of structural features of the '<em>If statement</em>' class.
@@ -627,13 +627,22 @@ public interface MyDslPackage extends EPackage
   int STATEMENT__TRY_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Switch Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__SWITCH_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__SYNC_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 4;
+  int STATEMENT__SYNC_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Name Statement</b></em>' attribute.
@@ -642,7 +651,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 5;
+  int STATEMENT__NAME_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -651,7 +660,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__STATEMENT = IF_STATEMENT_FEATURE_COUNT + 6;
+  int STATEMENT__STATEMENT = IF_STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -660,7 +669,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = IF_STATEMENT_FEATURE_COUNT + 7;
+  int STATEMENT__NAME = IF_STATEMENT_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Else Statement</b></em>' containment reference.
@@ -669,7 +678,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__ELSE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 8;
+  int STATEMENT__ELSE_STATEMENT = IF_STATEMENT_FEATURE_COUNT + 9;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -678,7 +687,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = IF_STATEMENT_FEATURE_COUNT + 9;
+  int STATEMENT_FEATURE_COUNT = IF_STATEMENT_FEATURE_COUNT + 10;
 
   /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Variable_declarationImpl <em>Variable declaration</em>}' class.
@@ -725,6 +734,15 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int VARIABLE_DECLARATION__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Switch Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATION__SWITCH_STATEMENT = STATEMENT__SWITCH_STATEMENT;
 
   /**
    * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
@@ -956,6 +974,15 @@ public interface MyDslPackage extends EPackage
   int STATEMENT_BLOCK__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
 
   /**
+   * The feature id for the '<em><b>Switch Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__SWITCH_STATEMENT = STATEMENT__SWITCH_STATEMENT;
+
+  /**
    * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1019,6 +1046,34 @@ public interface MyDslPackage extends EPackage
   int STATEMENT_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.Switch_statementImpl <em>Switch statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.compilador.java.myDsl.impl.Switch_statementImpl
+   * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getSwitch_statement()
+   * @generated
+   */
+  int SWITCH_STATEMENT = 16;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_STATEMENT__STATEMENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Switch statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_STATEMENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.compilador.java.myDsl.impl.While_StatementImpl <em>While Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1026,7 +1081,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getWhile_Statement()
    * @generated
    */
-  int WHILE_STATEMENT = 16;
+  int WHILE_STATEMENT = 17;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -1054,7 +1109,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getDo_Statement()
    * @generated
    */
-  int DO_STATEMENT = 17;
+  int DO_STATEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -1082,7 +1137,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getTry_statement()
    * @generated
    */
-  int TRY_STATEMENT = 19;
+  int TRY_STATEMENT = 20;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -1137,7 +1192,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getImport_statement()
    * @generated
    */
-  int IMPORT_STATEMENT = 20;
+  int IMPORT_STATEMENT = 21;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -1174,7 +1229,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getPackage_statement()
    * @generated
    */
-  int PACKAGE_STATEMENT = 21;
+  int PACKAGE_STATEMENT = 22;
 
   /**
    * The feature id for the '<em><b>Pac Name</b></em>' attribute.
@@ -1884,6 +1939,17 @@ public interface MyDslPackage extends EPackage
   EReference getStatement_TryStatement();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getSwitchStatement <em>Switch Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Switch Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Statement#getSwitchStatement()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_SwitchStatement();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1937,6 +2003,27 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getStatement_ElseStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.Switch_statement <em>Switch statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Switch statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Switch_statement
+   * @generated
+   */
+  EClass getSwitch_statement();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.compilador.java.myDsl.Switch_statement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statement</em>'.
+   * @see org.xtext.compilador.java.myDsl.Switch_statement#getStatement()
+   * @see #getSwitch_statement()
+   * @generated
+   */
+  EReference getSwitch_statement_Statement();
 
   /**
    * Returns the meta object for class '{@link org.xtext.compilador.java.myDsl.While_Statement <em>While Statement</em>}'.
@@ -2665,6 +2752,14 @@ public interface MyDslPackage extends EPackage
     EReference STATEMENT__TRY_STATEMENT = eINSTANCE.getStatement_TryStatement();
 
     /**
+     * The meta object literal for the '<em><b>Switch Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__SWITCH_STATEMENT = eINSTANCE.getStatement_SwitchStatement();
+
+    /**
      * The meta object literal for the '<em><b>Sync Statement</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2703,6 +2798,24 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference STATEMENT__ELSE_STATEMENT = eINSTANCE.getStatement_ElseStatement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.Switch_statementImpl <em>Switch statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.compilador.java.myDsl.impl.Switch_statementImpl
+     * @see org.xtext.compilador.java.myDsl.impl.MyDslPackageImpl#getSwitch_statement()
+     * @generated
+     */
+    EClass SWITCH_STATEMENT = eINSTANCE.getSwitch_statement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH_STATEMENT__STATEMENT = eINSTANCE.getSwitch_statement_Statement();
 
     /**
      * The meta object literal for the '{@link org.xtext.compilador.java.myDsl.impl.While_StatementImpl <em>While Statement</em>}' class.

@@ -189,6 +189,13 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyDslPackage.SWITCH_STATEMENT:
+      {
+        Switch_statement switch_statement = (Switch_statement)theEObject;
+        T result = caseSwitch_statement(switch_statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyDslPackage.WHILE_STATEMENT:
       {
         While_Statement while_Statement = (While_Statement)theEObject;
@@ -487,6 +494,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Switch statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Switch statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSwitch_statement(Switch_statement object)
   {
     return null;
   }

@@ -114,6 +114,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tryStatement" eType="#//Try_statement"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchStatement" eType="#//Switch_statement"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="syncStatement" eType="#//Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -122,6 +124,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="#//Statement"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Switch_statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
+        eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="While_Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"

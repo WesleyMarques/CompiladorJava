@@ -80,6 +80,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATIC_INITIALIZER: return createStatic_initializer();
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
+      case MyDslPackage.SWITCH_STATEMENT: return createSwitch_statement();
       case MyDslPackage.WHILE_STATEMENT: return createWhile_Statement();
       case MyDslPackage.DO_STATEMENT: return createDo_Statement();
       case MyDslPackage.IF_STATEMENT: return createIf_statement();
@@ -265,6 +266,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Switch_statement createSwitch_statement()
+  {
+    Switch_statementImpl switch_statement = new Switch_statementImpl();
+    return switch_statement;
   }
 
   /**

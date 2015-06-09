@@ -32,6 +32,7 @@ import org.xtext.compilador.java.myDsl.Parameter_list;
 import org.xtext.compilador.java.myDsl.Statement;
 import org.xtext.compilador.java.myDsl.Statement_block;
 import org.xtext.compilador.java.myDsl.Static_initializer;
+import org.xtext.compilador.java.myDsl.Switch_statement;
 import org.xtext.compilador.java.myDsl.Try_statement;
 import org.xtext.compilador.java.myDsl.Type;
 import org.xtext.compilador.java.myDsl.Type_declaration;
@@ -108,6 +109,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				else break;
 			case MyDslPackage.STATIC_INITIALIZER:
 				sequence_Static_initializer(context, (Static_initializer) semanticObject); 
+				return; 
+			case MyDslPackage.SWITCH_STATEMENT:
+				sequence_Switch_statement(context, (Switch_statement) semanticObject); 
 				return; 
 			case MyDslPackage.TRY_STATEMENT:
 				sequence_Try_statement(context, (Try_statement) semanticObject); 
@@ -338,6 +342,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getStatic_initializerAccess().getStaticSTATICTerminalRuleCall_0_0(), semanticObject.getStatic());
 		feeder.accept(grammarAccess.getStatic_initializerAccess().getNameStatement_blockParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     statement+=Statement*
+	 */
+	protected void sequence_Switch_statement(EObject context, Switch_statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
