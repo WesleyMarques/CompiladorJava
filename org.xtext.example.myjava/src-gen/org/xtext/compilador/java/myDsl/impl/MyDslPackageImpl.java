@@ -1094,6 +1094,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpression_line_Expression()
+  {
+    return (EReference)expression_lineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getArglist()
   {
     return arglistEClass;
@@ -1435,6 +1445,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     expression_lineEClass = createEClass(EXPRESSION_LINE);
     createEReference(expression_lineEClass, EXPRESSION_LINE__ARGS);
+    createEReference(expression_lineEClass, EXPRESSION_LINE__EXPRESSION);
 
     arglistEClass = createEClass(ARGLIST);
     createEReference(arglistEClass, ARGLIST__EXPRESSION);
@@ -1599,6 +1610,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(expression_lineEClass, Expression_line.class, "Expression_line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_line_Args(), this.getArglist(), null, "args", null, 0, 1, Expression_line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_line_Expression(), this.getExpression_line(), null, "expression", null, 0, 1, Expression_line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arglistEClass, Arglist.class, "Arglist", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArglist_Expression(), this.getExpression(), null, "expression", null, 0, 1, Arglist.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

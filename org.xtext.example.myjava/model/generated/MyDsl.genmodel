@@ -103,6 +103,7 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Expression_line">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression_line/args"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression_line/expression"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Arglist">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Arglist/expression"/>

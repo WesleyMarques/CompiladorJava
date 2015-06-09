@@ -223,7 +223,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((expression=Expression expressionLine=Expression_line) | name=ID | expression=Expression_line | className=Class_name)?
+	 *     (
+	 *         (expression=Expression expressionLine=Expression_line) | 
+	 *         (expression=Expression expressionLine=Expression_line) | 
+	 *         (expression=Expression expressionLine=Expression_line) | 
+	 *         (expression=Expression expressionLine=Expression_line) | 
+	 *         (name=ID expression=Expression_line) | 
+	 *         expression=Expression_line | 
+	 *         expression=Expression_line | 
+	 *         expression=Expression_line | 
+	 *         (className=Class_name expression=Expression_line)
+	 *     )
 	 */
 	protected void sequence_Expression(EObject context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -232,7 +242,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     args=Arglist?
+	 *     (args=Arglist? expression=Expression_line)
 	 */
 	protected void sequence_Expression_line(EObject context, Expression_line semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

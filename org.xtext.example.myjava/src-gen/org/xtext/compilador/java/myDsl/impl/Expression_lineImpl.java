@@ -23,6 +23,7 @@ import org.xtext.compilador.java.myDsl.MyDslPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Expression_lineImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.Expression_lineImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,6 +40,16 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected Arglist args;
+
+  /**
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpression()
+   * @generated
+   * @ordered
+   */
+  protected Expression_line expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,6 +125,54 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression_line getExpression()
+  {
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpression(Expression_line newExpression, NotificationChain msgs)
+  {
+    Expression_line oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPRESSION_LINE__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpression(Expression_line newExpression)
+  {
+    if (newExpression != expression)
+    {
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPRESSION_LINE__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPRESSION_LINE__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPRESSION_LINE__EXPRESSION, newExpression, newExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -121,6 +180,8 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
     {
       case MyDslPackage.EXPRESSION_LINE__ARGS:
         return basicSetArgs(null, msgs);
+      case MyDslPackage.EXPRESSION_LINE__EXPRESSION:
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,6 +198,8 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
     {
       case MyDslPackage.EXPRESSION_LINE__ARGS:
         return getArgs();
+      case MyDslPackage.EXPRESSION_LINE__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,6 +216,9 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
     {
       case MyDslPackage.EXPRESSION_LINE__ARGS:
         setArgs((Arglist)newValue);
+        return;
+      case MyDslPackage.EXPRESSION_LINE__EXPRESSION:
+        setExpression((Expression_line)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,6 +237,9 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
       case MyDslPackage.EXPRESSION_LINE__ARGS:
         setArgs((Arglist)null);
         return;
+      case MyDslPackage.EXPRESSION_LINE__EXPRESSION:
+        setExpression((Expression_line)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -187,6 +256,8 @@ public class Expression_lineImpl extends MinimalEObjectImpl.Container implements
     {
       case MyDslPackage.EXPRESSION_LINE__ARGS:
         return args != null;
+      case MyDslPackage.EXPRESSION_LINE__EXPRESSION:
+        return expression != null;
     }
     return super.eIsSet(featureID);
   }

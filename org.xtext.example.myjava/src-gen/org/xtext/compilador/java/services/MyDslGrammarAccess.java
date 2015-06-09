@@ -1033,26 +1033,62 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final Assignment cExpressionLineAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
 		private final RuleCall cExpressionLineExpression_lineParserRuleCall_0_3_0 = (RuleCall)cExpressionLineAssignment_0_3.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cExpressionAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cExpressionExpressionParserRuleCall_1_1_0 = (RuleCall)cExpressionAssignment_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cExpressionLineAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cExpressionLineExpression_lineParserRuleCall_1_3_0 = (RuleCall)cExpressionLineAssignment_1_3.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cNullKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cFullStopKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cExpressionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cExpressionExpression_lineParserRuleCall_2_1_0 = (RuleCall)cExpressionAssignment_2_1.eContents().get(0);
-		private final Keyword cSuperKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cThisKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final RuleCall cExpressionExpressionParserRuleCall_2_1_0 = (RuleCall)cExpressionAssignment_2_1.eContents().get(0);
+		private final Assignment cExpressionLineAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cExpressionLineExpression_lineParserRuleCall_2_2_0 = (RuleCall)cExpressionLineAssignment_2_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cExpressionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cExpressionExpressionParserRuleCall_3_1_0 = (RuleCall)cExpressionAssignment_3_1.eContents().get(0);
+		private final Assignment cExpressionLineAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cExpressionLineExpression_lineParserRuleCall_3_2_0 = (RuleCall)cExpressionLineAssignment_3_2.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Assignment cNameAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_4_0_0 = (RuleCall)cNameAssignment_4_0.eContents().get(0);
+		private final Assignment cExpressionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cExpressionExpression_lineParserRuleCall_4_1_0 = (RuleCall)cExpressionAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cInstanceofKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cClassNameAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cClassNameClass_nameParserRuleCall_5_1_0 = (RuleCall)cClassNameAssignment_5_1.eContents().get(0);
+		private final Keyword cNullKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cExpressionAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cExpressionExpression_lineParserRuleCall_5_1_0 = (RuleCall)cExpressionAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Keyword cSuperKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cExpressionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cExpressionExpression_lineParserRuleCall_6_1_0 = (RuleCall)cExpressionAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Keyword cThisKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cExpressionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cExpressionExpression_lineParserRuleCall_7_1_0 = (RuleCall)cExpressionAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
+		private final Keyword cInstanceofKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cClassNameAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cClassNameClass_nameParserRuleCall_8_1_0 = (RuleCall)cClassNameAssignment_8_1.eContents().get(0);
+		private final Assignment cExpressionAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cExpressionExpression_lineParserRuleCall_8_2_0 = (RuleCall)cExpressionAssignment_8_2.eContents().get(0);
 		
 		//Expression:
-		//	"(" expression=Expression ")" expressionLine=Expression_line | name=ID | "null" expression=Expression_line | "super"
-		//	| "this" | "instanceof" className=Class_name;
+		//	"(" expression=Expression ")" expressionLine=Expression_line | "[" expression=Expression "]"
+		//	expressionLine=Expression_line | "." expression=Expression expressionLine=Expression_line | "," expression=Expression
+		//	expressionLine=Expression_line | name=ID expression=Expression_line | "null" expression=Expression_line | "super"
+		//	expression=Expression_line | "this" expression=Expression_line | "instanceof" className=Class_name
+		//	expression=Expression_line;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" expression=Expression ")" expressionLine=Expression_line | name=ID | "null" expression=Expression_line | "super" |
-		//"this" | "instanceof" className=Class_name
+		//"(" expression=Expression ")" expressionLine=Expression_line | "[" expression=Expression "]"
+		//expressionLine=Expression_line | "." expression=Expression expressionLine=Expression_line | "," expression=Expression
+		//expressionLine=Expression_line | name=ID expression=Expression_line | "null" expression=Expression_line | "super"
+		//expression=Expression_line | "this" expression=Expression_line | "instanceof" className=Class_name
+		//expression=Expression_line
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"(" expression=Expression ")" expressionLine=Expression_line
@@ -1076,41 +1112,131 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression_line
 		public RuleCall getExpressionLineExpression_lineParserRuleCall_0_3_0() { return cExpressionLineExpression_lineParserRuleCall_0_3_0; }
 
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//"[" expression=Expression "]" expressionLine=Expression_line
+		public Group getGroup_1() { return cGroup_1; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//"["
+		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
 
-		//"null" expression=Expression_line
-		public Group getGroup_2() { return cGroup_2; }
+		//expression=Expression
+		public Assignment getExpressionAssignment_1_1() { return cExpressionAssignment_1_1; }
 
-		//"null"
-		public Keyword getNullKeyword_2_0() { return cNullKeyword_2_0; }
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_1_1_0() { return cExpressionExpressionParserRuleCall_1_1_0; }
 
-		//expression=Expression_line
-		public Assignment getExpressionAssignment_2_1() { return cExpressionAssignment_2_1; }
+		//"]"
+		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
+
+		//expressionLine=Expression_line
+		public Assignment getExpressionLineAssignment_1_3() { return cExpressionLineAssignment_1_3; }
 
 		//Expression_line
-		public RuleCall getExpressionExpression_lineParserRuleCall_2_1_0() { return cExpressionExpression_lineParserRuleCall_2_1_0; }
+		public RuleCall getExpressionLineExpression_lineParserRuleCall_1_3_0() { return cExpressionLineExpression_lineParserRuleCall_1_3_0; }
 
-		//"super"
-		public Keyword getSuperKeyword_3() { return cSuperKeyword_3; }
+		//"." expression=Expression expressionLine=Expression_line
+		public Group getGroup_2() { return cGroup_2; }
 
-		//"this"
-		public Keyword getThisKeyword_4() { return cThisKeyword_4; }
+		//"."
+		public Keyword getFullStopKeyword_2_0() { return cFullStopKeyword_2_0; }
 
-		//"instanceof" className=Class_name
+		//expression=Expression
+		public Assignment getExpressionAssignment_2_1() { return cExpressionAssignment_2_1; }
+
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_2_1_0() { return cExpressionExpressionParserRuleCall_2_1_0; }
+
+		//expressionLine=Expression_line
+		public Assignment getExpressionLineAssignment_2_2() { return cExpressionLineAssignment_2_2; }
+
+		//Expression_line
+		public RuleCall getExpressionLineExpression_lineParserRuleCall_2_2_0() { return cExpressionLineExpression_lineParserRuleCall_2_2_0; }
+
+		//"," expression=Expression expressionLine=Expression_line
+		public Group getGroup_3() { return cGroup_3; }
+
+		//","
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+
+		//expression=Expression
+		public Assignment getExpressionAssignment_3_1() { return cExpressionAssignment_3_1; }
+
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_3_1_0() { return cExpressionExpressionParserRuleCall_3_1_0; }
+
+		//expressionLine=Expression_line
+		public Assignment getExpressionLineAssignment_3_2() { return cExpressionLineAssignment_3_2; }
+
+		//Expression_line
+		public RuleCall getExpressionLineExpression_lineParserRuleCall_3_2_0() { return cExpressionLineExpression_lineParserRuleCall_3_2_0; }
+
+		//name=ID expression=Expression_line
+		public Group getGroup_4() { return cGroup_4; }
+
+		//name=ID
+		public Assignment getNameAssignment_4_0() { return cNameAssignment_4_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_4_0_0() { return cNameIDTerminalRuleCall_4_0_0; }
+
+		//expression=Expression_line
+		public Assignment getExpressionAssignment_4_1() { return cExpressionAssignment_4_1; }
+
+		//Expression_line
+		public RuleCall getExpressionExpression_lineParserRuleCall_4_1_0() { return cExpressionExpression_lineParserRuleCall_4_1_0; }
+
+		//"null" expression=Expression_line
 		public Group getGroup_5() { return cGroup_5; }
 
+		//"null"
+		public Keyword getNullKeyword_5_0() { return cNullKeyword_5_0; }
+
+		//expression=Expression_line
+		public Assignment getExpressionAssignment_5_1() { return cExpressionAssignment_5_1; }
+
+		//Expression_line
+		public RuleCall getExpressionExpression_lineParserRuleCall_5_1_0() { return cExpressionExpression_lineParserRuleCall_5_1_0; }
+
+		//"super" expression=Expression_line
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"super"
+		public Keyword getSuperKeyword_6_0() { return cSuperKeyword_6_0; }
+
+		//expression=Expression_line
+		public Assignment getExpressionAssignment_6_1() { return cExpressionAssignment_6_1; }
+
+		//Expression_line
+		public RuleCall getExpressionExpression_lineParserRuleCall_6_1_0() { return cExpressionExpression_lineParserRuleCall_6_1_0; }
+
+		//"this" expression=Expression_line
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"this"
+		public Keyword getThisKeyword_7_0() { return cThisKeyword_7_0; }
+
+		//expression=Expression_line
+		public Assignment getExpressionAssignment_7_1() { return cExpressionAssignment_7_1; }
+
+		//Expression_line
+		public RuleCall getExpressionExpression_lineParserRuleCall_7_1_0() { return cExpressionExpression_lineParserRuleCall_7_1_0; }
+
+		//"instanceof" className=Class_name expression=Expression_line
+		public Group getGroup_8() { return cGroup_8; }
+
 		//"instanceof"
-		public Keyword getInstanceofKeyword_5_0() { return cInstanceofKeyword_5_0; }
+		public Keyword getInstanceofKeyword_8_0() { return cInstanceofKeyword_8_0; }
 
 		//className=Class_name
-		public Assignment getClassNameAssignment_5_1() { return cClassNameAssignment_5_1; }
+		public Assignment getClassNameAssignment_8_1() { return cClassNameAssignment_8_1; }
 
 		//Class_name
-		public RuleCall getClassNameClass_nameParserRuleCall_5_1_0() { return cClassNameClass_nameParserRuleCall_5_1_0; }
+		public RuleCall getClassNameClass_nameParserRuleCall_8_1_0() { return cClassNameClass_nameParserRuleCall_8_1_0; }
+
+		//expression=Expression_line
+		public Assignment getExpressionAssignment_8_2() { return cExpressionAssignment_8_2; }
+
+		//Expression_line
+		public RuleCall getExpressionExpression_lineParserRuleCall_8_2_0() { return cExpressionExpression_lineParserRuleCall_8_2_0; }
 	}
 
 	public class Expression_lineElements extends AbstractParserRuleElementFinder {
@@ -1120,12 +1246,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cArgsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cArgsArglistParserRuleCall_1_0 = (RuleCall)cArgsAssignment_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpressionExpression_lineParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
 		
 		//Expression_line:
-		//	"(" args=Arglist? ")";
+		//	"(" args=Arglist? ")" expression=Expression_line;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"(" args=Arglist? ")"
+		//"(" args=Arglist? ")" expression=Expression_line
 		public Group getGroup() { return cGroup; }
 
 		//"("
@@ -1139,6 +1267,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+
+		//expression=Expression_line
+		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
+
+		//Expression_line
+		public RuleCall getExpressionExpression_lineParserRuleCall_3_0() { return cExpressionExpression_lineParserRuleCall_3_0; }
 	}
 
 	public class ArglistElements extends AbstractParserRuleElementFinder {
@@ -1908,8 +2042,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Expression:
-	//	"(" expression=Expression ")" expressionLine=Expression_line | name=ID | "null" expression=Expression_line | "super"
-	//	| "this" | "instanceof" className=Class_name;
+	//	"(" expression=Expression ")" expressionLine=Expression_line | "[" expression=Expression "]"
+	//	expressionLine=Expression_line | "." expression=Expression expressionLine=Expression_line | "," expression=Expression
+	//	expressionLine=Expression_line | name=ID expression=Expression_line | "null" expression=Expression_line | "super"
+	//	expression=Expression_line | "this" expression=Expression_line | "instanceof" className=Class_name
+	//	expression=Expression_line;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1919,7 +2056,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Expression_line:
-	//	"(" args=Arglist? ")";
+	//	"(" args=Arglist? ")" expression=Expression_line;
 	public Expression_lineElements getExpression_lineAccess() {
 		return pExpression_line;
 	}

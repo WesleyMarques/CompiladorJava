@@ -112,15 +112,18 @@ Statement:
 
 Expression:
 	"(" expression = Expression ")" expressionLine = Expression_line|
-	name = ID |
+	"[" expression = Expression "]" expressionLine = Expression_line|
+	"." expression = Expression expressionLine = Expression_line|
+	"," expression = Expression expressionLine = Expression_line|
+	name = ID expression = Expression_line|
 	"null" expression = Expression_line|
-	"super" | 
-	"this" | 
-	"instanceof" (className = Class_name)
+	"super" expression = Expression_line| 
+	"this" expression = Expression_line | 
+	"instanceof" (className = Class_name) expression = Expression_line
 ;
 
 Expression_line:
-	"(" (args = Arglist)? ")"
+	"(" (args = Arglist)? ")" expression = Expression_line
 ;
 
 Arglist:
