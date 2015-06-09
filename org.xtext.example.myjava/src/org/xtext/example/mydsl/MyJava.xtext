@@ -78,6 +78,11 @@ Static_initializer:
 	static = STATIC name = Statement_block
 ;
 
+terminal STATIC: 
+	"static"	
+;
+
+
 Statement_block:
 	"{"/*(Statement)*/"}"
 ;
@@ -115,13 +120,21 @@ Package_name_line:
 	("."ID)*
 ;
 
+terminal MOD:
+	"public" 
+      | "private" 
+      | "protected" 
+      | "final" 
+      | "native" 
+      | "synchronized" 
+      | "abstract" 
+      | "threadsafe" 
+      | "transient"
+;
+
 //override eclipse xtext terminals
 terminal ID:
 	('a'..'z'|'A'..'Z'|'_' | '$')('a'..'z'|'A'..'Z'|'_'|'0'..'9' | '$' | '\u00C0' .. '\uFFFF')*	
-;
-
-terminal DOC_COMMENT :
-	"/**"
 ;
 
 terminal ML_COMMENT:
@@ -136,19 +149,7 @@ terminal WS:
 	(" " | "\t" | "\r" | "\n")
 ;
 
-terminal MOD:
-	"public" 
-      | "private" 
-      | "protected" 
-      | "final" 
-      | "native" 
-      | "synchronized" 
-      | "abstract" 
-      | "threadsafe" 
-      | "transient"
-;
-
-terminal STATIC: 
-	"static"	
+terminal DOC_COMMENT :
+	"/**"
 ;
 

@@ -944,6 +944,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final Type_specifierElements pType_specifier;
 	private final ModifierElements pModifier;
 	private final Static_initializerElements pStatic_initializer;
+	private final TerminalRule tSTATIC;
 	private final Statement_blockElements pStatement_block;
 	private final Import_statementElements pImport_statement;
 	private final Class_nameElements pClass_name;
@@ -951,13 +952,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final Package_statementElements pPackage_statement;
 	private final Package_nameElements pPackage_name;
 	private final Package_name_lineElements pPackage_name_line;
+	private final TerminalRule tMOD;
 	private final TerminalRule tID;
-	private final TerminalRule tDOC_COMMENT;
 	private final TerminalRule tML_COMMENT;
 	private final TerminalRule tSL_COMMENT;
 	private final TerminalRule tWS;
-	private final TerminalRule tMOD;
-	private final TerminalRule tSTATIC;
+	private final TerminalRule tDOC_COMMENT;
 	
 	private final Grammar grammar;
 
@@ -980,6 +980,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pType_specifier = new Type_specifierElements();
 		this.pModifier = new ModifierElements();
 		this.pStatic_initializer = new Static_initializerElements();
+		this.tSTATIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STATIC");
 		this.pStatement_block = new Statement_blockElements();
 		this.pImport_statement = new Import_statementElements();
 		this.pClass_name = new Class_nameElements();
@@ -987,13 +988,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPackage_statement = new Package_statementElements();
 		this.pPackage_name = new Package_nameElements();
 		this.pPackage_name_line = new Package_name_lineElements();
+		this.tMOD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MOD");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
-		this.tDOC_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOC_COMMENT");
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT");
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
-		this.tMOD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MOD");
-		this.tSTATIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STATIC");
+		this.tDOC_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DOC_COMMENT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1185,6 +1185,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getStatic_initializerAccess().getRule();
 	}
 
+	//terminal STATIC:
+	//	"static";
+	public TerminalRule getSTATICRule() {
+		return tSTATIC;
+	} 
+
 	//Statement_block:
 	//	"{" / *(Statement)* / "}";
 	public Statement_blockElements getStatement_blockAccess() {
@@ -1260,17 +1266,17 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getPackage_name_lineAccess().getRule();
 	}
 
+	//terminal MOD:
+	//	"public" | "private" | "protected" | "final" | "native" | "synchronized" | "abstract" | "threadsafe" | "transient";
+	public TerminalRule getMODRule() {
+		return tMOD;
+	} 
+
 	////override eclipse xtext terminals
 	//terminal ID:
 	//	("a".."z" | "A".."Z" | "_" | "$") ("a".."z" | "A".."Z" | "_" | "0".."9" | "$" | "À".."￿")*;
 	public TerminalRule getIDRule() {
 		return tID;
-	} 
-
-	//terminal DOC_COMMENT:
-	//	"/ **";
-	public TerminalRule getDOC_COMMENTRule() {
-		return tDOC_COMMENT;
 	} 
 
 	//terminal ML_COMMENT:
@@ -1291,15 +1297,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return tWS;
 	} 
 
-	//terminal MOD:
-	//	"public" | "private" | "protected" | "final" | "native" | "synchronized" | "abstract" | "threadsafe" | "transient";
-	public TerminalRule getMODRule() {
-		return tMOD;
-	} 
-
-	//terminal STATIC:
-	//	"static";
-	public TerminalRule getSTATICRule() {
-		return tSTATIC;
+	//terminal DOC_COMMENT:
+	//	"/ **";
+	public TerminalRule getDOC_COMMENTRule() {
+		return tDOC_COMMENT;
 	} 
 }

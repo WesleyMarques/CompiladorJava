@@ -1654,9 +1654,11 @@ rulePackage_name_line returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 
 
 
-RULE_ID : ('a'..'z'|'A'..'Z'|'_'|'$') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'$'|'\u00C0'..'\uFFFF')*;
+RULE_STATIC : 'static';
 
-RULE_DOC_COMMENT : '/**';
+RULE_MOD : ('public'|'private'|'protected'|'final'|'native'|'synchronized'|'abstract'|'threadsafe'|'transient');
+
+RULE_ID : ('a'..'z'|'A'..'Z'|'_'|'$') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'$'|'\u00C0'..'\uFFFF')*;
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
@@ -1664,8 +1666,6 @@ RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_WS : (' '|'\t'|'\r'|'\n');
 
-RULE_MOD : ('public'|'private'|'protected'|'final'|'native'|'synchronized'|'abstract'|'threadsafe'|'transient');
-
-RULE_STATIC : 'static';
+RULE_DOC_COMMENT : '/**';
 
 
