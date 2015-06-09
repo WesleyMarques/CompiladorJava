@@ -1,10 +1,11 @@
-grammar org.xtext.compilador.java.MyDsl with org.eclipse.xtext.common.Terminals
+grammar org.xtext.compilador.java.MyDsl hidden(WS, ML_COMMENT, SL_COMMENT)
 /*
  * {} 0 ou + -> ()*
  * [] 0 ou 1 - > ()?
  *           ->  ()+   
  */
 generate myDsl "http://www.xtext.org/compilador/java/MyDsl"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
   greetings+=Compilation_unit;
@@ -12,53 +13,45 @@ Model:
 Compilation_unit: name = (Package_statement)? imports += (Import_statement)* typeDeclaration += (Type_declaration)*;
 
 Type_declaration:
-	(comment = DOC_COMMENT)?(classDec = Class_declaration | interfaceDec = Interface_declaration)";"
+	comment = DOC_COMMENT?(classDec = Class_declaration | interfaceDec = Interface_declaration)";"
 ;
 
 Interface_declaration:
-	(modifier = MODIFIER)* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," Interface_name)*)? "{" (fieldDeclaration = Field_declaration)* "}"
+	modifiers += Modifier* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? "{" /*(fieldDeclaration = Field_declaration)* */ "}"
 ;
 
 Class_declaration:
-	(modifier = MODIFIER)* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfacesImplementadas = Interface_name ("," Interface_name)*)? "{" (fieldDeclaration = Field_declaration)* "}"
+	modifiers += Modifier* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? "{" (fieldsDeclaration += (Field_declaration)*) "}"
 ;
 
 Field_declaration:
-	((comment = DOC_COMMENT)? (methodName += Method_declaration | contructorName += Constructor_declaration | variableDeclaration += Variable_declaration)) | staticinitializer = Static_initializer | ";"
-;
-
-Static_initializer:
-	ID
-;
-
-Variable_declaration:
-	ID
-;
-
-Constructor_declaration:
-	(modifierConstructor = MODIFIER)* nameConstructor = ID 
-	"(" (parameterListConstructor = Parameter_list)? ")"(statementConstructor = Statement_block)
+	(comment = DOC_COMMENT? ( variableDeclaration = Variable_declaration | contructorName = Constructor_declaration | methodName = Method_declaration )) | staticinitializer = Static_initializer | {Field_declaration}";"
 ;
 
 Method_declaration:
-	(modifierMethod = MODIFIER)* typeMethod = Type nameMethod = ID 
-	"(" (parameterListMethod = Parameter_list)? ")" ("[]")* (statementMethod = Statement_block | ";")
+	(modifiersMethod += Modifier*) typeMethod = Type nameMethod = ID 
+	"(" parameterListMethod = Parameter_list? ")" ("[]")* (statementMethod = Statement_block | ";")
 ;
 
-Statement_block:
-	"{"(Statement)"}"
-;
-//FIXME: resolver o resto das operações 
-Statement:
-	Variable_declaration | (";")
+Constructor_declaration:
+	(modifiersConstructor += Modifier*) nameConstructor = ID 
+	"(" (parameterListConstructor = Parameter_list)? ")"(statementConstructor = Statement_block)
 ;
 
 Parameter_list:
-	parameter = Parameter (","parameter = Parameter)*
+	parameter = Parameter ("," parameters += Parameter)*
 ;
 
 Parameter:
-	Type parameterName = ID ("[]")*
+	type = Type parameterName = ID ("[]")*
+;
+
+Variable_declaration:
+	(modifiersVariable += Modifier*) type = Type nameVariable = Variable_declarator ("," names += Variable_declarator)* ";"
+;
+
+Variable_declarator:
+	nameVariable = ID ("[]")*
 ;
 
 Type:
@@ -74,14 +67,33 @@ Type_specifier:
       | "float" 
       | "long" 
       | "double" 
-      | Class_name 
-      | Interface_name 
+      | Class_name
 ;
+
+Modifier:
+	(MOD | STATIC)
+;
+
+Static_initializer:
+	static = STATIC name = Statement_block
+;
+
+Statement_block:
+	"{"/*(Statement)*/"}"
+;
+/*FIXME: resolver o resto das operações 
+Statement:
+	Variable_declaration | (";")
+;
+*/
+
+
+
 
 
 //FIXME:força a descer por className --  | interfaceName = Interface_name";"
 Import_statement: 
-	"import" ((pacName = Package_name".*;") | (className = Class_name";"))
+	"import" (((className = Class_name";" | pacName = Package_name".*;")))
 ;
 
 Class_name:
@@ -93,13 +105,14 @@ Interface_name:
 ;
 
 Package_statement:
-	"package" pac_name=Package_name ";";
+	"package" pacName=Package_name ";"
+;
 
 Package_name: 
 	ID Package_name_line
 ;
 Package_name_line: 
-	("."ID)+
+	("."ID)*
 ;
 
 //override eclipse xtext terminals
@@ -108,18 +121,34 @@ terminal ID:
 ;
 
 terminal DOC_COMMENT :
-	"/**" -> "*/"
+	"/**"
 ;
 
-terminal MODIFIER:
-	("public" 
+terminal ML_COMMENT:
+	"/*" -> "*/"
+;
+
+terminal SL_COMMENT:
+	"//" !("\n" | "\r")* ("\r"? "\n")?
+;
+
+terminal WS:
+	(" " | "\t" | "\r" | "\n")
+;
+
+terminal MOD:
+	"public" 
       | "private" 
       | "protected" 
-      | "static" 
       | "final" 
       | "native" 
       | "synchronized" 
       | "abstract" 
       | "threadsafe" 
-      | "transient")
+      | "transient"
 ;
+
+terminal STATIC: 
+	"static"	
+;
+
