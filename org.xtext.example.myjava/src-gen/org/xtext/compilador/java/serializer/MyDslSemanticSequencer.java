@@ -16,11 +16,15 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.compilador.java.myDsl.Arglist;
 import org.xtext.compilador.java.myDsl.Class_declaration;
 import org.xtext.compilador.java.myDsl.Compilation_unit;
 import org.xtext.compilador.java.myDsl.Constructor_declaration;
 import org.xtext.compilador.java.myDsl.Do_Statement;
+import org.xtext.compilador.java.myDsl.Expression;
+import org.xtext.compilador.java.myDsl.Expression_line;
 import org.xtext.compilador.java.myDsl.Field_declaration;
+import org.xtext.compilador.java.myDsl.For_Statement;
 import org.xtext.compilador.java.myDsl.Import_statement;
 import org.xtext.compilador.java.myDsl.Interface_declaration;
 import org.xtext.compilador.java.myDsl.Method_declaration;
@@ -50,6 +54,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == MyDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case MyDslPackage.ARGLIST:
+				sequence_Arglist(context, (Arglist) semanticObject); 
+				return; 
 			case MyDslPackage.CLASS_DECLARATION:
 				sequence_Class_declaration(context, (Class_declaration) semanticObject); 
 				return; 
@@ -62,8 +69,17 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.DO_STATEMENT:
 				sequence_Do_Statement(context, (Do_Statement) semanticObject); 
 				return; 
+			case MyDslPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
+				return; 
+			case MyDslPackage.EXPRESSION_LINE:
+				sequence_Expression_line(context, (Expression_line) semanticObject); 
+				return; 
 			case MyDslPackage.FIELD_DECLARATION:
 				sequence_Field_declaration(context, (Field_declaration) semanticObject); 
+				return; 
+			case MyDslPackage.FOR_STATEMENT:
+				sequence_For_Statement(context, (For_Statement) semanticObject); 
 				return; 
 			case MyDslPackage.IMPORT_STATEMENT:
 				sequence_Import_statement(context, (Import_statement) semanticObject); 
@@ -123,7 +139,11 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Type_declaration(context, (Type_declaration) semanticObject); 
 				return; 
 			case MyDslPackage.VARIABLE_DECLARATION:
-				if(context == grammarAccess.getIf_statementRule()) {
+				if(context == grammarAccess.getFor_StatementRule()) {
+					sequence_For_Statement_Variable_declaration(context, (Variable_declaration) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getIf_statementRule()) {
 					sequence_If_statement_Variable_declaration(context, (Variable_declaration) semanticObject); 
 					return; 
 				}
@@ -142,6 +162,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (expression=Expression expressions+=Expression*)
+	 */
+	protected void sequence_Arglist(EObject context, Arglist semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -194,9 +223,52 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     ((expression=Expression expressionLine=Expression_line) | name=ID | expression=Expression_line | className=Class_name)?
+	 */
+	protected void sequence_Expression(EObject context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     args=Arglist?
+	 */
+	protected void sequence_Expression_line(EObject context, Expression_line semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {Field_declaration}
 	 */
 	protected void sequence_Field_declaration(EObject context, Field_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     statementInFor=Statement
+	 */
+	protected void sequence_For_Statement(EObject context, For_Statement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FOR_STATEMENT__STATEMENT_IN_FOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FOR_STATEMENT__STATEMENT_IN_FOR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFor_StatementAccess().getStatementInForStatementParserRuleCall_4_0(), semanticObject.getStatementInFor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (modifiersVariable+=Modifier* type=Type nameVariable=Variable_declarator names+=Variable_declarator* statementInFor=Statement)
+	 */
+	protected void sequence_For_Statement_Variable_declaration(EObject context, Variable_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

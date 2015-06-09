@@ -11,9 +11,11 @@ package org.xtext.compilador.java.myDsl;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getExpressionStatement <em>Expression Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getWhileStatement <em>While Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getForStatement <em>For Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getSwitchStatement <em>Switch Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}</li>
@@ -30,6 +32,32 @@ package org.xtext.compilador.java.myDsl;
  */
 public interface Statement extends If_statement
 {
+  /**
+   * Returns the value of the '<em><b>Expression Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression Statement</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression Statement</em>' containment reference.
+   * @see #setExpressionStatement(Expression)
+   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_ExpressionStatement()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpressionStatement();
+
+  /**
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getExpressionStatement <em>Expression Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression Statement</em>' containment reference.
+   * @see #getExpressionStatement()
+   * @generated
+   */
+  void setExpressionStatement(Expression value);
+
   /**
    * Returns the value of the '<em><b>If Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -107,6 +135,32 @@ public interface Statement extends If_statement
    * @generated
    */
   void setWhileStatement(While_Statement value);
+
+  /**
+   * Returns the value of the '<em><b>For Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>For Statement</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>For Statement</em>' containment reference.
+   * @see #setForStatement(For_Statement)
+   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getStatement_ForStatement()
+   * @model containment="true"
+   * @generated
+   */
+  For_Statement getForStatement();
+
+  /**
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Statement#getForStatement <em>For Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>For Statement</em>' containment reference.
+   * @see #getForStatement()
+   * @generated
+   */
+  void setForStatement(For_Statement value);
 
   /**
    * Returns the value of the '<em><b>Try Statement</b></em>' containment reference.

@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.compilador.java.myDsl.Do_Statement;
+import org.xtext.compilador.java.myDsl.Expression;
+import org.xtext.compilador.java.myDsl.For_Statement;
 import org.xtext.compilador.java.myDsl.If_statement;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Statement;
@@ -25,9 +27,11 @@ import org.xtext.compilador.java.myDsl.While_Statement;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getExpressionStatement <em>Expression Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getWhileStatement <em>While Statement</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getForStatement <em>For Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSwitchStatement <em>Switch Statement</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
@@ -42,6 +46,16 @@ import org.xtext.compilador.java.myDsl.While_Statement;
  */
 public class StatementImpl extends If_statementImpl implements Statement
 {
+  /**
+   * The cached value of the '{@link #getExpressionStatement() <em>Expression Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpressionStatement()
+   * @generated
+   * @ordered
+   */
+  protected Expression expressionStatement;
+
   /**
    * The cached value of the '{@link #getIfStatement() <em>If Statement</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +85,16 @@ public class StatementImpl extends If_statementImpl implements Statement
    * @ordered
    */
   protected While_Statement whileStatement;
+
+  /**
+   * The cached value of the '{@link #getForStatement() <em>For Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getForStatement()
+   * @generated
+   * @ordered
+   */
+  protected For_Statement forStatement;
 
   /**
    * The cached value of the '{@link #getTryStatement() <em>Try Statement</em>}' containment reference.
@@ -181,6 +205,54 @@ public class StatementImpl extends If_statementImpl implements Statement
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpressionStatement()
+  {
+    return expressionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpressionStatement(Expression newExpressionStatement, NotificationChain msgs)
+  {
+    Expression oldExpressionStatement = expressionStatement;
+    expressionStatement = newExpressionStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, oldExpressionStatement, newExpressionStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpressionStatement(Expression newExpressionStatement)
+  {
+    if (newExpressionStatement != expressionStatement)
+    {
+      NotificationChain msgs = null;
+      if (expressionStatement != null)
+        msgs = ((InternalEObject)expressionStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, null, msgs);
+      if (newExpressionStatement != null)
+        msgs = ((InternalEObject)newExpressionStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, null, msgs);
+      msgs = basicSetExpressionStatement(newExpressionStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__EXPRESSION_STATEMENT, newExpressionStatement, newExpressionStatement));
   }
 
   /**
@@ -325,6 +397,54 @@ public class StatementImpl extends If_statementImpl implements Statement
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__WHILE_STATEMENT, newWhileStatement, newWhileStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public For_Statement getForStatement()
+  {
+    return forStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetForStatement(For_Statement newForStatement, NotificationChain msgs)
+  {
+    For_Statement oldForStatement = forStatement;
+    forStatement = newForStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__FOR_STATEMENT, oldForStatement, newForStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setForStatement(For_Statement newForStatement)
+  {
+    if (newForStatement != forStatement)
+    {
+      NotificationChain msgs = null;
+      if (forStatement != null)
+        msgs = ((InternalEObject)forStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__FOR_STATEMENT, null, msgs);
+      if (newForStatement != null)
+        msgs = ((InternalEObject)newForStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__FOR_STATEMENT, null, msgs);
+      msgs = basicSetForStatement(newForStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__FOR_STATEMENT, newForStatement, newForStatement));
   }
 
   /**
@@ -623,12 +743,16 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
+      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
+        return basicSetExpressionStatement(null, msgs);
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return basicSetIfStatement(null, msgs);
       case MyDslPackage.STATEMENT__DO_STATEMENT:
         return basicSetDoStatement(null, msgs);
       case MyDslPackage.STATEMENT__WHILE_STATEMENT:
         return basicSetWhileStatement(null, msgs);
+      case MyDslPackage.STATEMENT__FOR_STATEMENT:
+        return basicSetForStatement(null, msgs);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return basicSetTryStatement(null, msgs);
       case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
@@ -653,12 +777,16 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
+      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
+        return getExpressionStatement();
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return getIfStatement();
       case MyDslPackage.STATEMENT__DO_STATEMENT:
         return getDoStatement();
       case MyDslPackage.STATEMENT__WHILE_STATEMENT:
         return getWhileStatement();
+      case MyDslPackage.STATEMENT__FOR_STATEMENT:
+        return getForStatement();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
       case MyDslPackage.STATEMENT__SWITCH_STATEMENT:
@@ -687,6 +815,9 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
+      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
+        setExpressionStatement((Expression)newValue);
+        return;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         setIfStatement((If_statement)newValue);
         return;
@@ -695,6 +826,9 @@ public class StatementImpl extends If_statementImpl implements Statement
         return;
       case MyDslPackage.STATEMENT__WHILE_STATEMENT:
         setWhileStatement((While_Statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__FOR_STATEMENT:
+        setForStatement((For_Statement)newValue);
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
@@ -731,6 +865,9 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
+      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
+        setExpressionStatement((Expression)null);
+        return;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         setIfStatement((If_statement)null);
         return;
@@ -739,6 +876,9 @@ public class StatementImpl extends If_statementImpl implements Statement
         return;
       case MyDslPackage.STATEMENT__WHILE_STATEMENT:
         setWhileStatement((While_Statement)null);
+        return;
+      case MyDslPackage.STATEMENT__FOR_STATEMENT:
+        setForStatement((For_Statement)null);
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
@@ -775,12 +915,16 @@ public class StatementImpl extends If_statementImpl implements Statement
   {
     switch (featureID)
     {
+      case MyDslPackage.STATEMENT__EXPRESSION_STATEMENT:
+        return expressionStatement != null;
       case MyDslPackage.STATEMENT__IF_STATEMENT:
         return ifStatement != null;
       case MyDslPackage.STATEMENT__DO_STATEMENT:
         return doStatement != null;
       case MyDslPackage.STATEMENT__WHILE_STATEMENT:
         return whileStatement != null;
+      case MyDslPackage.STATEMENT__FOR_STATEMENT:
+        return forStatement != null;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
       case MyDslPackage.STATEMENT__SWITCH_STATEMENT:

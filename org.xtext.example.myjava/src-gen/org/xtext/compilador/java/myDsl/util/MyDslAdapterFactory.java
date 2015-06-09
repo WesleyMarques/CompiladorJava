@@ -155,6 +155,26 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseExpression_line(Expression_line object)
+      {
+        return createExpression_lineAdapter();
+      }
+      @Override
+      public Adapter caseArglist(Arglist object)
+      {
+        return createArglistAdapter();
+      }
+      @Override
+      public Adapter caseFor_Statement(For_Statement object)
+      {
+        return createFor_StatementAdapter();
+      }
+      @Override
       public Adapter caseSwitch_statement(Switch_statement object)
       {
         return createSwitch_statementAdapter();
@@ -447,6 +467,66 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Expression_line <em>Expression line</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Expression_line
+   * @generated
+   */
+  public Adapter createExpression_lineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Arglist <em>Arglist</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Arglist
+   * @generated
+   */
+  public Adapter createArglistAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.For_Statement <em>For Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.For_Statement
+   * @generated
+   */
+  public Adapter createFor_StatementAdapter()
   {
     return null;
   }

@@ -81,7 +81,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable_declaration" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable_declaration" eSuperTypes="#//Statement #//For_Statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiersVariable" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
@@ -106,11 +106,15 @@
         eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" eSuperTypes="#//If_statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionStatement" eType="#//Expression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifStatement" eType="#//If_statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doStatement" eType="#//Do_Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="whileStatement" eType="#//While_Statement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forStatement" eType="#//For_Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tryStatement" eType="#//Try_statement"
         containment="true"/>
@@ -123,6 +127,28 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="#//Statement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionLine" eType="#//Expression_line"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression_line">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//Arglist"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arglist">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="For_Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statementInFor" eType="#//Statement"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Switch_statement">

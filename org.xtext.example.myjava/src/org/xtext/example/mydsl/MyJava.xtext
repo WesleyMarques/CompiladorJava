@@ -93,12 +93,12 @@ Statement_block:
 //FIXME: resolver Expression em todas operações 
 Statement:
 	Statement_block |
-	/*expressionStatement = Expression ";" */ 
+	expressionStatement = Expression ";" |
 	Variable_declaration |
 	ifStatement = If_statement | 
 	doStatement = Do_Statement| 
 	whileStatement = While_Statement |
-	/*forStatement = For_Statement |*/
+	forStatement = For_Statement |
 	tryStatement = Try_statement |
 	switchStatement = Switch_statement |
 	{Statement}"synchronized(" /*Expression */ ")" syncStatement = Statement |
@@ -108,6 +108,28 @@ Statement:
 	{Statement} "break" name = ID? ";" |
 	{Statement}"continue" name = ID? ";" | 
 	{Statement}(";")
+;
+
+Expression:
+	"(" expression = Expression ")" expressionLine = Expression_line|
+	name = ID |
+	"null" expression = Expression_line|
+	"super" | 
+	"this" | 
+	"instanceof" (className = Class_name)
+;
+
+Expression_line:
+	"(" (args = Arglist)? ")"
+;
+
+Arglist:
+	expression = Expression ("," expressions += Expression)*
+;
+
+For_Statement:
+	"for(" (Variable_declaration | /*(Expression  ";") |*/ ";") /*(Expression)?*/ ";"
+	 /*(Expression)?*/ ";)" statementInFor = Statement
 ;
 
 Switch_statement:

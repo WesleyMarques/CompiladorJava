@@ -9,11 +9,15 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.compilador.java.myDsl.Arglist;
 import org.xtext.compilador.java.myDsl.Class_declaration;
 import org.xtext.compilador.java.myDsl.Compilation_unit;
 import org.xtext.compilador.java.myDsl.Constructor_declaration;
 import org.xtext.compilador.java.myDsl.Do_Statement;
+import org.xtext.compilador.java.myDsl.Expression;
+import org.xtext.compilador.java.myDsl.Expression_line;
 import org.xtext.compilador.java.myDsl.Field_declaration;
+import org.xtext.compilador.java.myDsl.For_Statement;
 import org.xtext.compilador.java.myDsl.If_statement;
 import org.xtext.compilador.java.myDsl.Import_statement;
 import org.xtext.compilador.java.myDsl.Interface_declaration;
@@ -154,6 +158,34 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expression_lineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arglistEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass for_StatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -872,7 +904,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_IfStatement()
+  public EReference getStatement_ExpressionStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(0);
   }
@@ -882,7 +914,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_DoStatement()
+  public EReference getStatement_IfStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(1);
   }
@@ -892,7 +924,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_WhileStatement()
+  public EReference getStatement_DoStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(2);
   }
@@ -902,7 +934,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_TryStatement()
+  public EReference getStatement_WhileStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(3);
   }
@@ -912,7 +944,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_SwitchStatement()
+  public EReference getStatement_ForStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(4);
   }
@@ -922,7 +954,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_SyncStatement()
+  public EReference getStatement_TryStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(5);
   }
@@ -932,9 +964,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_NameStatement()
+  public EReference getStatement_SwitchStatement()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(6);
+    return (EReference)statementEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -942,7 +974,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_Statement()
+  public EReference getStatement_SyncStatement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(7);
   }
@@ -952,7 +984,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_Name()
+  public EAttribute getStatement_NameStatement()
   {
     return (EAttribute)statementEClass.getEStructuralFeatures().get(8);
   }
@@ -962,9 +994,149 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStatement_ElseStatement()
+  public EReference getStatement_Statement()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_Name()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStatement_ElseStatement()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpression()
+  {
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_Expression()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_ExpressionLine()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpression_Name()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpression_ClassName()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpression_line()
+  {
+    return expression_lineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_line_Args()
+  {
+    return (EReference)expression_lineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArglist()
+  {
+    return arglistEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArglist_Expression()
+  {
+    return (EReference)arglistEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArglist_Expressions()
+  {
+    return (EReference)arglistEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFor_Statement()
+  {
+    return for_StatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFor_Statement_StatementInFor()
+  {
+    return (EReference)for_StatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1242,9 +1414,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(statement_blockEClass, STATEMENT_BLOCK__STATMENTS);
 
     statementEClass = createEClass(STATEMENT);
+    createEReference(statementEClass, STATEMENT__EXPRESSION_STATEMENT);
     createEReference(statementEClass, STATEMENT__IF_STATEMENT);
     createEReference(statementEClass, STATEMENT__DO_STATEMENT);
     createEReference(statementEClass, STATEMENT__WHILE_STATEMENT);
+    createEReference(statementEClass, STATEMENT__FOR_STATEMENT);
     createEReference(statementEClass, STATEMENT__TRY_STATEMENT);
     createEReference(statementEClass, STATEMENT__SWITCH_STATEMENT);
     createEReference(statementEClass, STATEMENT__SYNC_STATEMENT);
@@ -1252,6 +1426,22 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(statementEClass, STATEMENT__STATEMENT);
     createEAttribute(statementEClass, STATEMENT__NAME);
     createEReference(statementEClass, STATEMENT__ELSE_STATEMENT);
+
+    expressionEClass = createEClass(EXPRESSION);
+    createEReference(expressionEClass, EXPRESSION__EXPRESSION);
+    createEReference(expressionEClass, EXPRESSION__EXPRESSION_LINE);
+    createEAttribute(expressionEClass, EXPRESSION__NAME);
+    createEAttribute(expressionEClass, EXPRESSION__CLASS_NAME);
+
+    expression_lineEClass = createEClass(EXPRESSION_LINE);
+    createEReference(expression_lineEClass, EXPRESSION_LINE__ARGS);
+
+    arglistEClass = createEClass(ARGLIST);
+    createEReference(arglistEClass, ARGLIST__EXPRESSION);
+    createEReference(arglistEClass, ARGLIST__EXPRESSIONS);
+
+    for_StatementEClass = createEClass(FOR_STATEMENT);
+    createEReference(for_StatementEClass, FOR_STATEMENT__STATEMENT_IN_FOR);
 
     switch_statementEClass = createEClass(SWITCH_STATEMENT);
     createEReference(switch_statementEClass, SWITCH_STATEMENT__STATEMENT);
@@ -1308,6 +1498,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     // Add supertypes to classes
     variable_declarationEClass.getESuperTypes().add(this.getStatement());
+    variable_declarationEClass.getESuperTypes().add(this.getFor_Statement());
     statement_blockEClass.getESuperTypes().add(this.getStatement());
     statementEClass.getESuperTypes().add(this.getIf_statement());
 
@@ -1387,9 +1578,11 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getStatement_block_Statments(), this.getStatement(), null, "statments", null, 0, -1, Statement_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStatement_ExpressionStatement(), this.getExpression(), null, "expressionStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_IfStatement(), this.getIf_statement(), null, "ifStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_DoStatement(), this.getDo_Statement(), null, "doStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_WhileStatement(), this.getWhile_Statement(), null, "whileStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_ForStatement(), this.getFor_Statement(), null, "forStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_TryStatement(), this.getTry_statement(), null, "tryStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_SwitchStatement(), this.getSwitch_statement(), null, "switchStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_SyncStatement(), this.getStatement(), null, "syncStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1397,6 +1590,22 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_ElseStatement(), this.getStatement(), null, "elseStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpression_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_ExpressionLine(), this.getExpression_line(), null, "expressionLine", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expression_lineEClass, Expression_line.class, "Expression_line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpression_line_Args(), this.getArglist(), null, "args", null, 0, 1, Expression_line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arglistEClass, Arglist.class, "Arglist", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArglist_Expression(), this.getExpression(), null, "expression", null, 0, 1, Arglist.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArglist_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, Arglist.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(for_StatementEClass, For_Statement.class, "For_Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFor_Statement_StatementInFor(), this.getStatement(), null, "statementInFor", null, 0, 1, For_Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(switch_statementEClass, Switch_statement.class, "Switch_statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSwitch_statement_Statement(), this.getStatement(), null, "statement", null, 0, -1, Switch_statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
