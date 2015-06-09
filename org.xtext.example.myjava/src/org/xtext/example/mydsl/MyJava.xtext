@@ -1,0 +1,125 @@
+grammar org.xtext.compilador.java.MyDsl with org.eclipse.xtext.common.Terminals
+/*
+ * {} 0 ou + -> ()*
+ * [] 0 ou 1 - > ()?
+ *           ->  ()+   
+ */
+generate myDsl "http://www.xtext.org/compilador/java/MyDsl"
+
+Model:
+  greetings+=Compilation_unit;
+  
+Compilation_unit: name = (Package_statement)? imports += (Import_statement)* typeDeclaration += (Type_declaration)*;
+
+Type_declaration:
+	(comment = DOC_COMMENT)?(classDec = Class_declaration | interfaceDec = Interface_declaration)";"
+;
+
+Interface_declaration:
+	(modifier = MODIFIER)* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," Interface_name)*)? "{" (fieldDeclaration = Field_declaration)* "}"
+;
+
+Class_declaration:
+	(modifier = MODIFIER)* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfacesImplementadas = Interface_name ("," Interface_name)*)? "{" (fieldDeclaration = Field_declaration)* "}"
+;
+
+Field_declaration:
+	((comment = DOC_COMMENT)? (methodName += Method_declaration | contructorName += Constructor_declaration | variableDeclaration += Variable_declaration)) | staticinitializer = Static_initializer | ";"
+;
+
+Static_initializer:
+	ID
+;
+
+Variable_declaration:
+	ID
+;
+
+Constructor_declaration:
+	(modifierConstructor = MODIFIER)* nameConstructor = ID 
+	"(" (parameterListConstructor = Parameter_list)? ")"(statementConstructor = Statement_block)
+;
+
+Method_declaration:
+	(modifierMethod = MODIFIER)* typeMethod = Type nameMethod = ID 
+	"(" (parameterListMethod = Parameter_list)? ")" ("[]")* (statementMethod = Statement_block | ";")
+;
+
+Statement_block:
+	"{"(Statement)"}"
+;
+//FIXME: resolver o resto das operações 
+Statement:
+	Variable_declaration | (";")
+;
+
+Parameter_list:
+	parameter = Parameter (","parameter = Parameter)*
+;
+
+Parameter:
+	Type parameterName = ID ("[]")*
+;
+
+Type:
+	typeSpecifier = Type_specifier ("[]")*
+;
+
+Type_specifier:
+	"boolean" 
+      | "byte" 
+      | "char" 
+      | "short" 
+      | "int" 
+      | "float" 
+      | "long" 
+      | "double" 
+      | Class_name 
+      | Interface_name 
+;
+
+
+//FIXME:força a descer por className --  | interfaceName = Interface_name";"
+Import_statement: 
+	"import" ((pacName = Package_name".*;") | (className = Class_name";"))
+;
+
+Class_name:
+	Package_name	
+;
+
+Interface_name:
+	Package_name	
+;
+
+Package_statement:
+	"package" pac_name=Package_name ";";
+
+Package_name: 
+	ID Package_name_line
+;
+Package_name_line: 
+	("."ID)+
+;
+
+//override eclipse xtext terminals
+terminal ID:
+	('a'..'z'|'A'..'Z'|'_' | '$')('a'..'z'|'A'..'Z'|'_'|'0'..'9' | '$' | '\u00C0' .. '\uFFFF')*	
+;
+
+terminal DOC_COMMENT :
+	"/**" -> "*/"
+;
+
+terminal MODIFIER:
+	("public" 
+      | "private" 
+      | "protected" 
+      | "static" 
+      | "final" 
+      | "native" 
+      | "synchronized" 
+      | "abstract" 
+      | "threadsafe" 
+      | "transient")
+;
