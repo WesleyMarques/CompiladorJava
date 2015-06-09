@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.compilador.java.myDsl.Compilation_unit#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.Compilation_unit#getImports <em>Imports</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.Compilation_unit#getTypeDeclaration <em>Type Declaration</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.Compilation_unit#getTypeDeclarations <em>Type Declarations</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,19 +69,19 @@ public interface Compilation_unit extends EObject
   EList<Import_statement> getImports();
 
   /**
-   * Returns the value of the '<em><b>Type Declaration</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Type Declarations</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.compilador.java.myDsl.Type_declaration}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Declaration</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Type Declarations</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Declaration</em>' containment reference list.
-   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getCompilation_unit_TypeDeclaration()
+   * @return the value of the '<em>Type Declarations</em>' containment reference list.
+   * @see org.xtext.compilador.java.myDsl.MyDslPackage#getCompilation_unit_TypeDeclarations()
    * @model containment="true"
    * @generated
    */
-  EList<Type_declaration> getTypeDeclaration();
+  EList<Type_declaration> getTypeDeclarations();
 
 } // Compilation_unit

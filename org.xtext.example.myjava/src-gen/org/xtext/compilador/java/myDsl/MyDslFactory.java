@@ -149,6 +149,24 @@ public interface MyDslFactory extends EFactory
   Static_initializer createStatic_initializer();
 
   /**
+   * Returns a new object of class '<em>Statement block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement block</em>'.
+   * @generated
+   */
+  Statement_block createStatement_block();
+
+  /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
+
+  /**
    * Returns a new object of class '<em>Import statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

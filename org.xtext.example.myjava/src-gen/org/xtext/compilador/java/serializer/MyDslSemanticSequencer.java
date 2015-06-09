@@ -28,6 +28,7 @@ import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Package_statement;
 import org.xtext.compilador.java.myDsl.Parameter;
 import org.xtext.compilador.java.myDsl.Parameter_list;
+import org.xtext.compilador.java.myDsl.Statement;
 import org.xtext.compilador.java.myDsl.Static_initializer;
 import org.xtext.compilador.java.myDsl.Type;
 import org.xtext.compilador.java.myDsl.Type_declaration;
@@ -77,6 +78,16 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.PARAMETER_LIST:
 				sequence_Parameter_list(context, (Parameter_list) semanticObject); 
 				return; 
+			case MyDslPackage.STATEMENT:
+				if(context == grammarAccess.getStatementRule()) {
+					sequence_Statement(context, (Statement) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getStatement_blockRule()) {
+					sequence_Statement_block(context, (Statement) semanticObject); 
+					return; 
+				}
+				else break;
 			case MyDslPackage.STATIC_INITIALIZER:
 				sequence_Static_initializer(context, (Static_initializer) semanticObject); 
 				return; 
@@ -113,7 +124,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=Package_statement? imports+=Import_statement* typeDeclaration+=Type_declaration*)
+	 *     (name=Package_statement? imports+=Import_statement* typeDeclarations+=Type_declaration*)
 	 */
 	protected void sequence_Compilation_unit(EObject context, Compilation_unit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -214,6 +225,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (parameter=Parameter parameters+=Parameter*)
 	 */
 	protected void sequence_Parameter_list(EObject context, Parameter_list semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? | name=ID?)?
+	 */
+	protected void sequence_Statement(EObject context, Statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (statments+=Statement*)
+	 */
+	protected void sequence_Statement_block(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

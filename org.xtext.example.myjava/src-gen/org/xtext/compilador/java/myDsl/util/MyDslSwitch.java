@@ -146,6 +146,8 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Variable_declaration variable_declaration = (Variable_declaration)theEObject;
         T result = caseVariable_declaration(variable_declaration);
+        if (result == null) result = caseStatement(variable_declaration);
+        if (result == null) result = caseStatement_block(variable_declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,6 +169,21 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Static_initializer static_initializer = (Static_initializer)theEObject;
         T result = caseStatic_initializer(static_initializer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.STATEMENT_BLOCK:
+      {
+        Statement_block statement_block = (Statement_block)theEObject;
+        T result = caseStatement_block(statement_block);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.STATEMENT:
+      {
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
+        if (result == null) result = caseStatement_block(statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -408,6 +425,38 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatic_initializer(Static_initializer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatement_block(Statement_block object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatement(Statement object)
   {
     return null;
   }

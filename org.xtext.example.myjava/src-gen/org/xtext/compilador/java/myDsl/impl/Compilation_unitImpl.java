@@ -33,7 +33,7 @@ import org.xtext.compilador.java.myDsl.Type_declaration;
  * <ul>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Compilation_unitImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.compilador.java.myDsl.impl.Compilation_unitImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link org.xtext.compilador.java.myDsl.impl.Compilation_unitImpl#getTypeDeclaration <em>Type Declaration</em>}</li>
+ *   <li>{@link org.xtext.compilador.java.myDsl.impl.Compilation_unitImpl#getTypeDeclarations <em>Type Declarations</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,14 +62,14 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
   protected EList<Import_statement> imports;
 
   /**
-   * The cached value of the '{@link #getTypeDeclaration() <em>Type Declaration</em>}' containment reference list.
+   * The cached value of the '{@link #getTypeDeclarations() <em>Type Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypeDeclaration()
+   * @see #getTypeDeclarations()
    * @generated
    * @ordered
    */
-  protected EList<Type_declaration> typeDeclaration;
+  protected EList<Type_declaration> typeDeclarations;
 
   /**
    * <!-- begin-user-doc -->
@@ -159,13 +159,13 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type_declaration> getTypeDeclaration()
+  public EList<Type_declaration> getTypeDeclarations()
   {
-    if (typeDeclaration == null)
+    if (typeDeclarations == null)
     {
-      typeDeclaration = new EObjectContainmentEList<Type_declaration>(Type_declaration.class, this, MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATION);
+      typeDeclarations = new EObjectContainmentEList<Type_declaration>(Type_declaration.class, this, MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATIONS);
     }
-    return typeDeclaration;
+    return typeDeclarations;
   }
 
   /**
@@ -182,8 +182,8 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
         return basicSetName(null, msgs);
       case MyDslPackage.COMPILATION_UNIT__IMPORTS:
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATION:
-        return ((InternalEList<?>)getTypeDeclaration()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATIONS:
+        return ((InternalEList<?>)getTypeDeclarations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -202,8 +202,8 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
         return getName();
       case MyDslPackage.COMPILATION_UNIT__IMPORTS:
         return getImports();
-      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATION:
-        return getTypeDeclaration();
+      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATIONS:
+        return getTypeDeclarations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -226,9 +226,9 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
         getImports().clear();
         getImports().addAll((Collection<? extends Import_statement>)newValue);
         return;
-      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATION:
-        getTypeDeclaration().clear();
-        getTypeDeclaration().addAll((Collection<? extends Type_declaration>)newValue);
+      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATIONS:
+        getTypeDeclarations().clear();
+        getTypeDeclarations().addAll((Collection<? extends Type_declaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -250,8 +250,8 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
       case MyDslPackage.COMPILATION_UNIT__IMPORTS:
         getImports().clear();
         return;
-      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATION:
-        getTypeDeclaration().clear();
+      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATIONS:
+        getTypeDeclarations().clear();
         return;
     }
     super.eUnset(featureID);
@@ -271,8 +271,8 @@ public class Compilation_unitImpl extends MinimalEObjectImpl.Container implement
         return name != null;
       case MyDslPackage.COMPILATION_UNIT__IMPORTS:
         return imports != null && !imports.isEmpty();
-      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATION:
-        return typeDeclaration != null && !typeDeclaration.isEmpty();
+      case MyDslPackage.COMPILATION_UNIT__TYPE_DECLARATIONS:
+        return typeDeclarations != null && !typeDeclarations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

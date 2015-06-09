@@ -13,7 +13,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Compilation_unit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Compilation_unit/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Compilation_unit/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Compilation_unit/typeDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Compilation_unit/typeDeclarations"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Type_declaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Type_declaration/comment"/>
@@ -46,13 +46,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Method_declaration/typeMethod"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Method_declaration/nameMethod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Method_declaration/parameterListMethod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Method_declaration/statementMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Method_declaration/statementMethod"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Constructor_declaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Constructor_declaration/modifiersConstructor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Constructor_declaration/nameConstructor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Constructor_declaration/parameterListConstructor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Constructor_declaration/statementConstructor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Constructor_declaration/statementConstructor"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Parameter_list">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Parameter_list/parameter"/>
@@ -76,7 +76,12 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Static_initializer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Static_initializer/static"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Static_initializer/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Static_initializer/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Statement_block"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/statments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Import_statement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Import_statement/className"/>

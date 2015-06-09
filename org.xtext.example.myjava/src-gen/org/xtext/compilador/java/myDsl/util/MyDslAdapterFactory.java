@@ -145,6 +145,16 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createStatic_initializerAdapter();
       }
       @Override
+      public Adapter caseStatement_block(Statement_block object)
+      {
+        return createStatement_blockAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
       public Adapter caseImport_statement(Import_statement object)
       {
         return createImport_statementAdapter();
@@ -382,6 +392,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatic_initializerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Statement_block <em>Statement block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Statement_block
+   * @generated
+   */
+  public Adapter createStatement_blockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.compilador.java.myDsl.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.compilador.java.myDsl.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
   {
     return null;
   }

@@ -78,6 +78,8 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.VARIABLE_DECLARATOR: return createVariable_declarator();
       case MyDslPackage.TYPE: return createType();
       case MyDslPackage.STATIC_INITIALIZER: return createStatic_initializer();
+      case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
+      case MyDslPackage.STATEMENT: return createStatement();
       case MyDslPackage.IMPORT_STATEMENT: return createImport_statement();
       case MyDslPackage.PACKAGE_STATEMENT: return createPackage_statement();
       default:
@@ -237,6 +239,28 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     Static_initializerImpl static_initializer = new Static_initializerImpl();
     return static_initializer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement_block createStatement_block()
+  {
+    Statement_blockImpl statement_block = new Statement_blockImpl();
+    return statement_block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
   }
 
   /**

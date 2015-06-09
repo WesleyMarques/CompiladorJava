@@ -4,8 +4,6 @@ package org.xtext.compilador.java.myDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Variable declaration</b></em>'.
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Variable_declaration extends EObject
+public interface Variable_declaration extends Statement
 {
   /**
    * Returns the value of the '<em><b>Modifiers Variable</b></em>' attribute list.

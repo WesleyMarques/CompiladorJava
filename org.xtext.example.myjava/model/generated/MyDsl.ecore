@@ -10,7 +10,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//Import_statement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeDeclaration" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeDeclarations" upperBound="-1"
         eType="#//Type_declaration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type_declaration">
@@ -59,7 +59,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterListMethod" eType="#//Parameter_list"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statementMethod" eType="#//Statement_block"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constructor_declaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiersConstructor" unique="false"
@@ -67,7 +68,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameConstructor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterListConstructor"
         eType="#//Parameter_list" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementConstructor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statementConstructor" eType="#//Statement_block"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter_list">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"
@@ -79,7 +81,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable_declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable_declaration" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiersVariable" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
@@ -96,6 +98,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Static_initializer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="static" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Statement_block"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Statement_block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Statement" eSuperTypes="#//Statement_block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statments" upperBound="-1"
+        eType="#//Statement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import_statement">

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.xtext.compilador.java.myDsl.Constructor_declaration;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Parameter_list;
+import org.xtext.compilador.java.myDsl.Statement_block;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,24 +81,14 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
   protected Parameter_list parameterListConstructor;
 
   /**
-   * The default value of the '{@link #getStatementConstructor() <em>Statement Constructor</em>}' attribute.
+   * The cached value of the '{@link #getStatementConstructor() <em>Statement Constructor</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStatementConstructor()
    * @generated
    * @ordered
    */
-  protected static final String STATEMENT_CONSTRUCTOR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStatementConstructor() <em>Statement Constructor</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatementConstructor()
-   * @generated
-   * @ordered
-   */
-  protected String statementConstructor = STATEMENT_CONSTRUCTOR_EDEFAULT;
+  protected Statement_block statementConstructor;
 
   /**
    * <!-- begin-user-doc -->
@@ -210,7 +201,7 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getStatementConstructor()
+  public Statement_block getStatementConstructor()
   {
     return statementConstructor;
   }
@@ -220,12 +211,37 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStatementConstructor(String newStatementConstructor)
+  public NotificationChain basicSetStatementConstructor(Statement_block newStatementConstructor, NotificationChain msgs)
   {
-    String oldStatementConstructor = statementConstructor;
+    Statement_block oldStatementConstructor = statementConstructor;
     statementConstructor = newStatementConstructor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR, oldStatementConstructor, statementConstructor));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR, oldStatementConstructor, newStatementConstructor);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatementConstructor(Statement_block newStatementConstructor)
+  {
+    if (newStatementConstructor != statementConstructor)
+    {
+      NotificationChain msgs = null;
+      if (statementConstructor != null)
+        msgs = ((InternalEObject)statementConstructor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR, null, msgs);
+      if (newStatementConstructor != null)
+        msgs = ((InternalEObject)newStatementConstructor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR, null, msgs);
+      msgs = basicSetStatementConstructor(newStatementConstructor, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR, newStatementConstructor, newStatementConstructor));
   }
 
   /**
@@ -240,6 +256,8 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
     {
       case MyDslPackage.CONSTRUCTOR_DECLARATION__PARAMETER_LIST_CONSTRUCTOR:
         return basicSetParameterListConstructor(null, msgs);
+      case MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR:
+        return basicSetStatementConstructor(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -288,7 +306,7 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
         setParameterListConstructor((Parameter_list)newValue);
         return;
       case MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR:
-        setStatementConstructor((String)newValue);
+        setStatementConstructor((Statement_block)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -314,7 +332,7 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
         setParameterListConstructor((Parameter_list)null);
         return;
       case MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR:
-        setStatementConstructor(STATEMENT_CONSTRUCTOR_EDEFAULT);
+        setStatementConstructor((Statement_block)null);
         return;
     }
     super.eUnset(featureID);
@@ -337,7 +355,7 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
       case MyDslPackage.CONSTRUCTOR_DECLARATION__PARAMETER_LIST_CONSTRUCTOR:
         return parameterListConstructor != null;
       case MyDslPackage.CONSTRUCTOR_DECLARATION__STATEMENT_CONSTRUCTOR:
-        return STATEMENT_CONSTRUCTOR_EDEFAULT == null ? statementConstructor != null : !STATEMENT_CONSTRUCTOR_EDEFAULT.equals(statementConstructor);
+        return statementConstructor != null;
     }
     return super.eIsSet(featureID);
   }
@@ -357,8 +375,6 @@ public class Constructor_declarationImpl extends MinimalEObjectImpl.Container im
     result.append(modifiersConstructor);
     result.append(", nameConstructor: ");
     result.append(nameConstructor);
-    result.append(", statementConstructor: ");
-    result.append(statementConstructor);
     result.append(')');
     return result.toString();
   }

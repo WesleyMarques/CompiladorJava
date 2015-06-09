@@ -3,13 +3,16 @@
 package org.xtext.compilador.java.myDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.compilador.java.myDsl.MyDslPackage;
+import org.xtext.compilador.java.myDsl.Statement_block;
 import org.xtext.compilador.java.myDsl.Static_initializer;
 
 /**
@@ -49,24 +52,14 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
   protected String static_ = STATIC_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Statement_block name;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,7 +110,7 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Statement_block getName()
   {
     return name;
   }
@@ -127,12 +120,53 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetName(Statement_block newName, NotificationChain msgs)
   {
-    String oldName = name;
+    Statement_block oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATIC_INITIALIZER__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATIC_INITIALIZER__NAME, oldName, newName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(Statement_block newName)
+  {
+    if (newName != name)
+    {
+      NotificationChain msgs = null;
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATIC_INITIALIZER__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATIC_INITIALIZER__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATIC_INITIALIZER__NAME, newName, newName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.STATIC_INITIALIZER__NAME:
+        return basicSetName(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -167,7 +201,7 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
         setStatic((String)newValue);
         return;
       case MyDslPackage.STATIC_INITIALIZER__NAME:
-        setName((String)newValue);
+        setName((Statement_block)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -187,7 +221,7 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
         setStatic(STATIC_EDEFAULT);
         return;
       case MyDslPackage.STATIC_INITIALIZER__NAME:
-        setName(NAME_EDEFAULT);
+        setName((Statement_block)null);
         return;
     }
     super.eUnset(featureID);
@@ -206,7 +240,7 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
       case MyDslPackage.STATIC_INITIALIZER__STATIC:
         return STATIC_EDEFAULT == null ? static_ != null : !STATIC_EDEFAULT.equals(static_);
       case MyDslPackage.STATIC_INITIALIZER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
   }
@@ -224,8 +258,6 @@ public class Static_initializerImpl extends MinimalEObjectImpl.Container impleme
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (static: ");
     result.append(static_);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

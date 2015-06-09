@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.xtext.compilador.java.myDsl.Method_declaration;
 import org.xtext.compilador.java.myDsl.MyDslPackage;
 import org.xtext.compilador.java.myDsl.Parameter_list;
+import org.xtext.compilador.java.myDsl.Statement_block;
 import org.xtext.compilador.java.myDsl.Type;
 
 /**
@@ -92,24 +93,14 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
   protected Parameter_list parameterListMethod;
 
   /**
-   * The default value of the '{@link #getStatementMethod() <em>Statement Method</em>}' attribute.
+   * The cached value of the '{@link #getStatementMethod() <em>Statement Method</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStatementMethod()
    * @generated
    * @ordered
    */
-  protected static final String STATEMENT_METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStatementMethod() <em>Statement Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatementMethod()
-   * @generated
-   * @ordered
-   */
-  protected String statementMethod = STATEMENT_METHOD_EDEFAULT;
+  protected Statement_block statementMethod;
 
   /**
    * <!-- begin-user-doc -->
@@ -270,7 +261,7 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getStatementMethod()
+  public Statement_block getStatementMethod()
   {
     return statementMethod;
   }
@@ -280,12 +271,37 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStatementMethod(String newStatementMethod)
+  public NotificationChain basicSetStatementMethod(Statement_block newStatementMethod, NotificationChain msgs)
   {
-    String oldStatementMethod = statementMethod;
+    Statement_block oldStatementMethod = statementMethod;
     statementMethod = newStatementMethod;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD, oldStatementMethod, statementMethod));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD, oldStatementMethod, newStatementMethod);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatementMethod(Statement_block newStatementMethod)
+  {
+    if (newStatementMethod != statementMethod)
+    {
+      NotificationChain msgs = null;
+      if (statementMethod != null)
+        msgs = ((InternalEObject)statementMethod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD, null, msgs);
+      if (newStatementMethod != null)
+        msgs = ((InternalEObject)newStatementMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD, null, msgs);
+      msgs = basicSetStatementMethod(newStatementMethod, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD, newStatementMethod, newStatementMethod));
   }
 
   /**
@@ -302,6 +318,8 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
         return basicSetTypeMethod(null, msgs);
       case MyDslPackage.METHOD_DECLARATION__PARAMETER_LIST_METHOD:
         return basicSetParameterListMethod(null, msgs);
+      case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
+        return basicSetStatementMethod(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -355,7 +373,7 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
         setParameterListMethod((Parameter_list)newValue);
         return;
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
-        setStatementMethod((String)newValue);
+        setStatementMethod((Statement_block)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -384,7 +402,7 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
         setParameterListMethod((Parameter_list)null);
         return;
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
-        setStatementMethod(STATEMENT_METHOD_EDEFAULT);
+        setStatementMethod((Statement_block)null);
         return;
     }
     super.eUnset(featureID);
@@ -409,7 +427,7 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
       case MyDslPackage.METHOD_DECLARATION__PARAMETER_LIST_METHOD:
         return parameterListMethod != null;
       case MyDslPackage.METHOD_DECLARATION__STATEMENT_METHOD:
-        return STATEMENT_METHOD_EDEFAULT == null ? statementMethod != null : !STATEMENT_METHOD_EDEFAULT.equals(statementMethod);
+        return statementMethod != null;
     }
     return super.eIsSet(featureID);
   }
@@ -429,8 +447,6 @@ public class Method_declarationImpl extends MinimalEObjectImpl.Container impleme
     result.append(modifiersMethod);
     result.append(", nameMethod: ");
     result.append(nameMethod);
-    result.append(", statementMethod: ");
-    result.append(statementMethod);
     result.append(')');
     return result.toString();
   }

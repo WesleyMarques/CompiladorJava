@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -40,7 +39,7 @@ import org.xtext.compilador.java.myDsl.Variable_declarator;
  *
  * @generated
  */
-public class Variable_declarationImpl extends MinimalEObjectImpl.Container implements Variable_declaration
+public class Variable_declarationImpl extends StatementImpl implements Variable_declaration
 {
   /**
    * The cached value of the '{@link #getModifiersVariable() <em>Modifiers Variable</em>}' attribute list.

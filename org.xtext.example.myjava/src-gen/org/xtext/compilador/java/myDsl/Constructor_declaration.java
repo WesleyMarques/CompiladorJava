@@ -96,29 +96,29 @@ public interface Constructor_declaration extends EObject
   void setParameterListConstructor(Parameter_list value);
 
   /**
-   * Returns the value of the '<em><b>Statement Constructor</b></em>' attribute.
+   * Returns the value of the '<em><b>Statement Constructor</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statement Constructor</em>' attribute isn't clear,
+   * If the meaning of the '<em>Statement Constructor</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statement Constructor</em>' attribute.
-   * @see #setStatementConstructor(String)
+   * @return the value of the '<em>Statement Constructor</em>' containment reference.
+   * @see #setStatementConstructor(Statement_block)
    * @see org.xtext.compilador.java.myDsl.MyDslPackage#getConstructor_declaration_StatementConstructor()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getStatementConstructor();
+  Statement_block getStatementConstructor();
 
   /**
-   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Constructor_declaration#getStatementConstructor <em>Statement Constructor</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Constructor_declaration#getStatementConstructor <em>Statement Constructor</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Statement Constructor</em>' attribute.
+   * @param value the new value of the '<em>Statement Constructor</em>' containment reference.
    * @see #getStatementConstructor()
    * @generated
    */
-  void setStatementConstructor(String value);
+  void setStatementConstructor(Statement_block value);
 
 } // Constructor_declaration

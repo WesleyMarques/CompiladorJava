@@ -123,29 +123,29 @@ public interface Method_declaration extends EObject
   void setParameterListMethod(Parameter_list value);
 
   /**
-   * Returns the value of the '<em><b>Statement Method</b></em>' attribute.
+   * Returns the value of the '<em><b>Statement Method</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statement Method</em>' attribute isn't clear,
+   * If the meaning of the '<em>Statement Method</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statement Method</em>' attribute.
-   * @see #setStatementMethod(String)
+   * @return the value of the '<em>Statement Method</em>' containment reference.
+   * @see #setStatementMethod(Statement_block)
    * @see org.xtext.compilador.java.myDsl.MyDslPackage#getMethod_declaration_StatementMethod()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getStatementMethod();
+  Statement_block getStatementMethod();
 
   /**
-   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Method_declaration#getStatementMethod <em>Statement Method</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.compilador.java.myDsl.Method_declaration#getStatementMethod <em>Statement Method</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Statement Method</em>' attribute.
+   * @param value the new value of the '<em>Statement Method</em>' containment reference.
    * @see #getStatementMethod()
    * @generated
    */
-  void setStatementMethod(String value);
+  void setStatementMethod(Statement_block value);
 
 } // Method_declaration
