@@ -1,0 +1,267 @@
+grammar org.xtext.example.mydsl.MyJava hidden(WS, ML_COMMENT, SL_COMMENT)
+generate myJava "http://www.xtext.org/example/mydsl/MyJava"
+
+/*
+ * {} 0 ou + -> ()*
+ * [] 0 ou 1 - > ()?
+ *           ->  ()+   
+ */
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+  greetings+=Compilation_unit;
+  
+Compilation_unit:
+	name = (Package_statement)? imports += (Import_statement)* typeDeclarations += (Type_declaration)*
+;
+
+Type_declaration:
+	comment = DOC_COMMENT?(classDec = Class_declaration | interfaceDec = Interface_declaration)";"
+;
+
+Interface_declaration:
+	modifiers += Modifier* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? "{" /*(fieldDeclaration = Field_declaration)* */ "}"
+;
+
+Class_declaration:
+	modifiers += Modifier* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? "{" (fieldsDeclaration += Field_declaration*) "}"
+;
+
+Field_declaration:
+	(comment = DOC_COMMENT? ( variableDeclaration = Variable_declaration | contructorName = Constructor_declaration | methodName = Method_declaration )) | staticinitializer = Static_initializer | ";"
+;
+
+Method_declaration:
+	(modifiersMethod += Modifier)* typeMethod=Type nameMethod=ID 
+	lParen = LPAREN parameterListMethod=Parameter_list? rparent = RPAREN ("[""]")* (statementMethod=Statement_block | debug = ";")
+;
+
+Constructor_declaration:
+	(modifiersConstructor += Modifier*) nameConstructor = ID 
+	lParen = LPAREN (parameterListConstructor = Parameter_list)? rparent = RPAREN(statementConstructor = Statement_block)
+;
+
+Parameter_list:
+	parameter = Parameter ("," parameters += Parameter)*
+;
+
+Parameter:
+type = Type parameterName = ID ("[""]")*
+;
+
+Variable_declaration:
+	(modifiersVariable += Modifier)* type = Type nameVariable = Variable_declarator ("," names += Variable_declarator)* ";"
+;
+
+Variable_declarator:
+	nameVariable = ID ("[""]")* //( EQUAL Variable_initialize)?
+;
+
+//Variable_initialize:
+//	
+//;
+
+Type:
+	typeSpecifier = Type_specifier ("[""]")*
+;
+
+Type_specifier:
+	"boolean" 
+      | "byte" 
+      | "char" 
+      | "short" 
+      | "int" 
+      | "float" 
+      | "long" 
+      | "double" 
+      | Class_name
+;
+
+Modifier:
+	(MOD | STATIC)
+;
+
+terminal STATIC: 
+	"static"	
+;
+Static_initializer:
+	static = STATIC name = Statement_block
+;
+
+
+
+Statement_block:
+	{Statement_block}"{" statments += Statement* "}"
+;
+//FIXME: resolver Expression em todas operações 
+Statement:
+	variableDeclaration = Variable_declaration |
+	expressionStatement += Expression g=";" |
+	ifStatement = If_statement | 
+	doStatement = Do_Statement| 
+	whileStatement = While_Statement |
+	forStatement = For_Statement |
+	switchStatement = Switch_statement |
+	"synchronized(" /*Expression */ rparent = RPAREN syncStatement = Statement|
+	{Statement}"return" /*(Expression)? */ ";" |
+	{Statement}"throw" /*(Expression)? */ ";" | 	
+	Statement_block |
+	tryStatement = Try_statement |
+	nameStatement = ID ":" statement = Statement | 	
+	{Statement}"break" name = ID? ";" |
+	{Statement}"continue" name = ID? ";" | 
+	{Statement}";"
+;
+
+Expression:
+	expression = Numeric_Expression |
+	lParen = LPAREN expression = Expression rparent = RPAREN expressionLine = Expression_line|
+	"[" expression = Expression "]" expressionLine = Expression_line|
+	"." expression = Expression expressionLine = Expression_line|
+	"," expression = Expression expressionLine = Expression_line|
+	name = ID expression = Expression_line|
+	"null" expression = Expression_line |
+	"super" expression = Expression_line| 
+	"this" expression = Expression_line 
+	
+;
+
+Numeric_Expression:
+	unaryOp = UNARYOP expression = Expression numericExpressionLine = Numeric_Expression_line
+;
+
+Numeric_Expression_line:
+	increment = INCREMENT expressionLine = Expression_line | op = OP expression = Expression expressionLine = Expression_line | {Expression_line}
+;
+
+
+
+UNARYOP:
+	(MINUS) | INCREMENT
+; 
+
+INCREMENT:
+	("--"|"++")
+;
+
+terminal  PLUS:
+	'+'
+;
+
+terminal  MINUS:
+	'-'
+;
+
+terminal  EQUAL:
+	'='
+;
+
+OP:
+	(PLUS|MINUS|"+="|"-="|"*"|"*="|"/"|"/="|"%"|"%=")
+;
+Expression_line:
+	lParen = LPAREN /*(args = Arglist)?*/ rparent = RPAREN expression = Expression_line | {Expression_line}
+;
+
+Arglist:
+	expression = Expression ("," expressions += Expression)*
+;
+
+
+Switch_statement:
+	{Switch_statement}"switch" lParen = LPAREN/*Expression */rparent = RPAREN "{" (("case" /*Expression */ ":") | ("default:")
+		| (switchStatements += Statement))*"}"
+;
+
+For_Statement:
+	"for(" (variable = Variable_declaration | /*(Expression  ";") |*/ ";")
+	 /*(Expression)?*/ ";"
+	 /*(Expression)?*/ ";"rParent = RPAREN
+	 forStatement = Statement
+;
+
+While_Statement:
+	"while("/*Epression */rparent = RPAREN whileStatement = Statement 
+;
+
+Do_Statement:
+	"do" doStatement = Statement "while(" /*doWhileExpression = Expression*/ rparent = RPAREN";" 
+;
+
+If_statement:
+	"if("/*expression*/ rparent = RPAREN idStatement = Statement (=>"else" elseStatement = Statement)?
+;
+
+Try_statement:
+	"try" tryStatement = Statement 
+	(=>"catch" lParen = LPAREN parameters += Parameter rparent = RPAREN catchStatement += Statement)* 
+	(=>"finally" finallyStatement = Statement)?
+;
+
+//FIXME:força a descer por className --  | interfaceName = Interface_name";"
+Import_statement: 
+	"import" (((className = Class_name";" | pacName = Package_name".*;")))
+;
+
+Class_name:
+	Package_name	
+;
+
+Interface_name:
+	Package_name	
+;
+
+Package_statement:
+	"package" pacName=Package_name ";"
+;
+
+Package_name: 
+	ID Package_name_line
+;
+Package_name_line: 
+	("."ID)*
+;
+
+terminal RPAREN:
+	")"
+;
+
+terminal LPAREN:
+	"("
+;
+
+terminal MOD:
+	"public" 
+      | "private" 
+      | "protected" 
+      | "final" 
+      | "native" 
+      | "synchronized" 
+      | "abstract" 
+      | "threadsafe" 
+      | "transient"
+;
+
+//override eclipse xtext terminals
+terminal ID:
+	('a'..'z'|'A'..'Z'|'_' | '$')('a'..'z'|'A'..'Z'|'_'|'0'..'9' | '$' | '\u00C0' .. '\uFFFF')*	
+;
+
+terminal ML_COMMENT:
+	"/*" -> "*/"
+;
+
+terminal SL_COMMENT:
+	"//" !("\n" | "\r")* ("\r"? "\n")?
+;
+
+terminal WS:
+	(" " | "\t" | "\r" | "\n")
+;
+
+terminal DOC_COMMENT :
+	"/**"
+;
+
+
+
