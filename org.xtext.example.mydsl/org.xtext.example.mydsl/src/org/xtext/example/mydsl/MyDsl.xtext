@@ -1,0 +1,523 @@
+grammar org.xtext.example.mydsl.MyDsl hidden(WS, ML_COMMENT, SL_COMMENT)
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+
+/*
+ * {} 0 ou + -> ()*
+ * [] 0 ou 1 - > ()?
+ *           ->  ()+   
+ */
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+  greetings+=Compilation_unit;
+  
+Compilation_unit:
+	{Compilation_unit}name = (Package_statement)? imports += (Import_statement)* typeDeclarations += (Type_declaration)*
+;
+
+Type_declaration:
+	comment = DOC_COMMENT?(classDec = Class_declaration | interfaceDec = Interface_declaration)";"
+;
+
+Interface_declaration:
+	modifiers += Modifier* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? "{" /*(fieldDeclaration = Field_declaration)* */ "}"
+;
+
+Class_declaration:
+	modifiers += Modifier* "class" className = ID ("extends" classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? "{" (fieldsDeclaration += Field_declaration*) "}"
+;
+
+Field_declaration:
+	(comment = DOC_COMMENT? ( variableDeclaration = Variable_declaration | contructorName = Constructor_declaration | methodName = Method_declaration )) | staticinitializer = Static_initializer | {Field_declaration}";"
+;
+
+Method_declaration:
+	(modifiersMethod += Modifier)* typeMethod=Type nameMethod=ID 
+	lParen = LPAREN parameterListMethod=Parameter_list? rparent = RPAREN ("[""]")* (statementMethod=Statement_block | debug = ";")
+;
+
+Constructor_declaration:
+	(modifiersConstructor += Modifier*) nameConstructor = ID 
+	lParen = LPAREN (parameterListConstructor = Parameter_list)? rparent = RPAREN(statementConstructor = Statement_block)
+;
+
+Parameter_list:
+	parameter = Parameter ("," parameters += Parameter)*
+;
+
+Parameter:
+type = Type parameterName = ID ("[""]")*
+;
+
+Variable_declaration:
+	(modifiersVariable += Modifier)* type = Type nameVariable = Variable_declarator ("," names += Variable_declarator)* ";"
+;
+
+Variable_declarator:
+	nameVariable = ID ("[""]")*   ("="vari = Variable_initializer)?
+;
+
+Variable_initializer:
+	Array_initializer | Expression
+;
+
+Array_initializer:
+	{Array_initializer} 
+	"{" (variableinitializer += Variable_initializer ("," variableinitializer += Variable_initializer)* (',')?)? "}"
+;
+
+
+Type:
+	typeSpecifier = Type_specifier ("[""]")*
+;
+
+Type_specifier:
+	"boolean" 
+      | "byte" 
+      | "char" 
+      | "short" 
+      | "int" 
+      | "float" 
+      | "long" 
+      | "double" 
+      | Class_name
+;
+
+Modifier:
+	(MOD | STATIC)
+;
+
+terminal STATIC: 
+	"static"	
+;
+Static_initializer:
+	static = STATIC name = Statement_block
+;
+
+
+
+Statement_block:
+	{Statement_block}"{" statments += Statement* "}"
+;
+//FIXME: resolver Expression em todas operações 
+Statement:
+	variableDeclaration = Variable_declaration |
+	expressionStatement += Expression g=";" |
+	ifStatement = If_statement | 
+	doStatement = Do_Statement| 
+	whileStatement = While_Statement |
+	forStatement = For_Statement |
+	switchStatement = Switch_statement |
+	"synchronized(" expression = Expression rparent = RPAREN syncStatement = Statement|
+	{Statement}"return" (expression = Expression)?  ";" |
+	{Statement}"throw" (expression = Expression)? ";" | 	
+	Statement_block |
+	tryStatement = Try_statement |
+	nameStatement = ID ":" statement = Statement | 	
+	{Statement}"break" name = ID? ";" |
+	{Statement}"continue" name = ID? ";" | 
+	{Statement}";"
+;
+
+//##################################  For
+
+For_Statement:
+	"for" lparent = LPAREN forControl = For_control rParent = RPAREN
+	 forStatement = Statement
+;
+
+For_control:
+	{For_control} 
+	(
+		forinit = For_init? ';' expression = For_expression? ';' forupdate = For_update?
+	)
+;
+
+Variable:
+	name = ID
+;
+
+Variable_value:
+	name = Literal
+;
+
+Primitive_type:
+	name = Type_specifier
+;
+
+For_init: //usual For init loop
+	{For_init}  
+	type = Primitive_type var = Variable '=' var_init = Variable_value
+;
+
+For_expression:
+	{For_expression}
+	variable1 = Variable 
+	//('<' | '>' | '<' '=' | '>' '=')
+	ExpOp = For_expression_operator 
+	//(variable2 = Variable ) //if another variablle is declared before the For declaration 
+	limit = Variable_value
+	//check with more expressions	
+;
+
+For_update:
+	{For_update}
+	variable = Variable //('++' | '--')
+	updateOp = For_update_operator
+;
+
+
+For_update_operator:
+	{For_update_operator}
+	name = Update_operator
+;
+
+Update_operator:
+	'++' | '--'
+;
+
+For_expression_operator:
+	{For_expression_operator} //check if it works with the options
+	name = Relational_operator
+;
+
+
+
+//################################## EXPRESSOES
+
+Parens_expression:
+	lparent = LPAREN expression = Expression rparent = RPAREN
+;
+
+Expression_list:
+	expression1 = Expression (',' expression2 += Expression)*
+;
+
+Expression:
+	Conditional_expression (=> assignmentoperator = Assignment_operator expression = Expression)?
+;
+
+Conditional_expression:
+	conditionalorexpression = Conditional_OR_expression ('?' expression1 = Expression ':' expression2 = Expression)?
+;
+
+Conditional_OR_expression:
+	conditionalandexpression += Conditional_AND_expression ('||' conditionalandexpression += Conditional_AND_expression)*
+;
+
+Conditional_AND_expression:
+	inclusiveorexpression += Inclusive_OR_expression ('&&' inclusiveorexpression += Inclusive_OR_expression)*
+;
+
+Inclusive_OR_expression:
+	exclusiveorexpression += Exclusive_OR_expression ('|' exclusiveorexpression += Exclusive_OR_expression)*
+;
+
+Exclusive_OR_expression:
+	andexpression += AND_expression ('^' andexpression += AND_expression)*
+;
+
+AND_expression:
+	equalityexpression += Equality_expression ('&' equalityexpression += Equality_expression)*
+;
+
+Equality_expression:
+	instanceofexpression += InstanceOf_expression (('==' | '!=') instanceofexpression += InstanceOf_expression)*
+;
+
+InstanceOf_expression:
+	Relational_expression ('instanceof' type = Type)?
+;
+
+Relational_expression:
+	shiftexpression += Shift_expression (relationalop += Relational_operator shiftexpression += Shift_expression)*
+;
+
+Shift_expression:
+	additiveexpression += Additive_expression (shiftop += Shift_operator additiveexpression += Additive_expression)*
+;
+
+Additive_expression:
+	multiplicativeexpression += Multiplicative_expression (('+' | '-') multiplicativeexpression += Multiplicative_expression)*
+;
+
+Multiplicative_expression:
+	unaryexpression += Unary_expression (('*' | '/' | '%') unaryexpression += Unary_expression)*
+;
+
+Unary_expression:
+	('+' Unary_expression
+	| '-' Unary_expression
+	| '++' Unary_expression
+	| '--' Unary_expression
+	| Unary_expression_Not_Plus_Minus)
+;
+
+Unary_expression_Not_Plus_Minus:
+	{Unary_expression_Not_Plus_Minus}
+	('~' unaryexpression = Unary_expression
+	| '!' unaryexpression = Unary_expression
+	| castexpression = Cast_expression
+	| primary = Primary_expression selector += Selector* ('++' | '--')?)
+;
+
+Cast_expression:
+	{Cast_expression}
+	lparent = LPAREN primitivetype = Primitive_type rparent = RPAREN unaryexpression = Unary_expression
+	| lparent = LPAREN (type = Type | expression = Expression) rparent = RPAREN unaryexpressionnotplusminus = Unary_expression_Not_Plus_Minus
+;
+
+Primary_expression:
+	{Primary_expression}
+	(parexpression = Parens_expression
+	| 'this' ('.' identifier += ID)* (=>identifiersuffix = Identifier_suffix)?
+	| 'super' supersuffix = Super_suffix
+	| literal = Literal
+	| 'new' creator = Creator
+	| identifier += ID ('.' identifier += ID)* (=>identifiersuffix = Identifier_suffix)?
+	| primitivetype = Primitive_type ('[' ']')* '.' 'class'
+	| 'void' '.' 'class')
+;
+
+Identifier_suffix:
+	{Identifier_suffix}
+	(('[' ']')+ '.' 'class'
+//	| ('[' expression += Expression ']')+ // can also be matched by selector, but do here
+	| arguments = Arguments
+	| '.' 'class'
+	| '.' explicitgenericinvocation = Explicit_generic_invocation
+	| '.' 'this'
+	| '.' 'super' arguments = Arguments
+	| '.' 'new' innercreator = Inner_creator)
+;
+
+Creator:
+	Non_wildcard_type_arguments createdname = Created_name classcreatorrest = Class_creator_rest
+	| Created_name (arraycreatorrest = Array_creator_rest | classcreatorrest = Class_creator_rest)
+;
+
+Created_name:
+	{Created_name}
+	(classorinterfacetype = Class_declaration | primitivetype = Primitive_type)
+;
+
+Inner_creator:
+	nonwildcardtypearguments = Non_wildcard_type_arguments? identifier = ID classcreatorrest = Class_creator_rest
+;
+
+Array_creator_rest:
+	'[' (']' ('[' ']')* Array_initializer
+	| expression += Expression ']' (=>'[' expression += Expression ']')* ('[' ']')*)
+;
+
+Class_creator_rest:
+	arguments = Arguments classbody = Class_declaration?
+;
+
+Explicit_generic_invocation:
+	nonwildcardtypearguments = Non_wildcard_type_arguments identifier = ID arguments = Arguments
+;
+
+Non_wildcard_type_arguments:
+	'<' type = Type '>'
+;
+
+Selector:
+	{Selector}
+	(
+	//	'.' identifier = Identifier arguments = Arguments? | 
+	//	'.' 'this' | 
+	'.' 'super' supersuffix = Super_suffix
+	| '.' 'new' innercreator = Inner_creator
+	| '[' expression=Expression ']')
+;
+
+Super_suffix:
+	{Super_suffix} 
+	(arguments = Arguments | '.' identifier = ID arguments = Arguments?)
+;
+
+Arguments:
+	{Arguments} 
+	lparent = LPAREN expressionlist = Expression_list? rparent = RPAREN
+;
+	
+	
+
+Switch_statement:
+	{Switch_statement}"switch" lParen = LPAREN expression = Expression rparent = RPAREN "{" (("case" expression2 += Expression ":") | ("default"":")
+		| (switchStatements += Statement))*"}"
+;
+
+While_Statement:
+	"while("expression = Expression rparent = RPAREN whileStatement = Statement 
+;
+
+Do_Statement:
+	"do" doStatement = Statement "while" lparent = LPAREN /*doWhileExpression = Expression*/ rparent = RPAREN";" 
+;
+
+If_statement:
+	"if" lparen = LPAREN expression = Expression rparent = RPAREN idStatement = Statement (=>"else" elseStatement = Statement)?
+;
+
+Try_statement:
+	"try" tryStatement = Statement 
+	(=>"catch" lParen += LPAREN parameters += Parameter rparent += RPAREN catchStatement += Statement)* 
+	(=>"finally" finallyStatement = Statement)?
+;
+
+//FIXME:força a descer por className --  | interfaceName = Interface_name";"
+Import_statement: 
+	"import" (((className = Class_name";" | pacName = Package_name".*;")))
+;
+
+Class_name:
+	Package_name	
+;
+
+Interface_name:
+	Package_name	
+;
+
+Package_statement:
+	"package" pacName=Package_name ";"
+;
+
+Package_name: 
+	ID Package_name_line
+;
+Package_name_line: 
+	("."ID)*
+;
+
+//################TERMINAIS
+
+Literal:
+	Integer_literal | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | Boolean_literal | 'null'
+;
+
+Integer_literal:
+	HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL
+;
+
+Boolean_literal:
+	'true' | 'false'
+;
+	
+Relational_operator:
+	'<' | '>' | '>' '=' | '<' '='
+;
+
+Assignment_operator:
+	'=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '%='	
+;
+
+Shift_operator:
+	'<' '<' | '>' '>' '>' | '>' '>'
+;
+
+terminal HEX_LITERAL:
+	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?
+;
+
+terminal DECIMAL_LITERAL:
+	('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX?
+;
+
+terminal OCTAL_LITERAL:
+	'0' ('0'..'7')+ INTEGER_TYPE_SUFFIX?
+;
+
+terminal fragment HEX_DIGIT:
+	('0'..'9' | 'a'..'f' | 'A'..'F')
+;
+
+terminal fragment INTEGER_TYPE_SUFFIX:
+	('l' | 'L')
+;
+
+terminal FLOATING_POINT_LITERAL:
+	('0'..'9')+ '.' ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	| '.' ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	| ('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
+	| ('0'..'9')+ FLOAT_TYPE_SUFFIX
+;
+
+terminal fragment EXPONENT:
+	('e' | 'E') ('+' | '-')? ('0'..'9')+
+;
+
+terminal fragment FLOAT_TYPE_SUFFIX:
+	('f' | 'F' | 'd' | 'D')
+;
+
+terminal CHARACTER_LITERAL:
+	'\'' (ESCAPE_SEQUENCE | !('\'' | '\\')) '\''
+;
+
+terminal STRING_LITERAL:
+	'"' (ESCAPE_SEQUENCE | !('\\' | '"'))* '"'
+;
+
+terminal fragment ESCAPE_SEQUENCE:
+	'\\' ('b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\')
+	| UNICODE_ESCAPE
+	| OCTAL_ESCAPE
+;
+
+terminal fragment OCTAL_ESCAPE:
+	'\\' ('0'..'3') ('0'..'7') ('0'..'7')
+	| '\\' ('0'..'7') ('0'..'7')
+	| '\\' ('0'..'7')
+;
+
+terminal fragment UNICODE_ESCAPE:
+	'\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
+terminal RPAREN:
+	")"
+;
+
+terminal LPAREN:
+	"("
+;
+
+terminal MOD:
+	"public" 
+      | "private" 
+      | "protected" 
+      | "final" 
+      | "native" 
+      | "synchronized" 
+      | "abstract" 
+      | "threadsafe" 
+      | "transient"
+;
+
+//override eclipse xtext terminals
+terminal ID:
+	('a'..'z'|'A'..'Z'|'_' | '$')('a'..'z'|'A'..'Z'|'_'|'0'..'9' | '$' | '\u00C0' .. '\uFFFF')*	
+;
+
+terminal ML_COMMENT:
+	"/*" -> "*/"
+;
+
+terminal SL_COMMENT:
+	"//" !("\n" | "\r")* ("\r"? "\n")?
+;
+
+terminal WS:
+	(" " | "\t" | "\r" | "\n")
+;
+
+terminal DOC_COMMENT :
+	"/**"
+;
+
+
+
