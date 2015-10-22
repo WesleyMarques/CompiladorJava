@@ -1011,8 +1011,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 		//	{Statement} "return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block |
-		//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement}
-		//	"continue" name=ID? ";" | {Statement} ";";
+		//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" |
+		//	{Statement} "continue" name=ID? ";" | {Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
 		//variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
@@ -3266,8 +3266,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Switch_statement:
-		//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":"
-		//	| "default" ":" | switchStatements+=Statement)* "}";
+		//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression
+		//	":" | "default" ":" | switchStatements+=Statement)* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":" |
@@ -3512,8 +3512,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinallyStatementStatementParserRuleCall_3_1_0 = (RuleCall)cFinallyStatementAssignment_3_1.eContents().get(0);
 		
 		//Try_statement:
-		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
-		//	("finally" finallyStatement=Statement)?;
+		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
+		//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
@@ -4383,8 +4383,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 	//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 	//	{Statement} "return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block |
-	//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement}
-	//	"continue" name=ID? ";" | {Statement} ";";
+	//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" |
+	//	{Statement} "continue" name=ID? ";" | {Statement} ";";
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -4824,8 +4824,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Switch_statement:
-	//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":"
-	//	| "default" ":" | switchStatements+=Statement)* "}";
+	//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression
+	//	":" | "default" ":" | switchStatements+=Statement)* "}";
 	public Switch_statementElements getSwitch_statementAccess() {
 		return pSwitch_statement;
 	}
@@ -4865,8 +4865,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Try_statement:
-	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
-	//	("finally" finallyStatement=Statement)?;
+	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
+	//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
 	public Try_statementElements getTry_statementAccess() {
 		return pTry_statement;
 	}
@@ -5028,8 +5028,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal FLOATING_POINT_LITERAL:
-	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+ EXPONENT
-	//	FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
+	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+
+	//	EXPONENT FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
 	public TerminalRule getFLOATING_POINT_LITERALRule() {
 		return tFLOATING_POINT_LITERAL;
 	} 

@@ -3,6 +3,14 @@
  */
 package org.xtext.example.mydsl.validation;
 
+import com.google.common.base.Objects;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.eclipse.xtext.validation.Check;
+import org.xtext.example.mydsl.myDsl.Class_declaration;
+import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 
 /**
@@ -12,4 +20,58 @@ import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
  */
 @SuppressWarnings("all")
 public class MyDslValidator extends AbstractMyDslValidator {
+  public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
+  
+  @Check
+  public List<String> addClassesMapa(final Type_declaration td) {
+    List<String> _xifexpression = null;
+    Class_declaration _classDec = td.getClassDec();
+    if ((_classDec instanceof Class_declaration)) {
+      List<String> _xblockexpression = null;
+      {
+        Class_declaration _classDec_1 = td.getClassDec();
+        Class_declaration cd = ((Class_declaration) _classDec_1);
+        String _className = cd.getClassName();
+        String _string = _className.toString();
+        ArrayList<String> _arrayList = new ArrayList<String>();
+        this.classeExtends.put(_string, _arrayList);
+        String _classHerdada = cd.getClassHerdada();
+        boolean _notEquals = (!Objects.equal(_classHerdada, null));
+        if (_notEquals) {
+          String _className_1 = cd.getClassName();
+          String _string_1 = _className_1.toString();
+          List<String> _get = this.classeExtends.get(_string_1);
+          String _classHerdada_1 = cd.getClassHerdada();
+          String _string_2 = _classHerdada_1.toString();
+          _get.add(_string_2);
+          String _classHerdada_2 = cd.getClassHerdada();
+          String _string_3 = _classHerdada_2.toString();
+          ArrayList<String> _arrayList_1 = new ArrayList<String>();
+          this.classeExtends.put(_string_3, _arrayList_1);
+        }
+        List<String> _xifexpression_1 = null;
+        String _interfaceImplementada = cd.getInterfaceImplementada();
+        boolean _notEquals_1 = (!Objects.equal(_interfaceImplementada, null));
+        if (_notEquals_1) {
+          List<String> _xblockexpression_1 = null;
+          {
+            String _className_2 = cd.getClassName();
+            String _string_4 = _className_2.toString();
+            List<String> _get_1 = this.classeExtends.get(_string_4);
+            String _interfaceImplementada_1 = cd.getInterfaceImplementada();
+            String _string_5 = _interfaceImplementada_1.toString();
+            _get_1.add(_string_5);
+            String _interfaceImplementada_2 = cd.getInterfaceImplementada();
+            String _string_6 = _interfaceImplementada_2.toString();
+            ArrayList<String> _arrayList_2 = new ArrayList<String>();
+            _xblockexpression_1 = this.classeExtends.put(_string_6, _arrayList_2);
+          }
+          _xifexpression_1 = _xblockexpression_1;
+        }
+        _xblockexpression = _xifexpression_1;
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
 }

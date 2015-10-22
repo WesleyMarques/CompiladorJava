@@ -3,11 +3,18 @@
  */
 package org.xtext.example.mydsl.validation
 
-//import org.eclipse.xtext.validation.Check
+import java.util.ArrayList
+import java.util.HashMap
+import java.util.List
+import java.util.Map
+import org.eclipse.xtext.validation.Check
+import org.xtext.example.mydsl.myDsl.Class_declaration
+import org.xtext.example.mydsl.myDsl.Type_declaration
 
+//import org.eclipse.xtext.validation.Check
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class MyDslValidator extends AbstractMyDslValidator {
@@ -22,4 +29,21 @@ class MyDslValidator extends AbstractMyDslValidator {
 //					INVALID_NAME)
 //		}
 //	}
+	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
+
+	@Check
+	def addClassesMapa(Type_declaration td) {
+		if (td.classDec instanceof Class_declaration) {
+			var Class_declaration cd = td.classDec as Class_declaration;
+			classeExtends.put(cd.className.toString, new ArrayList<String>());
+			if (cd.classHerdada != null) {
+				classeExtends.get(cd.className.toString).add(cd.classHerdada.toString);
+				classeExtends.put(cd.classHerdada.toString, new ArrayList<String>());
+			}
+			if (cd.interfaceImplementada != null) {
+				classeExtends.get(cd.className.toString).add(cd.interfaceImplementada.toString);
+				classeExtends.put(cd.interfaceImplementada.toString, new ArrayList<String>());
+			}
+		}
+	}
 }
