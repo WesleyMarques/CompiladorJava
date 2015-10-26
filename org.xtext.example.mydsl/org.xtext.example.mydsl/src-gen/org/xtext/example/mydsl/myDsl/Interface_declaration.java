@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getInterfaceName <em>Interface Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getInterfaceHerdada <em>Interface Herdada</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getInterfacesHerdadas <em>Interfaces Herdadas</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getFieldsDeclaration <em>Fields Declaration</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,5 +111,21 @@ public interface Interface_declaration extends EObject
    * @generated
    */
   EList<String> getInterfacesHerdadas();
+
+  /**
+   * Returns the value of the '<em><b>Fields Declaration</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Field_declaration}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fields Declaration</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fields Declaration</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getInterface_declaration_FieldsDeclaration()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Field_declaration> getFieldsDeclaration();
 
 } // Interface_declaration

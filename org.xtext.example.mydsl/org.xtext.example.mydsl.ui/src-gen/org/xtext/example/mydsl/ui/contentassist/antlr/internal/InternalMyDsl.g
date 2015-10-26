@@ -2434,9 +2434,17 @@ rule__Type_specifier__Alternatives
 )
 
     |(
-{ before(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_8()); }
+{ before(grammarAccess.getType_specifierAccess().getVoidKeyword_8()); }
+
+	'void' 
+
+{ after(grammarAccess.getType_specifierAccess().getVoidKeyword_8()); }
+)
+
+    |(
+{ before(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_9()); }
 	ruleClass_name
-{ after(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_8()); }
+{ after(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_9()); }
 )
 
 ;
@@ -3752,6 +3760,7 @@ rule__Interface_declaration__Group__5
     }
 :
 	rule__Interface_declaration__Group__5__Impl
+	rule__Interface_declaration__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3763,17 +3772,47 @@ rule__Interface_declaration__Group__5__Impl
     }
 :
 (
-{ before(grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_5()); }
-
-	'}' 
-
-{ after(grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_5()); }
+{ before(grammarAccess.getInterface_declarationAccess().getFieldsDeclarationAssignment_5()); }
+(rule__Interface_declaration__FieldsDeclarationAssignment_5)*
+{ after(grammarAccess.getInterface_declarationAccess().getFieldsDeclarationAssignment_5()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Interface_declaration__Group__6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Interface_declaration__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interface_declaration__Group__6__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_6()); }
+
+	'}' 
+
+{ after(grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_6()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -16153,6 +16192,21 @@ rule__Interface_declaration__InterfacesHerdadasAssignment_3_2_1
 (
 { before(grammarAccess.getInterface_declarationAccess().getInterfacesHerdadasInterface_nameParserRuleCall_3_2_1_0()); }
 	ruleInterface_name{ after(grammarAccess.getInterface_declarationAccess().getInterfacesHerdadasInterface_nameParserRuleCall_3_2_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interface_declaration__FieldsDeclarationAssignment_5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getInterface_declarationAccess().getFieldsDeclarationField_declarationParserRuleCall_5_0()); }
+	ruleField_declaration{ after(grammarAccess.getInterface_declarationAccess().getFieldsDeclarationField_declarationParserRuleCall_5_0()); }
 )
 
 ;

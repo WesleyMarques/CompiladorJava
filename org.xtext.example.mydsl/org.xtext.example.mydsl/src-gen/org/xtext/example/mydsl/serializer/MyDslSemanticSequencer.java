@@ -752,7 +752,12 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (modifiers+=Modifier* interfaceName=ID (interfaceHerdada=Interface_name interfacesHerdadas+=Interface_name*)?)
+	 *     (
+	 *         modifiers+=Modifier* 
+	 *         interfaceName=ID 
+	 *         (interfaceHerdada=Interface_name interfacesHerdadas+=Interface_name*)? 
+	 *         fieldsDeclaration+=Field_declaration*
+	 *     )
 	 */
 	protected void sequence_Interface_declaration(EObject context, Interface_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

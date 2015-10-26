@@ -374,9 +374,27 @@ ruleInterface_declaration returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getInterface_declarationAccess().getLeftCurlyBracketKeyword_4());
     }
-	otherlv_8='}' 
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getInterface_declarationAccess().getFieldsDeclarationField_declarationParserRuleCall_5_0()); 
+	    }
+		lv_fieldsDeclaration_8_0=ruleField_declaration		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getInterface_declarationRule());
+	        }
+       		add(
+       			$current, 
+       			"fieldsDeclaration",
+        		lv_fieldsDeclaration_8_0, 
+        		"Field_declaration");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_9='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_9, grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;
@@ -1508,11 +1526,18 @@ ruleType_specifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
     }
 
     |
-    { 
-        newCompositeNode(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_8()); 
+	kw='void' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getType_specifierAccess().getVoidKeyword_8()); 
     }
-    this_Class_name_8=ruleClass_name    {
-		$current.merge(this_Class_name_8);
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_9()); 
+    }
+    this_Class_name_9=ruleClass_name    {
+		$current.merge(this_Class_name_9);
     }
 
     { 

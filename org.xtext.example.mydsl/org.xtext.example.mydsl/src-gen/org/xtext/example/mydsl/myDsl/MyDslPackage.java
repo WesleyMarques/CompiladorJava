@@ -223,13 +223,22 @@ public interface MyDslPackage extends EPackage
   int INTERFACE_DECLARATION__INTERFACES_HERDADAS = 3;
 
   /**
+   * The feature id for the '<em><b>Fields Declaration</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_DECLARATION__FIELDS_DECLARATION = 4;
+
+  /**
    * The number of structural features of the '<em>Interface declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE_DECLARATION_FEATURE_COUNT = 4;
+  int INTERFACE_DECLARATION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Class_declarationImpl <em>Class declaration</em>}' class.
@@ -3218,6 +3227,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getInterface_declaration_InterfacesHerdadas();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getFieldsDeclaration <em>Fields Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fields Declaration</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Interface_declaration#getFieldsDeclaration()
+   * @see #getInterface_declaration()
+   * @generated
+   */
+  EReference getInterface_declaration_FieldsDeclaration();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Class_declaration <em>Class declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5814,6 +5834,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute INTERFACE_DECLARATION__INTERFACES_HERDADAS = eINSTANCE.getInterface_declaration_InterfacesHerdadas();
+
+    /**
+     * The meta object literal for the '<em><b>Fields Declaration</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE_DECLARATION__FIELDS_DECLARATION = eINSTANCE.getInterface_declaration_FieldsDeclaration();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Class_declarationImpl <em>Class declaration</em>}' class.

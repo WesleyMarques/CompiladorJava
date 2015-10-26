@@ -22,7 +22,7 @@ Type_declaration:
 ;
 
 Interface_declaration:
-	modifiers += Modifier* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? "{" /*(fieldDeclaration = Field_declaration)* */ "}"
+	modifiers += Modifier* "interface" interfaceName = ID ("extends" interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? "{" (fieldsDeclaration += Field_declaration*) "}"
 ;
 
 Class_declaration:
@@ -81,7 +81,8 @@ Type_specifier:
       | "int" 
       | "float" 
       | "long" 
-      | "double" 
+      | "double"
+      | "void" 
       | Class_name
 ;
 
@@ -518,6 +519,8 @@ terminal WS:
 terminal DOC_COMMENT :
 	"/**"
 ;
+
+
 
 
 

@@ -5,16 +5,21 @@ package org.xtext.example.mydsl.myDsl.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 
@@ -29,6 +34,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getInterfaceName <em>Interface Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getInterfaceHerdada <em>Interface Herdada</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getInterfacesHerdadas <em>Interfaces Herdadas</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getFieldsDeclaration <em>Fields Declaration</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +101,16 @@ public class Interface_declarationImpl extends MinimalEObjectImpl.Container impl
    * @ordered
    */
   protected EList<String> interfacesHerdadas;
+
+  /**
+   * The cached value of the '{@link #getFieldsDeclaration() <em>Fields Declaration</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFieldsDeclaration()
+   * @generated
+   * @ordered
+   */
+  protected EList<Field_declaration> fieldsDeclaration;
 
   /**
    * <!-- begin-user-doc -->
@@ -196,6 +212,36 @@ public class Interface_declarationImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Field_declaration> getFieldsDeclaration()
+  {
+    if (fieldsDeclaration == null)
+    {
+      fieldsDeclaration = new EObjectContainmentEList<Field_declaration>(Field_declaration.class, this, MyDslPackage.INTERFACE_DECLARATION__FIELDS_DECLARATION);
+    }
+    return fieldsDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.INTERFACE_DECLARATION__FIELDS_DECLARATION:
+        return ((InternalEList<?>)getFieldsDeclaration()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -209,6 +255,8 @@ public class Interface_declarationImpl extends MinimalEObjectImpl.Container impl
         return getInterfaceHerdada();
       case MyDslPackage.INTERFACE_DECLARATION__INTERFACES_HERDADAS:
         return getInterfacesHerdadas();
+      case MyDslPackage.INTERFACE_DECLARATION__FIELDS_DECLARATION:
+        return getFieldsDeclaration();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -238,6 +286,10 @@ public class Interface_declarationImpl extends MinimalEObjectImpl.Container impl
         getInterfacesHerdadas().clear();
         getInterfacesHerdadas().addAll((Collection<? extends String>)newValue);
         return;
+      case MyDslPackage.INTERFACE_DECLARATION__FIELDS_DECLARATION:
+        getFieldsDeclaration().clear();
+        getFieldsDeclaration().addAll((Collection<? extends Field_declaration>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -264,6 +316,9 @@ public class Interface_declarationImpl extends MinimalEObjectImpl.Container impl
       case MyDslPackage.INTERFACE_DECLARATION__INTERFACES_HERDADAS:
         getInterfacesHerdadas().clear();
         return;
+      case MyDslPackage.INTERFACE_DECLARATION__FIELDS_DECLARATION:
+        getFieldsDeclaration().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -286,6 +341,8 @@ public class Interface_declarationImpl extends MinimalEObjectImpl.Container impl
         return INTERFACE_HERDADA_EDEFAULT == null ? interfaceHerdada != null : !INTERFACE_HERDADA_EDEFAULT.equals(interfaceHerdada);
       case MyDslPackage.INTERFACE_DECLARATION__INTERFACES_HERDADAS:
         return interfacesHerdadas != null && !interfacesHerdadas.isEmpty();
+      case MyDslPackage.INTERFACE_DECLARATION__FIELDS_DECLARATION:
+        return fieldsDeclaration != null && !fieldsDeclaration.isEmpty();
     }
     return super.eIsSet(featureID);
   }

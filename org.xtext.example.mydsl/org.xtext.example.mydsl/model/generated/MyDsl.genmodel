@@ -25,6 +25,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Interface_declaration/interfaceName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Interface_declaration/interfaceHerdada"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Interface_declaration/interfacesHerdadas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Interface_declaration/fieldsDeclaration"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Class_declaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Class_declaration/modifiers"/>

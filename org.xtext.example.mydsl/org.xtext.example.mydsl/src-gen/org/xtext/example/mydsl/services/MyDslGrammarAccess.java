@@ -134,15 +134,17 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInterfacesHerdadasAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
 		private final RuleCall cInterfacesHerdadasInterface_nameParserRuleCall_3_2_1_0 = (RuleCall)cInterfacesHerdadasAssignment_3_2_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cFieldsDeclarationAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFieldsDeclarationField_declarationParserRuleCall_5_0 = (RuleCall)cFieldsDeclarationAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Interface_declaration:
 		//	modifiers+=Modifier* "interface" interfaceName=ID ("extends" interfaceHerdada=Interface_name (","
-		//	interfacesHerdadas+=Interface_name)*)? "{" / *(fieldDeclaration = Field_declaration)* * / "}";
+		//	interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//modifiers+=Modifier* "interface" interfaceName=ID ("extends" interfaceHerdada=Interface_name (","
-		//interfacesHerdadas+=Interface_name)*)? "{" / *(fieldDeclaration = Field_declaration)* * / "}"
+		//interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}"
 		public Group getGroup() { return cGroup; }
 
 		//modifiers+=Modifier*
@@ -187,8 +189,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
-		/// *(fieldDeclaration = Field_declaration)* * / "}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		//fieldsDeclaration+=Field_declaration*
+		public Assignment getFieldsDeclarationAssignment_5() { return cFieldsDeclarationAssignment_5; }
+
+		//Field_declaration
+		public RuleCall getFieldsDeclarationField_declarationParserRuleCall_5_0() { return cFieldsDeclarationField_declarationParserRuleCall_5_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class Class_declarationElements extends AbstractParserRuleElementFinder {
@@ -823,13 +831,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFloatKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		private final Keyword cLongKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		private final Keyword cDoubleKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final RuleCall cClass_nameParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final Keyword cVoidKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final RuleCall cClass_nameParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		
 		//Type_specifier:
-		//	"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | Class_name;
+		//	"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void" | Class_name;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | Class_name
+		//"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void" | Class_name
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"boolean"
@@ -856,8 +865,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"double"
 		public Keyword getDoubleKeyword_7() { return cDoubleKeyword_7; }
 
+		//"void"
+		public Keyword getVoidKeyword_8() { return cVoidKeyword_8; }
+
 		//Class_name
-		public RuleCall getClass_nameParserRuleCall_8() { return cClass_nameParserRuleCall_8; }
+		public RuleCall getClass_nameParserRuleCall_9() { return cClass_nameParserRuleCall_9; }
 	}
 
 	public class ModifierElements extends AbstractParserRuleElementFinder {
@@ -4206,7 +4218,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Interface_declaration:
 	//	modifiers+=Modifier* "interface" interfaceName=ID ("extends" interfaceHerdada=Interface_name (","
-	//	interfacesHerdadas+=Interface_name)*)? "{" / *(fieldDeclaration = Field_declaration)* * / "}";
+	//	interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}";
 	public Interface_declarationElements getInterface_declarationAccess() {
 		return pInterface_declaration;
 	}
@@ -4332,7 +4344,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Type_specifier:
-	//	"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | Class_name;
+	//	"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void" | Class_name;
 	public Type_specifierElements getType_specifierAccess() {
 		return pType_specifier;
 	}

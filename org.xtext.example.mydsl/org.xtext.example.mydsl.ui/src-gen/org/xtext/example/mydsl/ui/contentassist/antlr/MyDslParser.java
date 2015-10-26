@@ -225,6 +225,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInterface_declarationAccess().getInterfaceNameAssignment_2(), "rule__Interface_declaration__InterfaceNameAssignment_2");
 					put(grammarAccess.getInterface_declarationAccess().getInterfaceHerdadaAssignment_3_1(), "rule__Interface_declaration__InterfaceHerdadaAssignment_3_1");
 					put(grammarAccess.getInterface_declarationAccess().getInterfacesHerdadasAssignment_3_2_1(), "rule__Interface_declaration__InterfacesHerdadasAssignment_3_2_1");
+					put(grammarAccess.getInterface_declarationAccess().getFieldsDeclarationAssignment_5(), "rule__Interface_declaration__FieldsDeclarationAssignment_5");
 					put(grammarAccess.getClass_declarationAccess().getModifiersAssignment_0(), "rule__Class_declaration__ModifiersAssignment_0");
 					put(grammarAccess.getClass_declarationAccess().getClassNameAssignment_2(), "rule__Class_declaration__ClassNameAssignment_2");
 					put(grammarAccess.getClass_declarationAccess().getClassHerdadaAssignment_3_1(), "rule__Class_declaration__ClassHerdadaAssignment_3_1");

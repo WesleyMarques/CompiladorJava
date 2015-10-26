@@ -758,6 +758,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getInterface_declaration_FieldsDeclaration()
+  {
+    return (EReference)interface_declarationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getClass_declaration()
   {
     return class_declarationEClass;
@@ -3081,6 +3091,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(interface_declarationEClass, INTERFACE_DECLARATION__INTERFACE_NAME);
     createEAttribute(interface_declarationEClass, INTERFACE_DECLARATION__INTERFACE_HERDADA);
     createEAttribute(interface_declarationEClass, INTERFACE_DECLARATION__INTERFACES_HERDADAS);
+    createEReference(interface_declarationEClass, INTERFACE_DECLARATION__FIELDS_DECLARATION);
 
     class_declarationEClass = createEClass(CLASS_DECLARATION);
     createEAttribute(class_declarationEClass, CLASS_DECLARATION__MODIFIERS);
@@ -3430,6 +3441,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getInterface_declaration_InterfaceName(), ecorePackage.getEString(), "interfaceName", null, 0, 1, Interface_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInterface_declaration_InterfaceHerdada(), ecorePackage.getEString(), "interfaceHerdada", null, 0, 1, Interface_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInterface_declaration_InterfacesHerdadas(), ecorePackage.getEString(), "interfacesHerdadas", null, 0, -1, Interface_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_declaration_FieldsDeclaration(), this.getField_declaration(), null, "fieldsDeclaration", null, 0, -1, Interface_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(class_declarationEClass, Class_declaration.class, "Class_declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_declaration_Modifiers(), ecorePackage.getEString(), "modifiers", null, 0, -1, Class_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
