@@ -12,6 +12,7 @@ import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
+import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 
@@ -25,17 +26,23 @@ public class MyDslValidator extends AbstractMyDslValidator {
   public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
   
   @Check
-  public void validaTypeDeclaration(final Type_declaration td) {
+  public Object validaTypeDeclaration(final Type_declaration td) {
+    Object _xifexpression = null;
     Class_declaration _classDec = td.getClassDec();
     if ((_classDec instanceof Class_declaration)) {
-      Class_declaration _classDec_1 = td.getClassDec();
-      Class_declaration cd = ((Class_declaration) _classDec_1);
-      this.validaClass(cd);
+      Object _xblockexpression = null;
+      {
+        Class_declaration _classDec_1 = td.getClassDec();
+        Class_declaration cd = ((Class_declaration) _classDec_1);
+        _xblockexpression = this.validaClass(cd);
+      }
+      _xifexpression = _xblockexpression;
     } else {
       Interface_declaration _interfaceDec = td.getInterfaceDec();
       Interface_declaration id = ((Interface_declaration) _interfaceDec);
       this.validaInterface(id);
     }
+    return _xifexpression;
   }
   
   public void validaInterface(final Interface_declaration declaration) {
@@ -47,33 +54,37 @@ public class MyDslValidator extends AbstractMyDslValidator {
     }
   }
   
-  public void validaFieldDeclaration(final Field_declaration declaration) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public Object validaFieldDeclaration(final Field_declaration declaration) {
+    return null;
   }
   
-  public void validaModifiers(final EList<String> list) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public Object validaModifiers(final EList<String> list) {
+    return null;
   }
   
-  public void validaClass(final Class_declaration declaration) {
-    EList<String> _modifiers = declaration.getModifiers();
-    this.validaModifiers(_modifiers);
-    EList<String> interfaces = declaration.getInterfacesImplementadas();
-    String _interfaceImplementada = declaration.getInterfaceImplementada();
-    interfaces.add(_interfaceImplementada);
-    for (final String interfaceName : interfaces) {
-      this.validaHerancaInterface(declaration, interfaceName);
+  public Object validaClass(final Class_declaration declaration) {
+    Object _xblockexpression = null;
+    {
+      EList<String> _modifiers = declaration.getModifiers();
+      this.validaModifiers(_modifiers);
+      EList<String> interfaces = declaration.getInterfacesImplementadas();
+      String _interfaceImplementada = declaration.getInterfaceImplementada();
+      interfaces.add(_interfaceImplementada);
+      for (final String interfaceName : interfaces) {
+        this.validaHerancaInterface(declaration, interfaceName);
+      }
+      String _classHerdada = declaration.getClassHerdada();
+      _xblockexpression = this.validaHerancaClass(_classHerdada);
     }
-    String _classHerdada = declaration.getClassHerdada();
-    this.validaHerancaClass(_classHerdada);
+    return _xblockexpression;
   }
   
-  public void validaHerancaClass(final String string) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public Object validaHerancaClass(final String string) {
+    return null;
   }
   
-  public void validaHerancaInterface(final Class_declaration declaration, final String string) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public Object validaHerancaInterface(final Class_declaration declaration, final String string) {
+    return null;
   }
   
   @Check
@@ -89,6 +100,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
         _and = _equals;
       }
       if (_and) {
+        this.error("Classe name error", md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
       }
     }
   }

@@ -64,9 +64,34 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if(ruleCall.getRule() == grammarAccess.getEXTENDSRule())
+			return getEXTENDSToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getINTERFACERule())
+			return getINTERFACEToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal EXTENDS:
+	 * 	"extends"
+	 * ;
+	 */
+	protected String getEXTENDSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "extends";
+	}
+	
+	/**
+	 * terminal INTERFACE:
+	 * 	"interface"
+	 * ;
+	 */
+	protected String getINTERFACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "interface";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

@@ -122,11 +122,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cModifiersAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cModifiersModifierParserRuleCall_0_0 = (RuleCall)cModifiersAssignment_0.eContents().get(0);
-		private final Keyword cInterfaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cINTERFACETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cInterfaceNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cInterfaceNameIDTerminalRuleCall_2_0 = (RuleCall)cInterfaceNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cEXTENDSTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
 		private final Assignment cInterfaceHerdadaAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cInterfaceHerdadaInterface_nameParserRuleCall_3_1_0 = (RuleCall)cInterfaceHerdadaAssignment_3_1.eContents().get(0);
 		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
@@ -139,11 +139,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Interface_declaration:
-		//	modifiers+=Modifier* "interface" interfaceName=ID ("extends" interfaceHerdada=Interface_name (","
+		//	modifiers+=Modifier* INTERFACE interfaceName=ID (EXTENDS interfaceHerdada=Interface_name (","
 		//	interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//modifiers+=Modifier* "interface" interfaceName=ID ("extends" interfaceHerdada=Interface_name (","
+		//modifiers+=Modifier* INTERFACE interfaceName=ID (EXTENDS interfaceHerdada=Interface_name (","
 		//interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -153,8 +153,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Modifier
 		public RuleCall getModifiersModifierParserRuleCall_0_0() { return cModifiersModifierParserRuleCall_0_0; }
 
-		//"interface"
-		public Keyword getInterfaceKeyword_1() { return cInterfaceKeyword_1; }
+		//INTERFACE
+		public RuleCall getINTERFACETerminalRuleCall_1() { return cINTERFACETerminalRuleCall_1; }
 
 		//interfaceName=ID
 		public Assignment getInterfaceNameAssignment_2() { return cInterfaceNameAssignment_2; }
@@ -162,11 +162,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getInterfaceNameIDTerminalRuleCall_2_0() { return cInterfaceNameIDTerminalRuleCall_2_0; }
 
-		//("extends" interfaceHerdada=Interface_name ("," interfacesHerdadas+=Interface_name)*)?
+		//(EXTENDS interfaceHerdada=Interface_name ("," interfacesHerdadas+=Interface_name)*)?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//"extends"
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
+		//EXTENDS
+		public RuleCall getEXTENDSTerminalRuleCall_3_0() { return cEXTENDSTerminalRuleCall_3_0; }
 
 		//interfaceHerdada=Interface_name
 		public Assignment getInterfaceHerdadaAssignment_3_1() { return cInterfaceHerdadaAssignment_3_1; }
@@ -208,7 +208,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cClassNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cClassNameIDTerminalRuleCall_2_0 = (RuleCall)cClassNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final RuleCall cEXTENDSTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
 		private final Assignment cClassHerdadaAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cClassHerdadaClass_nameParserRuleCall_3_1_0 = (RuleCall)cClassHerdadaAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
@@ -225,12 +225,12 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Class_declaration:
-		//	modifiers+=Modifier* "class" className=ID ("extends" classHerdada=Class_name)? ("implements"
+		//	modifiers+=Modifier* "class" className=ID (EXTENDS classHerdada=Class_name)? ("implements"
 		//	interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? "{"
 		//	fieldsDeclaration+=Field_declaration* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//modifiers+=Modifier* "class" className=ID ("extends" classHerdada=Class_name)? ("implements"
+		//modifiers+=Modifier* "class" className=ID (EXTENDS classHerdada=Class_name)? ("implements"
 		//interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? "{"
 		//fieldsDeclaration+=Field_declaration* "}"
 		public Group getGroup() { return cGroup; }
@@ -250,11 +250,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getClassNameIDTerminalRuleCall_2_0() { return cClassNameIDTerminalRuleCall_2_0; }
 
-		//("extends" classHerdada=Class_name)?
+		//(EXTENDS classHerdada=Class_name)?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//"extends"
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
+		//EXTENDS
+		public RuleCall getEXTENDSTerminalRuleCall_3_0() { return cEXTENDSTerminalRuleCall_3_0; }
 
 		//classHerdada=Class_name
 		public Assignment getClassHerdadaAssignment_3_1() { return cClassHerdadaAssignment_3_1; }
@@ -1023,8 +1023,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 		//	{Statement} "return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block |
-		//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" |
-		//	{Statement} "continue" name=ID? ";" | {Statement} ";";
+		//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement}
+		//	"continue" name=ID? ";" | {Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
 		//variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
@@ -3278,8 +3278,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Switch_statement:
-		//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression
-		//	":" | "default" ":" | switchStatements+=Statement)* "}";
+		//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":"
+		//	| "default" ":" | switchStatements+=Statement)* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":" |
@@ -3524,8 +3524,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinallyStatementStatementParserRuleCall_3_1_0 = (RuleCall)cFinallyStatementAssignment_3_1.eContents().get(0);
 		
 		//Try_statement:
-		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
-		//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
+		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
+		//	("finally" finallyStatement=Statement)?;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
@@ -3958,6 +3958,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final Compilation_unitElements pCompilation_unit;
 	private final Type_declarationElements pType_declaration;
+	private final TerminalRule tINTERFACE;
+	private final TerminalRule tEXTENDS;
 	private final Interface_declarationElements pInterface_declaration;
 	private final Class_declarationElements pClass_declaration;
 	private final Field_declarationElements pField_declaration;
@@ -4064,6 +4066,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pCompilation_unit = new Compilation_unitElements();
 		this.pType_declaration = new Type_declarationElements();
+		this.tINTERFACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INTERFACE");
+		this.tEXTENDS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "EXTENDS");
 		this.pInterface_declaration = new Interface_declarationElements();
 		this.pClass_declaration = new Class_declarationElements();
 		this.pField_declaration = new Field_declarationElements();
@@ -4216,8 +4220,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getType_declarationAccess().getRule();
 	}
 
+	//terminal INTERFACE:
+	//	"interface";
+	public TerminalRule getINTERFACERule() {
+		return tINTERFACE;
+	} 
+
+	//terminal EXTENDS:
+	//	"extends";
+	public TerminalRule getEXTENDSRule() {
+		return tEXTENDS;
+	} 
+
 	//Interface_declaration:
-	//	modifiers+=Modifier* "interface" interfaceName=ID ("extends" interfaceHerdada=Interface_name (","
+	//	modifiers+=Modifier* INTERFACE interfaceName=ID (EXTENDS interfaceHerdada=Interface_name (","
 	//	interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}";
 	public Interface_declarationElements getInterface_declarationAccess() {
 		return pInterface_declaration;
@@ -4228,7 +4244,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Class_declaration:
-	//	modifiers+=Modifier* "class" className=ID ("extends" classHerdada=Class_name)? ("implements"
+	//	modifiers+=Modifier* "class" className=ID (EXTENDS classHerdada=Class_name)? ("implements"
 	//	interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? "{"
 	//	fieldsDeclaration+=Field_declaration* "}";
 	public Class_declarationElements getClass_declarationAccess() {
@@ -4395,8 +4411,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 	//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 	//	{Statement} "return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block |
-	//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" |
-	//	{Statement} "continue" name=ID? ";" | {Statement} ";";
+	//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement}
+	//	"continue" name=ID? ";" | {Statement} ";";
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -4836,8 +4852,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Switch_statement:
-	//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression
-	//	":" | "default" ":" | switchStatements+=Statement)* "}";
+	//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":"
+	//	| "default" ":" | switchStatements+=Statement)* "}";
 	public Switch_statementElements getSwitch_statementAccess() {
 		return pSwitch_statement;
 	}
@@ -4877,8 +4893,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Try_statement:
-	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
-	//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
+	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
+	//	("finally" finallyStatement=Statement)?;
 	public Try_statementElements getTry_statementAccess() {
 		return pTry_statement;
 	}
@@ -5040,8 +5056,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal FLOATING_POINT_LITERAL:
-	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+
-	//	EXPONENT FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
+	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+ EXPONENT
+	//	FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
 	public TerminalRule getFLOATING_POINT_LITERALRule() {
 		return tFLOATING_POINT_LITERAL;
 	} 

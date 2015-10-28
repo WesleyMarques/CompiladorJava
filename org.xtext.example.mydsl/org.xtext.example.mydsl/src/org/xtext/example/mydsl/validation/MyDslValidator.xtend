@@ -3,17 +3,17 @@
  */
 package org.xtext.example.mydsl.validation
 
-import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.validation.Check
 import org.xtext.example.mydsl.myDsl.Class_declaration
+import org.xtext.example.mydsl.myDsl.Field_declaration
+import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.Type_declaration
-import org.xtext.example.mydsl.myDsl.Interface_declaration
-import org.xtext.example.mydsl.myDsl.Field_declaration
+import org.xtext.example.mydsl.myDsl.MyDslPackage
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -44,15 +44,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
 			validaClass(cd);
-//			classeExtends.put(cd.className.toString, new ArrayList<String>());
-//			if (cd.classHerdada != null) {
-//				classeExtends.get(cd.className.toString).add(cd.classHerdada.toString);
-//				classeExtends.put(cd.classHerdada.toString, new ArrayList<String>());
-//			}
-//			if (cd.interfaceImplementada != null) {
-//				classeExtends.get(cd.className.toString).add(cd.interfaceImplementada.toString);
-//				classeExtends.put(cd.interfaceImplementada.toString, new ArrayList<String>());
-//			}
+
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
 			validaInterface(id);
@@ -68,11 +60,11 @@ class MyDslValidator extends AbstractMyDslValidator {
 	}
 	
 	def validaFieldDeclaration(Field_declaration declaration) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		
 	}
 	
 	def validaModifiers(EList<String> list) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		
 	}
 	
 	def validaClass(Class_declaration declaration) {
@@ -86,11 +78,11 @@ class MyDslValidator extends AbstractMyDslValidator {
 	}
 	
 	def validaHerancaClass(String string) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		
 	}
 	
 	def validaHerancaInterface(Class_declaration declaration, String string) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		
 	}
 	
 	@Check
@@ -99,6 +91,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 		var int a = 0;
 		for(String mod:methodMods){
 			if(a == 0 && mod.equals("public")){
+				error("Classe name error",md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
 				
 			}
 		}

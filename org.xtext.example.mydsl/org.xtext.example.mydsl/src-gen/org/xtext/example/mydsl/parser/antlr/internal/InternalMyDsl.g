@@ -304,9 +304,9 @@ ruleInterface_declaration returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_1='interface' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getInterface_declarationAccess().getInterfaceKeyword_1());
+)*this_INTERFACE_1=RULE_INTERFACE
+    { 
+    newLeafNode(this_INTERFACE_1, grammarAccess.getInterface_declarationAccess().getINTERFACETerminalRuleCall_1()); 
     }
 (
 (
@@ -326,9 +326,9 @@ ruleInterface_declaration returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='extends' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getInterface_declarationAccess().getExtendsKeyword_3_0());
+)(this_EXTENDS_3=RULE_EXTENDS
+    { 
+    newLeafNode(this_EXTENDS_3, grammarAccess.getInterface_declarationAccess().getEXTENDSTerminalRuleCall_3_0()); 
     }
 (
 (
@@ -457,9 +457,9 @@ ruleClass_declaration returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='extends' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getClass_declarationAccess().getExtendsKeyword_3_0());
+)(this_EXTENDS_3=RULE_EXTENDS
+    { 
+    newLeafNode(this_EXTENDS_3, grammarAccess.getClass_declarationAccess().getEXTENDSTerminalRuleCall_3_0()); 
     }
 (
 (
@@ -6727,6 +6727,10 @@ ruleShift_operator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
 
 
 
+
+RULE_INTERFACE : 'interface';
+
+RULE_EXTENDS : 'extends';
 
 RULE_STATIC : 'static';
 
