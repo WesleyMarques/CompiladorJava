@@ -51,45 +51,10 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
+			typeInValidation.put("tipo", "interface");
+			typeInValidation.put("name", id.interfaceName);
 			validaInterface(id);
 		}
-	}
-
-	def validaInterface(Interface_declaration declaration) {
-		validaModifiers(declaration.modifiers, INTERFACE);
-		for (Field_declaration field : declaration.fieldsDeclaration) {
-			validaFieldDeclaration(field);
-		}
-
-	}
-
-	def validaFieldDeclaration(Field_declaration declaration) {
-	}
-
-	def validaModifiers(EList<String> list, String type) throws Exception{
-		var String typeName = typeInValidation.get("name");
-		var int size = list.size();
-		if (type.equals(CLASS)) {
-			if (size != 0 && !(list.get(0).equals("public") || list.get(0).equals("final") || list.get(0).equals("abstract"))) {
-				throw new Exception(
-					"Illegal modifier for the class " + typeName+ "; only public, abstract & final are permitted");
-			}else if (list.toSet.size() != size) {
-				throw new Exception(
-					"Duplicate modifier for the type " + typeName);
-			}else if (size > 1 && countInList(list, "final") >= 1 && countInList(list, "abstract") >= 1) {
-				throw new Exception(
-					"The class " + typeName + " can be either abstract or final, not both");
-			} 
-		}
-
-	}
-	
-	def int countInList(EList<String> listSearch, String find){
-		var cont = 0;
-		for(String value: listSearch){
-			if(value.equals(find)) cont++;
-		}
-		return cont;
 	}
 
 	def validaClass(Class_declaration declaration) {
@@ -106,10 +71,64 @@ class MyDslValidator extends AbstractMyDslValidator {
 		validaHerancaClass(declaration.classHerdada);
 	}
 
+	def validaInterface(Interface_declaration declaration) {
+		try {
+			validaModifiers(declaration.modifiers, INTERFACE);
+		} catch (Exception e) {
+			error(e.message, declaration, MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_NAME);
+		}
+		for (Field_declaration field : declaration.fieldsDeclaration) {
+			validaFieldDeclaration(field);
+		}
+
+	}
+
+	def validaFieldDeclaration(Field_declaration declaration) {
+	}
+
+	def validaModifiers(EList<String> list, String type) throws Exception{
+		var String typeName = typeInValidation.get("name");
+		var int size = list.size();
+		var String firstModifier;
+		if (size > 0) {
+			firstModifier = list.get(0);
+		}
+		if (type.equals(CLASS)) {
+			if (size > 0 &&
+				!((firstModifier).equals("public") || firstModifier.equals("final") || firstModifier.equals("abstract")
+				)) {
+				throw new Exception(
+					"Illegal modifier for the class " + typeName + "; only public, abstract & final are permitted");
+			} else if (list.toSet.size() != size) {
+				throw new Exception("Duplicate modifier for the type " + typeName);
+			} else if (size > 1 && countInList(list, "final") >= 1 && countInList(list, "abstract") >= 1) {
+				throw new Exception("The class " + typeName + " can be either abstract or final, not both");
+			}
+		} else {
+			if (size > 0 && !(firstModifier.equals("public") || firstModifier.equals("abstract"))) {
+				throw new Exception("Illegal modifier for the interface " + typeName +
+					"; only public & abstract are permitted");
+			} else if (list.toSet.size() != size) {
+				throw new Exception("Duplicate modifier for the type " + typeName);
+			}
+		}
+	}
+
+	def int countInList(EList<String> listSearch, String find) {
+		var cont = 0;
+		for (String value : listSearch) {
+			if(value.equals(find)) cont++;
+		}
+		return cont;
+	}
+
 	def validaHerancaClass(String string) {
 	}
 
-	def validaHerancaInterface(Class_declaration declaration, String string) {
+	def validaHerancaInterface(
+		Class_declaration declaration,
+		String string
+	) {
 	}
 
 	@Check

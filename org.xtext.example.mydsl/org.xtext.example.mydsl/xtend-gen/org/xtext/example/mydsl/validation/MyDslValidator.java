@@ -54,103 +54,12 @@ public class MyDslValidator extends AbstractMyDslValidator {
     } else {
       Interface_declaration _interfaceDec = td.getInterfaceDec();
       Interface_declaration id = ((Interface_declaration) _interfaceDec);
+      this.typeInValidation.put("tipo", "interface");
+      String _interfaceName = id.getInterfaceName();
+      this.typeInValidation.put("name", _interfaceName);
       this.validaInterface(id);
     }
     return _xifexpression;
-  }
-  
-  public void validaInterface(final Interface_declaration declaration) {
-    try {
-      EList<String> _modifiers = declaration.getModifiers();
-      this.validaModifiers(_modifiers, this.INTERFACE);
-      EList<Field_declaration> _fieldsDeclaration = declaration.getFieldsDeclaration();
-      for (final Field_declaration field : _fieldsDeclaration) {
-        this.validaFieldDeclaration(field);
-      }
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  public Object validaFieldDeclaration(final Field_declaration declaration) {
-    return null;
-  }
-  
-  public void validaModifiers(final EList<String> list, final String type) throws Exception {
-    String typeName = this.typeInValidation.get("name");
-    int size = list.size();
-    boolean _equals = type.equals(this.CLASS);
-    if (_equals) {
-      boolean _and = false;
-      if (!(size != 0)) {
-        _and = false;
-      } else {
-        boolean _or = false;
-        boolean _or_1 = false;
-        String _get = list.get(0);
-        boolean _equals_1 = _get.equals("public");
-        if (_equals_1) {
-          _or_1 = true;
-        } else {
-          String _get_1 = list.get(0);
-          boolean _equals_2 = _get_1.equals("final");
-          _or_1 = _equals_2;
-        }
-        if (_or_1) {
-          _or = true;
-        } else {
-          String _get_2 = list.get(0);
-          boolean _equals_3 = _get_2.equals("abstract");
-          _or = _equals_3;
-        }
-        boolean _not = (!_or);
-        _and = _not;
-      }
-      if (_and) {
-        throw new Exception(
-          (("Illegal modifier for the class " + typeName) + "; only public, abstract & final are permitted"));
-      } else {
-        Set<String> _set = IterableExtensions.<String>toSet(list);
-        int _size = _set.size();
-        boolean _notEquals = (_size != size);
-        if (_notEquals) {
-          throw new Exception(
-            ("Duplicate modifier for the type " + typeName));
-        } else {
-          boolean _and_1 = false;
-          boolean _and_2 = false;
-          if (!(size > 1)) {
-            _and_2 = false;
-          } else {
-            int _countInList = this.countInList(list, "final");
-            boolean _greaterEqualsThan = (_countInList >= 1);
-            _and_2 = _greaterEqualsThan;
-          }
-          if (!_and_2) {
-            _and_1 = false;
-          } else {
-            int _countInList_1 = this.countInList(list, "abstract");
-            boolean _greaterEqualsThan_1 = (_countInList_1 >= 1);
-            _and_1 = _greaterEqualsThan_1;
-          }
-          if (_and_1) {
-            throw new Exception(
-              (("The class " + typeName) + " can be either abstract or final, not both"));
-          }
-        }
-      }
-    }
-  }
-  
-  public int countInList(final EList<String> listSearch, final String find) {
-    int cont = 0;
-    for (final String value : listSearch) {
-      boolean _equals = value.equals(find);
-      if (_equals) {
-        cont++;
-      }
-    }
-    return cont;
   }
   
   public Object validaClass(final Class_declaration declaration) {
@@ -178,6 +87,133 @@ public class MyDslValidator extends AbstractMyDslValidator {
       _xblockexpression = this.validaHerancaClass(_classHerdada);
     }
     return _xblockexpression;
+  }
+  
+  public void validaInterface(final Interface_declaration declaration) {
+    try {
+      EList<String> _modifiers = declaration.getModifiers();
+      this.validaModifiers(_modifiers, this.INTERFACE);
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        String _message = e.getMessage();
+        this.error(_message, declaration, MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_NAME);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    EList<Field_declaration> _fieldsDeclaration = declaration.getFieldsDeclaration();
+    for (final Field_declaration field : _fieldsDeclaration) {
+      this.validaFieldDeclaration(field);
+    }
+  }
+  
+  public Object validaFieldDeclaration(final Field_declaration declaration) {
+    return null;
+  }
+  
+  public void validaModifiers(final EList<String> list, final String type) throws Exception {
+    String typeName = this.typeInValidation.get("name");
+    int size = list.size();
+    String firstModifier = null;
+    if ((size > 0)) {
+      String _get = list.get(0);
+      firstModifier = _get;
+    }
+    boolean _equals = type.equals(this.CLASS);
+    if (_equals) {
+      boolean _and = false;
+      if (!(size > 0)) {
+        _and = false;
+      } else {
+        boolean _or = false;
+        boolean _or_1 = false;
+        boolean _equals_1 = firstModifier.equals("public");
+        if (_equals_1) {
+          _or_1 = true;
+        } else {
+          boolean _equals_2 = firstModifier.equals("final");
+          _or_1 = _equals_2;
+        }
+        if (_or_1) {
+          _or = true;
+        } else {
+          boolean _equals_3 = firstModifier.equals("abstract");
+          _or = _equals_3;
+        }
+        boolean _not = (!_or);
+        _and = _not;
+      }
+      if (_and) {
+        throw new Exception(
+          (("Illegal modifier for the class " + typeName) + "; only public, abstract & final are permitted"));
+      } else {
+        Set<String> _set = IterableExtensions.<String>toSet(list);
+        int _size = _set.size();
+        boolean _notEquals = (_size != size);
+        if (_notEquals) {
+          throw new Exception(("Duplicate modifier for the type " + typeName));
+        } else {
+          boolean _and_1 = false;
+          boolean _and_2 = false;
+          if (!(size > 1)) {
+            _and_2 = false;
+          } else {
+            int _countInList = this.countInList(list, "final");
+            boolean _greaterEqualsThan = (_countInList >= 1);
+            _and_2 = _greaterEqualsThan;
+          }
+          if (!_and_2) {
+            _and_1 = false;
+          } else {
+            int _countInList_1 = this.countInList(list, "abstract");
+            boolean _greaterEqualsThan_1 = (_countInList_1 >= 1);
+            _and_1 = _greaterEqualsThan_1;
+          }
+          if (_and_1) {
+            throw new Exception((("The class " + typeName) + " can be either abstract or final, not both"));
+          }
+        }
+      }
+    } else {
+      boolean _and_3 = false;
+      if (!(size > 0)) {
+        _and_3 = false;
+      } else {
+        boolean _or_2 = false;
+        boolean _equals_4 = firstModifier.equals("public");
+        if (_equals_4) {
+          _or_2 = true;
+        } else {
+          boolean _equals_5 = firstModifier.equals("abstract");
+          _or_2 = _equals_5;
+        }
+        boolean _not_1 = (!_or_2);
+        _and_3 = _not_1;
+      }
+      if (_and_3) {
+        throw new Exception((("Illegal modifier for the interface " + typeName) + 
+          "; only public & abstract are permitted"));
+      } else {
+        Set<String> _set_1 = IterableExtensions.<String>toSet(list);
+        int _size_1 = _set_1.size();
+        boolean _notEquals_1 = (_size_1 != size);
+        if (_notEquals_1) {
+          throw new Exception(("Duplicate modifier for the type " + typeName));
+        }
+      }
+    }
+  }
+  
+  public int countInList(final EList<String> listSearch, final String find) {
+    int cont = 0;
+    for (final String value : listSearch) {
+      boolean _equals = value.equals(find);
+      if (_equals) {
+        cont++;
+      }
+    }
+    return cont;
   }
   
   public Object validaHerancaClass(final String string) {

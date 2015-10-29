@@ -1,3 +1,3 @@
-public class Teste{
+public abstract interface Teste{
 
 }
