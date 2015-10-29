@@ -87,39 +87,24 @@ class MyDslValidator extends AbstractMyDslValidator {
 	}
 
 	def validaModifiers(EList<String> list, String type) throws Exception{
+		var ModifiersValidate modValidate = new ModifiersValidate();
 		var String typeName = typeInValidation.get("name");
 		var int size = list.size();
 		var String firstModifier;
 		if (size > 0) {
 			firstModifier = list.get(0);
 		}
-		if (type.equals(CLASS)) {
-			if (size > 0 &&
-				!((firstModifier).equals("public") || firstModifier.equals("final") || firstModifier.equals("abstract")
-				)) {
-				throw new Exception(
-					"Illegal modifier for the class " + typeName + "; only public, abstract & final are permitted");
-			} else if (list.toSet.size() != size) {
-				throw new Exception("Duplicate modifier for the type " + typeName);
-			} else if (size > 1 && countInList(list, "final") >= 1 && countInList(list, "abstract") >= 1) {
-				throw new Exception("The class " + typeName + " can be either abstract or final, not both");
+		try {
+			if (type.equals(CLASS)) {
+				modValidate.classValidate(size, firstModifier, typeName, list);
+			} else if (type.equals(INTERFACE)) {
+				modValidate.interfaceValidate(size,firstModifier,typeName,list);
 			}
-		} else {
-			if (size > 0 && !(firstModifier.equals("public") || firstModifier.equals("abstract"))) {
-				throw new Exception("Illegal modifier for the interface " + typeName +
-					"; only public & abstract are permitted");
-			} else if (list.toSet.size() != size) {
-				throw new Exception("Duplicate modifier for the type " + typeName);
-			}
-		}
-	}
 
-	def int countInList(EList<String> listSearch, String find) {
-		var cont = 0;
-		for (String value : listSearch) {
-			if(value.equals(find)) cont++;
+		} catch (Exception e) {
+			throw e;
 		}
-		return cont;
+
 	}
 
 	def validaHerancaClass(String string) {
@@ -133,14 +118,16 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	@Check
 	def checkMethodDeclaration(Method_declaration md) {
+		
+		var ModifiersValidate modValidate = new ModifiersValidate();
 		var EList<String> methodMods = md.modifiersMethod;
-		var int a = 0;
-		for (String mod : methodMods) {
-			if (a == 0 && mod.equals("public")) {
-				error("Classe name error", md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-
-			}
+		var int size = methodMods.size();
+		try{
+			modValidate.methodValidate(size,md.nameMethod,methodMods, typeInValidation.get("name"));
+		}catch(Exception e){
+			error(e.message,md,MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
 		}
+		
 	}
 
 }

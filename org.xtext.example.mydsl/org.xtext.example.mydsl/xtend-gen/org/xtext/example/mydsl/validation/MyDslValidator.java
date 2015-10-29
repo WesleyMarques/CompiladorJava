@@ -6,11 +6,9 @@ package org.xtext.example.mydsl.validation;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
@@ -18,6 +16,7 @@ import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
+import org.xtext.example.mydsl.validation.ModifiersValidate;
 
 /**
  * This class contains custom validation rules.
@@ -113,6 +112,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
   }
   
   public void validaModifiers(final EList<String> list, final String type) throws Exception {
+    ModifiersValidate modValidate = new ModifiersValidate();
     String typeName = this.typeInValidation.get("name");
     int size = list.size();
     String firstModifier = null;
@@ -120,100 +120,24 @@ public class MyDslValidator extends AbstractMyDslValidator {
       String _get = list.get(0);
       firstModifier = _get;
     }
-    boolean _equals = type.equals(this.CLASS);
-    if (_equals) {
-      boolean _and = false;
-      if (!(size > 0)) {
-        _and = false;
-      } else {
-        boolean _or = false;
-        boolean _or_1 = false;
-        boolean _equals_1 = firstModifier.equals("public");
-        if (_equals_1) {
-          _or_1 = true;
-        } else {
-          boolean _equals_2 = firstModifier.equals("final");
-          _or_1 = _equals_2;
-        }
-        if (_or_1) {
-          _or = true;
-        } else {
-          boolean _equals_3 = firstModifier.equals("abstract");
-          _or = _equals_3;
-        }
-        boolean _not = (!_or);
-        _and = _not;
-      }
-      if (_and) {
-        throw new Exception(
-          (("Illegal modifier for the class " + typeName) + "; only public, abstract & final are permitted"));
-      } else {
-        Set<String> _set = IterableExtensions.<String>toSet(list);
-        int _size = _set.size();
-        boolean _notEquals = (_size != size);
-        if (_notEquals) {
-          throw new Exception(("Duplicate modifier for the type " + typeName));
-        } else {
-          boolean _and_1 = false;
-          boolean _and_2 = false;
-          if (!(size > 1)) {
-            _and_2 = false;
-          } else {
-            int _countInList = this.countInList(list, "final");
-            boolean _greaterEqualsThan = (_countInList >= 1);
-            _and_2 = _greaterEqualsThan;
-          }
-          if (!_and_2) {
-            _and_1 = false;
-          } else {
-            int _countInList_1 = this.countInList(list, "abstract");
-            boolean _greaterEqualsThan_1 = (_countInList_1 >= 1);
-            _and_1 = _greaterEqualsThan_1;
-          }
-          if (_and_1) {
-            throw new Exception((("The class " + typeName) + " can be either abstract or final, not both"));
-          }
-        }
-      }
-    } else {
-      boolean _and_3 = false;
-      if (!(size > 0)) {
-        _and_3 = false;
-      } else {
-        boolean _or_2 = false;
-        boolean _equals_4 = firstModifier.equals("public");
-        if (_equals_4) {
-          _or_2 = true;
-        } else {
-          boolean _equals_5 = firstModifier.equals("abstract");
-          _or_2 = _equals_5;
-        }
-        boolean _not_1 = (!_or_2);
-        _and_3 = _not_1;
-      }
-      if (_and_3) {
-        throw new Exception((("Illegal modifier for the interface " + typeName) + 
-          "; only public & abstract are permitted"));
-      } else {
-        Set<String> _set_1 = IterableExtensions.<String>toSet(list);
-        int _size_1 = _set_1.size();
-        boolean _notEquals_1 = (_size_1 != size);
-        if (_notEquals_1) {
-          throw new Exception(("Duplicate modifier for the type " + typeName));
-        }
-      }
-    }
-  }
-  
-  public int countInList(final EList<String> listSearch, final String find) {
-    int cont = 0;
-    for (final String value : listSearch) {
-      boolean _equals = value.equals(find);
+    try {
+      boolean _equals = type.equals(this.CLASS);
       if (_equals) {
-        cont++;
+        modValidate.classValidate(size, firstModifier, typeName, list);
+      } else {
+        boolean _equals_1 = type.equals(this.INTERFACE);
+        if (_equals_1) {
+          modValidate.interfaceValidate(size, firstModifier, typeName, list);
+        }
+      }
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        throw e;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
       }
     }
-    return cont;
   }
   
   public Object validaHerancaClass(final String string) {
@@ -226,18 +150,20 @@ public class MyDslValidator extends AbstractMyDslValidator {
   
   @Check
   public void checkMethodDeclaration(final Method_declaration md) {
+    ModifiersValidate modValidate = new ModifiersValidate();
     EList<String> methodMods = md.getModifiersMethod();
-    int a = 0;
-    for (final String mod : methodMods) {
-      boolean _and = false;
-      if (!(a == 0)) {
-        _and = false;
+    int size = methodMods.size();
+    try {
+      String _nameMethod = md.getNameMethod();
+      String _get = this.typeInValidation.get("name");
+      modValidate.methodValidate(size, _nameMethod, methodMods, _get);
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        String _message = e.getMessage();
+        this.error(_message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
       } else {
-        boolean _equals = mod.equals("public");
-        _and = _equals;
-      }
-      if (_and) {
-        this.error("Classe name error", md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+        throw Exceptions.sneakyThrow(_t);
       }
     }
   }
