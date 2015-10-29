@@ -6,8 +6,11 @@ package org.xtext.example.mydsl.validation;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
@@ -23,7 +26,15 @@ import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
  */
 @SuppressWarnings("all")
 public class MyDslValidator extends AbstractMyDslValidator {
+  private final String CLASS = "class";
+  
+  private final String INTERFACE = "interface";
+  
+  public Map<String, String> typeInValidation = new HashMap<String, String>();
+  
   public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
+  
+  public Map<String, List<String>> methodNames = new HashMap<String, List<String>>();
   
   @Check
   public Object validaTypeDeclaration(final Type_declaration td) {
@@ -34,6 +45,9 @@ public class MyDslValidator extends AbstractMyDslValidator {
       {
         Class_declaration _classDec_1 = td.getClassDec();
         Class_declaration cd = ((Class_declaration) _classDec_1);
+        this.typeInValidation.put("tipo", "class");
+        String _className = cd.getClassName();
+        this.typeInValidation.put("name", _className);
         _xblockexpression = this.validaClass(cd);
       }
       _xifexpression = _xblockexpression;
@@ -46,11 +60,15 @@ public class MyDslValidator extends AbstractMyDslValidator {
   }
   
   public void validaInterface(final Interface_declaration declaration) {
-    EList<String> _modifiers = declaration.getModifiers();
-    this.validaModifiers(_modifiers);
-    EList<Field_declaration> _fieldsDeclaration = declaration.getFieldsDeclaration();
-    for (final Field_declaration field : _fieldsDeclaration) {
-      this.validaFieldDeclaration(field);
+    try {
+      EList<String> _modifiers = declaration.getModifiers();
+      this.validaModifiers(_modifiers, this.INTERFACE);
+      EList<Field_declaration> _fieldsDeclaration = declaration.getFieldsDeclaration();
+      for (final Field_declaration field : _fieldsDeclaration) {
+        this.validaFieldDeclaration(field);
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
   }
   
@@ -58,15 +76,98 @@ public class MyDslValidator extends AbstractMyDslValidator {
     return null;
   }
   
-  public Object validaModifiers(final EList<String> list) {
-    return null;
+  public void validaModifiers(final EList<String> list, final String type) throws Exception {
+    String typeName = this.typeInValidation.get("name");
+    int size = list.size();
+    boolean _equals = type.equals(this.CLASS);
+    if (_equals) {
+      boolean _and = false;
+      if (!(size != 0)) {
+        _and = false;
+      } else {
+        boolean _or = false;
+        boolean _or_1 = false;
+        String _get = list.get(0);
+        boolean _equals_1 = _get.equals("public");
+        if (_equals_1) {
+          _or_1 = true;
+        } else {
+          String _get_1 = list.get(0);
+          boolean _equals_2 = _get_1.equals("final");
+          _or_1 = _equals_2;
+        }
+        if (_or_1) {
+          _or = true;
+        } else {
+          String _get_2 = list.get(0);
+          boolean _equals_3 = _get_2.equals("abstract");
+          _or = _equals_3;
+        }
+        boolean _not = (!_or);
+        _and = _not;
+      }
+      if (_and) {
+        throw new Exception(
+          (("Illegal modifier for the class " + typeName) + "; only public, abstract & final are permitted"));
+      } else {
+        Set<String> _set = IterableExtensions.<String>toSet(list);
+        int _size = _set.size();
+        boolean _notEquals = (_size != size);
+        if (_notEquals) {
+          throw new Exception(
+            ("Duplicate modifier for the type " + typeName));
+        } else {
+          boolean _and_1 = false;
+          boolean _and_2 = false;
+          if (!(size > 1)) {
+            _and_2 = false;
+          } else {
+            int _countInList = this.countInList(list, "final");
+            boolean _greaterEqualsThan = (_countInList >= 1);
+            _and_2 = _greaterEqualsThan;
+          }
+          if (!_and_2) {
+            _and_1 = false;
+          } else {
+            int _countInList_1 = this.countInList(list, "abstract");
+            boolean _greaterEqualsThan_1 = (_countInList_1 >= 1);
+            _and_1 = _greaterEqualsThan_1;
+          }
+          if (_and_1) {
+            throw new Exception(
+              (("The class " + typeName) + " can be either abstract or final, not both"));
+          }
+        }
+      }
+    }
+  }
+  
+  public int countInList(final EList<String> listSearch, final String find) {
+    int cont = 0;
+    for (final String value : listSearch) {
+      boolean _equals = value.equals(find);
+      if (_equals) {
+        cont++;
+      }
+    }
+    return cont;
   }
   
   public Object validaClass(final Class_declaration declaration) {
     Object _xblockexpression = null;
     {
-      EList<String> _modifiers = declaration.getModifiers();
-      this.validaModifiers(_modifiers);
+      try {
+        EList<String> _modifiers = declaration.getModifiers();
+        this.validaModifiers(_modifiers, this.CLASS);
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception e = (Exception)_t;
+          String _message = e.getMessage();
+          this.error(_message, declaration, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_NAME);
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
       EList<String> interfaces = declaration.getInterfacesImplementadas();
       String _interfaceImplementada = declaration.getInterfaceImplementada();
       interfaces.add(_interfaceImplementada);

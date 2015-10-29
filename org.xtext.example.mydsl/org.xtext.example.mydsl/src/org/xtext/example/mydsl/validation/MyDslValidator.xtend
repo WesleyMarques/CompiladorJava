@@ -12,8 +12,8 @@ import org.xtext.example.mydsl.myDsl.Class_declaration
 import org.xtext.example.mydsl.myDsl.Field_declaration
 import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
-import org.xtext.example.mydsl.myDsl.Type_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
+import org.xtext.example.mydsl.myDsl.Type_declaration
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -22,6 +22,9 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class MyDslValidator extends AbstractMyDslValidator {
+
+	private final String CLASS = "class";
+	private final String INTERFACE = "interface";
 
 //  public static val INVALID_NAME = 'invalidName'
 //
@@ -33,16 +36,17 @@ class MyDslValidator extends AbstractMyDslValidator {
 //					INVALID_NAME)
 //		}
 //	}
-
-
-	
+	public Map<String, String> typeInValidation = new HashMap<String, String>();
 	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
-	
+	public Map<String, List<String>> methodNames = new HashMap<String, List<String>>();
 
 	@Check
 	def validaTypeDeclaration(Type_declaration td) {
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
+			typeInValidation.put("tipo", "class");
+			typeInValidation.put("name", cd.className);
+
 			validaClass(cd);
 
 		} else {
@@ -50,52 +54,74 @@ class MyDslValidator extends AbstractMyDslValidator {
 			validaInterface(id);
 		}
 	}
-	
+
 	def validaInterface(Interface_declaration declaration) {
-		validaModifiers(declaration.modifiers);
-		for(Field_declaration field:declaration.fieldsDeclaration){
-			validaFieldDeclaration(field);			
+		validaModifiers(declaration.modifiers, INTERFACE);
+		for (Field_declaration field : declaration.fieldsDeclaration) {
+			validaFieldDeclaration(field);
 		}
-		
+
 	}
-	
+
 	def validaFieldDeclaration(Field_declaration declaration) {
-		
+	}
+
+	def validaModifiers(EList<String> list, String type) throws Exception{
+		var String typeName = typeInValidation.get("name");
+		var int size = list.size();
+		if (type.equals(CLASS)) {
+			if (size != 0 && !(list.get(0).equals("public") || list.get(0).equals("final") || list.get(0).equals("abstract"))) {
+				throw new Exception(
+					"Illegal modifier for the class " + typeName+ "; only public, abstract & final are permitted");
+			}else if (list.toSet.size() != size) {
+				throw new Exception(
+					"Duplicate modifier for the type " + typeName);
+			}else if (size > 1 && countInList(list, "final") >= 1 && countInList(list, "abstract") >= 1) {
+				throw new Exception(
+					"The class " + typeName + " can be either abstract or final, not both");
+			} 
+		}
+
 	}
 	
-	def validaModifiers(EList<String> list) {
-		
+	def int countInList(EList<String> listSearch, String find){
+		var cont = 0;
+		for(String value: listSearch){
+			if(value.equals(find)) cont++;
+		}
+		return cont;
 	}
-	
+
 	def validaClass(Class_declaration declaration) {
-		validaModifiers(declaration.modifiers);
+		try {
+			validaModifiers(declaration.modifiers, CLASS);
+		} catch (Exception e) {
+			error(e.message, declaration, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_NAME);
+		}
 		var EList<String> interfaces = declaration.interfacesImplementadas;
 		interfaces.add(declaration.interfaceImplementada);
-		for(String interfaceName:interfaces){
+		for (String interfaceName : interfaces) {
 			validaHerancaInterface(declaration, interfaceName);
 		}
 		validaHerancaClass(declaration.classHerdada);
 	}
-	
+
 	def validaHerancaClass(String string) {
-		
 	}
-	
+
 	def validaHerancaInterface(Class_declaration declaration, String string) {
-		
 	}
-	
+
 	@Check
-	def checkMethodDeclaration(Method_declaration md){
+	def checkMethodDeclaration(Method_declaration md) {
 		var EList<String> methodMods = md.modifiersMethod;
 		var int a = 0;
-		for(String mod:methodMods){
-			if(a == 0 && mod.equals("public")){
-				error("Classe name error",md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-				
+		for (String mod : methodMods) {
+			if (a == 0 && mod.equals("public")) {
+				error("Classe name error", md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+
 			}
 		}
 	}
 
-	
 }
