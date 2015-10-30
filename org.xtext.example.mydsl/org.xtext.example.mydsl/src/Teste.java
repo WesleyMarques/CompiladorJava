@@ -6,15 +6,5 @@ abstract class Teste {
 
 	}
 
-	public int wes(int a){
-		return 0;
-		}
-	public int wes(int a){
-		return 0;
-		}
-	public int wes(int a){
-		return 0;
-		}
-	
 	
 }

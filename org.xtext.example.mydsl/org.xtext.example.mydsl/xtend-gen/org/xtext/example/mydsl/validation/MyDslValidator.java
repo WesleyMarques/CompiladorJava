@@ -11,7 +11,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtex.example.mydsl.exceptions.MyDslException;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
@@ -43,11 +42,11 @@ public class MyDslValidator extends AbstractMyDslValidator {
   public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
   
   @Check
-  public String validaTypeDeclaration(final Type_declaration td) {
-    String _xifexpression = null;
+  public Map<String, List<MethodObj>> validaTypeDeclaration(final Type_declaration td) {
+    Map<String, List<MethodObj>> _xifexpression = null;
     Class_declaration _classDec = td.getClassDec();
     if ((_classDec instanceof Class_declaration)) {
-      String _xblockexpression = null;
+      Map<String, List<MethodObj>> _xblockexpression = null;
       {
         Class_declaration _classDec_1 = td.getClassDec();
         Class_declaration cd = ((Class_declaration) _classDec_1);
@@ -65,39 +64,39 @@ public class MyDslValidator extends AbstractMyDslValidator {
       }
       _xifexpression = _xblockexpression;
     } else {
-      Interface_declaration _interfaceDec = td.getInterfaceDec();
-      Interface_declaration id = ((Interface_declaration) _interfaceDec);
-      this.typeInValidation.put("tipo", "interface");
-      String _interfaceName = id.getInterfaceName();
-      this.typeInValidation.put("name", _interfaceName);
-      EList<String> _modifiers = id.getModifiers();
-      ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
-      boolean _contains = _arrayList.contains("abstract");
-      String _plus = (Boolean.valueOf(_contains) + "");
-      this.typeInValidation.put("abstract", _plus);
-      this.validaInterface(id);
+      Map<String, List<MethodObj>> _xblockexpression_1 = null;
+      {
+        Interface_declaration _interfaceDec = td.getInterfaceDec();
+        Interface_declaration id = ((Interface_declaration) _interfaceDec);
+        this.typeInValidation.put("tipo", "interface");
+        String _interfaceName = id.getInterfaceName();
+        this.typeInValidation.put("name", _interfaceName);
+        EList<String> _modifiers = id.getModifiers();
+        ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
+        boolean _contains = _arrayList.contains("abstract");
+        String _plus = (Boolean.valueOf(_contains) + "");
+        this.typeInValidation.put("abstract", _plus);
+        this.validaInterface(id);
+        EList<Field_declaration> _fieldsDeclaration = id.getFieldsDeclaration();
+        _xblockexpression_1 = this.validaMethods(_fieldsDeclaration);
+      }
+      _xifexpression = _xblockexpression_1;
     }
     return _xifexpression;
   }
   
-  public String validaMethods(final EList<Field_declaration> list) {
-    String _xblockexpression = null;
+  public Map<String, List<MethodObj>> validaMethods(final EList<Field_declaration> list) {
+    Map<String, List<MethodObj>> _xblockexpression = null;
     {
       MethodValidate mv = new MethodValidate();
-      String _xtrycatchfinallyexpression = null;
+      Map<String, List<MethodObj>> _xtrycatchfinallyexpression = null;
       try {
-        String _xblockexpression_1 = null;
-        {
-          String _get = this.typeInValidation.get("name");
-          Map<String, List<MethodObj>> _methodValidateAll = mv.methodValidateAll(list, _get);
-          this.methodNames = _methodValidateAll;
-          _xblockexpression_1 = InputOutput.<String>print("--------No Exception\n");
-        }
-        _xtrycatchfinallyexpression = _xblockexpression_1;
+        String _get = this.typeInValidation.get("name");
+        Map<String, List<MethodObj>> _methodValidateAll = mv.methodValidateAll(list, _get);
+        _xtrycatchfinallyexpression = this.methodNames = _methodValidateAll;
       } catch (final Throwable _t) {
         if (_t instanceof MyDslException) {
           final MyDslException e = (MyDslException)_t;
-          InputOutput.<String>print("--------Exception\n");
           MethodObj metAux = null;
           List<Object> _nodeError = e.getNodeError();
           for (final Object methodsError : _nodeError) {
@@ -107,8 +106,8 @@ public class MyDslValidator extends AbstractMyDslValidator {
               String _string = metAux.toString();
               String _plus = (_message + _string);
               String _plus_1 = (_plus + " in Type ");
-              String _get = this.typeInValidation.get("name");
-              String _plus_2 = (_plus_1 + _get);
+              String _get_1 = this.typeInValidation.get("name");
+              String _plus_2 = (_plus_1 + _get_1);
               Method_declaration _md = metAux.getMd();
               this.error(_plus_2, _md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
             }

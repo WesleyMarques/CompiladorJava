@@ -49,6 +49,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			typeInValidation.put("name", id.interfaceName);
 			typeInValidation.put("abstract", new ArrayList<String>(id.modifiers).contains("abstract") + "");
 			validaInterface(id);
+			validaMethods(id.fieldsDeclaration);
 		}
 
 	}
@@ -57,15 +58,12 @@ class MyDslValidator extends AbstractMyDslValidator {
 		var MethodValidate mv = new MethodValidate();
 		try {
 			methodNames = mv.methodValidateAll(list, typeInValidation.get("name"));
-			print("--------No Exception\n");
 		}catch(MyDslException e){
-			print("--------Exception\n");
 			var MethodObj metAux;
 			for(Object methodsError: e.nodeError){
 				metAux = methodsError as MethodObj;
 				error(e.message+(metAux.toString)+" in Type "+typeInValidation.get("name"),metAux.md,MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-			}
-			
+			}			
 		}
 		
 	}
