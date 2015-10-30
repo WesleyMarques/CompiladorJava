@@ -1,4 +1,4 @@
-class Teste {
+abstract class Teste {
 
 	private transient static int teste = 0;
 
@@ -9,7 +9,10 @@ class Teste {
 	public int wes(int a){
 		return 0;
 		}
-	public int wes(int a[]){
+	public int wes(int a){
+		return 0;
+		}
+	public int wes(int a){
 		return 0;
 		}
 	

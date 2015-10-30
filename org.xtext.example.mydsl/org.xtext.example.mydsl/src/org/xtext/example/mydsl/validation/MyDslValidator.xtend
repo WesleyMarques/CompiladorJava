@@ -16,6 +16,7 @@ import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
+import org.xtex.example.mydsl.exceptions.MyDslException
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -28,14 +29,12 @@ class MyDslValidator extends AbstractMyDslValidator {
 	private final String CLASS = "class";
 	private final String INTERFACE = "interface";
 
-
 	public Map<String, String> typeInValidation = new HashMap<String, String>();
 	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
 	public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
 
 	@Check
 	def validaTypeDeclaration(Type_declaration td) {
-		var EList<MethodDeclaration> methods;
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
 			typeInValidation.put("tipo", "class");
@@ -43,7 +42,6 @@ class MyDslValidator extends AbstractMyDslValidator {
 			typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
 			validaClass(cd);
 			validaMethods(cd.fieldsDeclaration);
-			
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
@@ -52,10 +50,23 @@ class MyDslValidator extends AbstractMyDslValidator {
 			typeInValidation.put("abstract", new ArrayList<String>(id.modifiers).contains("abstract") + "");
 			validaInterface(id);
 		}
-		
+
 	}
-	
+
 	def validaMethods(EList<Field_declaration> list) {
+		var MethodValidate mv = new MethodValidate();
+		try {
+			methodNames = mv.methodValidateAll(list, typeInValidation.get("name"));
+			print("--------No Exception\n");
+		}catch(MyDslException e){
+			print("--------Exception\n");
+			var MethodObj metAux;
+			for(Object methodsError: e.nodeError){
+				metAux = methodsError as MethodObj;
+				error(e.message+(metAux.toString)+" in Type "+typeInValidation.get("name"),metAux.md,MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+			}
+			
+		}
 		
 	}
 
@@ -65,7 +76,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 		} catch (Exception e) {
 			error(e.message, declaration, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_NAME);
 		}
-		
+
 		var EList<String> interfaces = declaration.interfacesImplementadas;
 		interfaces.add(declaration.interfaceImplementada);
 		for (String interfaceName : interfaces) {
@@ -79,6 +90,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			validaModifiers(declaration.modifiers, INTERFACE);
 		} catch (Exception e) {
 			error(e.message, declaration, MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_NAME);
+
 		}
 		for (Field_declaration field : declaration.fieldsDeclaration) {
 			validaFieldDeclaration(field);

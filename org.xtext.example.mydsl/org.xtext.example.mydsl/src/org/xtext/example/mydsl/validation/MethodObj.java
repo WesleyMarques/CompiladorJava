@@ -2,23 +2,45 @@ package org.xtext.example.mydsl.validation;
 
 import java.util.List;
 
+import org.xtext.example.mydsl.myDsl.Method_declaration;
+
 public class MethodObj {
 	
 	private String name;
 	private String returnType;
 	private List<String> parameters;
+	private boolean isAbstract;
+	private Method_declaration md;
 	
-	public MethodObj(String name, String returnType, List<String> parameters) {
+	public MethodObj(String name, String returnType, List<String> parameters, boolean isAbstract, Method_declaration md) {
 		this.name = name;
 		this.returnType = returnType;
 		this.parameters = parameters;
+		this.isAbstract= isAbstract;
+		this.md = md;
 		
 	}
 	
+	public Method_declaration getMd() {
+		return md;
+	}
+
+	public void setMd(Method_declaration md) {
+		this.md = md;
+	}
+
+	public boolean isAbstract() {
+		return isAbstract;
+	}
+
+	public void setAbstract(boolean isAbstract) {
+		this.isAbstract = isAbstract;
+	}
+
 	public boolean isEqualsParameters(List<String> otherParamters){
 		if(otherParamters.size() != this.getParameters().size())return false;
 		for (int i = 0; i < otherParamters.size(); i++) {
-			if (this.getParameters().get(i) != otherParamters.get(i)) {
+			if (!(this.getParameters().get(i).equals(otherParamters.get(i)))) {
 				return false;
 			}			
 		}
@@ -65,6 +87,20 @@ public class MethodObj {
 
 	public void setParameters(List<String> parameters) {
 		this.parameters = parameters;
+	}
+	
+	@Override
+	public String toString() {
+		String ret = this.getName()+"(";
+		int cont = 0, size = parameters.size();
+		for (String string : parameters) {
+			ret += string;
+			if(cont < size-1){
+				ret += ",";
+			}
+		}
+		ret += ")";		
+		return ret;
 	}
 	
 	
