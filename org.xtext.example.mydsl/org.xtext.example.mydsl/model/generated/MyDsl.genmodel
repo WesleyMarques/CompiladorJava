@@ -84,6 +84,7 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Type/typeSpecifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Type/typeVector"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Static_initializer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Static_initializer/static"/>

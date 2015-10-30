@@ -1248,6 +1248,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getType_TypeVector()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getStatic_initializer()
   {
     return static_initializerEClass;
@@ -3171,6 +3181,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__TYPE_SPECIFIER);
+    createEAttribute(typeEClass, TYPE__TYPE_VECTOR);
 
     static_initializerEClass = createEClass(STATIC_INITIALIZER);
     createEAttribute(static_initializerEClass, STATIC_INITIALIZER__STATIC);
@@ -3523,6 +3534,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_TypeSpecifier(), ecorePackage.getEString(), "typeSpecifier", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getType_TypeVector(), ecorePackage.getEString(), "typeVector", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(static_initializerEClass, Static_initializer.class, "Static_initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStatic_initializer_Static(), ecorePackage.getEString(), "static", null, 0, 1, Static_initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

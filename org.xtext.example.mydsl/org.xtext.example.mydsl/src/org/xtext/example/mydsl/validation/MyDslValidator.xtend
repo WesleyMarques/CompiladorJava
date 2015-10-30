@@ -3,10 +3,12 @@
  */
 package org.xtext.example.mydsl.validation
 
+import java.util.ArrayList
 import java.util.HashMap
 import java.util.List
 import java.util.Map
 import org.eclipse.emf.common.util.EList
+import org.eclipse.xtend.lib.macro.declaration.MethodDeclaration
 import org.eclipse.xtext.validation.Check
 import org.xtext.example.mydsl.myDsl.Class_declaration
 import org.xtext.example.mydsl.myDsl.Field_declaration
@@ -14,7 +16,6 @@ import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
-import java.util.ArrayList
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -27,29 +28,22 @@ class MyDslValidator extends AbstractMyDslValidator {
 	private final String CLASS = "class";
 	private final String INTERFACE = "interface";
 
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+
 	public Map<String, String> typeInValidation = new HashMap<String, String>();
 	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
-	public Map<String, List<String>> methodNames = new HashMap<String, List<String>>();
+	public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
 
 	@Check
 	def validaTypeDeclaration(Type_declaration td) {
+		var EList<MethodDeclaration> methods;
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
 			typeInValidation.put("tipo", "class");
 			typeInValidation.put("name", cd.className);
 			typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
-
 			validaClass(cd);
+			validaMethods(cd.fieldsDeclaration);
+			
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
@@ -58,6 +52,11 @@ class MyDslValidator extends AbstractMyDslValidator {
 			typeInValidation.put("abstract", new ArrayList<String>(id.modifiers).contains("abstract") + "");
 			validaInterface(id);
 		}
+		
+	}
+	
+	def validaMethods(EList<Field_declaration> list) {
+		
 	}
 
 	def validaClass(Class_declaration declaration) {
@@ -66,6 +65,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 		} catch (Exception e) {
 			error(e.message, declaration, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_NAME);
 		}
+		
 		var EList<String> interfaces = declaration.interfacesImplementadas;
 		interfaces.add(declaration.interfaceImplementada);
 		for (String interfaceName : interfaces) {
@@ -113,10 +113,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 	def validaHerancaClass(String string) {
 	}
 
-	def validaHerancaInterface(
-		Class_declaration declaration,
-		String string
-	) {
+	def validaHerancaInterface(Class_declaration declaration, String string) {
 	}
 
 	@Check

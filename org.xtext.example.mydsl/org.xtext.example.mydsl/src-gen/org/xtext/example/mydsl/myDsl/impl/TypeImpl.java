@@ -2,12 +2,18 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Type;
@@ -20,6 +26,7 @@ import org.xtext.example.mydsl.myDsl.Type;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getTypeSpecifier <em>Type Specifier</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getTypeVector <em>Type Vector</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +53,16 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * @ordered
    */
   protected String typeSpecifier = TYPE_SPECIFIER_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTypeVector() <em>Type Vector</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeVector()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> typeVector;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +113,20 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getTypeVector()
+  {
+    if (typeVector == null)
+    {
+      typeVector = new EDataTypeEList<String>(String.class, this, MyDslPackage.TYPE__TYPE_VECTOR);
+    }
+    return typeVector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +134,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     {
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
         return getTypeSpecifier();
+      case MyDslPackage.TYPE__TYPE_VECTOR:
+        return getTypeVector();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,6 +145,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -119,6 +153,10 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     {
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
         setTypeSpecifier((String)newValue);
+        return;
+      case MyDslPackage.TYPE__TYPE_VECTOR:
+        getTypeVector().clear();
+        getTypeVector().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +175,9 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
         setTypeSpecifier(TYPE_SPECIFIER_EDEFAULT);
         return;
+      case MyDslPackage.TYPE__TYPE_VECTOR:
+        getTypeVector().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +194,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     {
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
         return TYPE_SPECIFIER_EDEFAULT == null ? typeSpecifier != null : !TYPE_SPECIFIER_EDEFAULT.equals(typeSpecifier);
+      case MyDslPackage.TYPE__TYPE_VECTOR:
+        return typeVector != null && !typeVector.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -170,6 +213,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (typeSpecifier: ");
     result.append(typeSpecifier);
+    result.append(", typeVector: ");
+    result.append(typeVector);
     result.append(')');
     return result.toString();
   }

@@ -783,13 +783,22 @@ public interface MyDslPackage extends EPackage
   int TYPE__TYPE_SPECIFIER = 0;
 
   /**
+   * The feature id for the '<em><b>Type Vector</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__TYPE_VECTOR = 1;
+
+  /**
    * The number of structural features of the '<em>Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = 1;
+  int TYPE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Static_initializerImpl <em>Static initializer</em>}' class.
@@ -3773,6 +3782,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getType_TypeSpecifier();
 
   /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Type#getTypeVector <em>Type Vector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Type Vector</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type#getTypeVector()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_TypeVector();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Static_initializer <em>Static initializer</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6288,6 +6308,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute TYPE__TYPE_SPECIFIER = eINSTANCE.getType_TypeSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Type Vector</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__TYPE_VECTOR = eINSTANCE.getType_TypeVector();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Static_initializerImpl <em>Static initializer</em>}' class.

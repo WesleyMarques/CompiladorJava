@@ -6,14 +6,12 @@ class Teste {
 
 	}
 
-	abstract int wesley();
+	public int wes(int a){
+		return 0;
+		}
+	public int wes(int a[]){
+		return 0;
+		}
 	
-	abstract int a();
 	
-}
-
-protected interface Wesley {
-	public void Teste();
-
-	abstract void A();
 }

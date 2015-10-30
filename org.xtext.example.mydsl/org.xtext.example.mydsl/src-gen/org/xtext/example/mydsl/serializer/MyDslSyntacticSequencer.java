@@ -35,7 +35,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Primary_expression___LeftSquareBracketKeyword_1_6_1_0_RightSquareBracketKeyword_1_6_1_1__a;
 	protected AbstractElementAlias match_Statement_SemicolonKeyword_15_1_or___BreakKeyword_13_1_SemicolonKeyword_13_3___or___ContinueKeyword_14_1_SemicolonKeyword_14_3___or___ReturnKeyword_8_1_SemicolonKeyword_8_3___or___ThrowKeyword_9_1_SemicolonKeyword_9_3__;
 	protected AbstractElementAlias match_Switch_statement___DefaultKeyword_6_1_0_ColonKeyword_6_1_1__a;
-	protected AbstractElementAlias match_Type___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a;
 	protected AbstractElementAlias match_Unary_expression_Not_Plus_Minus___HyphenMinusHyphenMinusKeyword_1_3_2_1_or_PlusSignPlusSignKeyword_1_3_2_0__q;
 	protected AbstractElementAlias match_Unary_expression___HyphenMinusHyphenMinusKeyword_3_0_or_HyphenMinusKeyword_1_0_or_PlusSignKeyword_0_0_or_PlusSignPlusSignKeyword_2_0__a;
 	protected AbstractElementAlias match_Variable_declarator___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a;
@@ -56,7 +55,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Primary_expression___LeftSquareBracketKeyword_1_6_1_0_RightSquareBracketKeyword_1_6_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPrimary_expressionAccess().getLeftSquareBracketKeyword_1_6_1_0()), new TokenAlias(false, false, grammarAccess.getPrimary_expressionAccess().getRightSquareBracketKeyword_1_6_1_1()));
 		match_Statement_SemicolonKeyword_15_1_or___BreakKeyword_13_1_SemicolonKeyword_13_3___or___ContinueKeyword_14_1_SemicolonKeyword_14_3___or___ReturnKeyword_8_1_SemicolonKeyword_8_3___or___ThrowKeyword_9_1_SemicolonKeyword_9_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getBreakKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_13_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getContinueKeyword_14_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_14_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getReturnKeyword_8_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_8_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getThrowKeyword_9_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_9_3())), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_15_1()));
 		match_Switch_statement___DefaultKeyword_6_1_0_ColonKeyword_6_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSwitch_statementAccess().getDefaultKeyword_6_1_0()), new TokenAlias(false, false, grammarAccess.getSwitch_statementAccess().getColonKeyword_6_1_1()));
-		match_Type___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getTypeAccess().getLeftSquareBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getTypeAccess().getRightSquareBracketKeyword_1_1()));
 		match_Unary_expression_Not_Plus_Minus___HyphenMinusHyphenMinusKeyword_1_3_2_1_or_PlusSignPlusSignKeyword_1_3_2_0__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getUnary_expression_Not_Plus_MinusAccess().getHyphenMinusHyphenMinusKeyword_1_3_2_1()), new TokenAlias(false, false, grammarAccess.getUnary_expression_Not_Plus_MinusAccess().getPlusSignPlusSignKeyword_1_3_2_0()));
 		match_Unary_expression___HyphenMinusHyphenMinusKeyword_3_0_or_HyphenMinusKeyword_1_0_or_PlusSignKeyword_0_0_or_PlusSignPlusSignKeyword_2_0__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getUnary_expressionAccess().getHyphenMinusHyphenMinusKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getUnary_expressionAccess().getHyphenMinusKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUnary_expressionAccess().getPlusSignKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getUnary_expressionAccess().getPlusSignPlusSignKeyword_2_0()));
 		match_Variable_declarator___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getVariable_declaratorAccess().getRightSquareBracketKeyword_1_1()));
@@ -151,8 +149,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Statement_SemicolonKeyword_15_1_or___BreakKeyword_13_1_SemicolonKeyword_13_3___or___ContinueKeyword_14_1_SemicolonKeyword_14_3___or___ReturnKeyword_8_1_SemicolonKeyword_8_3___or___ThrowKeyword_9_1_SemicolonKeyword_9_3__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Switch_statement___DefaultKeyword_6_1_0_ColonKeyword_6_1_1__a.equals(syntax))
 				emit_Switch_statement___DefaultKeyword_6_1_0_ColonKeyword_6_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Type___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a.equals(syntax))
-				emit_Type___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Unary_expression_Not_Plus_Minus___HyphenMinusHyphenMinusKeyword_1_3_2_1_or_PlusSignPlusSignKeyword_1_3_2_0__q.equals(syntax))
 				emit_Unary_expression_Not_Plus_Minus___HyphenMinusHyphenMinusKeyword_1_3_2_1_or_PlusSignPlusSignKeyword_1_3_2_0__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Unary_expression___HyphenMinusHyphenMinusKeyword_3_0_or_HyphenMinusKeyword_1_0_or_PlusSignKeyword_0_0_or_PlusSignPlusSignKeyword_2_0__a.equals(syntax))
@@ -313,17 +309,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     switchStatements+=Statement (ambiguity) switchStatements+=Statement
 	 */
 	protected void emit_Switch_statement___DefaultKeyword_6_1_0_ColonKeyword_6_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('[' ']')*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     typeSpecifier=Type_specifier (ambiguity) (rule end)
-	 */
-	protected void emit_Type___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

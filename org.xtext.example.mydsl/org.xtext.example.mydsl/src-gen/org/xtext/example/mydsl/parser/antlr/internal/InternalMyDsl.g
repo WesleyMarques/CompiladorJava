@@ -1440,11 +1440,22 @@ ruleType returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_1='[' 
+)((
+(
+		lv_typeVector_1_0=	'[' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getTypeAccess().getLeftSquareBracketKeyword_1_0());
+        newLeafNode(lv_typeVector_1_0, grammarAccess.getTypeAccess().getTypeVectorLeftSquareBracketKeyword_1_0_0());
     }
-	otherlv_2=']' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeRule());
+	        }
+       		addWithLastConsumed($current, "typeVector", lv_typeVector_1_0, "[");
+	    }
+
+)
+)	otherlv_2=']' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getTypeAccess().getRightSquareBracketKeyword_1_1());
     }

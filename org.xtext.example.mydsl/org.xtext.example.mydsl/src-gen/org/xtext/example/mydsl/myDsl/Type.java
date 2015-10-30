@@ -2,6 +2,8 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type#getTypeSpecifier <em>Type Specifier</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Type#getTypeVector <em>Type Vector</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +50,21 @@ public interface Type extends EObject
    * @generated
    */
   void setTypeSpecifier(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type Vector</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Vector</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Vector</em>' attribute list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType_TypeVector()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getTypeVector();
 
 } // Type

@@ -794,14 +794,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeSpecifierAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cTypeSpecifierType_specifierParserRuleCall_0_0 = (RuleCall)cTypeSpecifierAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTypeVectorAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cTypeVectorLeftSquareBracketKeyword_1_0_0 = (Keyword)cTypeVectorAssignment_1_0.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
 		//Type:
-		//	typeSpecifier=Type_specifier ("[" "]")*;
+		//	typeSpecifier=Type_specifier (typeVector+="[" "]")*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//typeSpecifier=Type_specifier ("[" "]")*
+		//typeSpecifier=Type_specifier (typeVector+="[" "]")*
 		public Group getGroup() { return cGroup; }
 
 		//typeSpecifier=Type_specifier
@@ -810,11 +811,14 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Type_specifier
 		public RuleCall getTypeSpecifierType_specifierParserRuleCall_0_0() { return cTypeSpecifierType_specifierParserRuleCall_0_0; }
 
-		//("[" "]")*
+		//(typeVector+="[" "]")*
 		public Group getGroup_1() { return cGroup_1; }
 
+		//typeVector+="["
+		public Assignment getTypeVectorAssignment_1_0() { return cTypeVectorAssignment_1_0; }
+
 		//"["
-		public Keyword getLeftSquareBracketKeyword_1_0() { return cLeftSquareBracketKeyword_1_0; }
+		public Keyword getTypeVectorLeftSquareBracketKeyword_1_0_0() { return cTypeVectorLeftSquareBracketKeyword_1_0_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_1_1() { return cRightSquareBracketKeyword_1_1; }
@@ -4374,7 +4378,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Type:
-	//	typeSpecifier=Type_specifier ("[" "]")*;
+	//	typeSpecifier=Type_specifier (typeVector+="[" "]")*;
 	public TypeElements getTypeAccess() {
 		return pType;
 	}

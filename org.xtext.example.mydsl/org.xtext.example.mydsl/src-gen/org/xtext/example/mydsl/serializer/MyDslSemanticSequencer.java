@@ -1002,17 +1002,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     typeSpecifier=Type_specifier
+	 *     (typeSpecifier=Type_specifier typeVector+='['*)
 	 */
 	protected void sequence_Type(EObject context, Type semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.TYPE__TYPE_SPECIFIER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.TYPE__TYPE_SPECIFIER));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTypeAccess().getTypeSpecifierType_specifierParserRuleCall_0_0(), semanticObject.getTypeSpecifier());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
