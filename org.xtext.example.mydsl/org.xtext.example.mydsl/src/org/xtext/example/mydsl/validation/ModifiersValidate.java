@@ -1,6 +1,5 @@
 package org.xtext.example.mydsl.validation;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -29,11 +28,24 @@ public class ModifiersValidate {
 
 	}
 	
-	public void methodValidate(int size, String methodName, List<String> list, String typeName) throws Exception{
+	public void methodValidate(int size, String methodName, List<String> list, String typeName, String typeAbstract, boolean hasStmBlock ) throws Exception{
 		if(size > 0){
 			if (new HashSet<String>(list).size() != size) {
 				throw new Exception("Duplicate modifier for the method "+methodName+" in type "+typeName);
 				
+			}else if(list.contains("abstract")){
+				
+				if(!typeAbstract.equals("true")){
+					throw new Exception("The abstract method "+methodName+" in type "+typeName+" can only be defined by an abstract class");
+				}else if (hasStmBlock) {
+					throw new Exception("Abstract methods do not specify a body");
+				}else{				
+					if(list.contains("private") || list.contains("final")){
+						throw new Exception("The abstract method "+methodName+" in type "+typeName+" can only set a visibility modifier, one of public or protected");
+					}else if(list.contains("static")){
+						throw new Exception("illegal combination of modifiers: abstract and static");
+					}
+				}
 			}
 		}
 	}

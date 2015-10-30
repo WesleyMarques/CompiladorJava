@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.validation;
 
+import com.google.common.base.Objects;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.ModifiersValidate;
@@ -47,6 +50,11 @@ public class MyDslValidator extends AbstractMyDslValidator {
         this.typeInValidation.put("tipo", "class");
         String _className = cd.getClassName();
         this.typeInValidation.put("name", _className);
+        EList<String> _modifiers = cd.getModifiers();
+        ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
+        boolean _contains = _arrayList.contains("abstract");
+        String _plus = (Boolean.valueOf(_contains) + "");
+        this.typeInValidation.put("abstract", _plus);
         _xblockexpression = this.validaClass(cd);
       }
       _xifexpression = _xblockexpression;
@@ -56,6 +64,11 @@ public class MyDslValidator extends AbstractMyDslValidator {
       this.typeInValidation.put("tipo", "interface");
       String _interfaceName = id.getInterfaceName();
       this.typeInValidation.put("name", _interfaceName);
+      EList<String> _modifiers = id.getModifiers();
+      ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
+      boolean _contains = _arrayList.contains("abstract");
+      String _plus = (Boolean.valueOf(_contains) + "");
+      this.typeInValidation.put("abstract", _plus);
       this.validaInterface(id);
     }
     return _xifexpression;
@@ -156,7 +169,10 @@ public class MyDslValidator extends AbstractMyDslValidator {
     try {
       String _nameMethod = md.getNameMethod();
       String _get = this.typeInValidation.get("name");
-      modValidate.methodValidate(size, _nameMethod, methodMods, _get);
+      String _get_1 = this.typeInValidation.get("abstract");
+      Statement_block _statementMethod = md.getStatementMethod();
+      boolean _notEquals = (!Objects.equal(_statementMethod, null));
+      modValidate.methodValidate(size, _nameMethod, methodMods, _get, _get_1, _notEquals);
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception e = (Exception)_t;

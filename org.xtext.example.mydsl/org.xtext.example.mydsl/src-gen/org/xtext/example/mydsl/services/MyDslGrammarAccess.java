@@ -133,18 +133,18 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
 		private final Assignment cInterfacesHerdadasAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
 		private final RuleCall cInterfacesHerdadasInterface_nameParserRuleCall_3_2_1_0 = (RuleCall)cInterfacesHerdadasAssignment_3_2_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cR_CURLY_BRACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final Assignment cFieldsDeclarationAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cFieldsDeclarationField_declarationParserRuleCall_5_0 = (RuleCall)cFieldsDeclarationAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final RuleCall cL_CURLY_BRACETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//Interface_declaration:
 		//	modifiers+=Modifier* INTERFACE interfaceName=ID (EXTENDS interfaceHerdada=Interface_name (","
-		//	interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}";
+		//	interfacesHerdadas+=Interface_name)*)? R_CURLY_BRACE fieldsDeclaration+=Field_declaration* L_CURLY_BRACE;
 		@Override public ParserRule getRule() { return rule; }
 
 		//modifiers+=Modifier* INTERFACE interfaceName=ID (EXTENDS interfaceHerdada=Interface_name (","
-		//interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}"
+		//interfacesHerdadas+=Interface_name)*)? R_CURLY_BRACE fieldsDeclaration+=Field_declaration* L_CURLY_BRACE
 		public Group getGroup() { return cGroup; }
 
 		//modifiers+=Modifier*
@@ -186,8 +186,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Interface_name
 		public RuleCall getInterfacesHerdadasInterface_nameParserRuleCall_3_2_1_0() { return cInterfacesHerdadasInterface_nameParserRuleCall_3_2_1_0; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		//R_CURLY_BRACE
+		public RuleCall getR_CURLY_BRACETerminalRuleCall_4() { return cR_CURLY_BRACETerminalRuleCall_4; }
 
 		//fieldsDeclaration+=Field_declaration*
 		public Assignment getFieldsDeclarationAssignment_5() { return cFieldsDeclarationAssignment_5; }
@@ -195,8 +195,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Field_declaration
 		public RuleCall getFieldsDeclarationField_declarationParserRuleCall_5_0() { return cFieldsDeclarationField_declarationParserRuleCall_5_0; }
 
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		//L_CURLY_BRACE
+		public RuleCall getL_CURLY_BRACETerminalRuleCall_6() { return cL_CURLY_BRACETerminalRuleCall_6; }
 	}
 
 	public class Class_declarationElements extends AbstractParserRuleElementFinder {
@@ -219,20 +219,20 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
 		private final Assignment cInterfacesImplementadasAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
 		private final RuleCall cInterfacesImplementadasInterface_nameParserRuleCall_4_2_1_0 = (RuleCall)cInterfacesImplementadasAssignment_4_2_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cR_CURLY_BRACETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cFieldsDeclarationAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cFieldsDeclarationField_declarationParserRuleCall_6_0 = (RuleCall)cFieldsDeclarationAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final RuleCall cL_CURLY_BRACETerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//Class_declaration:
 		//	modifiers+=Modifier* "class" className=ID (EXTENDS classHerdada=Class_name)? ("implements"
-		//	interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? "{"
-		//	fieldsDeclaration+=Field_declaration* "}";
+		//	interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? R_CURLY_BRACE
+		//	fieldsDeclaration+=Field_declaration* L_CURLY_BRACE;
 		@Override public ParserRule getRule() { return rule; }
 
 		//modifiers+=Modifier* "class" className=ID (EXTENDS classHerdada=Class_name)? ("implements"
-		//interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? "{"
-		//fieldsDeclaration+=Field_declaration* "}"
+		//interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? R_CURLY_BRACE
+		//fieldsDeclaration+=Field_declaration* L_CURLY_BRACE
 		public Group getGroup() { return cGroup; }
 
 		//modifiers+=Modifier*
@@ -286,8 +286,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Interface_name
 		public RuleCall getInterfacesImplementadasInterface_nameParserRuleCall_4_2_1_0() { return cInterfacesImplementadasInterface_nameParserRuleCall_4_2_1_0; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		//R_CURLY_BRACE
+		public RuleCall getR_CURLY_BRACETerminalRuleCall_5() { return cR_CURLY_BRACETerminalRuleCall_5; }
 
 		//fieldsDeclaration+=Field_declaration*
 		public Assignment getFieldsDeclarationAssignment_6() { return cFieldsDeclarationAssignment_6; }
@@ -295,8 +295,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Field_declaration
 		public RuleCall getFieldsDeclarationField_declarationParserRuleCall_6_0() { return cFieldsDeclarationField_declarationParserRuleCall_6_0; }
 
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		//L_CURLY_BRACE
+		public RuleCall getL_CURLY_BRACETerminalRuleCall_7() { return cL_CURLY_BRACETerminalRuleCall_7; }
 	}
 
 	public class Field_declarationElements extends AbstractParserRuleElementFinder {
@@ -734,7 +734,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Array_initializer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cArray_initializerAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cR_CURLY_BRACETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Assignment cVariableinitializerAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
 		private final RuleCall cVariableinitializerVariable_initializerParserRuleCall_2_0_0 = (RuleCall)cVariableinitializerAssignment_2_0.eContents().get(0);
@@ -743,22 +743,22 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVariableinitializerAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final RuleCall cVariableinitializerVariable_initializerParserRuleCall_2_1_1_0 = (RuleCall)cVariableinitializerAssignment_2_1_1.eContents().get(0);
 		private final Keyword cCommaKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cL_CURLY_BRACETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//Array_initializer:
-		//	{Array_initializer} "{" (variableinitializer+=Variable_initializer ("," variableinitializer+=Variable_initializer)*
-		//	","?)? "}";
+		//	{Array_initializer} R_CURLY_BRACE (variableinitializer+=Variable_initializer (","
+		//	variableinitializer+=Variable_initializer)* ","?)? L_CURLY_BRACE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Array_initializer} "{" (variableinitializer+=Variable_initializer ("," variableinitializer+=Variable_initializer)*
-		//","?)? "}"
+		//{Array_initializer} R_CURLY_BRACE (variableinitializer+=Variable_initializer (","
+		//variableinitializer+=Variable_initializer)* ","?)? L_CURLY_BRACE
 		public Group getGroup() { return cGroup; }
 
 		//{Array_initializer}
 		public Action getArray_initializerAction_0() { return cArray_initializerAction_0; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//R_CURLY_BRACE
+		public RuleCall getR_CURLY_BRACETerminalRuleCall_1() { return cR_CURLY_BRACETerminalRuleCall_1; }
 
 		//(variableinitializer+=Variable_initializer ("," variableinitializer+=Variable_initializer)* ","?)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -784,8 +784,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//","?
 		public Keyword getCommaKeyword_2_2() { return cCommaKeyword_2_2; }
 
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		//L_CURLY_BRACE
+		public RuleCall getL_CURLY_BRACETerminalRuleCall_3() { return cL_CURLY_BRACETerminalRuleCall_3; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -924,23 +924,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Statement_block");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cStatement_blockAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRCurlyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRCurlyR_CURLY_BRACETerminalRuleCall_1_0 = (RuleCall)cRCurlyAssignment_1.eContents().get(0);
 		private final Assignment cStatmentsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cStatmentsStatementParserRuleCall_2_0 = (RuleCall)cStatmentsAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cLCurlyAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLCurlyL_CURLY_BRACETerminalRuleCall_3_0 = (RuleCall)cLCurlyAssignment_3.eContents().get(0);
 		
 		//Statement_block:
-		//	{Statement_block} "{" statments+=Statement* "}";
+		//	{Statement_block} rCurly=R_CURLY_BRACE statments+=Statement* lCurly=L_CURLY_BRACE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Statement_block} "{" statments+=Statement* "}"
+		//{Statement_block} rCurly=R_CURLY_BRACE statments+=Statement* lCurly=L_CURLY_BRACE
 		public Group getGroup() { return cGroup; }
 
 		//{Statement_block}
 		public Action getStatement_blockAction_0() { return cStatement_blockAction_0; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//rCurly=R_CURLY_BRACE
+		public Assignment getRCurlyAssignment_1() { return cRCurlyAssignment_1; }
+
+		//R_CURLY_BRACE
+		public RuleCall getRCurlyR_CURLY_BRACETerminalRuleCall_1_0() { return cRCurlyR_CURLY_BRACETerminalRuleCall_1_0; }
 
 		//statments+=Statement*
 		public Assignment getStatmentsAssignment_2() { return cStatmentsAssignment_2; }
@@ -948,8 +953,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getStatmentsStatementParserRuleCall_2_0() { return cStatmentsStatementParserRuleCall_2_0; }
 
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		//lCurly=L_CURLY_BRACE
+		public Assignment getLCurlyAssignment_3() { return cLCurlyAssignment_3; }
+
+		//L_CURLY_BRACE
+		public RuleCall getLCurlyL_CURLY_BRACETerminalRuleCall_3_0() { return cLCurlyL_CURLY_BRACETerminalRuleCall_3_0; }
 	}
 
 	public class StatementElements extends AbstractParserRuleElementFinder {
@@ -3263,7 +3271,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
 		private final Assignment cRparentAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cRparentRPARENTerminalRuleCall_4_0 = (RuleCall)cRparentAssignment_4.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cR_CURLY_BRACETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
 		private final Group cGroup_6_0 = (Group)cAlternatives_6.eContents().get(0);
 		private final Keyword cCaseKeyword_6_0_0 = (Keyword)cGroup_6_0.eContents().get(0);
@@ -3275,15 +3283,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_6_1_1 = (Keyword)cGroup_6_1.eContents().get(1);
 		private final Assignment cSwitchStatementsAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
 		private final RuleCall cSwitchStatementsStatementParserRuleCall_6_2_0 = (RuleCall)cSwitchStatementsAssignment_6_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final RuleCall cL_CURLY_BRACETerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		
 		//Switch_statement:
-		//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":"
-		//	| "default" ":" | switchStatements+=Statement)* "}";
+		//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN R_CURLY_BRACE ("case"
+		//	expression2+=Expression ":" | "default" ":" | switchStatements+=Statement)* L_CURLY_BRACE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":" |
-		//"default" ":" | switchStatements+=Statement)* "}"
+		//{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN R_CURLY_BRACE ("case"
+		//expression2+=Expression ":" | "default" ":" | switchStatements+=Statement)* L_CURLY_BRACE
 		public Group getGroup() { return cGroup; }
 
 		//{Switch_statement}
@@ -3310,8 +3318,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//RPAREN
 		public RuleCall getRparentRPARENTerminalRuleCall_4_0() { return cRparentRPARENTerminalRuleCall_4_0; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		//R_CURLY_BRACE
+		public RuleCall getR_CURLY_BRACETerminalRuleCall_5() { return cR_CURLY_BRACETerminalRuleCall_5; }
 
 		//("case" expression2+=Expression ":" | "default" ":" | switchStatements+=Statement)*
 		public Alternatives getAlternatives_6() { return cAlternatives_6; }
@@ -3346,8 +3354,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getSwitchStatementsStatementParserRuleCall_6_2_0() { return cSwitchStatementsStatementParserRuleCall_6_2_0; }
 
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		//L_CURLY_BRACE
+		public RuleCall getL_CURLY_BRACETerminalRuleCall_7() { return cL_CURLY_BRACETerminalRuleCall_7; }
 	}
 
 	public class While_StatementElements extends AbstractParserRuleElementFinder {
@@ -3960,6 +3968,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final Type_declarationElements pType_declaration;
 	private final TerminalRule tINTERFACE;
 	private final TerminalRule tEXTENDS;
+	private final TerminalRule tR_CURLY_BRACE;
+	private final TerminalRule tL_CURLY_BRACE;
 	private final Interface_declarationElements pInterface_declaration;
 	private final Class_declarationElements pClass_declaration;
 	private final Field_declarationElements pField_declaration;
@@ -4068,6 +4078,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pType_declaration = new Type_declarationElements();
 		this.tINTERFACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INTERFACE");
 		this.tEXTENDS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "EXTENDS");
+		this.tR_CURLY_BRACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "R_CURLY_BRACE");
+		this.tL_CURLY_BRACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "L_CURLY_BRACE");
 		this.pInterface_declaration = new Interface_declarationElements();
 		this.pClass_declaration = new Class_declarationElements();
 		this.pField_declaration = new Field_declarationElements();
@@ -4232,9 +4244,21 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return tEXTENDS;
 	} 
 
+	//terminal R_CURLY_BRACE:
+	//	"{";
+	public TerminalRule getR_CURLY_BRACERule() {
+		return tR_CURLY_BRACE;
+	} 
+
+	//terminal L_CURLY_BRACE:
+	//	"}";
+	public TerminalRule getL_CURLY_BRACERule() {
+		return tL_CURLY_BRACE;
+	} 
+
 	//Interface_declaration:
 	//	modifiers+=Modifier* INTERFACE interfaceName=ID (EXTENDS interfaceHerdada=Interface_name (","
-	//	interfacesHerdadas+=Interface_name)*)? "{" fieldsDeclaration+=Field_declaration* "}";
+	//	interfacesHerdadas+=Interface_name)*)? R_CURLY_BRACE fieldsDeclaration+=Field_declaration* L_CURLY_BRACE;
 	public Interface_declarationElements getInterface_declarationAccess() {
 		return pInterface_declaration;
 	}
@@ -4245,8 +4269,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Class_declaration:
 	//	modifiers+=Modifier* "class" className=ID (EXTENDS classHerdada=Class_name)? ("implements"
-	//	interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? "{"
-	//	fieldsDeclaration+=Field_declaration* "}";
+	//	interfaceImplementada=Interface_name ("," interfacesImplementadas+=Interface_name)*)? R_CURLY_BRACE
+	//	fieldsDeclaration+=Field_declaration* L_CURLY_BRACE;
 	public Class_declarationElements getClass_declarationAccess() {
 		return pClass_declaration;
 	}
@@ -4339,8 +4363,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Array_initializer:
-	//	{Array_initializer} "{" (variableinitializer+=Variable_initializer ("," variableinitializer+=Variable_initializer)*
-	//	","?)? "}";
+	//	{Array_initializer} R_CURLY_BRACE (variableinitializer+=Variable_initializer (","
+	//	variableinitializer+=Variable_initializer)* ","?)? L_CURLY_BRACE;
 	public Array_initializerElements getArray_initializerAccess() {
 		return pArray_initializer;
 	}
@@ -4396,7 +4420,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement_block:
-	//	{Statement_block} "{" statments+=Statement* "}";
+	//	{Statement_block} rCurly=R_CURLY_BRACE statments+=Statement* lCurly=L_CURLY_BRACE;
 	public Statement_blockElements getStatement_blockAccess() {
 		return pStatement_block;
 	}
@@ -4852,8 +4876,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Switch_statement:
-	//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN "{" ("case" expression2+=Expression ":"
-	//	| "default" ":" | switchStatements+=Statement)* "}";
+	//	{Switch_statement} "switch" lParen=LPAREN expression=Expression rparent=RPAREN R_CURLY_BRACE ("case"
+	//	expression2+=Expression ":" | "default" ":" | switchStatements+=Statement)* L_CURLY_BRACE;
 	public Switch_statementElements getSwitch_statementAccess() {
 		return pSwitch_statement;
 	}

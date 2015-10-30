@@ -1288,9 +1288,29 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getStatement_block_RCurly()
+  {
+    return (EAttribute)statement_blockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getStatement_block_Statments()
   {
-    return (EReference)statement_blockEClass.getEStructuralFeatures().get(0);
+    return (EReference)statement_blockEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStatement_block_LCurly()
+  {
+    return (EAttribute)statement_blockEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3157,7 +3177,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(static_initializerEClass, STATIC_INITIALIZER__NAME);
 
     statement_blockEClass = createEClass(STATEMENT_BLOCK);
+    createEAttribute(statement_blockEClass, STATEMENT_BLOCK__RCURLY);
     createEReference(statement_blockEClass, STATEMENT_BLOCK__STATMENTS);
+    createEAttribute(statement_blockEClass, STATEMENT_BLOCK__LCURLY);
 
     statementEClass = createEClass(STATEMENT);
     createEReference(statementEClass, STATEMENT__VARIABLE_DECLARATION);
@@ -3507,7 +3529,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getStatic_initializer_Name(), this.getStatement_block(), null, "name", null, 0, 1, Static_initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statement_blockEClass, Statement_block.class, "Statement_block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStatement_block_RCurly(), ecorePackage.getEString(), "rCurly", null, 0, 1, Statement_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_block_Statments(), this.getStatement(), null, "statments", null, 0, -1, Statement_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_block_LCurly(), ecorePackage.getEString(), "lCurly", null, 0, 1, Statement_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStatement_VariableDeclaration(), this.getVariable_declaration(), null, "variableDeclaration", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

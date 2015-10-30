@@ -14,6 +14,7 @@ import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
+import java.util.ArrayList
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -46,6 +47,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			var Class_declaration cd = td.classDec as Class_declaration;
 			typeInValidation.put("tipo", "class");
 			typeInValidation.put("name", cd.className);
+			typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
 
 			validaClass(cd);
 
@@ -53,6 +55,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
 			typeInValidation.put("tipo", "interface");
 			typeInValidation.put("name", id.interfaceName);
+			typeInValidation.put("abstract", new ArrayList<String>(id.modifiers).contains("abstract") + "");
 			validaInterface(id);
 		}
 	}
@@ -98,7 +101,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			if (type.equals(CLASS)) {
 				modValidate.classValidate(size, firstModifier, typeName, list);
 			} else if (type.equals(INTERFACE)) {
-				modValidate.interfaceValidate(size,firstModifier,typeName,list);
+				modValidate.interfaceValidate(size, firstModifier, typeName, list);
 			}
 
 		} catch (Exception e) {
@@ -118,16 +121,17 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	@Check
 	def checkMethodDeclaration(Method_declaration md) {
-		
+
 		var ModifiersValidate modValidate = new ModifiersValidate();
 		var EList<String> methodMods = md.modifiersMethod;
 		var int size = methodMods.size();
-		try{
-			modValidate.methodValidate(size,md.nameMethod,methodMods, typeInValidation.get("name"));
-		}catch(Exception e){
-			error(e.message,md,MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+		try {
+			modValidate.methodValidate(size, md.nameMethod, methodMods, typeInValidation.get("name"),
+				typeInValidation.get("abstract"), md.statementMethod != null);
+		} catch (Exception e) {
+			error(e.message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
 		}
-		
+
 	}
 
 }

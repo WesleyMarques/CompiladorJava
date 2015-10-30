@@ -1,20 +1,19 @@
-abstract class Teste{
-	
+class Teste {
+
 	private transient static int teste = 0;
-	
-	public Teste(){
-		
+
+	public Teste() {
+
 	}
+
+	abstract int wesley();
 	
-	final final void wesley(){
-		
-	}
-	
+	abstract int a();
 	
 }
 
-interface Wesley{
+protected interface Wesley {
 	public void Teste();
-	
+
 	abstract void A();
 }

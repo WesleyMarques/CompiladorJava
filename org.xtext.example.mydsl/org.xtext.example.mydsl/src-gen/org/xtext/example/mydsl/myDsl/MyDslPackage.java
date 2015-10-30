@@ -1128,13 +1128,31 @@ public interface MyDslPackage extends EPackage
   int STATEMENT_BLOCK__NAME = STATEMENT__NAME;
 
   /**
+   * The feature id for the '<em><b>RCurly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__RCURLY = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Statments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_BLOCK__STATMENTS = STATEMENT_FEATURE_COUNT + 0;
+  int STATEMENT_BLOCK__STATMENTS = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>LCurly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__LCURLY = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Statement block</em>' class.
@@ -1143,7 +1161,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int STATEMENT_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_StatementImpl <em>For Statement</em>}' class.
@@ -3797,6 +3815,17 @@ public interface MyDslPackage extends EPackage
   EClass getStatement_block();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement_block#getRCurly <em>RCurly</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>RCurly</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement_block#getRCurly()
+   * @see #getStatement_block()
+   * @generated
+   */
+  EAttribute getStatement_block_RCurly();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Statement_block#getStatments <em>Statments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3806,6 +3835,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getStatement_block_Statments();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement_block#getLCurly <em>LCurly</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>LCurly</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement_block#getLCurly()
+   * @see #getStatement_block()
+   * @generated
+   */
+  EAttribute getStatement_block_LCurly();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Statement <em>Statement</em>}'.
@@ -6286,12 +6326,28 @@ public interface MyDslPackage extends EPackage
     EClass STATEMENT_BLOCK = eINSTANCE.getStatement_block();
 
     /**
+     * The meta object literal for the '<em><b>RCurly</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMENT_BLOCK__RCURLY = eINSTANCE.getStatement_block_RCurly();
+
+    /**
      * The meta object literal for the '<em><b>Statments</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference STATEMENT_BLOCK__STATMENTS = eINSTANCE.getStatement_block_Statments();
+
+    /**
+     * The meta object literal for the '<em><b>LCurly</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMENT_BLOCK__LCURLY = eINSTANCE.getStatement_block_LCurly();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.

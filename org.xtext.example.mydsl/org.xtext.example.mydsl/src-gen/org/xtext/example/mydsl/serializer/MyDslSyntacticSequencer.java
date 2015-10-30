@@ -68,6 +68,10 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getEXTENDSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINTERFACERule())
 			return getINTERFACEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getL_CURLY_BRACERule())
+			return getL_CURLY_BRACEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getR_CURLY_BRACERule())
+			return getR_CURLY_BRACEToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -91,6 +95,28 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "interface";
+	}
+	
+	/**
+	 * terminal L_CURLY_BRACE:
+	 * 	"}"
+	 * ;
+	 */
+	protected String getL_CURLY_BRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "}";
+	}
+	
+	/**
+	 * terminal R_CURLY_BRACE:
+	 * 	"{"
+	 * ;
+	 */
+	protected String getR_CURLY_BRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "{";
 	}
 	
 	@Override
@@ -153,8 +179,8 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('[' ']')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '[' ']' (ambiguity) '{' '}' (rule start)
-	 *     (rule start) '[' ']' (ambiguity) '{' variableinitializer+=Variable_initializer
+	 *     (rule start) '[' ']' (ambiguity) R_CURLY_BRACE L_CURLY_BRACE (rule start)
+	 *     (rule start) '[' ']' (ambiguity) R_CURLY_BRACE variableinitializer+=Variable_initializer
 	 */
 	protected void emit_Array_creator_rest___LeftSquareBracketKeyword_1_0_1_0_RightSquareBracketKeyword_1_0_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -176,7 +202,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     variableinitializer+=Variable_initializer (ambiguity) '}' (rule end)
+	 *     variableinitializer+=Variable_initializer (ambiguity) L_CURLY_BRACE (rule end)
 	 */
 	protected void emit_Array_initializer_CommaKeyword_2_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -277,13 +303,13 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     expression2+=Expression ':' (ambiguity) 'case' expression2+=Expression
-	 *     expression2+=Expression ':' (ambiguity) '}' (rule end)
+	 *     expression2+=Expression ':' (ambiguity) L_CURLY_BRACE (rule end)
 	 *     expression2+=Expression ':' (ambiguity) switchStatements+=Statement
-	 *     rparent=RPAREN '{' (ambiguity) 'case' expression2+=Expression
-	 *     rparent=RPAREN '{' (ambiguity) '}' (rule end)
-	 *     rparent=RPAREN '{' (ambiguity) switchStatements+=Statement
+	 *     rparent=RPAREN R_CURLY_BRACE (ambiguity) 'case' expression2+=Expression
+	 *     rparent=RPAREN R_CURLY_BRACE (ambiguity) L_CURLY_BRACE (rule end)
+	 *     rparent=RPAREN R_CURLY_BRACE (ambiguity) switchStatements+=Statement
 	 *     switchStatements+=Statement (ambiguity) 'case' expression2+=Expression
-	 *     switchStatements+=Statement (ambiguity) '}' (rule end)
+	 *     switchStatements+=Statement (ambiguity) L_CURLY_BRACE (rule end)
 	 *     switchStatements+=Statement (ambiguity) switchStatements+=Statement
 	 */
 	protected void emit_Switch_statement___DefaultKeyword_6_1_0_ColonKeyword_6_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

@@ -31,12 +31,20 @@ terminal EXTENDS:
 	"extends"
 ;
 
+terminal R_CURLY_BRACE:
+	"{"
+;
+
+terminal L_CURLY_BRACE:
+	"}"
+;
+
 Interface_declaration:
-	modifiers += Modifier* INTERFACE interfaceName = ID (EXTENDS interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? "{" (fieldsDeclaration += Field_declaration*) "}"
+	modifiers += Modifier* INTERFACE interfaceName = ID (EXTENDS interfaceHerdada = Interface_name ("," interfacesHerdadas += (Interface_name))*)? R_CURLY_BRACE (fieldsDeclaration += Field_declaration*) L_CURLY_BRACE
 ;
 
 Class_declaration:
-	modifiers += Modifier* "class" className = ID (EXTENDS classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? "{" (fieldsDeclaration += Field_declaration*) "}"
+	modifiers += Modifier* "class" className = ID (EXTENDS classHerdada = Class_name)? ("implements" interfaceImplementada = Interface_name ("," interfacesImplementadas += (Interface_name))*)? R_CURLY_BRACE (fieldsDeclaration += Field_declaration*) L_CURLY_BRACE
 ;
 
 Field_declaration:
@@ -75,7 +83,7 @@ Variable_initializer:
 
 Array_initializer:
 	{Array_initializer} 
-	"{" (variableinitializer += Variable_initializer ("," variableinitializer += Variable_initializer)* (',')?)? "}"
+	R_CURLY_BRACE (variableinitializer += Variable_initializer ("," variableinitializer += Variable_initializer)* (',')?)? L_CURLY_BRACE
 ;
 
 
@@ -110,7 +118,7 @@ Static_initializer:
 
 
 Statement_block:
-	{Statement_block}"{" statments += Statement* "}"
+	{Statement_block} rCurly = R_CURLY_BRACE statments += Statement* lCurly = L_CURLY_BRACE
 ;
 //FIXME: resolver Expression em todas operações 
 Statement:
@@ -358,8 +366,8 @@ Arguments:
 	
 
 Switch_statement:
-	{Switch_statement}"switch" lParen = LPAREN expression = Expression rparent = RPAREN "{" (("case" expression2 += Expression ":") | ("default"":")
-		| (switchStatements += Statement))*"}"
+	{Switch_statement}"switch" lParen = LPAREN expression = Expression rparent = RPAREN R_CURLY_BRACE (("case" expression2 += Expression ":") | ("default"":")
+		| (switchStatements += Statement))*L_CURLY_BRACE
 ;
 
 While_Statement:

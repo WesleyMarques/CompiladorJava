@@ -90,7 +90,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Static_initializer/name"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Statement_block">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement_block/rCurly"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement_block/statments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement_block/lCurly"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/variableDeclaration"/>

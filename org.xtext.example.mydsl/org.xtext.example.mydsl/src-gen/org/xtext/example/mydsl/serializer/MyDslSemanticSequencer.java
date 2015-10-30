@@ -947,7 +947,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (statments+=Statement*)
+	 *     (rCurly=R_CURLY_BRACE statments+=Statement* lCurly=L_CURLY_BRACE)
 	 */
 	protected void sequence_Statement_block(EObject context, Statement_block semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

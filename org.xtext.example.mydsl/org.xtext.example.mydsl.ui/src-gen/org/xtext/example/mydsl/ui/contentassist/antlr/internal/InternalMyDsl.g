@@ -3739,11 +3739,9 @@ rule__Interface_declaration__Group__4__Impl
     }
 :
 (
-{ before(grammarAccess.getInterface_declarationAccess().getLeftCurlyBracketKeyword_4()); }
-
-	'{' 
-
-{ after(grammarAccess.getInterface_declarationAccess().getLeftCurlyBracketKeyword_4()); }
+{ before(grammarAccess.getInterface_declarationAccess().getR_CURLY_BRACETerminalRuleCall_4()); }
+	RULE_R_CURLY_BRACE
+{ after(grammarAccess.getInterface_declarationAccess().getR_CURLY_BRACETerminalRuleCall_4()); }
 )
 
 ;
@@ -3798,11 +3796,9 @@ rule__Interface_declaration__Group__6__Impl
     }
 :
 (
-{ before(grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_6()); }
-
-	'}' 
-
-{ after(grammarAccess.getInterface_declarationAccess().getRightCurlyBracketKeyword_6()); }
+{ before(grammarAccess.getInterface_declarationAccess().getL_CURLY_BRACETerminalRuleCall_6()); }
+	RULE_L_CURLY_BRACE
+{ after(grammarAccess.getInterface_declarationAccess().getL_CURLY_BRACETerminalRuleCall_6()); }
 )
 
 ;
@@ -4145,11 +4141,9 @@ rule__Class_declaration__Group__5__Impl
     }
 :
 (
-{ before(grammarAccess.getClass_declarationAccess().getLeftCurlyBracketKeyword_5()); }
-
-	'{' 
-
-{ after(grammarAccess.getClass_declarationAccess().getLeftCurlyBracketKeyword_5()); }
+{ before(grammarAccess.getClass_declarationAccess().getR_CURLY_BRACETerminalRuleCall_5()); }
+	RULE_R_CURLY_BRACE
+{ after(grammarAccess.getClass_declarationAccess().getR_CURLY_BRACETerminalRuleCall_5()); }
 )
 
 ;
@@ -4204,11 +4198,9 @@ rule__Class_declaration__Group__7__Impl
     }
 :
 (
-{ before(grammarAccess.getClass_declarationAccess().getRightCurlyBracketKeyword_7()); }
-
-	'}' 
-
-{ after(grammarAccess.getClass_declarationAccess().getRightCurlyBracketKeyword_7()); }
+{ before(grammarAccess.getClass_declarationAccess().getL_CURLY_BRACETerminalRuleCall_7()); }
+	RULE_L_CURLY_BRACE
+{ after(grammarAccess.getClass_declarationAccess().getL_CURLY_BRACETerminalRuleCall_7()); }
 )
 
 ;
@@ -5843,11 +5835,9 @@ rule__Array_initializer__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getArray_initializerAccess().getLeftCurlyBracketKeyword_1()); }
-
-	'{' 
-
-{ after(grammarAccess.getArray_initializerAccess().getLeftCurlyBracketKeyword_1()); }
+{ before(grammarAccess.getArray_initializerAccess().getR_CURLY_BRACETerminalRuleCall_1()); }
+	RULE_R_CURLY_BRACE
+{ after(grammarAccess.getArray_initializerAccess().getR_CURLY_BRACETerminalRuleCall_1()); }
 )
 
 ;
@@ -5902,11 +5892,9 @@ rule__Array_initializer__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getArray_initializerAccess().getRightCurlyBracketKeyword_3()); }
-
-	'}' 
-
-{ after(grammarAccess.getArray_initializerAccess().getRightCurlyBracketKeyword_3()); }
+{ before(grammarAccess.getArray_initializerAccess().getL_CURLY_BRACETerminalRuleCall_3()); }
+	RULE_L_CURLY_BRACE
+{ after(grammarAccess.getArray_initializerAccess().getL_CURLY_BRACETerminalRuleCall_3()); }
 )
 
 ;
@@ -6316,11 +6304,9 @@ rule__Statement_block__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getStatement_blockAccess().getLeftCurlyBracketKeyword_1()); }
-
-	'{' 
-
-{ after(grammarAccess.getStatement_blockAccess().getLeftCurlyBracketKeyword_1()); }
+{ before(grammarAccess.getStatement_blockAccess().getRCurlyAssignment_1()); }
+(rule__Statement_block__RCurlyAssignment_1)
+{ after(grammarAccess.getStatement_blockAccess().getRCurlyAssignment_1()); }
 )
 
 ;
@@ -6375,11 +6361,9 @@ rule__Statement_block__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getStatement_blockAccess().getRightCurlyBracketKeyword_3()); }
-
-	'}' 
-
-{ after(grammarAccess.getStatement_blockAccess().getRightCurlyBracketKeyword_3()); }
+{ before(grammarAccess.getStatement_blockAccess().getLCurlyAssignment_3()); }
+(rule__Statement_block__LCurlyAssignment_3)
+{ after(grammarAccess.getStatement_blockAccess().getLCurlyAssignment_3()); }
 )
 
 ;
@@ -14101,11 +14085,9 @@ rule__Switch_statement__Group__5__Impl
     }
 :
 (
-{ before(grammarAccess.getSwitch_statementAccess().getLeftCurlyBracketKeyword_5()); }
-
-	'{' 
-
-{ after(grammarAccess.getSwitch_statementAccess().getLeftCurlyBracketKeyword_5()); }
+{ before(grammarAccess.getSwitch_statementAccess().getR_CURLY_BRACETerminalRuleCall_5()); }
+	RULE_R_CURLY_BRACE
+{ after(grammarAccess.getSwitch_statementAccess().getR_CURLY_BRACETerminalRuleCall_5()); }
 )
 
 ;
@@ -14160,11 +14142,9 @@ rule__Switch_statement__Group__7__Impl
     }
 :
 (
-{ before(grammarAccess.getSwitch_statementAccess().getRightCurlyBracketKeyword_7()); }
-
-	'}' 
-
-{ after(grammarAccess.getSwitch_statementAccess().getRightCurlyBracketKeyword_7()); }
+{ before(grammarAccess.getSwitch_statementAccess().getL_CURLY_BRACETerminalRuleCall_7()); }
+	RULE_L_CURLY_BRACE
+{ after(grammarAccess.getSwitch_statementAccess().getL_CURLY_BRACETerminalRuleCall_7()); }
 )
 
 ;
@@ -16816,6 +16796,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Statement_block__RCurlyAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStatement_blockAccess().getRCurlyR_CURLY_BRACETerminalRuleCall_1_0()); }
+	RULE_R_CURLY_BRACE{ after(grammarAccess.getStatement_blockAccess().getRCurlyR_CURLY_BRACETerminalRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Statement_block__StatmentsAssignment_2
     @init {
 		int stackSize = keepStackSize();
@@ -16824,6 +16819,21 @@ rule__Statement_block__StatmentsAssignment_2
 (
 { before(grammarAccess.getStatement_blockAccess().getStatmentsStatementParserRuleCall_2_0()); }
 	ruleStatement{ after(grammarAccess.getStatement_blockAccess().getStatmentsStatementParserRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Statement_block__LCurlyAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStatement_blockAccess().getLCurlyL_CURLY_BRACETerminalRuleCall_3_0()); }
+	RULE_L_CURLY_BRACE{ after(grammarAccess.getStatement_blockAccess().getLCurlyL_CURLY_BRACETerminalRuleCall_3_0()); }
 )
 
 ;
@@ -19093,6 +19103,10 @@ finally {
 RULE_INTERFACE : 'interface';
 
 RULE_EXTENDS : 'extends';
+
+RULE_R_CURLY_BRACE : '{';
+
+RULE_L_CURLY_BRACE : '}';
 
 RULE_STATIC : 'static';
 
