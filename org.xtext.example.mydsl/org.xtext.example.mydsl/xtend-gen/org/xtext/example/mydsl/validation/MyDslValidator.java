@@ -13,6 +13,7 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.xtex.example.mydsl.exceptions.MyDslException;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
+import org.xtext.example.mydsl.myDsl.Constructor_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
@@ -20,9 +21,11 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
-import org.xtext.example.mydsl.validation.MethodObj;
-import org.xtext.example.mydsl.validation.MethodValidate;
-import org.xtext.example.mydsl.validation.ModifiersValidate;
+import org.xtext.example.mydsl.validation.utils.ConstructorObj;
+import org.xtext.example.mydsl.validation.utils.ContructorValidate;
+import org.xtext.example.mydsl.validation.utils.MethodObj;
+import org.xtext.example.mydsl.validation.utils.MethodValidate;
+import org.xtext.example.mydsl.validation.utils.ModifiersValidate;
 
 /**
  * This class contains custom validation rules.
@@ -35,18 +38,24 @@ public class MyDslValidator extends AbstractMyDslValidator {
   
   private final String INTERFACE = "interface";
   
+  private final String METHOD = "method";
+  
+  private final String CONSTRUCTOR = "constructor";
+  
   public Map<String, String> typeInValidation = new HashMap<String, String>();
   
   public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
   
   public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
   
+  public List<ConstructorObj> constructors = new ArrayList<ConstructorObj>();
+  
   @Check
-  public Map<String, List<MethodObj>> validaTypeDeclaration(final Type_declaration td) {
-    Map<String, List<MethodObj>> _xifexpression = null;
+  public Object validaTypeDeclaration(final Type_declaration td) {
+    Object _xifexpression = null;
     Class_declaration _classDec = td.getClassDec();
     if ((_classDec instanceof Class_declaration)) {
-      Map<String, List<MethodObj>> _xblockexpression = null;
+      Object _xblockexpression = null;
       {
         Class_declaration _classDec_1 = td.getClassDec();
         Class_declaration cd = ((Class_declaration) _classDec_1);
@@ -60,11 +69,13 @@ public class MyDslValidator extends AbstractMyDslValidator {
         this.typeInValidation.put("abstract", _plus);
         this.validaClass(cd);
         EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
-        _xblockexpression = this.validaMethods(_fieldsDeclaration);
+        this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD);
+        EList<Field_declaration> _fieldsDeclaration_1 = cd.getFieldsDeclaration();
+        _xblockexpression = this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR);
       }
       _xifexpression = _xblockexpression;
     } else {
-      Map<String, List<MethodObj>> _xblockexpression_1 = null;
+      Object _xblockexpression_1 = null;
       {
         Interface_declaration _interfaceDec = td.getInterfaceDec();
         Interface_declaration id = ((Interface_declaration) _interfaceDec);
@@ -78,7 +89,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
         this.typeInValidation.put("abstract", _plus);
         this.validaInterface(id);
         EList<Field_declaration> _fieldsDeclaration = id.getFieldsDeclaration();
-        _xblockexpression_1 = this.validaMethods(_fieldsDeclaration);
+        _xblockexpression_1 = this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD);
       }
       _xifexpression = _xblockexpression_1;
     }
@@ -109,7 +120,8 @@ public class MyDslValidator extends AbstractMyDslValidator {
               String _get_1 = this.typeInValidation.get("name");
               String _plus_2 = (_plus_1 + _get_1);
               Method_declaration _md = metAux.getMd();
-              this.error(_plus_2, _md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+              this.error(_plus_2, _md, 
+                MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
             }
           }
         } else {
@@ -121,8 +133,8 @@ public class MyDslValidator extends AbstractMyDslValidator {
     return _xblockexpression;
   }
   
-  public Object validaClass(final Class_declaration declaration) {
-    Object _xblockexpression = null;
+  public boolean validaClass(final Class_declaration declaration) {
+    boolean _xblockexpression = false;
     {
       try {
         EList<String> _modifiers = declaration.getModifiers();
@@ -138,12 +150,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
       }
       EList<String> interfaces = declaration.getInterfacesImplementadas();
       String _interfaceImplementada = declaration.getInterfaceImplementada();
-      interfaces.add(_interfaceImplementada);
-      for (final String interfaceName : interfaces) {
-        this.validaHerancaInterface(declaration, interfaceName);
-      }
-      String _classHerdada = declaration.getClassHerdada();
-      _xblockexpression = this.validaHerancaClass(_classHerdada);
+      _xblockexpression = interfaces.add(_interfaceImplementada);
     }
     return _xblockexpression;
   }
@@ -161,14 +168,70 @@ public class MyDslValidator extends AbstractMyDslValidator {
         throw Exceptions.sneakyThrow(_t);
       }
     }
-    EList<Field_declaration> _fieldsDeclaration = declaration.getFieldsDeclaration();
-    for (final Field_declaration field : _fieldsDeclaration) {
-      this.validaFieldDeclaration(field);
-    }
   }
   
-  public Object validaFieldDeclaration(final Field_declaration declaration) {
-    return null;
+  public Object validaFieldDeclaration(final EList<Field_declaration> declaration, final String fieldType) {
+    Object _xifexpression = null;
+    boolean _equals = fieldType.equals(this.METHOD);
+    if (_equals) {
+      _xifexpression = this.validaMethods(declaration);
+    } else {
+      List<ConstructorObj> _xifexpression_1 = null;
+      boolean _equals_1 = fieldType.equals(this.CONSTRUCTOR);
+      if (_equals_1) {
+        _xifexpression_1 = this.validaContructor(declaration);
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  public List<ConstructorObj> validaContructor(final EList<Field_declaration> list) {
+    List<ConstructorObj> _xblockexpression = null;
+    {
+      ContructorValidate cv = new ContructorValidate();
+      List<ConstructorObj> _xtrycatchfinallyexpression = null;
+      try {
+        String _get = this.typeInValidation.get("name");
+        List<ConstructorObj> _constructorValidateAll = cv.constructorValidateAll(list, _get);
+        _xtrycatchfinallyexpression = this.constructors = _constructorValidateAll;
+      } catch (final Throwable _t) {
+        if (_t instanceof MyDslException) {
+          final MyDslException e = (MyDslException)_t;
+          ConstructorObj constAux = null;
+          List<Object> _nodeError = e.getNodeError();
+          int _size = _nodeError.size();
+          boolean _equals = (_size == 1);
+          if (_equals) {
+            List<Object> _nodeError_1 = e.getNodeError();
+            Object _get_1 = _nodeError_1.get(0);
+            constAux = ((ConstructorObj) _get_1);
+            String _message = e.getMessage();
+            Constructor_declaration _md = constAux.getMd();
+            this.error(_message, _md, 
+              MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+          }
+          List<Object> _nodeError_2 = e.getNodeError();
+          for (final Object constError : _nodeError_2) {
+            {
+              constAux = ((ConstructorObj) constError);
+              String _message_1 = e.getMessage();
+              String _plus = (_message_1 + constAux);
+              String _plus_1 = (_plus + " in Type ");
+              String _get_2 = this.typeInValidation.get("name");
+              String _plus_2 = (_plus_1 + _get_2);
+              Constructor_declaration _md_1 = constAux.getMd();
+              this.error(_plus_2, _md_1, 
+                MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+            }
+          }
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+      _xblockexpression = _xtrycatchfinallyexpression;
+    }
+    return _xblockexpression;
   }
   
   public void validaModifiers(final EList<String> list, final String type) throws Exception {
@@ -198,14 +261,6 @@ public class MyDslValidator extends AbstractMyDslValidator {
         throw Exceptions.sneakyThrow(_t);
       }
     }
-  }
-  
-  public Object validaHerancaClass(final String string) {
-    return null;
-  }
-  
-  public Object validaHerancaInterface(final Class_declaration declaration, final String string) {
-    return null;
   }
   
   @Check

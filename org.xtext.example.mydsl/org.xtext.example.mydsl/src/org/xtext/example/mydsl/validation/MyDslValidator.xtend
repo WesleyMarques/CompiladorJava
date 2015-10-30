@@ -8,15 +8,19 @@ import java.util.HashMap
 import java.util.List
 import java.util.Map
 import org.eclipse.emf.common.util.EList
-import org.eclipse.xtend.lib.macro.declaration.MethodDeclaration
 import org.eclipse.xtext.validation.Check
+import org.xtex.example.mydsl.exceptions.MyDslException
 import org.xtext.example.mydsl.myDsl.Class_declaration
 import org.xtext.example.mydsl.myDsl.Field_declaration
 import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
-import org.xtex.example.mydsl.exceptions.MyDslException
+import org.xtext.example.mydsl.validation.utils.ConstructorObj
+import org.xtext.example.mydsl.validation.utils.ContructorValidate
+import org.xtext.example.mydsl.validation.utils.MethodObj
+import org.xtext.example.mydsl.validation.utils.MethodValidate
+import org.xtext.example.mydsl.validation.utils.ModifiersValidate
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -28,10 +32,13 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	private final String CLASS = "class";
 	private final String INTERFACE = "interface";
-
+	private final String METHOD = "method";
+	private final String CONSTRUCTOR = "constructor";
+	
 	public Map<String, String> typeInValidation = new HashMap<String, String>();
 	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
 	public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
+	public List<ConstructorObj> constructors = new ArrayList<ConstructorObj>();
 
 	@Check
 	def validaTypeDeclaration(Type_declaration td) {
@@ -41,7 +48,8 @@ class MyDslValidator extends AbstractMyDslValidator {
 			typeInValidation.put("name", cd.className);
 			typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
 			validaClass(cd);
-			validaMethods(cd.fieldsDeclaration);
+			validaFieldDeclaration(cd.fieldsDeclaration, METHOD);
+			validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR);
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
@@ -49,7 +57,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			typeInValidation.put("name", id.interfaceName);
 			typeInValidation.put("abstract", new ArrayList<String>(id.modifiers).contains("abstract") + "");
 			validaInterface(id);
-			validaMethods(id.fieldsDeclaration);
+			validaFieldDeclaration(id.fieldsDeclaration, METHOD);
 		}
 
 	}
@@ -58,14 +66,15 @@ class MyDslValidator extends AbstractMyDslValidator {
 		var MethodValidate mv = new MethodValidate();
 		try {
 			methodNames = mv.methodValidateAll(list, typeInValidation.get("name"));
-		}catch(MyDslException e){
+		} catch (MyDslException e) {
 			var MethodObj metAux;
-			for(Object methodsError: e.nodeError){
+			for (Object methodsError : e.nodeError) {
 				metAux = methodsError as MethodObj;
-				error(e.message+(metAux.toString)+" in Type "+typeInValidation.get("name"),metAux.md,MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-			}			
+				error(e.message + (metAux.toString) + " in Type " + typeInValidation.get("name"), metAux.md,
+					MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+			}
 		}
-		
+
 	}
 
 	def validaClass(Class_declaration declaration) {
@@ -77,10 +86,6 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 		var EList<String> interfaces = declaration.interfacesImplementadas;
 		interfaces.add(declaration.interfaceImplementada);
-		for (String interfaceName : interfaces) {
-			validaHerancaInterface(declaration, interfaceName);
-		}
-		validaHerancaClass(declaration.classHerdada);
 	}
 
 	def validaInterface(Interface_declaration declaration) {
@@ -90,13 +95,37 @@ class MyDslValidator extends AbstractMyDslValidator {
 			error(e.message, declaration, MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_NAME);
 
 		}
-		for (Field_declaration field : declaration.fieldsDeclaration) {
-			validaFieldDeclaration(field);
-		}
 
 	}
 
-	def validaFieldDeclaration(Field_declaration declaration) {
+	def validaFieldDeclaration(EList<Field_declaration> declaration, String fieldType) {
+		if (fieldType.equals(METHOD)) {
+			validaMethods(declaration);
+		} else if (fieldType.equals(CONSTRUCTOR)) {
+			validaContructor(declaration);
+		}
+
+	}
+	
+	def validaContructor(EList<Field_declaration> list) {
+		var ContructorValidate cv = new ContructorValidate();
+		try{
+			this.constructors = cv.constructorValidateAll(list,typeInValidation.get("name"));
+		}catch(MyDslException e){
+			var ConstructorObj constAux;
+			if(e.nodeError.size() == 1){
+				constAux = e.nodeError.get(0) as ConstructorObj;
+				error(e.message, constAux.md,
+					MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+			}
+			
+			for (Object constError : e.nodeError) {
+				constAux = constError as ConstructorObj;
+				error(e.message+ (constAux	) + " in Type " + typeInValidation.get("name"), constAux.md,
+					MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+			}
+		}
+		
 	}
 
 	def validaModifiers(EList<String> list, String type) throws Exception{
@@ -118,12 +147,6 @@ class MyDslValidator extends AbstractMyDslValidator {
 			throw e;
 		}
 
-	}
-
-	def validaHerancaClass(String string) {
-	}
-
-	def validaHerancaInterface(Class_declaration declaration, String string) {
 	}
 
 	@Check

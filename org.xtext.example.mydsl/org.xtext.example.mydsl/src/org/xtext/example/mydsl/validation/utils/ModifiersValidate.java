@@ -1,4 +1,4 @@
-package org.xtext.example.mydsl.validation;
+package org.xtext.example.mydsl.validation.utils;
 
 import java.util.HashSet;
 import java.util.List;

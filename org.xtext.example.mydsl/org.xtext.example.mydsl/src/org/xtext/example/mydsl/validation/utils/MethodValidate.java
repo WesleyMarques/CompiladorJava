@@ -1,4 +1,4 @@
-package org.xtext.example.mydsl.validation;
+package org.xtext.example.mydsl.validation.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.xtex.example.mydsl.exceptions.MyDslException;
+import org.xtext.example.mydsl.myDsl.Constructor_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.Parameter;
@@ -45,6 +46,8 @@ public class MethodValidate {
 		return allMethods;
 
 	}
+	
+	
 
 	private String returnTypeToString(Method_declaration md) {
 		String methodReturnType = md.getTypeMethod().getTypeSpecifier();
@@ -84,5 +87,7 @@ public class MethodValidate {
 		return paramsFiltered;
 
 	}
+	
+	
 
 }
