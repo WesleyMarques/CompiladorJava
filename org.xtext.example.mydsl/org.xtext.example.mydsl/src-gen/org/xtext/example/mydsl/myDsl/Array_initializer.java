@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Array_initializer extends Variable_initializer, Array_creator_rest
+public interface Array_initializer extends Array_creator_rest
 {
   /**
    * Returns the value of the '<em><b>Variableinitializer</b></em>' containment reference list.

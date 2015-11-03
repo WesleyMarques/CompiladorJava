@@ -1208,6 +1208,26 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getVariable_initializer_Array_init()
+  {
+    return (EReference)variable_initializerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariable_initializer_Expression()
+  {
+    return (EReference)variable_initializerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getArray_initializer()
   {
     return array_initializerEClass;
@@ -3175,6 +3195,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(variable_declaratorEClass, VARIABLE_DECLARATOR__VARI);
 
     variable_initializerEClass = createEClass(VARIABLE_INITIALIZER);
+    createEReference(variable_initializerEClass, VARIABLE_INITIALIZER__ARRAY_INIT);
+    createEReference(variable_initializerEClass, VARIABLE_INITIALIZER__EXPRESSION);
 
     array_initializerEClass = createEClass(ARRAY_INITIALIZER);
     createEReference(array_initializerEClass, ARRAY_INITIALIZER__VARIABLEINITIALIZER);
@@ -3445,10 +3467,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    array_initializerEClass.getESuperTypes().add(this.getVariable_initializer());
     array_initializerEClass.getESuperTypes().add(this.getArray_creator_rest());
     statement_blockEClass.getESuperTypes().add(this.getStatement());
-    expressionEClass.getESuperTypes().add(this.getVariable_initializer());
     conditional_expressionEClass.getESuperTypes().add(this.getExpression());
     relational_expressionEClass.getESuperTypes().add(this.getInstanceOf_expression());
     unary_expression_Not_Plus_MinusEClass.getESuperTypes().add(this.getUnary_expression());
@@ -3528,6 +3548,8 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getVariable_declarator_Vari(), this.getVariable_initializer(), null, "vari", null, 0, 1, Variable_declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variable_initializerEClass, Variable_initializer.class, "Variable_initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariable_initializer_Array_init(), this.getArray_initializer(), null, "array_init", null, 0, 1, Variable_initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_initializer_Expression(), this.getExpression(), null, "expression", null, 0, 1, Variable_initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(array_initializerEClass, Array_initializer.class, "Array_initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArray_initializer_Variableinitializer(), this.getVariable_initializer(), null, "variableinitializer", null, 0, -1, Array_initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

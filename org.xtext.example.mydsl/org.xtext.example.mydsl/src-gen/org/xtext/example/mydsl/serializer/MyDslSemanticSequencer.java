@@ -75,6 +75,7 @@ import org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus;
 import org.xtext.example.mydsl.myDsl.Variable;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
+import org.xtext.example.mydsl.myDsl.Variable_initializer;
 import org.xtext.example.mydsl.myDsl.Variable_value;
 import org.xtext.example.mydsl.myDsl.While_Statement;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -126,8 +127,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 					sequence_Conditional_expression(context, (Conditional_expression) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getExpressionRule() ||
-				   context == grammarAccess.getVariable_initializerRule()) {
+				else if(context == grammarAccess.getExpressionRule()) {
 					sequence_Conditional_expression_Expression(context, (Conditional_expression) semanticObject); 
 					return; 
 				}
@@ -290,6 +290,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.VARIABLE_DECLARATOR:
 				sequence_Variable_declarator(context, (Variable_declarator) semanticObject); 
+				return; 
+			case MyDslPackage.VARIABLE_INITIALIZER:
+				sequence_Variable_initializer(context, (Variable_initializer) semanticObject); 
 				return; 
 			case MyDslPackage.VARIABLE_VALUE:
 				sequence_Variable_value(context, (Variable_value) semanticObject); 
@@ -1062,6 +1065,15 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (nameVariable=ID vari=Variable_initializer?)
 	 */
 	protected void sequence_Variable_declarator(EObject context, Variable_declarator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (array_init=Array_initializer | expression=Expression)
+	 */
+	protected void sequence_Variable_initializer(EObject context, Variable_initializer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

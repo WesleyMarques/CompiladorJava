@@ -713,21 +713,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class Variable_initializerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Variable_initializer");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cArray_initializerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Assignment cArray_initAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cArray_initArray_initializerParserRuleCall_0_0 = (RuleCall)cArray_initAssignment_0.eContents().get(0);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cExpressionExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
 		
 		//Variable_initializer:
-		//	Array_initializer | Expression;
+		//	array_init=Array_initializer | expression=Expression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Array_initializer | Expression
+		//array_init=Array_initializer | expression=Expression
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//array_init=Array_initializer
+		public Assignment getArray_initAssignment_0() { return cArray_initAssignment_0; }
+
 		//Array_initializer
-		public RuleCall getArray_initializerParserRuleCall_0() { return cArray_initializerParserRuleCall_0; }
+		public RuleCall getArray_initArray_initializerParserRuleCall_0_0() { return cArray_initArray_initializerParserRuleCall_0_0; }
+
+		//expression=Expression
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
 
 		//Expression
-		public RuleCall getExpressionParserRuleCall_1() { return cExpressionParserRuleCall_1; }
+		public RuleCall getExpressionExpressionParserRuleCall_1_0() { return cExpressionExpressionParserRuleCall_1_0; }
 	}
 
 	public class Array_initializerElements extends AbstractParserRuleElementFinder {
@@ -1035,8 +1043,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 		//	{Statement} "return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block |
-		//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement}
-		//	"continue" name=ID? ";" | {Statement} ";";
+		//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" |
+		//	{Statement} "continue" name=ID? ";" | {Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
 		//variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
@@ -3536,8 +3544,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinallyStatementStatementParserRuleCall_3_1_0 = (RuleCall)cFinallyStatementAssignment_3_1.eContents().get(0);
 		
 		//Try_statement:
-		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
-		//	("finally" finallyStatement=Statement)?;
+		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
+		//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
@@ -4357,7 +4365,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Variable_initializer:
-	//	Array_initializer | Expression;
+	//	array_init=Array_initializer | expression=Expression;
 	public Variable_initializerElements getVariable_initializerAccess() {
 		return pVariable_initializer;
 	}
@@ -4439,8 +4447,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 	//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 	//	{Statement} "return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block |
-	//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" | {Statement}
-	//	"continue" name=ID? ";" | {Statement} ";";
+	//	tryStatement=Try_statement | nameStatement=ID ":" statement=Statement | {Statement} "break" name=ID? ";" |
+	//	{Statement} "continue" name=ID? ";" | {Statement} ";";
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -4921,8 +4929,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Try_statement:
-	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
-	//	("finally" finallyStatement=Statement)?;
+	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
+	//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
 	public Try_statementElements getTry_statementAccess() {
 		return pTry_statement;
 	}
@@ -5084,8 +5092,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal FLOATING_POINT_LITERAL:
-	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+ EXPONENT
-	//	FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
+	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+
+	//	EXPONENT FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
 	public TerminalRule getFLOATING_POINT_LITERALRule() {
 		return tFLOATING_POINT_LITERAL;
 	} 

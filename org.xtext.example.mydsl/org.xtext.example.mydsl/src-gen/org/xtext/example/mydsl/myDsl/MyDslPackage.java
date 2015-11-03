@@ -718,13 +718,59 @@ public interface MyDslPackage extends EPackage
   int VARIABLE_INITIALIZER = 12;
 
   /**
+   * The feature id for the '<em><b>Array init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_INITIALIZER__ARRAY_INIT = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_INITIALIZER__EXPRESSION = 1;
+
+  /**
    * The number of structural features of the '<em>Variable initializer</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_INITIALIZER_FEATURE_COUNT = 0;
+  int VARIABLE_INITIALIZER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl <em>Array creator rest</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArray_creator_rest()
+   * @generated
+   */
+  int ARRAY_CREATOR_REST = 51;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CREATOR_REST__EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Array creator rest</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CREATOR_REST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_initializerImpl <em>Array initializer</em>}' class.
@@ -743,7 +789,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_INITIALIZER__EXPRESSION = VARIABLE_INITIALIZER_FEATURE_COUNT + 0;
+  int ARRAY_INITIALIZER__EXPRESSION = ARRAY_CREATOR_REST__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Variableinitializer</b></em>' containment reference list.
@@ -752,7 +798,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_INITIALIZER__VARIABLEINITIALIZER = VARIABLE_INITIALIZER_FEATURE_COUNT + 1;
+  int ARRAY_INITIALIZER__VARIABLEINITIALIZER = ARRAY_CREATOR_REST_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Array initializer</em>' class.
@@ -761,7 +807,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_INITIALIZER_FEATURE_COUNT = VARIABLE_INITIALIZER_FEATURE_COUNT + 2;
+  int ARRAY_INITIALIZER_FEATURE_COUNT = ARRAY_CREATOR_REST_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
@@ -1642,7 +1688,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = VARIABLE_INITIALIZER_FEATURE_COUNT + 0;
+  int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_expressionImpl <em>Conditional expression</em>}' class.
@@ -2446,34 +2492,6 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int INNER_CREATOR_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl <em>Array creator rest</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArray_creator_rest()
-   * @generated
-   */
-  int ARRAY_CREATOR_REST = 51;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_CREATOR_REST__EXPRESSION = 0;
-
-  /**
-   * The number of structural features of the '<em>Array creator rest</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_CREATOR_REST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Class_creator_restImpl <em>Class creator rest</em>}' class.
@@ -3738,6 +3756,28 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getVariable_initializer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Variable_initializer#getArray_init <em>Array init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array init</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Variable_initializer#getArray_init()
+   * @see #getVariable_initializer()
+   * @generated
+   */
+  EReference getVariable_initializer_Array_init();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Variable_initializer#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Variable_initializer#getExpression()
+   * @see #getVariable_initializer()
+   * @generated
+   */
+  EReference getVariable_initializer_Expression();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Array_initializer <em>Array initializer</em>}'.
@@ -6272,6 +6312,22 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass VARIABLE_INITIALIZER = eINSTANCE.getVariable_initializer();
+
+    /**
+     * The meta object literal for the '<em><b>Array init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_INITIALIZER__ARRAY_INIT = eINSTANCE.getVariable_initializer_Array_init();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_INITIALIZER__EXPRESSION = eINSTANCE.getVariable_initializer_Expression();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_initializerImpl <em>Array initializer</em>}' class.

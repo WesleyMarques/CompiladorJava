@@ -14,9 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.mydsl.myDsl.Array_creator_rest;
 import org.xtext.example.mydsl.myDsl.Array_initializer;
-import org.xtext.example.mydsl.myDsl.Expression;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Variable_initializer;
 
@@ -27,25 +25,14 @@ import org.xtext.example.mydsl.myDsl.Variable_initializer;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Array_initializerImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Array_initializerImpl#getVariableinitializer <em>Variableinitializer</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Array_initializerImpl extends Variable_initializerImpl implements Array_initializer
+public class Array_initializerImpl extends Array_creator_restImpl implements Array_initializer
 {
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> expression;
-
   /**
    * The cached value of the '{@link #getVariableinitializer() <em>Variableinitializer</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -82,20 +69,6 @@ public class Array_initializerImpl extends Variable_initializerImpl implements A
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpression()
-  {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<Expression>(Expression.class, this, MyDslPackage.ARRAY_INITIALIZER__EXPRESSION);
-    }
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Variable_initializer> getVariableinitializer()
   {
     if (variableinitializer == null)
@@ -115,8 +88,6 @@ public class Array_initializerImpl extends Variable_initializerImpl implements A
   {
     switch (featureID)
     {
-      case MyDslPackage.ARRAY_INITIALIZER__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
       case MyDslPackage.ARRAY_INITIALIZER__VARIABLEINITIALIZER:
         return ((InternalEList<?>)getVariableinitializer()).basicRemove(otherEnd, msgs);
     }
@@ -133,8 +104,6 @@ public class Array_initializerImpl extends Variable_initializerImpl implements A
   {
     switch (featureID)
     {
-      case MyDslPackage.ARRAY_INITIALIZER__EXPRESSION:
-        return getExpression();
       case MyDslPackage.ARRAY_INITIALIZER__VARIABLEINITIALIZER:
         return getVariableinitializer();
     }
@@ -152,10 +121,6 @@ public class Array_initializerImpl extends Variable_initializerImpl implements A
   {
     switch (featureID)
     {
-      case MyDslPackage.ARRAY_INITIALIZER__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends Expression>)newValue);
-        return;
       case MyDslPackage.ARRAY_INITIALIZER__VARIABLEINITIALIZER:
         getVariableinitializer().clear();
         getVariableinitializer().addAll((Collection<? extends Variable_initializer>)newValue);
@@ -174,9 +139,6 @@ public class Array_initializerImpl extends Variable_initializerImpl implements A
   {
     switch (featureID)
     {
-      case MyDslPackage.ARRAY_INITIALIZER__EXPRESSION:
-        getExpression().clear();
-        return;
       case MyDslPackage.ARRAY_INITIALIZER__VARIABLEINITIALIZER:
         getVariableinitializer().clear();
         return;
@@ -194,50 +156,10 @@ public class Array_initializerImpl extends Variable_initializerImpl implements A
   {
     switch (featureID)
     {
-      case MyDslPackage.ARRAY_INITIALIZER__EXPRESSION:
-        return expression != null && !expression.isEmpty();
       case MyDslPackage.ARRAY_INITIALIZER__VARIABLEINITIALIZER:
         return variableinitializer != null && !variableinitializer.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Array_creator_rest.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case MyDslPackage.ARRAY_INITIALIZER__EXPRESSION: return MyDslPackage.ARRAY_CREATOR_REST__EXPRESSION;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == Array_creator_rest.class)
-    {
-      switch (baseFeatureID)
-      {
-        case MyDslPackage.ARRAY_CREATOR_REST__EXPRESSION: return MyDslPackage.ARRAY_INITIALIZER__EXPRESSION;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
 } //Array_initializerImpl

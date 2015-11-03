@@ -78,7 +78,7 @@ Variable_declarator:
 ;
 
 Variable_initializer:
-	Array_initializer | Expression
+	array_init = Array_initializer | expression = Expression
 ;
 
 Array_initializer:

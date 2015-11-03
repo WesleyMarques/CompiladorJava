@@ -16,8 +16,10 @@ import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
+import org.xtext.example.mydsl.myDsl.Variable_declaration
 import org.xtext.example.mydsl.validation.utils.ConstructorObj
 import org.xtext.example.mydsl.validation.utils.ContructorValidate
+import org.xtext.example.mydsl.validation.utils.ExpressionValidate
 import org.xtext.example.mydsl.validation.utils.MethodObj
 import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
@@ -50,6 +52,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			validaClass(cd);
 			validaFieldDeclaration(cd.fieldsDeclaration, METHOD);
 			validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR);
+			
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
@@ -163,5 +166,13 @@ class MyDslValidator extends AbstractMyDslValidator {
 		}
 
 	}
+	
+	@Check
+	def variableDeclaration(Variable_declaration vd){
+		var ExpressionValidate ev = new ExpressionValidate();
+		ev.validaExpressao(vd.nameVariable.vari.expression);
+		
+	}
+	
 
 }

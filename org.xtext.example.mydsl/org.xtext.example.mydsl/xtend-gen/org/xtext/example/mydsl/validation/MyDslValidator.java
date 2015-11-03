@@ -14,15 +14,20 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.xtex.example.mydsl.exceptions.MyDslException;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Constructor_declaration;
+import org.xtext.example.mydsl.myDsl.Expression;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
+import org.xtext.example.mydsl.myDsl.Variable_declaration;
+import org.xtext.example.mydsl.myDsl.Variable_declarator;
+import org.xtext.example.mydsl.myDsl.Variable_initializer;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
 import org.xtext.example.mydsl.validation.utils.ContructorValidate;
+import org.xtext.example.mydsl.validation.utils.ExpressionValidate;
 import org.xtext.example.mydsl.validation.utils.MethodObj;
 import org.xtext.example.mydsl.validation.utils.MethodValidate;
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate;
@@ -284,5 +289,18 @@ public class MyDslValidator extends AbstractMyDslValidator {
         throw Exceptions.sneakyThrow(_t);
       }
     }
+  }
+  
+  @Check
+  public String variableDeclaration(final Variable_declaration vd) {
+    String _xblockexpression = null;
+    {
+      ExpressionValidate ev = new ExpressionValidate();
+      Variable_declarator _nameVariable = vd.getNameVariable();
+      Variable_initializer _vari = _nameVariable.getVari();
+      Expression _expression = _vari.getExpression();
+      _xblockexpression = ev.validaExpressao(_expression);
+    }
+    return _xblockexpression;
   }
 }

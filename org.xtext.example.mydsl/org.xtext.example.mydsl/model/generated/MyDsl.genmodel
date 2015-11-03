@@ -78,7 +78,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Variable_declarator/nameVariable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Variable_declarator/vari"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Variable_initializer"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Variable_initializer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Variable_initializer/array_init"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Variable_initializer/expression"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Array_initializer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Array_initializer/variableinitializer"/>
     </genClasses>

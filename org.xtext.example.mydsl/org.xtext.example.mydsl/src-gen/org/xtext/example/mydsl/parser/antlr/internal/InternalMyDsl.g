@@ -1294,32 +1294,44 @@ ruleVariable_initializer returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+((
 (
-	{ 
-	  /* */ 
-	}
-    { 
-        newCompositeNode(grammarAccess.getVariable_initializerAccess().getArray_initializerParserRuleCall_0()); 
-    }
-    this_Array_initializer_0=ruleArray_initializer
-    { 
-        $current = $this_Array_initializer_0.current; 
-        afterParserOrEnumRuleCall();
-    }
+		{ 
+	        newCompositeNode(grammarAccess.getVariable_initializerAccess().getArray_initArray_initializerParserRuleCall_0_0()); 
+	    }
+		lv_array_init_0_0=ruleArray_initializer		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getVariable_initializerRule());
+	        }
+       		set(
+       			$current, 
+       			"array_init",
+        		lv_array_init_0_0, 
+        		"Array_initializer");
+	        afterParserOrEnumRuleCall();
+	    }
 
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        newCompositeNode(grammarAccess.getVariable_initializerAccess().getExpressionParserRuleCall_1()); 
-    }
-    this_Expression_1=ruleExpression
-    { 
-        $current = $this_Expression_1.current; 
-        afterParserOrEnumRuleCall();
-    }
 )
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getVariable_initializerAccess().getExpressionExpressionParserRuleCall_1_0()); 
+	    }
+		lv_expression_1_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getVariable_initializerRule());
+	        }
+       		set(
+       			$current, 
+       			"expression",
+        		lv_expression_1_0, 
+        		"Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 

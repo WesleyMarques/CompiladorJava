@@ -102,8 +102,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="vari" eType="#//Variable_initializer"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variable_initializer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Array_initializer" eSuperTypes="#//Variable_initializer #//Array_creator_rest">
+  <eClassifiers xsi:type="ecore:EClass" name="Variable_initializer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array_init" eType="#//Array_initializer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Array_initializer" eSuperTypes="#//Array_creator_rest">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variableinitializer" upperBound="-1"
         eType="#//Variable_initializer" containment="true"/>
   </eClassifiers>
@@ -216,7 +221,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression2" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Variable_initializer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Conditional_expression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="assignmentoperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"

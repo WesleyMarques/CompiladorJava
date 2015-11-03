@@ -167,7 +167,6 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Array_initializer array_initializer = (Array_initializer)theEObject;
         T result = caseArray_initializer(array_initializer);
-        if (result == null) result = caseVariable_initializer(array_initializer);
         if (result == null) result = caseArray_creator_rest(array_initializer);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -289,7 +288,6 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseVariable_initializer(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -298,7 +296,6 @@ public class MyDslSwitch<T> extends Switch<T>
         Conditional_expression conditional_expression = (Conditional_expression)theEObject;
         T result = caseConditional_expression(conditional_expression);
         if (result == null) result = caseExpression(conditional_expression);
-        if (result == null) result = caseVariable_initializer(conditional_expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

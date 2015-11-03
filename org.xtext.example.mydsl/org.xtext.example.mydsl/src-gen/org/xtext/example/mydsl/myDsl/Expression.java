@@ -2,6 +2,7 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,6 @@ package org.xtext.example.mydsl.myDsl;
  * @model
  * @generated
  */
-public interface Expression extends Variable_initializer
+public interface Expression extends EObject
 {
 } // Expression

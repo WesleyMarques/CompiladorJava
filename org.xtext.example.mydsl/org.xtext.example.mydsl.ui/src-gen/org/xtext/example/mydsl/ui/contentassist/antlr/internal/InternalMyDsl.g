@@ -2348,15 +2348,15 @@ rule__Variable_initializer__Alternatives
     }
 :
 (
-{ before(grammarAccess.getVariable_initializerAccess().getArray_initializerParserRuleCall_0()); }
-	ruleArray_initializer
-{ after(grammarAccess.getVariable_initializerAccess().getArray_initializerParserRuleCall_0()); }
+{ before(grammarAccess.getVariable_initializerAccess().getArray_initAssignment_0()); }
+(rule__Variable_initializer__Array_initAssignment_0)
+{ after(grammarAccess.getVariable_initializerAccess().getArray_initAssignment_0()); }
 )
 
     |(
-{ before(grammarAccess.getVariable_initializerAccess().getExpressionParserRuleCall_1()); }
-	ruleExpression
-{ after(grammarAccess.getVariable_initializerAccess().getExpressionParserRuleCall_1()); }
+{ before(grammarAccess.getVariable_initializerAccess().getExpressionAssignment_1()); }
+(rule__Variable_initializer__ExpressionAssignment_1)
+{ after(grammarAccess.getVariable_initializerAccess().getExpressionAssignment_1()); }
 )
 
 ;
@@ -16712,6 +16712,36 @@ rule__Variable_declarator__VariAssignment_2_1
 (
 { before(grammarAccess.getVariable_declaratorAccess().getVariVariable_initializerParserRuleCall_2_1_0()); }
 	ruleVariable_initializer{ after(grammarAccess.getVariable_declaratorAccess().getVariVariable_initializerParserRuleCall_2_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Variable_initializer__Array_initAssignment_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getVariable_initializerAccess().getArray_initArray_initializerParserRuleCall_0_0()); }
+	ruleArray_initializer{ after(grammarAccess.getVariable_initializerAccess().getArray_initArray_initializerParserRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Variable_initializer__ExpressionAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getVariable_initializerAccess().getExpressionExpressionParserRuleCall_1_0()); }
+	ruleExpression{ after(grammarAccess.getVariable_initializerAccess().getExpressionExpressionParserRuleCall_1_0()); }
 )
 
 ;
