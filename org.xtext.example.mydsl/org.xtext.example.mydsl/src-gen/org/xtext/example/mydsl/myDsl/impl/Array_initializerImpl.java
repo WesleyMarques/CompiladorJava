@@ -11,6 +11,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,7 +33,7 @@ import org.xtext.example.mydsl.myDsl.Variable_initializer;
  *
  * @generated
  */
-public class Array_initializerImpl extends Array_creator_restImpl implements Array_initializer
+public class Array_initializerImpl extends MinimalEObjectImpl.Container implements Array_initializer
 {
   /**
    * The cached value of the '{@link #getVariableinitializer() <em>Variableinitializer</em>}' containment reference list.

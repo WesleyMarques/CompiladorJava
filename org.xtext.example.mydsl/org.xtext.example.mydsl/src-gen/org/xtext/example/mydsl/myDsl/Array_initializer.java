@@ -4,6 +4,8 @@ package org.xtext.example.mydsl.myDsl;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Array initializer</b></em>'.
@@ -20,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Array_initializer extends Array_creator_rest
+public interface Array_initializer extends EObject
 {
   /**
    * Returns the value of the '<em><b>Variableinitializer</b></em>' containment reference list.

@@ -66,7 +66,7 @@ Parameter_list:
 ;
 
 Parameter:
-type = Type parameterName = ID ("[""]")*
+type = Type parameterName = ID ("[""]" | "[]")*
 ;
 
 Variable_declaration:
@@ -74,7 +74,7 @@ Variable_declaration:
 ;
 
 Variable_declarator:
-	nameVariable = ID ("[""]")*   ("="vari = Variable_initializer)?
+	nameVariable = ID ("[""]" | "[]")*   ("="vari = Variable_initializer)?
 ;
 
 Variable_initializer:
@@ -88,7 +88,11 @@ Array_initializer:
 
 
 Type:
-	typeSpecifier = Type_specifier  (typeVector += "[""]")*
+	typeSpecifier = Type_specifier (typeVector += "[]")*
+;
+
+terminal CHAR:
+	"'" . "'"
 ;
 
 Type_specifier:
@@ -134,7 +138,7 @@ Statement:
 	{Statement}"throw" (expression = Expression)? ";" | 	
 	Statement_block |
 	tryStatement = Try_statement |
-	nameStatement = ID ":" statement = Statement | 	
+	nameStatement = ID COLON statement = Statement | 	
 	{Statement}"break" name = ID? ";" |
 	{Statement}"continue" name = ID? ";" | 
 	{Statement}";"
@@ -143,230 +147,264 @@ Statement:
 //##################################  For
 
 For_Statement:
-	"for" lparent = LPAREN forControl = For_control rParent = RPAREN
-	 forStatement = Statement
+	"for" LPAREN (variable=Variable_declaration | ";" | (expression=Expression ";") )
+	(expression2=Expression)? ";"
+	(expression3=Expression)?
+	RPAREN statement=Statement
 ;
 
-For_control:
-	{For_control} 
-	(
-		forinit = For_init? ';' expression = For_expression? ';' forupdate = For_update?
-	)
-;
-
-Variable:
-	name = ID
-;
-
-Variable_value:
-	name = Literal
-;
 
 Primitive_type:
 	name = Type_specifier
 ;
 
-For_init: //usual For init loop
-	{For_init}  
-	type = Primitive_type var = Variable '=' var_init = Variable_value
-;
-
-For_expression:
-	{For_expression}
-	variable1 = Variable 
-	//('<' | '>' | '<' '=' | '>' '=')
-	ExpOp = For_expression_operator 
-	//(variable2 = Variable ) //if another variablle is declared before the For declaration 
-	limit = Variable_value
-	//check with more expressions	
-;
-
-For_update:
-	{For_update}
-	variable = Variable //('++' | '--')
-	updateOp = For_update_operator
-;
 
 
-For_update_operator:
-	{For_update_operator}
-	name = Update_operator
-;
 
-Update_operator:
-	'++' | '--'
-;
 
-For_expression_operator:
-	{For_expression_operator} //check if it works with the options
-	name = Relational_operator
-;
 
 
 
 //################################## EXPRESSOES
 
-Parens_expression:
-	lparent = LPAREN expression = Expression rparent = RPAREN
-;
-
-Expression_list:
-	expression1 = Expression (',' expression2 += Expression)*
-;
-
 Expression:
-	Conditional_expression (=> assignmentoperator = Assignment_operator expression = Expression)?
+	=>((numericExpression3=Numeric_Expression_NR) ) aux=Expression_aux	
+	|(logicalExpression=Logical_Expression_NR) aux=Expression_aux
+	|(bitExpression=Bit_Expression_NR) aux=Expression_aux
+	|=>(castExpression=Cast_Expression) aux=Expression_aux
+	|=>(creatingExpression=Creating_Expression) aux=Expression_aux
+	|(literalExpression=Literal_Expression) aux=Expression_aux
+	|(null=NULL) aux=Expression_aux 
+	|(super=SUPER) aux=Expression_aux
+	|(this=THIS) aux=Expression_aux
+	|(name=ID) aux=Expression_aux	 
 ;
 
-Conditional_expression:
-	conditionalorexpression = Conditional_OR_expression ('?' expression1 = Expression ':' expression2 = Expression)?
+terminal NULL:
+	"NULL"
+;
+terminal THIS:
+	"this"
 ;
 
-Conditional_OR_expression:
-	conditionalandexpression += Conditional_AND_expression ('||' conditionalandexpression += Conditional_AND_expression)*
+terminal SUPER:
+	"super"
 ;
 
-Conditional_AND_expression:
-	inclusiveorexpression += Inclusive_OR_expression ('&&' inclusiveorexpression += Inclusive_OR_expression)*
+Expression_aux :
+	 ((LPAREN argList=Arg_List? RPAREN)) aux=Expression_aux
+	 |(("["expression2=Expression"]")) aux=Expression_aux
+	 |(('.' expression2=Expression)) aux=Expression_aux
+	 |(("," expressionComma=Expression)) aux=Expression_aux 
+	 |((INSTANCEOF (name=Class_name))) aux=Expression_aux
+	 |(sgin=(INCREMENT|DECREMENT) aux=Expression_aux)
+	 |(numericSign=("+" | PLUS_EQUAL | "-" | MINUS_EQUAL | MULTIPLY | MULTIPLY_EQUAL | DIVIDE | DIVIDE_EQUAL | MODULE | MODULE_EQUAL) exp2=Expression aux=Expression_aux)
+	 |(testingSign=( BT | ST | BE | SE | DOUBLE_EQUAL | DIFFERENT ) exp1=Expression aux=Expression_aux)
+	 |((logicalSign=( OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL ) | ampersand=Ampersand_Rule) exp1=Expression aux=Expression_aux)
+	 |(WAT exp1=Expression COLON exp2=Expression aux=Expression_aux)
+	 |(stringSign=("+" | PLUS_EQUAL) exp1=Expression aux=Expression_aux)
+	 |(bitSign=( R_SHIFT_EQUAL | L_SHIFT | R_SHIFT | SUPER_SHIFT ) expressionBit=Expression aux=Expression_aux)
+	 | {Expression_aux}
 ;
 
-Inclusive_OR_expression:
-	exclusiveorexpression += Exclusive_OR_expression ('|' exclusiveorexpression += Exclusive_OR_expression)*
+terminal INSTANCEOF:
+	"instanceof"
 ;
 
-Exclusive_OR_expression:
-	andexpression += AND_expression ('^' andexpression += AND_expression)*
+terminal L_SHIFT:
+	"<<"	
 ;
 
-AND_expression:
-	equalityexpression += Equality_expression ('&' equalityexpression += Equality_expression)*
+terminal R_SHIFT:
+	">>"
 ;
 
-Equality_expression:
-	instanceofexpression += InstanceOf_expression (('==' | '!=') instanceofexpression += InstanceOf_expression)*
+terminal SUPER_SHIFT:
+	">>>"
 ;
 
-InstanceOf_expression:
-	Relational_expression ('instanceof' type = Type)?
+terminal R_SHIFT_EQUAL:
+	">>="
 ;
 
-Relational_expression:
-	shiftexpression += Shift_expression (relationalop += Relational_operator shiftexpression += Shift_expression)*
+terminal DOUBLE_OR_EQUAL:
+	"||="
 ;
 
-Shift_expression:
-	additiveexpression += Additive_expression (shiftop += Shift_operator additiveexpression += Additive_expression)*
+terminal OR:
+	"|"
 ;
 
-Additive_expression:
-	multiplicativeexpression += Multiplicative_expression (('+' | '-') multiplicativeexpression += Multiplicative_expression)*
+terminal OR_EQUAL:
+	"|="
 ;
 
-Multiplicative_expression:
-	unaryexpression += Unary_expression (('*' | '/' | '%') unaryexpression += Unary_expression)*
+terminal EXP:
+	"^"
 ;
 
-Unary_expression:
-	('+' Unary_expression
-	| '-' Unary_expression
-	| '++' Unary_expression
-	| '--' Unary_expression
-	| Unary_expression_Not_Plus_Minus)
+terminal EXP_EQUAL:
+	"^="
 ;
 
-Unary_expression_Not_Plus_Minus:
-	{Unary_expression_Not_Plus_Minus}
-	('~' unaryexpression = Unary_expression
-	| '!' unaryexpression = Unary_expression
-	| castexpression = Cast_expression
-	| primary = Primary_expression selector += Selector* ('++' | '--')?)
+terminal DOUBLE_EQUAL:
+	"=="
 ;
 
-Cast_expression:
-	{Cast_expression}
-	lparent = LPAREN primitivetype = Primitive_type rparent = RPAREN unaryexpression = Unary_expression
-	| lparent = LPAREN (type = Type | expression = Expression) rparent = RPAREN unaryexpressionnotplusminus = Unary_expression_Not_Plus_Minus
+terminal DIFFERENT:
+	"!="
 ;
 
-Primary_expression:
-	{Primary_expression}
-	(parexpression = Parens_expression
-	| 'this' ('.' identifier += ID)* (=>identifiersuffix = Identifier_suffix)?
-	| 'super' supersuffix = Super_suffix
-	| literal = Literal
-	| 'new' creator = Creator
-	| identifier += ID ('.' identifier += ID)* (=>identifiersuffix = Identifier_suffix)?
-	| primitivetype = Primitive_type ('[' ']')* '.' 'class'
-	| 'void' '.' 'class')
+terminal BT:
+	">"
 ;
 
-Identifier_suffix:
-	{Identifier_suffix}
-	(('[' ']')+ '.' 'class'
-//	| ('[' expression += Expression ']')+ // can also be matched by selector, but do here
-	| arguments = Arguments
-	| '.' 'class'
-	| '.' explicitgenericinvocation = Explicit_generic_invocation
-	| '.' 'this'
-	| '.' 'super' arguments = Arguments
-	| '.' 'new' innercreator = Inner_creator)
+terminal ST:
+	"<"
 ;
 
-Creator:
-	Non_wildcard_type_arguments createdname = Created_name classcreatorrest = Class_creator_rest
-	| Created_name (arraycreatorrest = Array_creator_rest | classcreatorrest = Class_creator_rest)
+terminal BE:
+	">="
 ;
 
-Created_name:
-	{Created_name}
-	(classorinterfacetype = Class_declaration | primitivetype = Primitive_type)
+terminal SE:
+	"<="
 ;
 
-Inner_creator:
-	nonwildcardtypearguments = Non_wildcard_type_arguments? identifier = ID classcreatorrest = Class_creator_rest
+terminal DIVIDE:
+	"/"
 ;
 
-Array_creator_rest:
-	'[' (']' ('[' ']')* Array_initializer
-	| expression += Expression ']' (=>'[' expression += Expression ']')* ('[' ']')*)
+terminal DIVIDE_EQUAL:
+	"/="
 ;
 
-Class_creator_rest:
-	arguments = Arguments classbody = Class_declaration?
+terminal MODULE:
+	"%"
 ;
 
-Explicit_generic_invocation:
-	nonwildcardtypearguments = Non_wildcard_type_arguments identifier = ID arguments = Arguments
+terminal MODULE_EQUAL:
+	"%="
 ;
 
-Non_wildcard_type_arguments:
-	'<' type = Type '>'
+terminal PLUS_EQUAL:
+	"+="
 ;
 
-Selector:
-	{Selector}
-	(
-	//	'.' identifier = Identifier arguments = Arguments? | 
-	//	'.' 'this' | 
-	'.' 'super' supersuffix = Super_suffix
-	| '.' 'new' innercreator = Inner_creator
-	| '[' expression=Expression ']')
+terminal MINUS_EQUAL:
+	"-="
 ;
 
-Super_suffix:
-	{Super_suffix} 
-	(arguments = Arguments | '.' identifier = ID arguments = Arguments?)
+terminal MULTIPLY:
+	"*"	
 ;
 
-Arguments:
-	{Arguments} 
-	lparent = LPAREN expressionlist = Expression_list? rparent = RPAREN
+terminal MULTIPLY_EQUAL:
+	"*="	
 ;
-	
+
+terminal WAT:
+	"?"
+;
+Ampersand_Rule:
+	(a1=AMPERSAND (a2=AMPERSAND | "=")?)
+;
+
+terminal AMPERSAND:
+	"ampersand"
+;
+Float_Literal:
+	decimalDigits1=DECIMAL_DIGITS '.' (decimalDigits2=DECIMAL_DIGITS)? (exp=EXPOENT_PART)?/*(expoentPart=Expoent_part)?*/ (floatTypeSufix=FLOAT_TYPE_SUFIX)?
+;
+
+terminal EXPONENTIAL:
+	('e'|'e+'|'e-')
+;
+
+Literal_Expression:
+	((exp=HEXA LONG?) | (exp1=DECIMAL_DIGITS LONG?))
+	| exp2=Float_Literal
+	| (string=STRING)
+	| (char=CHAR)
+;
+
+terminal LONG:
+	"l"
+;
+
+terminal STRING:
+	'"' -> '"'
+;
+
+Creating_Expression:
+	NEW (
+		(className=Class_name LPAREN argList=Arg_List RPAREN)
+		|(typeSpecifier=Type_specifier ("["expression=Expression"]" | "[]")? ("[""]" | "[]")*)
+		|(LPAREN expression=Expression RPAREN)
+		)
+;
+
+terminal COLON:
+	":"
+;
+
+terminal NEW:
+	"new"	
+;
+
+Cast_Expression:
+	(LPAREN type=Type RPAREN expression=Expression)
+;
+
+Bit_Expression_NR:
+	(NOT expression=Expression)
+;
+
+terminal NOT:
+	"~"
+;
+
+Logical_Expression_NR:
+	(EXCLAMATION expression=Expression)
+	| true=TRUE
+	| false=FALSE
+;
+
+terminal EXCLAMATION:
+	"!"
+;
+
+terminal FALSE:
+	'false'
+;
+
+terminal TRUE:
+	'true'
+;
+
+Arg_List:
+	expression=Expression ("," expressions+=Expression)*
+;
+
+
+Numeric_Expression_NR:
+	sinal_numeric=("-"|INCREMENT|DECREMENT) expression=Expression
+;
+
+
+terminal DECREMENT:
+	'--'
+;
+
+terminal INCREMENT:
+	'++'
+;
+
+//END EXPRESSIONS	
 	
 
 Switch_statement:
-	{Switch_statement}"switch" lParen = LPAREN expression = Expression rparent = RPAREN R_CURLY_BRACE (("case" expression2 += Expression ":") | ("default"":")
+	{Switch_statement}"switch" lParen = LPAREN expression = Expression rparent = RPAREN R_CURLY_BRACE (("case" expression2 += Expression COLON) | ("default"COLON)
 		| (switchStatements += Statement))*L_CURLY_BRACE
 ;
 
@@ -412,46 +450,30 @@ Package_name_line:
 	("."ID)*
 ;
 
+EXPOENT_PART:
+	EXPONENTIAL (DECIMAL_DIGITS) 
+;
+
 //################TERMINAIS
 
-Literal:
-	Integer_literal | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | Boolean_literal | 'null'
+
+
+terminal HEXA:
+	//| ('0'..'7')* 
+	('0' 'x' ('0'..'9' 'a'..'f')* )
 ;
 
-Integer_literal:
-	HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL
-;
-
-Boolean_literal:
-	'true' | 'false'
-;
-	
-Relational_operator:
-	'<' | '>' | '>' '=' | '<' '='
-;
-
-Assignment_operator:
-	'=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '%='	
-;
-
-Shift_operator:
-	'<' '<' | '>' '>' '>' | '>' '>'
-;
-
-terminal HEX_LITERAL:
-	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?
-;
-
-terminal DECIMAL_LITERAL:
-	('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX?
+terminal DECIMAL_DIGITS returns ecore::EInt:
+	('0'..'9')+
 ;
 
 terminal OCTAL_LITERAL:
 	'0' ('0'..'7')+ INTEGER_TYPE_SUFFIX?
 ;
 
-terminal fragment HEX_DIGIT:
-	('0'..'9' | 'a'..'f' | 'A'..'F')
+
+terminal FLOAT_TYPE_SUFIX:
+	('f'|'d')	
 ;
 
 terminal fragment INTEGER_TYPE_SUFFIX:
@@ -477,13 +499,11 @@ terminal CHARACTER_LITERAL:
 	'\'' (ESCAPE_SEQUENCE | !('\'' | '\\')) '\''
 ;
 
-terminal STRING_LITERAL:
-	'"' (ESCAPE_SEQUENCE | !('\\' | '"'))* '"'
-;
+
 
 terminal fragment ESCAPE_SEQUENCE:
 	'\\' ('b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\')
-	| UNICODE_ESCAPE
+//	| UNICODE_ESCAPE
 	| OCTAL_ESCAPE
 ;
 
@@ -493,9 +513,9 @@ terminal fragment OCTAL_ESCAPE:
 	| '\\' ('0'..'7')
 ;
 
-terminal fragment UNICODE_ESCAPE:
-	'\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
-;
+//terminal fragment UNICODE_ESCAPE:
+//	'\\' 'u' HEXA HEXA HEXA HEXA
+//;
 
 terminal RPAREN:
 	")"

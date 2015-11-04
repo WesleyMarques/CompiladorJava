@@ -194,33 +194,6 @@ public interface MyDslFactory extends EFactory
   For_Statement createFor_Statement();
 
   /**
-   * Returns a new object of class '<em>For control</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For control</em>'.
-   * @generated
-   */
-  For_control createFor_control();
-
-  /**
-   * Returns a new object of class '<em>Variable</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable</em>'.
-   * @generated
-   */
-  Variable createVariable();
-
-  /**
-   * Returns a new object of class '<em>Variable value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable value</em>'.
-   * @generated
-   */
-  Variable_value createVariable_value();
-
-  /**
    * Returns a new object of class '<em>Primitive type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -228,69 +201,6 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Primitive_type createPrimitive_type();
-
-  /**
-   * Returns a new object of class '<em>For init</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For init</em>'.
-   * @generated
-   */
-  For_init createFor_init();
-
-  /**
-   * Returns a new object of class '<em>For expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For expression</em>'.
-   * @generated
-   */
-  For_expression createFor_expression();
-
-  /**
-   * Returns a new object of class '<em>For update</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For update</em>'.
-   * @generated
-   */
-  For_update createFor_update();
-
-  /**
-   * Returns a new object of class '<em>For update operator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For update operator</em>'.
-   * @generated
-   */
-  For_update_operator createFor_update_operator();
-
-  /**
-   * Returns a new object of class '<em>For expression operator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>For expression operator</em>'.
-   * @generated
-   */
-  For_expression_operator createFor_expression_operator();
-
-  /**
-   * Returns a new object of class '<em>Parens expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parens expression</em>'.
-   * @generated
-   */
-  Parens_expression createParens_expression();
-
-  /**
-   * Returns a new object of class '<em>Expression list</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression list</em>'.
-   * @generated
-   */
-  Expression_list createExpression_list();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -302,247 +212,94 @@ public interface MyDslFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Conditional expression</em>'.
+   * Returns a new object of class '<em>Expression aux</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Conditional expression</em>'.
+   * @return a new object of class '<em>Expression aux</em>'.
    * @generated
    */
-  Conditional_expression createConditional_expression();
+  Expression_aux createExpression_aux();
 
   /**
-   * Returns a new object of class '<em>Conditional OR expression</em>'.
+   * Returns a new object of class '<em>Ampersand Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Conditional OR expression</em>'.
+   * @return a new object of class '<em>Ampersand Rule</em>'.
    * @generated
    */
-  Conditional_OR_expression createConditional_OR_expression();
+  Ampersand_Rule createAmpersand_Rule();
 
   /**
-   * Returns a new object of class '<em>Conditional AND expression</em>'.
+   * Returns a new object of class '<em>Float Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Conditional AND expression</em>'.
+   * @return a new object of class '<em>Float Literal</em>'.
    * @generated
    */
-  Conditional_AND_expression createConditional_AND_expression();
+  Float_Literal createFloat_Literal();
 
   /**
-   * Returns a new object of class '<em>Inclusive OR expression</em>'.
+   * Returns a new object of class '<em>Literal Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Inclusive OR expression</em>'.
+   * @return a new object of class '<em>Literal Expression</em>'.
    * @generated
    */
-  Inclusive_OR_expression createInclusive_OR_expression();
+  Literal_Expression createLiteral_Expression();
 
   /**
-   * Returns a new object of class '<em>Exclusive OR expression</em>'.
+   * Returns a new object of class '<em>Creating Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exclusive OR expression</em>'.
+   * @return a new object of class '<em>Creating Expression</em>'.
    * @generated
    */
-  Exclusive_OR_expression createExclusive_OR_expression();
+  Creating_Expression createCreating_Expression();
 
   /**
-   * Returns a new object of class '<em>AND expression</em>'.
+   * Returns a new object of class '<em>Cast Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>AND expression</em>'.
+   * @return a new object of class '<em>Cast Expression</em>'.
    * @generated
    */
-  AND_expression createAND_expression();
+  Cast_Expression createCast_Expression();
 
   /**
-   * Returns a new object of class '<em>Equality expression</em>'.
+   * Returns a new object of class '<em>Bit Expression NR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Equality expression</em>'.
+   * @return a new object of class '<em>Bit Expression NR</em>'.
    * @generated
    */
-  Equality_expression createEquality_expression();
+  Bit_Expression_NR createBit_Expression_NR();
 
   /**
-   * Returns a new object of class '<em>Instance Of expression</em>'.
+   * Returns a new object of class '<em>Logical Expression NR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Instance Of expression</em>'.
+   * @return a new object of class '<em>Logical Expression NR</em>'.
    * @generated
    */
-  InstanceOf_expression createInstanceOf_expression();
+  Logical_Expression_NR createLogical_Expression_NR();
 
   /**
-   * Returns a new object of class '<em>Relational expression</em>'.
+   * Returns a new object of class '<em>Arg List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Relational expression</em>'.
+   * @return a new object of class '<em>Arg List</em>'.
    * @generated
    */
-  Relational_expression createRelational_expression();
+  Arg_List createArg_List();
 
   /**
-   * Returns a new object of class '<em>Shift expression</em>'.
+   * Returns a new object of class '<em>Numeric Expression NR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Shift expression</em>'.
+   * @return a new object of class '<em>Numeric Expression NR</em>'.
    * @generated
    */
-  Shift_expression createShift_expression();
-
-  /**
-   * Returns a new object of class '<em>Additive expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Additive expression</em>'.
-   * @generated
-   */
-  Additive_expression createAdditive_expression();
-
-  /**
-   * Returns a new object of class '<em>Multiplicative expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multiplicative expression</em>'.
-   * @generated
-   */
-  Multiplicative_expression createMultiplicative_expression();
-
-  /**
-   * Returns a new object of class '<em>Unary expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary expression</em>'.
-   * @generated
-   */
-  Unary_expression createUnary_expression();
-
-  /**
-   * Returns a new object of class '<em>Unary expression Not Plus Minus</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary expression Not Plus Minus</em>'.
-   * @generated
-   */
-  Unary_expression_Not_Plus_Minus createUnary_expression_Not_Plus_Minus();
-
-  /**
-   * Returns a new object of class '<em>Cast expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cast expression</em>'.
-   * @generated
-   */
-  Cast_expression createCast_expression();
-
-  /**
-   * Returns a new object of class '<em>Primary expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary expression</em>'.
-   * @generated
-   */
-  Primary_expression createPrimary_expression();
-
-  /**
-   * Returns a new object of class '<em>Identifier suffix</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Identifier suffix</em>'.
-   * @generated
-   */
-  Identifier_suffix createIdentifier_suffix();
-
-  /**
-   * Returns a new object of class '<em>Creator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Creator</em>'.
-   * @generated
-   */
-  Creator createCreator();
-
-  /**
-   * Returns a new object of class '<em>Created name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Created name</em>'.
-   * @generated
-   */
-  Created_name createCreated_name();
-
-  /**
-   * Returns a new object of class '<em>Inner creator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Inner creator</em>'.
-   * @generated
-   */
-  Inner_creator createInner_creator();
-
-  /**
-   * Returns a new object of class '<em>Array creator rest</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array creator rest</em>'.
-   * @generated
-   */
-  Array_creator_rest createArray_creator_rest();
-
-  /**
-   * Returns a new object of class '<em>Class creator rest</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Class creator rest</em>'.
-   * @generated
-   */
-  Class_creator_rest createClass_creator_rest();
-
-  /**
-   * Returns a new object of class '<em>Explicit generic invocation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Explicit generic invocation</em>'.
-   * @generated
-   */
-  Explicit_generic_invocation createExplicit_generic_invocation();
-
-  /**
-   * Returns a new object of class '<em>Non wildcard type arguments</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Non wildcard type arguments</em>'.
-   * @generated
-   */
-  Non_wildcard_type_arguments createNon_wildcard_type_arguments();
-
-  /**
-   * Returns a new object of class '<em>Selector</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selector</em>'.
-   * @generated
-   */
-  Selector createSelector();
-
-  /**
-   * Returns a new object of class '<em>Super suffix</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Super suffix</em>'.
-   * @generated
-   */
-  Super_suffix createSuper_suffix();
-
-  /**
-   * Returns a new object of class '<em>Arguments</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arguments</em>'.
-   * @generated
-   */
-  Arguments createArguments();
+  Numeric_Expression_NR createNumeric_Expression_NR();
 
   /**
    * Returns a new object of class '<em>Switch statement</em>'.

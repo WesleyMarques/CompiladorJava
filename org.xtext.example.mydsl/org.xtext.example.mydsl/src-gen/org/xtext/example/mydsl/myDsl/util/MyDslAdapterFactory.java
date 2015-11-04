@@ -170,59 +170,9 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createFor_StatementAdapter();
       }
       @Override
-      public Adapter caseFor_control(For_control object)
-      {
-        return createFor_controlAdapter();
-      }
-      @Override
-      public Adapter caseVariable(Variable object)
-      {
-        return createVariableAdapter();
-      }
-      @Override
-      public Adapter caseVariable_value(Variable_value object)
-      {
-        return createVariable_valueAdapter();
-      }
-      @Override
       public Adapter casePrimitive_type(Primitive_type object)
       {
         return createPrimitive_typeAdapter();
-      }
-      @Override
-      public Adapter caseFor_init(For_init object)
-      {
-        return createFor_initAdapter();
-      }
-      @Override
-      public Adapter caseFor_expression(For_expression object)
-      {
-        return createFor_expressionAdapter();
-      }
-      @Override
-      public Adapter caseFor_update(For_update object)
-      {
-        return createFor_updateAdapter();
-      }
-      @Override
-      public Adapter caseFor_update_operator(For_update_operator object)
-      {
-        return createFor_update_operatorAdapter();
-      }
-      @Override
-      public Adapter caseFor_expression_operator(For_expression_operator object)
-      {
-        return createFor_expression_operatorAdapter();
-      }
-      @Override
-      public Adapter caseParens_expression(Parens_expression object)
-      {
-        return createParens_expressionAdapter();
-      }
-      @Override
-      public Adapter caseExpression_list(Expression_list object)
-      {
-        return createExpression_listAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -230,139 +180,54 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseConditional_expression(Conditional_expression object)
+      public Adapter caseExpression_aux(Expression_aux object)
       {
-        return createConditional_expressionAdapter();
+        return createExpression_auxAdapter();
       }
       @Override
-      public Adapter caseConditional_OR_expression(Conditional_OR_expression object)
+      public Adapter caseAmpersand_Rule(Ampersand_Rule object)
       {
-        return createConditional_OR_expressionAdapter();
+        return createAmpersand_RuleAdapter();
       }
       @Override
-      public Adapter caseConditional_AND_expression(Conditional_AND_expression object)
+      public Adapter caseFloat_Literal(Float_Literal object)
       {
-        return createConditional_AND_expressionAdapter();
+        return createFloat_LiteralAdapter();
       }
       @Override
-      public Adapter caseInclusive_OR_expression(Inclusive_OR_expression object)
+      public Adapter caseLiteral_Expression(Literal_Expression object)
       {
-        return createInclusive_OR_expressionAdapter();
+        return createLiteral_ExpressionAdapter();
       }
       @Override
-      public Adapter caseExclusive_OR_expression(Exclusive_OR_expression object)
+      public Adapter caseCreating_Expression(Creating_Expression object)
       {
-        return createExclusive_OR_expressionAdapter();
+        return createCreating_ExpressionAdapter();
       }
       @Override
-      public Adapter caseAND_expression(AND_expression object)
+      public Adapter caseCast_Expression(Cast_Expression object)
       {
-        return createAND_expressionAdapter();
+        return createCast_ExpressionAdapter();
       }
       @Override
-      public Adapter caseEquality_expression(Equality_expression object)
+      public Adapter caseBit_Expression_NR(Bit_Expression_NR object)
       {
-        return createEquality_expressionAdapter();
+        return createBit_Expression_NRAdapter();
       }
       @Override
-      public Adapter caseInstanceOf_expression(InstanceOf_expression object)
+      public Adapter caseLogical_Expression_NR(Logical_Expression_NR object)
       {
-        return createInstanceOf_expressionAdapter();
+        return createLogical_Expression_NRAdapter();
       }
       @Override
-      public Adapter caseRelational_expression(Relational_expression object)
+      public Adapter caseArg_List(Arg_List object)
       {
-        return createRelational_expressionAdapter();
+        return createArg_ListAdapter();
       }
       @Override
-      public Adapter caseShift_expression(Shift_expression object)
+      public Adapter caseNumeric_Expression_NR(Numeric_Expression_NR object)
       {
-        return createShift_expressionAdapter();
-      }
-      @Override
-      public Adapter caseAdditive_expression(Additive_expression object)
-      {
-        return createAdditive_expressionAdapter();
-      }
-      @Override
-      public Adapter caseMultiplicative_expression(Multiplicative_expression object)
-      {
-        return createMultiplicative_expressionAdapter();
-      }
-      @Override
-      public Adapter caseUnary_expression(Unary_expression object)
-      {
-        return createUnary_expressionAdapter();
-      }
-      @Override
-      public Adapter caseUnary_expression_Not_Plus_Minus(Unary_expression_Not_Plus_Minus object)
-      {
-        return createUnary_expression_Not_Plus_MinusAdapter();
-      }
-      @Override
-      public Adapter caseCast_expression(Cast_expression object)
-      {
-        return createCast_expressionAdapter();
-      }
-      @Override
-      public Adapter casePrimary_expression(Primary_expression object)
-      {
-        return createPrimary_expressionAdapter();
-      }
-      @Override
-      public Adapter caseIdentifier_suffix(Identifier_suffix object)
-      {
-        return createIdentifier_suffixAdapter();
-      }
-      @Override
-      public Adapter caseCreator(Creator object)
-      {
-        return createCreatorAdapter();
-      }
-      @Override
-      public Adapter caseCreated_name(Created_name object)
-      {
-        return createCreated_nameAdapter();
-      }
-      @Override
-      public Adapter caseInner_creator(Inner_creator object)
-      {
-        return createInner_creatorAdapter();
-      }
-      @Override
-      public Adapter caseArray_creator_rest(Array_creator_rest object)
-      {
-        return createArray_creator_restAdapter();
-      }
-      @Override
-      public Adapter caseClass_creator_rest(Class_creator_rest object)
-      {
-        return createClass_creator_restAdapter();
-      }
-      @Override
-      public Adapter caseExplicit_generic_invocation(Explicit_generic_invocation object)
-      {
-        return createExplicit_generic_invocationAdapter();
-      }
-      @Override
-      public Adapter caseNon_wildcard_type_arguments(Non_wildcard_type_arguments object)
-      {
-        return createNon_wildcard_type_argumentsAdapter();
-      }
-      @Override
-      public Adapter caseSelector(Selector object)
-      {
-        return createSelectorAdapter();
-      }
-      @Override
-      public Adapter caseSuper_suffix(Super_suffix object)
-      {
-        return createSuper_suffixAdapter();
-      }
-      @Override
-      public Adapter caseArguments(Arguments object)
-      {
-        return createArgumentsAdapter();
+        return createNumeric_Expression_NRAdapter();
       }
       @Override
       public Adapter caseSwitch_statement(Switch_statement object)
@@ -707,51 +572,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.For_control <em>For control</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.For_control
-   * @generated
-   */
-  public Adapter createFor_controlAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Variable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Variable
-   * @generated
-   */
-  public Adapter createVariableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Variable_value <em>Variable value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Variable_value
-   * @generated
-   */
-  public Adapter createVariable_valueAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Primitive_type <em>Primitive type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -762,111 +582,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPrimitive_typeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.For_init <em>For init</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.For_init
-   * @generated
-   */
-  public Adapter createFor_initAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.For_expression <em>For expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.For_expression
-   * @generated
-   */
-  public Adapter createFor_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.For_update <em>For update</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.For_update
-   * @generated
-   */
-  public Adapter createFor_updateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.For_update_operator <em>For update operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.For_update_operator
-   * @generated
-   */
-  public Adapter createFor_update_operatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.For_expression_operator <em>For expression operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.For_expression_operator
-   * @generated
-   */
-  public Adapter createFor_expression_operatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Parens_expression <em>Parens expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Parens_expression
-   * @generated
-   */
-  public Adapter createParens_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Expression_list <em>Expression list</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Expression_list
-   * @generated
-   */
-  public Adapter createExpression_listAdapter()
   {
     return null;
   }
@@ -887,406 +602,151 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Conditional_expression <em>Conditional expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Expression_aux <em>Expression aux</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux
    * @generated
    */
-  public Adapter createConditional_expressionAdapter()
+  public Adapter createExpression_auxAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Conditional_OR_expression <em>Conditional OR expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Ampersand_Rule <em>Ampersand Rule</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_OR_expression
+   * @see org.xtext.example.mydsl.myDsl.Ampersand_Rule
    * @generated
    */
-  public Adapter createConditional_OR_expressionAdapter()
+  public Adapter createAmpersand_RuleAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Conditional_AND_expression <em>Conditional AND expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Float_Literal <em>Float Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_AND_expression
+   * @see org.xtext.example.mydsl.myDsl.Float_Literal
    * @generated
    */
-  public Adapter createConditional_AND_expressionAdapter()
+  public Adapter createFloat_LiteralAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Inclusive_OR_expression <em>Inclusive OR expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Literal_Expression <em>Literal Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Inclusive_OR_expression
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression
    * @generated
    */
-  public Adapter createInclusive_OR_expressionAdapter()
+  public Adapter createLiteral_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Exclusive_OR_expression <em>Exclusive OR expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Creating_Expression <em>Creating Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Exclusive_OR_expression
+   * @see org.xtext.example.mydsl.myDsl.Creating_Expression
    * @generated
    */
-  public Adapter createExclusive_OR_expressionAdapter()
+  public Adapter createCreating_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.AND_expression <em>AND expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Cast_Expression <em>Cast Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.AND_expression
+   * @see org.xtext.example.mydsl.myDsl.Cast_Expression
    * @generated
    */
-  public Adapter createAND_expressionAdapter()
+  public Adapter createCast_ExpressionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Equality_expression <em>Equality expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Bit_Expression_NR <em>Bit Expression NR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Equality_expression
+   * @see org.xtext.example.mydsl.myDsl.Bit_Expression_NR
    * @generated
    */
-  public Adapter createEquality_expressionAdapter()
+  public Adapter createBit_Expression_NRAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.InstanceOf_expression <em>Instance Of expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR <em>Logical Expression NR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.InstanceOf_expression
+   * @see org.xtext.example.mydsl.myDsl.Logical_Expression_NR
    * @generated
    */
-  public Adapter createInstanceOf_expressionAdapter()
+  public Adapter createLogical_Expression_NRAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Relational_expression <em>Relational expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Arg_List <em>Arg List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Relational_expression
+   * @see org.xtext.example.mydsl.myDsl.Arg_List
    * @generated
    */
-  public Adapter createRelational_expressionAdapter()
+  public Adapter createArg_ListAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Shift_expression <em>Shift expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Numeric_Expression_NR <em>Numeric Expression NR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Shift_expression
+   * @see org.xtext.example.mydsl.myDsl.Numeric_Expression_NR
    * @generated
    */
-  public Adapter createShift_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Additive_expression <em>Additive expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Additive_expression
-   * @generated
-   */
-  public Adapter createAdditive_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Multiplicative_expression <em>Multiplicative expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Multiplicative_expression
-   * @generated
-   */
-  public Adapter createMultiplicative_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Unary_expression <em>Unary expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression
-   * @generated
-   */
-  public Adapter createUnary_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus <em>Unary expression Not Plus Minus</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus
-   * @generated
-   */
-  public Adapter createUnary_expression_Not_Plus_MinusAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Cast_expression <em>Cast expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression
-   * @generated
-   */
-  public Adapter createCast_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Primary_expression <em>Primary expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression
-   * @generated
-   */
-  public Adapter createPrimary_expressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Identifier_suffix <em>Identifier suffix</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Identifier_suffix
-   * @generated
-   */
-  public Adapter createIdentifier_suffixAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Creator <em>Creator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Creator
-   * @generated
-   */
-  public Adapter createCreatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Created_name <em>Created name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Created_name
-   * @generated
-   */
-  public Adapter createCreated_nameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Inner_creator <em>Inner creator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Inner_creator
-   * @generated
-   */
-  public Adapter createInner_creatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Array_creator_rest <em>Array creator rest</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Array_creator_rest
-   * @generated
-   */
-  public Adapter createArray_creator_restAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Class_creator_rest <em>Class creator rest</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Class_creator_rest
-   * @generated
-   */
-  public Adapter createClass_creator_restAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Explicit_generic_invocation <em>Explicit generic invocation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Explicit_generic_invocation
-   * @generated
-   */
-  public Adapter createExplicit_generic_invocationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments <em>Non wildcard type arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments
-   * @generated
-   */
-  public Adapter createNon_wildcard_type_argumentsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Selector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Selector
-   * @generated
-   */
-  public Adapter createSelectorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Super_suffix <em>Super suffix</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Super_suffix
-   * @generated
-   */
-  public Adapter createSuper_suffixAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Arguments <em>Arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Arguments
-   * @generated
-   */
-  public Adapter createArgumentsAdapter()
+  public Adapter createNumeric_Expression_NRAdapter()
   {
     return null;
   }

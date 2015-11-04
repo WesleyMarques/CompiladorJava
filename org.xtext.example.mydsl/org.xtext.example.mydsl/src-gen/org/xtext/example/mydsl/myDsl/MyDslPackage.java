@@ -745,34 +745,6 @@ public interface MyDslPackage extends EPackage
   int VARIABLE_INITIALIZER_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl <em>Array creator rest</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArray_creator_rest()
-   * @generated
-   */
-  int ARRAY_CREATOR_REST = 51;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_CREATOR_REST__EXPRESSION = 0;
-
-  /**
-   * The number of structural features of the '<em>Array creator rest</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_CREATOR_REST_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_initializerImpl <em>Array initializer</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -783,22 +755,13 @@ public interface MyDslPackage extends EPackage
   int ARRAY_INITIALIZER = 13;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAY_INITIALIZER__EXPRESSION = ARRAY_CREATOR_REST__EXPRESSION;
-
-  /**
    * The feature id for the '<em><b>Variableinitializer</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY_INITIALIZER__VARIABLEINITIALIZER = ARRAY_CREATOR_REST_FEATURE_COUNT + 0;
+  int ARRAY_INITIALIZER__VARIABLEINITIALIZER = 0;
 
   /**
    * The number of structural features of the '<em>Array initializer</em>' class.
@@ -807,7 +770,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_INITIALIZER_FEATURE_COUNT = ARRAY_CREATOR_REST_FEATURE_COUNT + 1;
+  int ARRAY_INITIALIZER_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
@@ -1229,68 +1192,13 @@ public interface MyDslPackage extends EPackage
   int FOR_STATEMENT = 18;
 
   /**
-   * The feature id for the '<em><b>Lparent</b></em>' attribute.
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_STATEMENT__LPARENT = 0;
-
-  /**
-   * The feature id for the '<em><b>For Control</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STATEMENT__FOR_CONTROL = 1;
-
-  /**
-   * The feature id for the '<em><b>RParent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STATEMENT__RPARENT = 2;
-
-  /**
-   * The feature id for the '<em><b>For Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STATEMENT__FOR_STATEMENT = 3;
-
-  /**
-   * The number of structural features of the '<em>For Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_STATEMENT_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_controlImpl <em>For control</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.For_controlImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_control()
-   * @generated
-   */
-  int FOR_CONTROL = 19;
-
-  /**
-   * The feature id for the '<em><b>Forinit</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_CONTROL__FORINIT = 0;
+  int FOR_STATEMENT__VARIABLE = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1299,81 +1207,43 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_CONTROL__EXPRESSION = 1;
+  int FOR_STATEMENT__EXPRESSION = 1;
 
   /**
-   * The feature id for the '<em><b>Forupdate</b></em>' containment reference.
+   * The feature id for the '<em><b>Expression2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_CONTROL__FORUPDATE = 2;
+  int FOR_STATEMENT__EXPRESSION2 = 2;
 
   /**
-   * The number of structural features of the '<em>For control</em>' class.
+   * The feature id for the '<em><b>Expression3</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_CONTROL_FEATURE_COUNT = 3;
+  int FOR_STATEMENT__EXPRESSION3 = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.VariableImpl <em>Variable</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.VariableImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVariable()
-   * @generated
-   */
-  int VARIABLE = 20;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE__NAME = 0;
+  int FOR_STATEMENT__STATEMENT = 4;
 
   /**
-   * The number of structural features of the '<em>Variable</em>' class.
+   * The number of structural features of the '<em>For Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Variable_valueImpl <em>Variable value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Variable_valueImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVariable_value()
-   * @generated
-   */
-  int VARIABLE_VALUE = 21;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_VALUE__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Variable value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VARIABLE_VALUE_FEATURE_COUNT = 1;
+  int FOR_STATEMENT_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Primitive_typeImpl <em>Primitive type</em>}' class.
@@ -1383,7 +1253,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrimitive_type()
    * @generated
    */
-  int PRIMITIVE_TYPE = 22;
+  int PRIMITIVE_TYPE = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1404,274 +1274,6 @@ public interface MyDslPackage extends EPackage
   int PRIMITIVE_TYPE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_initImpl <em>For init</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.For_initImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_init()
-   * @generated
-   */
-  int FOR_INIT = 23;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_INIT__TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Var</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_INIT__VAR = 1;
-
-  /**
-   * The feature id for the '<em><b>Var init</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_INIT__VAR_INIT = 2;
-
-  /**
-   * The number of structural features of the '<em>For init</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_INIT_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_expressionImpl <em>For expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.For_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_expression()
-   * @generated
-   */
-  int FOR_EXPRESSION = 24;
-
-  /**
-   * The feature id for the '<em><b>Variable1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_EXPRESSION__VARIABLE1 = 0;
-
-  /**
-   * The feature id for the '<em><b>Exp Op</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_EXPRESSION__EXP_OP = 1;
-
-  /**
-   * The feature id for the '<em><b>Limit</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_EXPRESSION__LIMIT = 2;
-
-  /**
-   * The number of structural features of the '<em>For expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_EXPRESSION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_updateImpl <em>For update</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.For_updateImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_update()
-   * @generated
-   */
-  int FOR_UPDATE = 25;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_UPDATE__VARIABLE = 0;
-
-  /**
-   * The feature id for the '<em><b>Update Op</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_UPDATE__UPDATE_OP = 1;
-
-  /**
-   * The number of structural features of the '<em>For update</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_UPDATE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_update_operatorImpl <em>For update operator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.For_update_operatorImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_update_operator()
-   * @generated
-   */
-  int FOR_UPDATE_OPERATOR = 26;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_UPDATE_OPERATOR__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>For update operator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_UPDATE_OPERATOR_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_expression_operatorImpl <em>For expression operator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.For_expression_operatorImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_expression_operator()
-   * @generated
-   */
-  int FOR_EXPRESSION_OPERATOR = 27;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_EXPRESSION_OPERATOR__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>For expression operator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_EXPRESSION_OPERATOR_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Parens_expressionImpl <em>Parens expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Parens_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getParens_expression()
-   * @generated
-   */
-  int PARENS_EXPRESSION = 28;
-
-  /**
-   * The feature id for the '<em><b>Lparent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENS_EXPRESSION__LPARENT = 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENS_EXPRESSION__EXPRESSION = 1;
-
-  /**
-   * The feature id for the '<em><b>Rparent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENS_EXPRESSION__RPARENT = 2;
-
-  /**
-   * The number of structural features of the '<em>Parens expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARENS_EXPRESSION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Expression_listImpl <em>Expression list</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Expression_listImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression_list()
-   * @generated
-   */
-  int EXPRESSION_LIST = 29;
-
-  /**
-   * The feature id for the '<em><b>Expression1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__EXPRESSION1 = 0;
-
-  /**
-   * The feature id for the '<em><b>Expression2</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST__EXPRESSION2 = 1;
-
-  /**
-   * The number of structural features of the '<em>Expression list</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_LIST_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1679,7 +1281,106 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 30;
+  int EXPRESSION = 20;
+
+  /**
+   * The feature id for the '<em><b>Numeric Expression3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__NUMERIC_EXPRESSION3 = 0;
+
+  /**
+   * The feature id for the '<em><b>Aux</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__AUX = 1;
+
+  /**
+   * The feature id for the '<em><b>Logical Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__LOGICAL_EXPRESSION = 2;
+
+  /**
+   * The feature id for the '<em><b>Bit Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__BIT_EXPRESSION = 3;
+
+  /**
+   * The feature id for the '<em><b>Cast Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__CAST_EXPRESSION = 4;
+
+  /**
+   * The feature id for the '<em><b>Creating Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__CREATING_EXPRESSION = 5;
+
+  /**
+   * The feature id for the '<em><b>Literal Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__LITERAL_EXPRESSION = 6;
+
+  /**
+   * The feature id for the '<em><b>Null</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__NULL = 7;
+
+  /**
+   * The feature id for the '<em><b>Super</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__SUPER = 8;
+
+  /**
+   * The feature id for the '<em><b>This</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__THIS = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__NAME = 10;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1688,53 +1389,35 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 0;
+  int EXPRESSION_FEATURE_COUNT = 11;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_expressionImpl <em>Conditional expression</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl <em>Expression aux</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Conditional_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getConditional_expression()
+   * @see org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression_aux()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 31;
+  int EXPRESSION_AUX = 21;
 
   /**
-   * The feature id for the '<em><b>Assignmentoperator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITIONAL_EXPRESSION__ASSIGNMENTOPERATOR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Arg List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__EXPRESSION = EXPRESSION_FEATURE_COUNT + 1;
+  int EXPRESSION_AUX__ARG_LIST = 0;
 
   /**
-   * The feature id for the '<em><b>Conditionalorexpression</b></em>' containment reference.
+   * The feature id for the '<em><b>Aux</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__CONDITIONALOREXPRESSION = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Expression1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITIONAL_EXPRESSION__EXPRESSION1 = EXPRESSION_FEATURE_COUNT + 3;
+  int EXPRESSION_AUX__AUX = 1;
 
   /**
    * The feature id for the '<em><b>Expression2</b></em>' containment reference.
@@ -1743,471 +1426,317 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION__EXPRESSION2 = EXPRESSION_FEATURE_COUNT + 4;
+  int EXPRESSION_AUX__EXPRESSION2 = 2;
 
   /**
-   * The number of structural features of the '<em>Conditional expression</em>' class.
+   * The feature id for the '<em><b>Expression Comma</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
+  int EXPRESSION_AUX__EXPRESSION_COMMA = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_OR_expressionImpl <em>Conditional OR expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Conditional_OR_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getConditional_OR_expression()
-   * @generated
-   */
-  int CONDITIONAL_OR_EXPRESSION = 32;
-
-  /**
-   * The feature id for the '<em><b>Conditionalandexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_OR_EXPRESSION__CONDITIONALANDEXPRESSION = 0;
+  int EXPRESSION_AUX__NAME = 4;
 
   /**
-   * The number of structural features of the '<em>Conditional OR expression</em>' class.
+   * The feature id for the '<em><b>Sgin</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_OR_EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_AUX__SGIN = 5;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_AND_expressionImpl <em>Conditional AND expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Conditional_AND_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getConditional_AND_expression()
-   * @generated
-   */
-  int CONDITIONAL_AND_EXPRESSION = 33;
-
-  /**
-   * The feature id for the '<em><b>Inclusiveorexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Numeric Sign</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_AND_EXPRESSION__INCLUSIVEOREXPRESSION = 0;
+  int EXPRESSION_AUX__NUMERIC_SIGN = 6;
 
   /**
-   * The number of structural features of the '<em>Conditional AND expression</em>' class.
+   * The feature id for the '<em><b>Exp2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL_AND_EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_AUX__EXP2 = 7;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Inclusive_OR_expressionImpl <em>Inclusive OR expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Inclusive_OR_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInclusive_OR_expression()
-   * @generated
-   */
-  int INCLUSIVE_OR_EXPRESSION = 34;
-
-  /**
-   * The feature id for the '<em><b>Exclusiveorexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Testing Sign</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUSIVE_OR_EXPRESSION__EXCLUSIVEOREXPRESSION = 0;
+  int EXPRESSION_AUX__TESTING_SIGN = 8;
 
   /**
-   * The number of structural features of the '<em>Inclusive OR expression</em>' class.
+   * The feature id for the '<em><b>Exp1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_AUX__EXP1 = 9;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Exclusive_OR_expressionImpl <em>Exclusive OR expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Exclusive_OR_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExclusive_OR_expression()
-   * @generated
-   */
-  int EXCLUSIVE_OR_EXPRESSION = 35;
-
-  /**
-   * The feature id for the '<em><b>Andexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Logical Sign</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXCLUSIVE_OR_EXPRESSION__ANDEXPRESSION = 0;
+  int EXPRESSION_AUX__LOGICAL_SIGN = 10;
 
   /**
-   * The number of structural features of the '<em>Exclusive OR expression</em>' class.
+   * The feature id for the '<em><b>Ampersand</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXCLUSIVE_OR_EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_AUX__AMPERSAND = 11;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.AND_expressionImpl <em>AND expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.AND_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAND_expression()
-   * @generated
-   */
-  int AND_EXPRESSION = 36;
-
-  /**
-   * The feature id for the '<em><b>Equalityexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>String Sign</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPRESSION__EQUALITYEXPRESSION = 0;
+  int EXPRESSION_AUX__STRING_SIGN = 12;
 
   /**
-   * The number of structural features of the '<em>AND expression</em>' class.
+   * The feature id for the '<em><b>Bit Sign</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AND_EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_AUX__BIT_SIGN = 13;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Equality_expressionImpl <em>Equality expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Equality_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEquality_expression()
-   * @generated
-   */
-  int EQUALITY_EXPRESSION = 37;
-
-  /**
-   * The feature id for the '<em><b>Instanceofexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expression Bit</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPRESSION__INSTANCEOFEXPRESSION = 0;
+  int EXPRESSION_AUX__EXPRESSION_BIT = 14;
 
   /**
-   * The number of structural features of the '<em>Equality expression</em>' class.
+   * The number of structural features of the '<em>Expression aux</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQUALITY_EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_AUX_FEATURE_COUNT = 15;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.InstanceOf_expressionImpl <em>Instance Of expression</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl <em>Ampersand Rule</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.InstanceOf_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInstanceOf_expression()
+   * @see org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAmpersand_Rule()
    * @generated
    */
-  int INSTANCE_OF_EXPRESSION = 38;
+  int AMPERSAND_RULE = 22;
 
   /**
-   * The number of structural features of the '<em>Instance Of expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE_OF_EXPRESSION_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Relational_expressionImpl <em>Relational expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Relational_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRelational_expression()
-   * @generated
-   */
-  int RELATIONAL_EXPRESSION = 39;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * The feature id for the '<em><b>A1</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION__TYPE = INSTANCE_OF_EXPRESSION_FEATURE_COUNT + 0;
+  int AMPERSAND_RULE__A1 = 0;
 
   /**
-   * The feature id for the '<em><b>Shiftexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>A2</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION__SHIFTEXPRESSION = INSTANCE_OF_EXPRESSION_FEATURE_COUNT + 1;
+  int AMPERSAND_RULE__A2 = 1;
 
   /**
-   * The feature id for the '<em><b>Relationalop</b></em>' attribute list.
+   * The number of structural features of the '<em>Ampersand Rule</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION__RELATIONALOP = INSTANCE_OF_EXPRESSION_FEATURE_COUNT + 2;
+  int AMPERSAND_RULE_FEATURE_COUNT = 2;
 
   /**
-   * The number of structural features of the '<em>Relational expression</em>' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Float_LiteralImpl <em>Float Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Float_LiteralImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFloat_Literal()
+   * @generated
+   */
+  int FLOAT_LITERAL = 23;
+
+  /**
+   * The feature id for the '<em><b>Decimal Digits1</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIONAL_EXPRESSION_FEATURE_COUNT = INSTANCE_OF_EXPRESSION_FEATURE_COUNT + 3;
+  int FLOAT_LITERAL__DECIMAL_DIGITS1 = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Shift_expressionImpl <em>Shift expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Shift_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getShift_expression()
-   * @generated
-   */
-  int SHIFT_EXPRESSION = 40;
-
-  /**
-   * The feature id for the '<em><b>Additiveexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Decimal Digits2</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION__ADDITIVEEXPRESSION = 0;
+  int FLOAT_LITERAL__DECIMAL_DIGITS2 = 1;
 
   /**
-   * The feature id for the '<em><b>Shiftop</b></em>' attribute list.
+   * The feature id for the '<em><b>Exp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION__SHIFTOP = 1;
+  int FLOAT_LITERAL__EXP = 2;
 
   /**
-   * The number of structural features of the '<em>Shift expression</em>' class.
+   * The feature id for the '<em><b>Float Type Sufix</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SHIFT_EXPRESSION_FEATURE_COUNT = 2;
+  int FLOAT_LITERAL__FLOAT_TYPE_SUFIX = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Additive_expressionImpl <em>Additive expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Additive_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAdditive_expression()
-   * @generated
-   */
-  int ADDITIVE_EXPRESSION = 41;
-
-  /**
-   * The feature id for the '<em><b>Multiplicativeexpression</b></em>' containment reference list.
+   * The number of structural features of the '<em>Float Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITIVE_EXPRESSION__MULTIPLICATIVEEXPRESSION = 0;
+  int FLOAT_LITERAL_FEATURE_COUNT = 4;
 
   /**
-   * The number of structural features of the '<em>Additive expression</em>' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl <em>Literal Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLiteral_Expression()
+   * @generated
+   */
+  int LITERAL_EXPRESSION = 24;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADDITIVE_EXPRESSION_FEATURE_COUNT = 1;
+  int LITERAL_EXPRESSION__EXP = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Multiplicative_expressionImpl <em>Multiplicative expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Multiplicative_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMultiplicative_expression()
-   * @generated
-   */
-  int MULTIPLICATIVE_EXPRESSION = 42;
-
-  /**
-   * The feature id for the '<em><b>Unaryexpression</b></em>' containment reference list.
+   * The feature id for the '<em><b>Exp1</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICATIVE_EXPRESSION__UNARYEXPRESSION = 0;
+  int LITERAL_EXPRESSION__EXP1 = 1;
 
   /**
-   * The number of structural features of the '<em>Multiplicative expression</em>' class.
+   * The feature id for the '<em><b>Exp2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICATIVE_EXPRESSION_FEATURE_COUNT = 1;
+  int LITERAL_EXPRESSION__EXP2 = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Unary_expressionImpl <em>Unary expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Unary_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getUnary_expression()
-   * @generated
-   */
-  int UNARY_EXPRESSION = 43;
-
-  /**
-   * The number of structural features of the '<em>Unary expression</em>' class.
+   * The feature id for the '<em><b>String</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_FEATURE_COUNT = 0;
+  int LITERAL_EXPRESSION__STRING = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Unary_expression_Not_Plus_MinusImpl <em>Unary expression Not Plus Minus</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Unary_expression_Not_Plus_MinusImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getUnary_expression_Not_Plus_Minus()
-   * @generated
-   */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS = 44;
-
-  /**
-   * The feature id for the '<em><b>Unaryexpression</b></em>' containment reference.
+   * The feature id for the '<em><b>Char</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS__UNARYEXPRESSION = UNARY_EXPRESSION_FEATURE_COUNT + 0;
+  int LITERAL_EXPRESSION__CHAR = 4;
 
   /**
-   * The feature id for the '<em><b>Castexpression</b></em>' containment reference.
+   * The number of structural features of the '<em>Literal Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS__CASTEXPRESSION = UNARY_EXPRESSION_FEATURE_COUNT + 1;
+  int LITERAL_EXPRESSION_FEATURE_COUNT = 5;
 
   /**
-   * The feature id for the '<em><b>Primary</b></em>' containment reference.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl <em>Creating Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreating_Expression()
+   * @generated
+   */
+  int CREATING_EXPRESSION = 25;
+
+  /**
+   * The feature id for the '<em><b>Class Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS__PRIMARY = UNARY_EXPRESSION_FEATURE_COUNT + 2;
+  int CREATING_EXPRESSION__CLASS_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Selector</b></em>' containment reference list.
+   * The feature id for the '<em><b>Arg List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS__SELECTOR = UNARY_EXPRESSION_FEATURE_COUNT + 3;
+  int CREATING_EXPRESSION__ARG_LIST = 1;
 
   /**
-   * The number of structural features of the '<em>Unary expression Not Plus Minus</em>' class.
+   * The feature id for the '<em><b>Type Specifier</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_NOT_PLUS_MINUS_FEATURE_COUNT = UNARY_EXPRESSION_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Cast_expressionImpl <em>Cast expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Cast_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCast_expression()
-   * @generated
-   */
-  int CAST_EXPRESSION = 45;
-
-  /**
-   * The feature id for the '<em><b>Lparent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION__LPARENT = 0;
-
-  /**
-   * The feature id for the '<em><b>Primitivetype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION__PRIMITIVETYPE = 1;
-
-  /**
-   * The feature id for the '<em><b>Rparent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION__RPARENT = 2;
-
-  /**
-   * The feature id for the '<em><b>Unaryexpression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION__UNARYEXPRESSION = 3;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION__TYPE = 4;
+  int CREATING_EXPRESSION__TYPE_SPECIFIER = 2;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2216,393 +1745,26 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CAST_EXPRESSION__EXPRESSION = 5;
+  int CREATING_EXPRESSION__EXPRESSION = 3;
 
   /**
-   * The feature id for the '<em><b>Unaryexpressionnotplusminus</b></em>' containment reference.
+   * The number of structural features of the '<em>Creating Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAST_EXPRESSION__UNARYEXPRESSIONNOTPLUSMINUS = 6;
+  int CREATING_EXPRESSION_FEATURE_COUNT = 4;
 
   /**
-   * The number of structural features of the '<em>Cast expression</em>' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Cast_ExpressionImpl <em>Cast Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION_FEATURE_COUNT = 7;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Primary_expressionImpl <em>Primary expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Primary_expressionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrimary_expression()
+   * @see org.xtext.example.mydsl.myDsl.impl.Cast_ExpressionImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCast_Expression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 46;
-
-  /**
-   * The feature id for the '<em><b>Parexpression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__PAREXPRESSION = 0;
-
-  /**
-   * The feature id for the '<em><b>Identifier</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__IDENTIFIER = 1;
-
-  /**
-   * The feature id for the '<em><b>Identifiersuffix</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__IDENTIFIERSUFFIX = 2;
-
-  /**
-   * The feature id for the '<em><b>Supersuffix</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__SUPERSUFFIX = 3;
-
-  /**
-   * The feature id for the '<em><b>Literal</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__LITERAL = 4;
-
-  /**
-   * The feature id for the '<em><b>Creator</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__CREATOR = 5;
-
-  /**
-   * The feature id for the '<em><b>Primitivetype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__PRIMITIVETYPE = 6;
-
-  /**
-   * The number of structural features of the '<em>Primary expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = 7;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Identifier_suffixImpl <em>Identifier suffix</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Identifier_suffixImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIdentifier_suffix()
-   * @generated
-   */
-  int IDENTIFIER_SUFFIX = 47;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER_SUFFIX__ARGUMENTS = 0;
-
-  /**
-   * The feature id for the '<em><b>Explicitgenericinvocation</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER_SUFFIX__EXPLICITGENERICINVOCATION = 1;
-
-  /**
-   * The feature id for the '<em><b>Innercreator</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER_SUFFIX__INNERCREATOR = 2;
-
-  /**
-   * The number of structural features of the '<em>Identifier suffix</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IDENTIFIER_SUFFIX_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CreatorImpl <em>Creator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.CreatorImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreator()
-   * @generated
-   */
-  int CREATOR = 48;
-
-  /**
-   * The feature id for the '<em><b>Classcreatorrest</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATOR__CLASSCREATORREST = 0;
-
-  /**
-   * The number of structural features of the '<em>Creator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATOR_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Created_nameImpl <em>Created name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Created_nameImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreated_name()
-   * @generated
-   */
-  int CREATED_NAME = 49;
-
-  /**
-   * The feature id for the '<em><b>Classcreatorrest</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATED_NAME__CLASSCREATORREST = CREATOR__CLASSCREATORREST;
-
-  /**
-   * The feature id for the '<em><b>Arraycreatorrest</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATED_NAME__ARRAYCREATORREST = CREATOR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Classorinterfacetype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATED_NAME__CLASSORINTERFACETYPE = CREATOR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Primitivetype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATED_NAME__PRIMITIVETYPE = CREATOR_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Created name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CREATED_NAME_FEATURE_COUNT = CREATOR_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Inner_creatorImpl <em>Inner creator</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Inner_creatorImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInner_creator()
-   * @generated
-   */
-  int INNER_CREATOR = 50;
-
-  /**
-   * The feature id for the '<em><b>Nonwildcardtypearguments</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INNER_CREATOR__NONWILDCARDTYPEARGUMENTS = 0;
-
-  /**
-   * The feature id for the '<em><b>Identifier</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INNER_CREATOR__IDENTIFIER = 1;
-
-  /**
-   * The feature id for the '<em><b>Classcreatorrest</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INNER_CREATOR__CLASSCREATORREST = 2;
-
-  /**
-   * The number of structural features of the '<em>Inner creator</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INNER_CREATOR_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Class_creator_restImpl <em>Class creator rest</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Class_creator_restImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getClass_creator_rest()
-   * @generated
-   */
-  int CLASS_CREATOR_REST = 52;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_CREATOR_REST__ARGUMENTS = 0;
-
-  /**
-   * The feature id for the '<em><b>Classbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_CREATOR_REST__CLASSBODY = 1;
-
-  /**
-   * The number of structural features of the '<em>Class creator rest</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLASS_CREATOR_REST_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Explicit_generic_invocationImpl <em>Explicit generic invocation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Explicit_generic_invocationImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExplicit_generic_invocation()
-   * @generated
-   */
-  int EXPLICIT_GENERIC_INVOCATION = 53;
-
-  /**
-   * The feature id for the '<em><b>Nonwildcardtypearguments</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPLICIT_GENERIC_INVOCATION__NONWILDCARDTYPEARGUMENTS = 0;
-
-  /**
-   * The feature id for the '<em><b>Identifier</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPLICIT_GENERIC_INVOCATION__IDENTIFIER = 1;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPLICIT_GENERIC_INVOCATION__ARGUMENTS = 2;
-
-  /**
-   * The number of structural features of the '<em>Explicit generic invocation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPLICIT_GENERIC_INVOCATION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Non_wildcard_type_argumentsImpl <em>Non wildcard type arguments</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Non_wildcard_type_argumentsImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNon_wildcard_type_arguments()
-   * @generated
-   */
-  int NON_WILDCARD_TYPE_ARGUMENTS = 54;
-
-  /**
-   * The feature id for the '<em><b>Classcreatorrest</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_WILDCARD_TYPE_ARGUMENTS__CLASSCREATORREST = CREATOR__CLASSCREATORREST;
-
-  /**
-   * The feature id for the '<em><b>Createdname</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_WILDCARD_TYPE_ARGUMENTS__CREATEDNAME = CREATOR_FEATURE_COUNT + 0;
+  int CAST_EXPRESSION = 26;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2611,44 +1773,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NON_WILDCARD_TYPE_ARGUMENTS__TYPE = CREATOR_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Non wildcard type arguments</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_WILDCARD_TYPE_ARGUMENTS_FEATURE_COUNT = CREATOR_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SelectorImpl <em>Selector</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.SelectorImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSelector()
-   * @generated
-   */
-  int SELECTOR = 55;
-
-  /**
-   * The feature id for the '<em><b>Supersuffix</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__SUPERSUFFIX = 0;
-
-  /**
-   * The feature id for the '<em><b>Innercreator</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__INNERCREATOR = 1;
+  int CAST_EXPRESSION__TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2657,99 +1782,164 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SELECTOR__EXPRESSION = 2;
+  int CAST_EXPRESSION__EXPRESSION = 1;
 
   /**
-   * The number of structural features of the '<em>Selector</em>' class.
+   * The number of structural features of the '<em>Cast Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTOR_FEATURE_COUNT = 3;
+  int CAST_EXPRESSION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Super_suffixImpl <em>Super suffix</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Bit_Expression_NRImpl <em>Bit Expression NR</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Super_suffixImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSuper_suffix()
+   * @see org.xtext.example.mydsl.myDsl.impl.Bit_Expression_NRImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getBit_Expression_NR()
    * @generated
    */
-  int SUPER_SUFFIX = 56;
+  int BIT_EXPRESSION_NR = 27;
 
   /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUPER_SUFFIX__ARGUMENTS = 0;
-
-  /**
-   * The feature id for the '<em><b>Identifier</b></em>' attribute.
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUPER_SUFFIX__IDENTIFIER = 1;
+  int BIT_EXPRESSION_NR__EXPRESSION = 0;
 
   /**
-   * The number of structural features of the '<em>Super suffix</em>' class.
+   * The number of structural features of the '<em>Bit Expression NR</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SUPER_SUFFIX_FEATURE_COUNT = 2;
+  int BIT_EXPRESSION_NR_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ArgumentsImpl <em>Arguments</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl <em>Logical Expression NR</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ArgumentsImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArguments()
+   * @see org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogical_Expression_NR()
    * @generated
    */
-  int ARGUMENTS = 57;
+  int LOGICAL_EXPRESSION_NR = 28;
 
   /**
-   * The feature id for the '<em><b>Lparent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARGUMENTS__LPARENT = 0;
-
-  /**
-   * The feature id for the '<em><b>Expressionlist</b></em>' containment reference.
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENTS__EXPRESSIONLIST = 1;
+  int LOGICAL_EXPRESSION_NR__EXPRESSION = 0;
 
   /**
-   * The feature id for the '<em><b>Rparent</b></em>' attribute.
+   * The feature id for the '<em><b>True</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENTS__RPARENT = 2;
+  int LOGICAL_EXPRESSION_NR__TRUE = 1;
 
   /**
-   * The number of structural features of the '<em>Arguments</em>' class.
+   * The feature id for the '<em><b>False</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENTS_FEATURE_COUNT = 3;
+  int LOGICAL_EXPRESSION_NR__FALSE = 2;
+
+  /**
+   * The number of structural features of the '<em>Logical Expression NR</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_EXPRESSION_NR_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Arg_ListImpl <em>Arg List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Arg_ListImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArg_List()
+   * @generated
+   */
+  int ARG_LIST = 29;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARG_LIST__EXPRESSION = 0;
+
+  /**
+   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARG_LIST__EXPRESSIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>Arg List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARG_LIST_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Numeric_Expression_NRImpl <em>Numeric Expression NR</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Numeric_Expression_NRImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNumeric_Expression_NR()
+   * @generated
+   */
+  int NUMERIC_EXPRESSION_NR = 30;
+
+  /**
+   * The feature id for the '<em><b>Sinal numeric</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMERIC_EXPRESSION_NR__SINAL_NUMERIC = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMERIC_EXPRESSION_NR__EXPRESSION = 1;
+
+  /**
+   * The number of structural features of the '<em>Numeric Expression NR</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMERIC_EXPRESSION_NR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Switch_statementImpl <em>Switch statement</em>}' class.
@@ -2759,7 +1949,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSwitch_statement()
    * @generated
    */
-  int SWITCH_STATEMENT = 58;
+  int SWITCH_STATEMENT = 31;
 
   /**
    * The feature id for the '<em><b>LParen</b></em>' attribute.
@@ -2823,7 +2013,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getWhile_Statement()
    * @generated
    */
-  int WHILE_STATEMENT = 59;
+  int WHILE_STATEMENT = 32;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2869,7 +2059,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDo_Statement()
    * @generated
    */
-  int DO_STATEMENT = 60;
+  int DO_STATEMENT = 33;
 
   /**
    * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
@@ -2915,7 +2105,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIf_statement()
    * @generated
    */
-  int IF_STATEMENT = 61;
+  int IF_STATEMENT = 34;
 
   /**
    * The feature id for the '<em><b>Lparen</b></em>' attribute.
@@ -2979,7 +2169,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getTry_statement()
    * @generated
    */
-  int TRY_STATEMENT = 62;
+  int TRY_STATEMENT = 35;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -3052,7 +2242,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getImport_statement()
    * @generated
    */
-  int IMPORT_STATEMENT = 63;
+  int IMPORT_STATEMENT = 36;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -3089,7 +2279,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPackage_statement()
    * @generated
    */
-  int PACKAGE_STATEMENT = 64;
+  int PACKAGE_STATEMENT = 37;
 
   /**
    * The feature id for the '<em><b>Pac Name</b></em>' attribute.
@@ -4093,133 +3283,59 @@ public interface MyDslPackage extends EPackage
   EClass getFor_Statement();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.For_Statement#getLparent <em>Lparent</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_Statement#getLparent()
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.xtext.example.mydsl.myDsl.For_Statement#getVariable()
    * @see #getFor_Statement()
    * @generated
    */
-  EAttribute getFor_Statement_Lparent();
+  EReference getFor_Statement_Variable();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getForControl <em>For Control</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>For Control</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_Statement#getForControl()
-   * @see #getFor_Statement()
-   * @generated
-   */
-  EReference getFor_Statement_ForControl();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.For_Statement#getRParent <em>RParent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>RParent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_Statement#getRParent()
-   * @see #getFor_Statement()
-   * @generated
-   */
-  EAttribute getFor_Statement_RParent();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getForStatement <em>For Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>For Statement</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_Statement#getForStatement()
-   * @see #getFor_Statement()
-   * @generated
-   */
-  EReference getFor_Statement_ForStatement();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For_control <em>For control</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For control</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_control
-   * @generated
-   */
-  EClass getFor_control();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_control#getForinit <em>Forinit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Forinit</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_control#getForinit()
-   * @see #getFor_control()
-   * @generated
-   */
-  EReference getFor_control_Forinit();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_control#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_control#getExpression()
-   * @see #getFor_control()
+   * @see org.xtext.example.mydsl.myDsl.For_Statement#getExpression()
+   * @see #getFor_Statement()
    * @generated
    */
-  EReference getFor_control_Expression();
+  EReference getFor_Statement_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_control#getForupdate <em>Forupdate</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression2 <em>Expression2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Forupdate</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_control#getForupdate()
-   * @see #getFor_control()
+   * @return the meta object for the containment reference '<em>Expression2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.For_Statement#getExpression2()
+   * @see #getFor_Statement()
    * @generated
    */
-  EReference getFor_control_Forupdate();
+  EReference getFor_Statement_Expression2();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Variable <em>Variable</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression3 <em>Expression3</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Variable
+   * @return the meta object for the containment reference '<em>Expression3</em>'.
+   * @see org.xtext.example.mydsl.myDsl.For_Statement#getExpression3()
+   * @see #getFor_Statement()
    * @generated
    */
-  EClass getVariable();
+  EReference getFor_Statement_Expression3();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Variable#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_Statement#getStatement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Variable#getName()
-   * @see #getVariable()
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.For_Statement#getStatement()
+   * @see #getFor_Statement()
    * @generated
    */
-  EAttribute getVariable_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Variable_value <em>Variable value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable value</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Variable_value
-   * @generated
-   */
-  EClass getVariable_value();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Variable_value#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Variable_value#getName()
-   * @see #getVariable_value()
-   * @generated
-   */
-  EAttribute getVariable_value_Name();
+  EReference getFor_Statement_Statement();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Primitive_type <em>Primitive type</em>}'.
@@ -4243,241 +3359,6 @@ public interface MyDslPackage extends EPackage
   EAttribute getPrimitive_type_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For_init <em>For init</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For init</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_init
-   * @generated
-   */
-  EClass getFor_init();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_init#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_init#getType()
-   * @see #getFor_init()
-   * @generated
-   */
-  EReference getFor_init_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_init#getVar <em>Var</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Var</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_init#getVar()
-   * @see #getFor_init()
-   * @generated
-   */
-  EReference getFor_init_Var();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_init#getVar_init <em>Var init</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Var init</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_init#getVar_init()
-   * @see #getFor_init()
-   * @generated
-   */
-  EReference getFor_init_Var_init();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For_expression <em>For expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_expression
-   * @generated
-   */
-  EClass getFor_expression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_expression#getVariable1 <em>Variable1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable1</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_expression#getVariable1()
-   * @see #getFor_expression()
-   * @generated
-   */
-  EReference getFor_expression_Variable1();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_expression#getExpOp <em>Exp Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp Op</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_expression#getExpOp()
-   * @see #getFor_expression()
-   * @generated
-   */
-  EReference getFor_expression_ExpOp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_expression#getLimit <em>Limit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Limit</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_expression#getLimit()
-   * @see #getFor_expression()
-   * @generated
-   */
-  EReference getFor_expression_Limit();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For_update <em>For update</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For update</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_update
-   * @generated
-   */
-  EClass getFor_update();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_update#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_update#getVariable()
-   * @see #getFor_update()
-   * @generated
-   */
-  EReference getFor_update_Variable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.For_update#getUpdateOp <em>Update Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Update Op</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_update#getUpdateOp()
-   * @see #getFor_update()
-   * @generated
-   */
-  EReference getFor_update_UpdateOp();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For_update_operator <em>For update operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For update operator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_update_operator
-   * @generated
-   */
-  EClass getFor_update_operator();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.For_update_operator#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_update_operator#getName()
-   * @see #getFor_update_operator()
-   * @generated
-   */
-  EAttribute getFor_update_operator_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.For_expression_operator <em>For expression operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For expression operator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_expression_operator
-   * @generated
-   */
-  EClass getFor_expression_operator();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.For_expression_operator#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.For_expression_operator#getName()
-   * @see #getFor_expression_operator()
-   * @generated
-   */
-  EAttribute getFor_expression_operator_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Parens_expression <em>Parens expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parens expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Parens_expression
-   * @generated
-   */
-  EClass getParens_expression();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Parens_expression#getLparent <em>Lparent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Parens_expression#getLparent()
-   * @see #getParens_expression()
-   * @generated
-   */
-  EAttribute getParens_expression_Lparent();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Parens_expression#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Parens_expression#getExpression()
-   * @see #getParens_expression()
-   * @generated
-   */
-  EReference getParens_expression_Expression();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Parens_expression#getRparent <em>Rparent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Parens_expression#getRparent()
-   * @see #getParens_expression()
-   * @generated
-   */
-  EAttribute getParens_expression_Rparent();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expression_list <em>Expression list</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expression list</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Expression_list
-   * @generated
-   */
-  EClass getExpression_list();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_list#getExpression1 <em>Expression1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression1</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Expression_list#getExpression1()
-   * @see #getExpression_list()
-   * @generated
-   */
-  EReference getExpression_list_Expression1();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Expression_list#getExpression2 <em>Expression2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression2</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Expression_list#getExpression2()
-   * @see #getExpression_list()
-   * @generated
-   */
-  EReference getExpression_list_Expression2();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4488,956 +3369,665 @@ public interface MyDslPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Conditional_expression <em>Conditional expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getNumericExpression3 <em>Numeric Expression3</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Conditional expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression
+   * @return the meta object for the containment reference '<em>Numeric Expression3</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getNumericExpression3()
+   * @see #getExpression()
    * @generated
    */
-  EClass getConditional_expression();
+  EReference getExpression_NumericExpression3();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Conditional_expression#getAssignmentoperator <em>Assignmentoperator</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getAux <em>Aux</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Assignmentoperator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression#getAssignmentoperator()
-   * @see #getConditional_expression()
+   * @return the meta object for the containment reference '<em>Aux</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getAux()
+   * @see #getExpression()
    * @generated
    */
-  EAttribute getConditional_expression_Assignmentoperator();
+  EReference getExpression_Aux();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Conditional_expression#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getLogicalExpression <em>Logical Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression#getExpression()
-   * @see #getConditional_expression()
+   * @return the meta object for the containment reference '<em>Logical Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getLogicalExpression()
+   * @see #getExpression()
    * @generated
    */
-  EReference getConditional_expression_Expression();
+  EReference getExpression_LogicalExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Conditional_expression#getConditionalorexpression <em>Conditionalorexpression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getBitExpression <em>Bit Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Conditionalorexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression#getConditionalorexpression()
-   * @see #getConditional_expression()
+   * @return the meta object for the containment reference '<em>Bit Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getBitExpression()
+   * @see #getExpression()
    * @generated
    */
-  EReference getConditional_expression_Conditionalorexpression();
+  EReference getExpression_BitExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Conditional_expression#getExpression1 <em>Expression1</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getCastExpression <em>Cast Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression1</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression#getExpression1()
-   * @see #getConditional_expression()
+   * @return the meta object for the containment reference '<em>Cast Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getCastExpression()
+   * @see #getExpression()
    * @generated
    */
-  EReference getConditional_expression_Expression1();
+  EReference getExpression_CastExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Conditional_expression#getExpression2 <em>Expression2</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getCreatingExpression <em>Creating Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Creating Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getCreatingExpression()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_CreatingExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression#getLiteralExpression <em>Literal Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Literal Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getLiteralExpression()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_LiteralExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression#getNull <em>Null</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Null</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getNull()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_Null();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression#getSuper <em>Super</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Super</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getSuper()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_Super();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression#getThis <em>This</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>This</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getThis()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_This();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression#getName()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expression_aux <em>Expression aux</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression aux</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux
+   * @generated
+   */
+  EClass getExpression_aux();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getArgList <em>Arg List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Arg List</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getArgList()
+   * @see #getExpression_aux()
+   * @generated
+   */
+  EReference getExpression_aux_ArgList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getAux <em>Aux</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Aux</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getAux()
+   * @see #getExpression_aux()
+   * @generated
+   */
+  EReference getExpression_aux_Aux();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExpression2 <em>Expression2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression2</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_expression#getExpression2()
-   * @see #getConditional_expression()
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getExpression2()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getConditional_expression_Expression2();
+  EReference getExpression_aux_Expression2();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Conditional_OR_expression <em>Conditional OR expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExpressionComma <em>Expression Comma</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Conditional OR expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_OR_expression
+   * @return the meta object for the containment reference '<em>Expression Comma</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getExpressionComma()
+   * @see #getExpression_aux()
    * @generated
    */
-  EClass getConditional_OR_expression();
+  EReference getExpression_aux_ExpressionComma();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Conditional_OR_expression#getConditionalandexpression <em>Conditionalandexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Conditionalandexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_OR_expression#getConditionalandexpression()
-   * @see #getConditional_OR_expression()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getName()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getConditional_OR_expression_Conditionalandexpression();
+  EAttribute getExpression_aux_Name();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Conditional_AND_expression <em>Conditional AND expression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getSgin <em>Sgin</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Conditional AND expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_AND_expression
+   * @return the meta object for the attribute '<em>Sgin</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getSgin()
+   * @see #getExpression_aux()
    * @generated
    */
-  EClass getConditional_AND_expression();
+  EAttribute getExpression_aux_Sgin();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Conditional_AND_expression#getInclusiveorexpression <em>Inclusiveorexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getNumericSign <em>Numeric Sign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Inclusiveorexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Conditional_AND_expression#getInclusiveorexpression()
-   * @see #getConditional_AND_expression()
+   * @return the meta object for the attribute '<em>Numeric Sign</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getNumericSign()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getConditional_AND_expression_Inclusiveorexpression();
+  EAttribute getExpression_aux_NumericSign();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Inclusive_OR_expression <em>Inclusive OR expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExp2 <em>Exp2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Inclusive OR expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Inclusive_OR_expression
+   * @return the meta object for the containment reference '<em>Exp2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getExp2()
+   * @see #getExpression_aux()
    * @generated
    */
-  EClass getInclusive_OR_expression();
+  EReference getExpression_aux_Exp2();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Inclusive_OR_expression#getExclusiveorexpression <em>Exclusiveorexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getTestingSign <em>Testing Sign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exclusiveorexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Inclusive_OR_expression#getExclusiveorexpression()
-   * @see #getInclusive_OR_expression()
+   * @return the meta object for the attribute '<em>Testing Sign</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getTestingSign()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getInclusive_OR_expression_Exclusiveorexpression();
+  EAttribute getExpression_aux_TestingSign();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Exclusive_OR_expression <em>Exclusive OR expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExp1 <em>Exp1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Exclusive OR expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Exclusive_OR_expression
+   * @return the meta object for the containment reference '<em>Exp1</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getExp1()
+   * @see #getExpression_aux()
    * @generated
    */
-  EClass getExclusive_OR_expression();
+  EReference getExpression_aux_Exp1();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Exclusive_OR_expression#getAndexpression <em>Andexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicalSign <em>Logical Sign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Andexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Exclusive_OR_expression#getAndexpression()
-   * @see #getExclusive_OR_expression()
+   * @return the meta object for the attribute '<em>Logical Sign</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getLogicalSign()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getExclusive_OR_expression_Andexpression();
+  EAttribute getExpression_aux_LogicalSign();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.AND_expression <em>AND expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getAmpersand <em>Ampersand</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>AND expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.AND_expression
+   * @return the meta object for the containment reference '<em>Ampersand</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getAmpersand()
+   * @see #getExpression_aux()
    * @generated
    */
-  EClass getAND_expression();
+  EReference getExpression_aux_Ampersand();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.AND_expression#getEqualityexpression <em>Equalityexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getStringSign <em>String Sign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Equalityexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.AND_expression#getEqualityexpression()
-   * @see #getAND_expression()
+   * @return the meta object for the attribute '<em>String Sign</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getStringSign()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getAND_expression_Equalityexpression();
+  EAttribute getExpression_aux_StringSign();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Equality_expression <em>Equality expression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getBitSign <em>Bit Sign</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Equality expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Equality_expression
+   * @return the meta object for the attribute '<em>Bit Sign</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getBitSign()
+   * @see #getExpression_aux()
    * @generated
    */
-  EClass getEquality_expression();
+  EAttribute getExpression_aux_BitSign();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Equality_expression#getInstanceofexpression <em>Instanceofexpression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExpressionBit <em>Expression Bit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Instanceofexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Equality_expression#getInstanceofexpression()
-   * @see #getEquality_expression()
+   * @return the meta object for the containment reference '<em>Expression Bit</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getExpressionBit()
+   * @see #getExpression_aux()
    * @generated
    */
-  EReference getEquality_expression_Instanceofexpression();
+  EReference getExpression_aux_ExpressionBit();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.InstanceOf_expression <em>Instance Of expression</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Ampersand_Rule <em>Ampersand Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Instance Of expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.InstanceOf_expression
+   * @return the meta object for class '<em>Ampersand Rule</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Ampersand_Rule
    * @generated
    */
-  EClass getInstanceOf_expression();
+  EClass getAmpersand_Rule();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Relational_expression <em>Relational expression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Ampersand_Rule#getA1 <em>A1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Relational expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Relational_expression
+   * @return the meta object for the attribute '<em>A1</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Ampersand_Rule#getA1()
+   * @see #getAmpersand_Rule()
    * @generated
    */
-  EClass getRelational_expression();
+  EAttribute getAmpersand_Rule_A1();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Relational_expression#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Ampersand_Rule#getA2 <em>A2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Relational_expression#getType()
-   * @see #getRelational_expression()
+   * @return the meta object for the attribute '<em>A2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Ampersand_Rule#getA2()
+   * @see #getAmpersand_Rule()
    * @generated
    */
-  EReference getRelational_expression_Type();
+  EAttribute getAmpersand_Rule_A2();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Relational_expression#getShiftexpression <em>Shiftexpression</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Float_Literal <em>Float Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Shiftexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Relational_expression#getShiftexpression()
-   * @see #getRelational_expression()
+   * @return the meta object for class '<em>Float Literal</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Float_Literal
    * @generated
    */
-  EReference getRelational_expression_Shiftexpression();
+  EClass getFloat_Literal();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Relational_expression#getRelationalop <em>Relationalop</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Float_Literal#getDecimalDigits1 <em>Decimal Digits1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Relationalop</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Relational_expression#getRelationalop()
-   * @see #getRelational_expression()
+   * @return the meta object for the attribute '<em>Decimal Digits1</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Float_Literal#getDecimalDigits1()
+   * @see #getFloat_Literal()
    * @generated
    */
-  EAttribute getRelational_expression_Relationalop();
+  EAttribute getFloat_Literal_DecimalDigits1();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Shift_expression <em>Shift expression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Float_Literal#getDecimalDigits2 <em>Decimal Digits2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Shift expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Shift_expression
+   * @return the meta object for the attribute '<em>Decimal Digits2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Float_Literal#getDecimalDigits2()
+   * @see #getFloat_Literal()
    * @generated
    */
-  EClass getShift_expression();
+  EAttribute getFloat_Literal_DecimalDigits2();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Shift_expression#getAdditiveexpression <em>Additiveexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Float_Literal#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Additiveexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Shift_expression#getAdditiveexpression()
-   * @see #getShift_expression()
+   * @return the meta object for the attribute '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Float_Literal#getExp()
+   * @see #getFloat_Literal()
    * @generated
    */
-  EReference getShift_expression_Additiveexpression();
+  EAttribute getFloat_Literal_Exp();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Shift_expression#getShiftop <em>Shiftop</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Float_Literal#getFloatTypeSufix <em>Float Type Sufix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Shiftop</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Shift_expression#getShiftop()
-   * @see #getShift_expression()
+   * @return the meta object for the attribute '<em>Float Type Sufix</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Float_Literal#getFloatTypeSufix()
+   * @see #getFloat_Literal()
    * @generated
    */
-  EAttribute getShift_expression_Shiftop();
+  EAttribute getFloat_Literal_FloatTypeSufix();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Additive_expression <em>Additive expression</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Literal_Expression <em>Literal Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Additive expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Additive_expression
+   * @return the meta object for class '<em>Literal Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression
    * @generated
    */
-  EClass getAdditive_expression();
+  EClass getLiteral_Expression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Additive_expression#getMultiplicativeexpression <em>Multiplicativeexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Multiplicativeexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Additive_expression#getMultiplicativeexpression()
-   * @see #getAdditive_expression()
+   * @return the meta object for the attribute '<em>Exp</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getExp()
+   * @see #getLiteral_Expression()
    * @generated
    */
-  EReference getAdditive_expression_Multiplicativeexpression();
+  EAttribute getLiteral_Expression_Exp();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Multiplicative_expression <em>Multiplicative expression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp1 <em>Exp1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Multiplicative expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Multiplicative_expression
+   * @return the meta object for the attribute '<em>Exp1</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getExp1()
+   * @see #getLiteral_Expression()
    * @generated
    */
-  EClass getMultiplicative_expression();
+  EAttribute getLiteral_Expression_Exp1();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Multiplicative_expression#getUnaryexpression <em>Unaryexpression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp2 <em>Exp2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Unaryexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Multiplicative_expression#getUnaryexpression()
-   * @see #getMultiplicative_expression()
+   * @return the meta object for the containment reference '<em>Exp2</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getExp2()
+   * @see #getLiteral_Expression()
    * @generated
    */
-  EReference getMultiplicative_expression_Unaryexpression();
+  EReference getLiteral_Expression_Exp2();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Unary_expression <em>Unary expression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getString <em>String</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Unary expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getString()
+   * @see #getLiteral_Expression()
    * @generated
    */
-  EClass getUnary_expression();
+  EAttribute getLiteral_Expression_String();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus <em>Unary expression Not Plus Minus</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getChar <em>Char</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Unary expression Not Plus Minus</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus
+   * @return the meta object for the attribute '<em>Char</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getChar()
+   * @see #getLiteral_Expression()
    * @generated
    */
-  EClass getUnary_expression_Not_Plus_Minus();
+  EAttribute getLiteral_Expression_Char();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getUnaryexpression <em>Unaryexpression</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Creating_Expression <em>Creating Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Unaryexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getUnaryexpression()
-   * @see #getUnary_expression_Not_Plus_Minus()
+   * @return the meta object for class '<em>Creating Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Creating_Expression
    * @generated
    */
-  EReference getUnary_expression_Not_Plus_Minus_Unaryexpression();
+  EClass getCreating_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getCastexpression <em>Castexpression</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getClassName <em>Class Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Castexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getCastexpression()
-   * @see #getUnary_expression_Not_Plus_Minus()
+   * @return the meta object for the attribute '<em>Class Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Creating_Expression#getClassName()
+   * @see #getCreating_Expression()
    * @generated
    */
-  EReference getUnary_expression_Not_Plus_Minus_Castexpression();
+  EAttribute getCreating_Expression_ClassName();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getPrimary <em>Primary</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getArgList <em>Arg List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Primary</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getPrimary()
-   * @see #getUnary_expression_Not_Plus_Minus()
+   * @return the meta object for the containment reference '<em>Arg List</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Creating_Expression#getArgList()
+   * @see #getCreating_Expression()
    * @generated
    */
-  EReference getUnary_expression_Not_Plus_Minus_Primary();
+  EReference getCreating_Expression_ArgList();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getSelector <em>Selector</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier <em>Type Specifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Selector</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Unary_expression_Not_Plus_Minus#getSelector()
-   * @see #getUnary_expression_Not_Plus_Minus()
+   * @return the meta object for the attribute '<em>Type Specifier</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier()
+   * @see #getCreating_Expression()
    * @generated
    */
-  EReference getUnary_expression_Not_Plus_Minus_Selector();
+  EAttribute getCreating_Expression_TypeSpecifier();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Cast_expression <em>Cast expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Cast expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression
-   * @generated
-   */
-  EClass getCast_expression();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getLparent <em>Lparent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getLparent()
-   * @see #getCast_expression()
-   * @generated
-   */
-  EAttribute getCast_expression_Lparent();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getPrimitivetype <em>Primitivetype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Primitivetype</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getPrimitivetype()
-   * @see #getCast_expression()
-   * @generated
-   */
-  EReference getCast_expression_Primitivetype();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getRparent <em>Rparent</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getRparent()
-   * @see #getCast_expression()
-   * @generated
-   */
-  EAttribute getCast_expression_Rparent();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getUnaryexpression <em>Unaryexpression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Unaryexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getUnaryexpression()
-   * @see #getCast_expression()
-   * @generated
-   */
-  EReference getCast_expression_Unaryexpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getType()
-   * @see #getCast_expression()
-   * @generated
-   */
-  EReference getCast_expression_Type();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getExpression()
-   * @see #getCast_expression()
+   * @see org.xtext.example.mydsl.myDsl.Creating_Expression#getExpression()
+   * @see #getCreating_Expression()
    * @generated
    */
-  EReference getCast_expression_Expression();
+  EReference getCreating_Expression_Expression();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_expression#getUnaryexpressionnotplusminus <em>Unaryexpressionnotplusminus</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Cast_Expression <em>Cast Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Unaryexpressionnotplusminus</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Cast_expression#getUnaryexpressionnotplusminus()
-   * @see #getCast_expression()
+   * @return the meta object for class '<em>Cast Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Cast_Expression
    * @generated
    */
-  EReference getCast_expression_Unaryexpressionnotplusminus();
+  EClass getCast_Expression();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Primary_expression <em>Primary expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Primary expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression
-   * @generated
-   */
-  EClass getPrimary_expression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getParexpression <em>Parexpression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parexpression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getParexpression()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EReference getPrimary_expression_Parexpression();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getIdentifier <em>Identifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Identifier</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getIdentifier()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EAttribute getPrimary_expression_Identifier();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getIdentifiersuffix <em>Identifiersuffix</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Identifiersuffix</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getIdentifiersuffix()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EReference getPrimary_expression_Identifiersuffix();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getSupersuffix <em>Supersuffix</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Supersuffix</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getSupersuffix()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EReference getPrimary_expression_Supersuffix();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getLiteral <em>Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Literal</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getLiteral()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EAttribute getPrimary_expression_Literal();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getCreator <em>Creator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Creator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getCreator()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EReference getPrimary_expression_Creator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Primary_expression#getPrimitivetype <em>Primitivetype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Primitivetype</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Primary_expression#getPrimitivetype()
-   * @see #getPrimary_expression()
-   * @generated
-   */
-  EReference getPrimary_expression_Primitivetype();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Identifier_suffix <em>Identifier suffix</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Identifier suffix</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Identifier_suffix
-   * @generated
-   */
-  EClass getIdentifier_suffix();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Identifier_suffix#getArguments <em>Arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Arguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Identifier_suffix#getArguments()
-   * @see #getIdentifier_suffix()
-   * @generated
-   */
-  EReference getIdentifier_suffix_Arguments();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Identifier_suffix#getExplicitgenericinvocation <em>Explicitgenericinvocation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Explicitgenericinvocation</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Identifier_suffix#getExplicitgenericinvocation()
-   * @see #getIdentifier_suffix()
-   * @generated
-   */
-  EReference getIdentifier_suffix_Explicitgenericinvocation();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Identifier_suffix#getInnercreator <em>Innercreator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Innercreator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Identifier_suffix#getInnercreator()
-   * @see #getIdentifier_suffix()
-   * @generated
-   */
-  EReference getIdentifier_suffix_Innercreator();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Creator <em>Creator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Creator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Creator
-   * @generated
-   */
-  EClass getCreator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Creator#getClasscreatorrest <em>Classcreatorrest</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Classcreatorrest</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Creator#getClasscreatorrest()
-   * @see #getCreator()
-   * @generated
-   */
-  EReference getCreator_Classcreatorrest();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Created_name <em>Created name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Created name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Created_name
-   * @generated
-   */
-  EClass getCreated_name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Created_name#getArraycreatorrest <em>Arraycreatorrest</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Arraycreatorrest</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Created_name#getArraycreatorrest()
-   * @see #getCreated_name()
-   * @generated
-   */
-  EReference getCreated_name_Arraycreatorrest();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Created_name#getClassorinterfacetype <em>Classorinterfacetype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Classorinterfacetype</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Created_name#getClassorinterfacetype()
-   * @see #getCreated_name()
-   * @generated
-   */
-  EReference getCreated_name_Classorinterfacetype();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Created_name#getPrimitivetype <em>Primitivetype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Primitivetype</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Created_name#getPrimitivetype()
-   * @see #getCreated_name()
-   * @generated
-   */
-  EReference getCreated_name_Primitivetype();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Inner_creator <em>Inner creator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Inner creator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Inner_creator
-   * @generated
-   */
-  EClass getInner_creator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Inner_creator#getNonwildcardtypearguments <em>Nonwildcardtypearguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Nonwildcardtypearguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Inner_creator#getNonwildcardtypearguments()
-   * @see #getInner_creator()
-   * @generated
-   */
-  EReference getInner_creator_Nonwildcardtypearguments();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Inner_creator#getIdentifier <em>Identifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Identifier</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Inner_creator#getIdentifier()
-   * @see #getInner_creator()
-   * @generated
-   */
-  EAttribute getInner_creator_Identifier();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Inner_creator#getClasscreatorrest <em>Classcreatorrest</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Classcreatorrest</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Inner_creator#getClasscreatorrest()
-   * @see #getInner_creator()
-   * @generated
-   */
-  EReference getInner_creator_Classcreatorrest();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Array_creator_rest <em>Array creator rest</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Array creator rest</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Array_creator_rest
-   * @generated
-   */
-  EClass getArray_creator_rest();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Array_creator_rest#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Array_creator_rest#getExpression()
-   * @see #getArray_creator_rest()
-   * @generated
-   */
-  EReference getArray_creator_rest_Expression();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Class_creator_rest <em>Class creator rest</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Class creator rest</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Class_creator_rest
-   * @generated
-   */
-  EClass getClass_creator_rest();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Class_creator_rest#getArguments <em>Arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Arguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Class_creator_rest#getArguments()
-   * @see #getClass_creator_rest()
-   * @generated
-   */
-  EReference getClass_creator_rest_Arguments();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Class_creator_rest#getClassbody <em>Classbody</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Classbody</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Class_creator_rest#getClassbody()
-   * @see #getClass_creator_rest()
-   * @generated
-   */
-  EReference getClass_creator_rest_Classbody();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Explicit_generic_invocation <em>Explicit generic invocation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Explicit generic invocation</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Explicit_generic_invocation
-   * @generated
-   */
-  EClass getExplicit_generic_invocation();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Explicit_generic_invocation#getNonwildcardtypearguments <em>Nonwildcardtypearguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Nonwildcardtypearguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Explicit_generic_invocation#getNonwildcardtypearguments()
-   * @see #getExplicit_generic_invocation()
-   * @generated
-   */
-  EReference getExplicit_generic_invocation_Nonwildcardtypearguments();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Explicit_generic_invocation#getIdentifier <em>Identifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Identifier</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Explicit_generic_invocation#getIdentifier()
-   * @see #getExplicit_generic_invocation()
-   * @generated
-   */
-  EAttribute getExplicit_generic_invocation_Identifier();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Explicit_generic_invocation#getArguments <em>Arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Arguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Explicit_generic_invocation#getArguments()
-   * @see #getExplicit_generic_invocation()
-   * @generated
-   */
-  EReference getExplicit_generic_invocation_Arguments();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments <em>Non wildcard type arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Non wildcard type arguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments
-   * @generated
-   */
-  EClass getNon_wildcard_type_arguments();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments#getCreatedname <em>Createdname</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Createdname</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments#getCreatedname()
-   * @see #getNon_wildcard_type_arguments()
-   * @generated
-   */
-  EReference getNon_wildcard_type_arguments_Createdname();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_Expression#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Non_wildcard_type_arguments#getType()
-   * @see #getNon_wildcard_type_arguments()
+   * @see org.xtext.example.mydsl.myDsl.Cast_Expression#getType()
+   * @see #getCast_Expression()
    * @generated
    */
-  EReference getNon_wildcard_type_arguments_Type();
+  EReference getCast_Expression_Type();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Selector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Selector</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Selector
-   * @generated
-   */
-  EClass getSelector();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Selector#getSupersuffix <em>Supersuffix</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Supersuffix</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Selector#getSupersuffix()
-   * @see #getSelector()
-   * @generated
-   */
-  EReference getSelector_Supersuffix();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Selector#getInnercreator <em>Innercreator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Innercreator</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Selector#getInnercreator()
-   * @see #getSelector()
-   * @generated
-   */
-  EReference getSelector_Innercreator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Selector#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Cast_Expression#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Selector#getExpression()
-   * @see #getSelector()
+   * @see org.xtext.example.mydsl.myDsl.Cast_Expression#getExpression()
+   * @see #getCast_Expression()
    * @generated
    */
-  EReference getSelector_Expression();
+  EReference getCast_Expression_Expression();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Super_suffix <em>Super suffix</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Bit_Expression_NR <em>Bit Expression NR</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Super suffix</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Super_suffix
+   * @return the meta object for class '<em>Bit Expression NR</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Bit_Expression_NR
    * @generated
    */
-  EClass getSuper_suffix();
+  EClass getBit_Expression_NR();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Super_suffix#getArguments <em>Arguments</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Bit_Expression_NR#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Arguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Super_suffix#getArguments()
-   * @see #getSuper_suffix()
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Bit_Expression_NR#getExpression()
+   * @see #getBit_Expression_NR()
    * @generated
    */
-  EReference getSuper_suffix_Arguments();
+  EReference getBit_Expression_NR_Expression();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Super_suffix#getIdentifier <em>Identifier</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR <em>Logical Expression NR</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Identifier</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Super_suffix#getIdentifier()
-   * @see #getSuper_suffix()
+   * @return the meta object for class '<em>Logical Expression NR</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Logical_Expression_NR
    * @generated
    */
-  EAttribute getSuper_suffix_Identifier();
+  EClass getLogical_Expression_NR();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Arguments <em>Arguments</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Arguments</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Arguments
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExpression()
+   * @see #getLogical_Expression_NR()
    * @generated
    */
-  EClass getArguments();
+  EReference getLogical_Expression_NR_Expression();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Arguments#getLparent <em>Lparent</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getTrue <em>True</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Lparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Arguments#getLparent()
-   * @see #getArguments()
+   * @return the meta object for the attribute '<em>True</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getTrue()
+   * @see #getLogical_Expression_NR()
    * @generated
    */
-  EAttribute getArguments_Lparent();
+  EAttribute getLogical_Expression_NR_True();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Arguments#getExpressionlist <em>Expressionlist</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getFalse <em>False</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expressionlist</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Arguments#getExpressionlist()
-   * @see #getArguments()
+   * @return the meta object for the attribute '<em>False</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getFalse()
+   * @see #getLogical_Expression_NR()
    * @generated
    */
-  EReference getArguments_Expressionlist();
+  EAttribute getLogical_Expression_NR_False();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Arguments#getRparent <em>Rparent</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Arg_List <em>Arg List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rparent</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Arguments#getRparent()
-   * @see #getArguments()
+   * @return the meta object for class '<em>Arg List</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Arg_List
    * @generated
    */
-  EAttribute getArguments_Rparent();
+  EClass getArg_List();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Arg_List#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Arg_List#getExpression()
+   * @see #getArg_List()
+   * @generated
+   */
+  EReference getArg_List_Expression();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Arg_List#getExpressions <em>Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Arg_List#getExpressions()
+   * @see #getArg_List()
+   * @generated
+   */
+  EReference getArg_List_Expressions();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Numeric_Expression_NR <em>Numeric Expression NR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Numeric Expression NR</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Numeric_Expression_NR
+   * @generated
+   */
+  EClass getNumeric_Expression_NR();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Numeric_Expression_NR#getSinal_numeric <em>Sinal numeric</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sinal numeric</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Numeric_Expression_NR#getSinal_numeric()
+   * @see #getNumeric_Expression_NR()
+   * @generated
+   */
+  EAttribute getNumeric_Expression_NR_Sinal_numeric();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Numeric_Expression_NR#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Numeric_Expression_NR#getExpression()
+   * @see #getNumeric_Expression_NR()
+   * @generated
+   */
+  EReference getNumeric_Expression_NR_Expression();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Switch_statement <em>Switch statement</em>}'.
@@ -6574,54 +5164,12 @@ public interface MyDslPackage extends EPackage
     EClass FOR_STATEMENT = eINSTANCE.getFor_Statement();
 
     /**
-     * The meta object literal for the '<em><b>Lparent</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOR_STATEMENT__LPARENT = eINSTANCE.getFor_Statement_Lparent();
-
-    /**
-     * The meta object literal for the '<em><b>For Control</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_STATEMENT__FOR_CONTROL = eINSTANCE.getFor_Statement_ForControl();
-
-    /**
-     * The meta object literal for the '<em><b>RParent</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FOR_STATEMENT__RPARENT = eINSTANCE.getFor_Statement_RParent();
-
-    /**
-     * The meta object literal for the '<em><b>For Statement</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_STATEMENT__FOR_STATEMENT = eINSTANCE.getFor_Statement_ForStatement();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.For_controlImpl <em>For control</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.For_controlImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_control()
-     * @generated
-     */
-    EClass FOR_CONTROL = eINSTANCE.getFor_control();
-
-    /**
-     * The meta object literal for the '<em><b>Forinit</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_CONTROL__FORINIT = eINSTANCE.getFor_control_Forinit();
+    EReference FOR_STATEMENT__VARIABLE = eINSTANCE.getFor_Statement_Variable();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -6629,51 +5177,31 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR_CONTROL__EXPRESSION = eINSTANCE.getFor_control_Expression();
+    EReference FOR_STATEMENT__EXPRESSION = eINSTANCE.getFor_Statement_Expression();
 
     /**
-     * The meta object literal for the '<em><b>Forupdate</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expression2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR_CONTROL__FORUPDATE = eINSTANCE.getFor_control_Forupdate();
+    EReference FOR_STATEMENT__EXPRESSION2 = eINSTANCE.getFor_Statement_Expression2();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.VariableImpl <em>Variable</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.VariableImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVariable()
-     * @generated
-     */
-    EClass VARIABLE = eINSTANCE.getVariable();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Expression3</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
+    EReference FOR_STATEMENT__EXPRESSION3 = eINSTANCE.getFor_Statement_Expression3();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Variable_valueImpl <em>Variable value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Variable_valueImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getVariable_value()
-     * @generated
-     */
-    EClass VARIABLE_VALUE = eINSTANCE.getVariable_value();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE_VALUE__NAME = eINSTANCE.getVariable_value_Name();
+    EReference FOR_STATEMENT__STATEMENT = eINSTANCE.getFor_Statement_Statement();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Primitive_typeImpl <em>Primitive type</em>}' class.
@@ -6694,196 +5222,6 @@ public interface MyDslPackage extends EPackage
     EAttribute PRIMITIVE_TYPE__NAME = eINSTANCE.getPrimitive_type_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.For_initImpl <em>For init</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.For_initImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_init()
-     * @generated
-     */
-    EClass FOR_INIT = eINSTANCE.getFor_init();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_INIT__TYPE = eINSTANCE.getFor_init_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_INIT__VAR = eINSTANCE.getFor_init_Var();
-
-    /**
-     * The meta object literal for the '<em><b>Var init</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_INIT__VAR_INIT = eINSTANCE.getFor_init_Var_init();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.For_expressionImpl <em>For expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.For_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_expression()
-     * @generated
-     */
-    EClass FOR_EXPRESSION = eINSTANCE.getFor_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Variable1</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_EXPRESSION__VARIABLE1 = eINSTANCE.getFor_expression_Variable1();
-
-    /**
-     * The meta object literal for the '<em><b>Exp Op</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_EXPRESSION__EXP_OP = eINSTANCE.getFor_expression_ExpOp();
-
-    /**
-     * The meta object literal for the '<em><b>Limit</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_EXPRESSION__LIMIT = eINSTANCE.getFor_expression_Limit();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.For_updateImpl <em>For update</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.For_updateImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_update()
-     * @generated
-     */
-    EClass FOR_UPDATE = eINSTANCE.getFor_update();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_UPDATE__VARIABLE = eINSTANCE.getFor_update_Variable();
-
-    /**
-     * The meta object literal for the '<em><b>Update Op</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FOR_UPDATE__UPDATE_OP = eINSTANCE.getFor_update_UpdateOp();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.For_update_operatorImpl <em>For update operator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.For_update_operatorImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_update_operator()
-     * @generated
-     */
-    EClass FOR_UPDATE_OPERATOR = eINSTANCE.getFor_update_operator();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FOR_UPDATE_OPERATOR__NAME = eINSTANCE.getFor_update_operator_Name();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.For_expression_operatorImpl <em>For expression operator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.For_expression_operatorImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_expression_operator()
-     * @generated
-     */
-    EClass FOR_EXPRESSION_OPERATOR = eINSTANCE.getFor_expression_operator();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FOR_EXPRESSION_OPERATOR__NAME = eINSTANCE.getFor_expression_operator_Name();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Parens_expressionImpl <em>Parens expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Parens_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getParens_expression()
-     * @generated
-     */
-    EClass PARENS_EXPRESSION = eINSTANCE.getParens_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Lparent</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARENS_EXPRESSION__LPARENT = eINSTANCE.getParens_expression_Lparent();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARENS_EXPRESSION__EXPRESSION = eINSTANCE.getParens_expression_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Rparent</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARENS_EXPRESSION__RPARENT = eINSTANCE.getParens_expression_Rparent();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Expression_listImpl <em>Expression list</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Expression_listImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression_list()
-     * @generated
-     */
-    EClass EXPRESSION_LIST = eINSTANCE.getExpression_list();
-
-    /**
-     * The meta object literal for the '<em><b>Expression1</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION_LIST__EXPRESSION1 = eINSTANCE.getExpression_list_Expression1();
-
-    /**
-     * The meta object literal for the '<em><b>Expression2</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION_LIST__EXPRESSION2 = eINSTANCE.getExpression_list_Expression2();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6894,46 +5232,118 @@ public interface MyDslPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_expressionImpl <em>Conditional expression</em>}' class.
+     * The meta object literal for the '<em><b>Numeric Expression3</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Conditional_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getConditional_expression()
      * @generated
      */
-    EClass CONDITIONAL_EXPRESSION = eINSTANCE.getConditional_expression();
+    EReference EXPRESSION__NUMERIC_EXPRESSION3 = eINSTANCE.getExpression_NumericExpression3();
 
     /**
-     * The meta object literal for the '<em><b>Assignmentoperator</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Aux</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONDITIONAL_EXPRESSION__ASSIGNMENTOPERATOR = eINSTANCE.getConditional_expression_Assignmentoperator();
+    EReference EXPRESSION__AUX = eINSTANCE.getExpression_Aux();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Logical Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL_EXPRESSION__EXPRESSION = eINSTANCE.getConditional_expression_Expression();
+    EReference EXPRESSION__LOGICAL_EXPRESSION = eINSTANCE.getExpression_LogicalExpression();
 
     /**
-     * The meta object literal for the '<em><b>Conditionalorexpression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Bit Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL_EXPRESSION__CONDITIONALOREXPRESSION = eINSTANCE.getConditional_expression_Conditionalorexpression();
+    EReference EXPRESSION__BIT_EXPRESSION = eINSTANCE.getExpression_BitExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expression1</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Cast Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL_EXPRESSION__EXPRESSION1 = eINSTANCE.getConditional_expression_Expression1();
+    EReference EXPRESSION__CAST_EXPRESSION = eINSTANCE.getExpression_CastExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Creating Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__CREATING_EXPRESSION = eINSTANCE.getExpression_CreatingExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Literal Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__LITERAL_EXPRESSION = eINSTANCE.getExpression_LiteralExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Null</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__NULL = eINSTANCE.getExpression_Null();
+
+    /**
+     * The meta object literal for the '<em><b>Super</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__SUPER = eINSTANCE.getExpression_Super();
+
+    /**
+     * The meta object literal for the '<em><b>This</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__THIS = eINSTANCE.getExpression_This();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__NAME = eINSTANCE.getExpression_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl <em>Expression aux</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression_aux()
+     * @generated
+     */
+    EClass EXPRESSION_AUX = eINSTANCE.getExpression_aux();
+
+    /**
+     * The meta object literal for the '<em><b>Arg List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_AUX__ARG_LIST = eINSTANCE.getExpression_aux_ArgList();
+
+    /**
+     * The meta object literal for the '<em><b>Aux</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_AUX__AUX = eINSTANCE.getExpression_aux_Aux();
 
     /**
      * The meta object literal for the '<em><b>Expression2</b></em>' containment reference feature.
@@ -6941,323 +5351,255 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL_EXPRESSION__EXPRESSION2 = eINSTANCE.getConditional_expression_Expression2();
+    EReference EXPRESSION_AUX__EXPRESSION2 = eINSTANCE.getExpression_aux_Expression2();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_OR_expressionImpl <em>Conditional OR expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Conditional_OR_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getConditional_OR_expression()
-     * @generated
-     */
-    EClass CONDITIONAL_OR_EXPRESSION = eINSTANCE.getConditional_OR_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Conditionalandexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression Comma</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL_OR_EXPRESSION__CONDITIONALANDEXPRESSION = eINSTANCE.getConditional_OR_expression_Conditionalandexpression();
+    EReference EXPRESSION_AUX__EXPRESSION_COMMA = eINSTANCE.getExpression_aux_ExpressionComma();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Conditional_AND_expressionImpl <em>Conditional AND expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Conditional_AND_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getConditional_AND_expression()
-     * @generated
-     */
-    EClass CONDITIONAL_AND_EXPRESSION = eINSTANCE.getConditional_AND_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Inclusiveorexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONDITIONAL_AND_EXPRESSION__INCLUSIVEOREXPRESSION = eINSTANCE.getConditional_AND_expression_Inclusiveorexpression();
+    EAttribute EXPRESSION_AUX__NAME = eINSTANCE.getExpression_aux_Name();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Inclusive_OR_expressionImpl <em>Inclusive OR expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Inclusive_OR_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInclusive_OR_expression()
-     * @generated
-     */
-    EClass INCLUSIVE_OR_EXPRESSION = eINSTANCE.getInclusive_OR_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Exclusiveorexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Sgin</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INCLUSIVE_OR_EXPRESSION__EXCLUSIVEOREXPRESSION = eINSTANCE.getInclusive_OR_expression_Exclusiveorexpression();
+    EAttribute EXPRESSION_AUX__SGIN = eINSTANCE.getExpression_aux_Sgin();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Exclusive_OR_expressionImpl <em>Exclusive OR expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Exclusive_OR_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExclusive_OR_expression()
-     * @generated
-     */
-    EClass EXCLUSIVE_OR_EXPRESSION = eINSTANCE.getExclusive_OR_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Andexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Numeric Sign</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXCLUSIVE_OR_EXPRESSION__ANDEXPRESSION = eINSTANCE.getExclusive_OR_expression_Andexpression();
+    EAttribute EXPRESSION_AUX__NUMERIC_SIGN = eINSTANCE.getExpression_aux_NumericSign();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.AND_expressionImpl <em>AND expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.AND_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAND_expression()
-     * @generated
-     */
-    EClass AND_EXPRESSION = eINSTANCE.getAND_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Equalityexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference AND_EXPRESSION__EQUALITYEXPRESSION = eINSTANCE.getAND_expression_Equalityexpression();
+    EReference EXPRESSION_AUX__EXP2 = eINSTANCE.getExpression_aux_Exp2();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Equality_expressionImpl <em>Equality expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Equality_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getEquality_expression()
-     * @generated
-     */
-    EClass EQUALITY_EXPRESSION = eINSTANCE.getEquality_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Instanceofexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Testing Sign</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EQUALITY_EXPRESSION__INSTANCEOFEXPRESSION = eINSTANCE.getEquality_expression_Instanceofexpression();
+    EAttribute EXPRESSION_AUX__TESTING_SIGN = eINSTANCE.getExpression_aux_TestingSign();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.InstanceOf_expressionImpl <em>Instance Of expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.InstanceOf_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInstanceOf_expression()
-     * @generated
-     */
-    EClass INSTANCE_OF_EXPRESSION = eINSTANCE.getInstanceOf_expression();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Relational_expressionImpl <em>Relational expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Relational_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRelational_expression()
-     * @generated
-     */
-    EClass RELATIONAL_EXPRESSION = eINSTANCE.getRelational_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATIONAL_EXPRESSION__TYPE = eINSTANCE.getRelational_expression_Type();
+    EReference EXPRESSION_AUX__EXP1 = eINSTANCE.getExpression_aux_Exp1();
 
     /**
-     * The meta object literal for the '<em><b>Shiftexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Logical Sign</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATIONAL_EXPRESSION__SHIFTEXPRESSION = eINSTANCE.getRelational_expression_Shiftexpression();
+    EAttribute EXPRESSION_AUX__LOGICAL_SIGN = eINSTANCE.getExpression_aux_LogicalSign();
 
     /**
-     * The meta object literal for the '<em><b>Relationalop</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Ampersand</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RELATIONAL_EXPRESSION__RELATIONALOP = eINSTANCE.getRelational_expression_Relationalop();
+    EReference EXPRESSION_AUX__AMPERSAND = eINSTANCE.getExpression_aux_Ampersand();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Shift_expressionImpl <em>Shift expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Shift_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getShift_expression()
-     * @generated
-     */
-    EClass SHIFT_EXPRESSION = eINSTANCE.getShift_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Additiveexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>String Sign</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SHIFT_EXPRESSION__ADDITIVEEXPRESSION = eINSTANCE.getShift_expression_Additiveexpression();
+    EAttribute EXPRESSION_AUX__STRING_SIGN = eINSTANCE.getExpression_aux_StringSign();
 
     /**
-     * The meta object literal for the '<em><b>Shiftop</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Bit Sign</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SHIFT_EXPRESSION__SHIFTOP = eINSTANCE.getShift_expression_Shiftop();
+    EAttribute EXPRESSION_AUX__BIT_SIGN = eINSTANCE.getExpression_aux_BitSign();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Additive_expressionImpl <em>Additive expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Additive_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAdditive_expression()
-     * @generated
-     */
-    EClass ADDITIVE_EXPRESSION = eINSTANCE.getAdditive_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Multiplicativeexpression</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expression Bit</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADDITIVE_EXPRESSION__MULTIPLICATIVEEXPRESSION = eINSTANCE.getAdditive_expression_Multiplicativeexpression();
+    EReference EXPRESSION_AUX__EXPRESSION_BIT = eINSTANCE.getExpression_aux_ExpressionBit();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Multiplicative_expressionImpl <em>Multiplicative expression</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl <em>Ampersand Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Multiplicative_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getMultiplicative_expression()
+     * @see org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAmpersand_Rule()
      * @generated
      */
-    EClass MULTIPLICATIVE_EXPRESSION = eINSTANCE.getMultiplicative_expression();
+    EClass AMPERSAND_RULE = eINSTANCE.getAmpersand_Rule();
 
     /**
-     * The meta object literal for the '<em><b>Unaryexpression</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MULTIPLICATIVE_EXPRESSION__UNARYEXPRESSION = eINSTANCE.getMultiplicative_expression_Unaryexpression();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Unary_expressionImpl <em>Unary expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Unary_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getUnary_expression()
-     * @generated
-     */
-    EClass UNARY_EXPRESSION = eINSTANCE.getUnary_expression();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Unary_expression_Not_Plus_MinusImpl <em>Unary expression Not Plus Minus</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Unary_expression_Not_Plus_MinusImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getUnary_expression_Not_Plus_Minus()
-     * @generated
-     */
-    EClass UNARY_EXPRESSION_NOT_PLUS_MINUS = eINSTANCE.getUnary_expression_Not_Plus_Minus();
-
-    /**
-     * The meta object literal for the '<em><b>Unaryexpression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>A1</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION_NOT_PLUS_MINUS__UNARYEXPRESSION = eINSTANCE.getUnary_expression_Not_Plus_Minus_Unaryexpression();
+    EAttribute AMPERSAND_RULE__A1 = eINSTANCE.getAmpersand_Rule_A1();
 
     /**
-     * The meta object literal for the '<em><b>Castexpression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>A2</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION_NOT_PLUS_MINUS__CASTEXPRESSION = eINSTANCE.getUnary_expression_Not_Plus_Minus_Castexpression();
+    EAttribute AMPERSAND_RULE__A2 = eINSTANCE.getAmpersand_Rule_A2();
 
     /**
-     * The meta object literal for the '<em><b>Primary</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Float_LiteralImpl <em>Float Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Float_LiteralImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFloat_Literal()
+     * @generated
+     */
+    EClass FLOAT_LITERAL = eINSTANCE.getFloat_Literal();
+
+    /**
+     * The meta object literal for the '<em><b>Decimal Digits1</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION_NOT_PLUS_MINUS__PRIMARY = eINSTANCE.getUnary_expression_Not_Plus_Minus_Primary();
+    EAttribute FLOAT_LITERAL__DECIMAL_DIGITS1 = eINSTANCE.getFloat_Literal_DecimalDigits1();
 
     /**
-     * The meta object literal for the '<em><b>Selector</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Decimal Digits2</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION_NOT_PLUS_MINUS__SELECTOR = eINSTANCE.getUnary_expression_Not_Plus_Minus_Selector();
+    EAttribute FLOAT_LITERAL__DECIMAL_DIGITS2 = eINSTANCE.getFloat_Literal_DecimalDigits2();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Cast_expressionImpl <em>Cast expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Cast_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCast_expression()
-     * @generated
-     */
-    EClass CAST_EXPRESSION = eINSTANCE.getCast_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Lparent</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CAST_EXPRESSION__LPARENT = eINSTANCE.getCast_expression_Lparent();
+    EAttribute FLOAT_LITERAL__EXP = eINSTANCE.getFloat_Literal_Exp();
 
     /**
-     * The meta object literal for the '<em><b>Primitivetype</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Float Type Sufix</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CAST_EXPRESSION__PRIMITIVETYPE = eINSTANCE.getCast_expression_Primitivetype();
+    EAttribute FLOAT_LITERAL__FLOAT_TYPE_SUFIX = eINSTANCE.getFloat_Literal_FloatTypeSufix();
 
     /**
-     * The meta object literal for the '<em><b>Rparent</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl <em>Literal Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLiteral_Expression()
+     * @generated
+     */
+    EClass LITERAL_EXPRESSION = eINSTANCE.getLiteral_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CAST_EXPRESSION__RPARENT = eINSTANCE.getCast_expression_Rparent();
+    EAttribute LITERAL_EXPRESSION__EXP = eINSTANCE.getLiteral_Expression_Exp();
 
     /**
-     * The meta object literal for the '<em><b>Unaryexpression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp1</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CAST_EXPRESSION__UNARYEXPRESSION = eINSTANCE.getCast_expression_Unaryexpression();
+    EAttribute LITERAL_EXPRESSION__EXP1 = eINSTANCE.getLiteral_Expression_Exp1();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp2</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CAST_EXPRESSION__TYPE = eINSTANCE.getCast_expression_Type();
+    EReference LITERAL_EXPRESSION__EXP2 = eINSTANCE.getLiteral_Expression_Exp2();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LITERAL_EXPRESSION__STRING = eINSTANCE.getLiteral_Expression_String();
+
+    /**
+     * The meta object literal for the '<em><b>Char</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LITERAL_EXPRESSION__CHAR = eINSTANCE.getLiteral_Expression_Char();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl <em>Creating Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreating_Expression()
+     * @generated
+     */
+    EClass CREATING_EXPRESSION = eINSTANCE.getCreating_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATING_EXPRESSION__CLASS_NAME = eINSTANCE.getCreating_Expression_ClassName();
+
+    /**
+     * The meta object literal for the '<em><b>Arg List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATING_EXPRESSION__ARG_LIST = eINSTANCE.getCreating_Expression_ArgList();
+
+    /**
+     * The meta object literal for the '<em><b>Type Specifier</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATING_EXPRESSION__TYPE_SPECIFIER = eINSTANCE.getCreating_Expression_TypeSpecifier();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -7265,297 +5607,17 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CAST_EXPRESSION__EXPRESSION = eINSTANCE.getCast_expression_Expression();
+    EReference CREATING_EXPRESSION__EXPRESSION = eINSTANCE.getCreating_Expression_Expression();
 
     /**
-     * The meta object literal for the '<em><b>Unaryexpressionnotplusminus</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Cast_ExpressionImpl <em>Cast Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Cast_ExpressionImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCast_Expression()
      * @generated
      */
-    EReference CAST_EXPRESSION__UNARYEXPRESSIONNOTPLUSMINUS = eINSTANCE.getCast_expression_Unaryexpressionnotplusminus();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Primary_expressionImpl <em>Primary expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Primary_expressionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrimary_expression()
-     * @generated
-     */
-    EClass PRIMARY_EXPRESSION = eINSTANCE.getPrimary_expression();
-
-    /**
-     * The meta object literal for the '<em><b>Parexpression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__PAREXPRESSION = eINSTANCE.getPrimary_expression_Parexpression();
-
-    /**
-     * The meta object literal for the '<em><b>Identifier</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PRIMARY_EXPRESSION__IDENTIFIER = eINSTANCE.getPrimary_expression_Identifier();
-
-    /**
-     * The meta object literal for the '<em><b>Identifiersuffix</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__IDENTIFIERSUFFIX = eINSTANCE.getPrimary_expression_Identifiersuffix();
-
-    /**
-     * The meta object literal for the '<em><b>Supersuffix</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__SUPERSUFFIX = eINSTANCE.getPrimary_expression_Supersuffix();
-
-    /**
-     * The meta object literal for the '<em><b>Literal</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PRIMARY_EXPRESSION__LITERAL = eINSTANCE.getPrimary_expression_Literal();
-
-    /**
-     * The meta object literal for the '<em><b>Creator</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__CREATOR = eINSTANCE.getPrimary_expression_Creator();
-
-    /**
-     * The meta object literal for the '<em><b>Primitivetype</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__PRIMITIVETYPE = eINSTANCE.getPrimary_expression_Primitivetype();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Identifier_suffixImpl <em>Identifier suffix</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Identifier_suffixImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIdentifier_suffix()
-     * @generated
-     */
-    EClass IDENTIFIER_SUFFIX = eINSTANCE.getIdentifier_suffix();
-
-    /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDENTIFIER_SUFFIX__ARGUMENTS = eINSTANCE.getIdentifier_suffix_Arguments();
-
-    /**
-     * The meta object literal for the '<em><b>Explicitgenericinvocation</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDENTIFIER_SUFFIX__EXPLICITGENERICINVOCATION = eINSTANCE.getIdentifier_suffix_Explicitgenericinvocation();
-
-    /**
-     * The meta object literal for the '<em><b>Innercreator</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IDENTIFIER_SUFFIX__INNERCREATOR = eINSTANCE.getIdentifier_suffix_Innercreator();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CreatorImpl <em>Creator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.CreatorImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreator()
-     * @generated
-     */
-    EClass CREATOR = eINSTANCE.getCreator();
-
-    /**
-     * The meta object literal for the '<em><b>Classcreatorrest</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CREATOR__CLASSCREATORREST = eINSTANCE.getCreator_Classcreatorrest();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Created_nameImpl <em>Created name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Created_nameImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreated_name()
-     * @generated
-     */
-    EClass CREATED_NAME = eINSTANCE.getCreated_name();
-
-    /**
-     * The meta object literal for the '<em><b>Arraycreatorrest</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CREATED_NAME__ARRAYCREATORREST = eINSTANCE.getCreated_name_Arraycreatorrest();
-
-    /**
-     * The meta object literal for the '<em><b>Classorinterfacetype</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CREATED_NAME__CLASSORINTERFACETYPE = eINSTANCE.getCreated_name_Classorinterfacetype();
-
-    /**
-     * The meta object literal for the '<em><b>Primitivetype</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CREATED_NAME__PRIMITIVETYPE = eINSTANCE.getCreated_name_Primitivetype();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Inner_creatorImpl <em>Inner creator</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Inner_creatorImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getInner_creator()
-     * @generated
-     */
-    EClass INNER_CREATOR = eINSTANCE.getInner_creator();
-
-    /**
-     * The meta object literal for the '<em><b>Nonwildcardtypearguments</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INNER_CREATOR__NONWILDCARDTYPEARGUMENTS = eINSTANCE.getInner_creator_Nonwildcardtypearguments();
-
-    /**
-     * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INNER_CREATOR__IDENTIFIER = eINSTANCE.getInner_creator_Identifier();
-
-    /**
-     * The meta object literal for the '<em><b>Classcreatorrest</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INNER_CREATOR__CLASSCREATORREST = eINSTANCE.getInner_creator_Classcreatorrest();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl <em>Array creator rest</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Array_creator_restImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArray_creator_rest()
-     * @generated
-     */
-    EClass ARRAY_CREATOR_REST = eINSTANCE.getArray_creator_rest();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ARRAY_CREATOR_REST__EXPRESSION = eINSTANCE.getArray_creator_rest_Expression();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Class_creator_restImpl <em>Class creator rest</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Class_creator_restImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getClass_creator_rest()
-     * @generated
-     */
-    EClass CLASS_CREATOR_REST = eINSTANCE.getClass_creator_rest();
-
-    /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLASS_CREATOR_REST__ARGUMENTS = eINSTANCE.getClass_creator_rest_Arguments();
-
-    /**
-     * The meta object literal for the '<em><b>Classbody</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CLASS_CREATOR_REST__CLASSBODY = eINSTANCE.getClass_creator_rest_Classbody();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Explicit_generic_invocationImpl <em>Explicit generic invocation</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Explicit_generic_invocationImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExplicit_generic_invocation()
-     * @generated
-     */
-    EClass EXPLICIT_GENERIC_INVOCATION = eINSTANCE.getExplicit_generic_invocation();
-
-    /**
-     * The meta object literal for the '<em><b>Nonwildcardtypearguments</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPLICIT_GENERIC_INVOCATION__NONWILDCARDTYPEARGUMENTS = eINSTANCE.getExplicit_generic_invocation_Nonwildcardtypearguments();
-
-    /**
-     * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPLICIT_GENERIC_INVOCATION__IDENTIFIER = eINSTANCE.getExplicit_generic_invocation_Identifier();
-
-    /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPLICIT_GENERIC_INVOCATION__ARGUMENTS = eINSTANCE.getExplicit_generic_invocation_Arguments();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Non_wildcard_type_argumentsImpl <em>Non wildcard type arguments</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Non_wildcard_type_argumentsImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNon_wildcard_type_arguments()
-     * @generated
-     */
-    EClass NON_WILDCARD_TYPE_ARGUMENTS = eINSTANCE.getNon_wildcard_type_arguments();
-
-    /**
-     * The meta object literal for the '<em><b>Createdname</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NON_WILDCARD_TYPE_ARGUMENTS__CREATEDNAME = eINSTANCE.getNon_wildcard_type_arguments_Createdname();
+    EClass CAST_EXPRESSION = eINSTANCE.getCast_Expression();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -7563,33 +5625,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NON_WILDCARD_TYPE_ARGUMENTS__TYPE = eINSTANCE.getNon_wildcard_type_arguments_Type();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SelectorImpl <em>Selector</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.SelectorImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSelector()
-     * @generated
-     */
-    EClass SELECTOR = eINSTANCE.getSelector();
-
-    /**
-     * The meta object literal for the '<em><b>Supersuffix</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTOR__SUPERSUFFIX = eINSTANCE.getSelector_Supersuffix();
-
-    /**
-     * The meta object literal for the '<em><b>Innercreator</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTOR__INNERCREATOR = eINSTANCE.getSelector_Innercreator();
+    EReference CAST_EXPRESSION__TYPE = eINSTANCE.getCast_Expression_Type();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -7597,67 +5633,111 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SELECTOR__EXPRESSION = eINSTANCE.getSelector_Expression();
+    EReference CAST_EXPRESSION__EXPRESSION = eINSTANCE.getCast_Expression_Expression();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Super_suffixImpl <em>Super suffix</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Bit_Expression_NRImpl <em>Bit Expression NR</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.Super_suffixImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSuper_suffix()
+     * @see org.xtext.example.mydsl.myDsl.impl.Bit_Expression_NRImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getBit_Expression_NR()
      * @generated
      */
-    EClass SUPER_SUFFIX = eINSTANCE.getSuper_suffix();
+    EClass BIT_EXPRESSION_NR = eINSTANCE.getBit_Expression_NR();
 
     /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SUPER_SUFFIX__ARGUMENTS = eINSTANCE.getSuper_suffix_Arguments();
-
-    /**
-     * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SUPER_SUFFIX__IDENTIFIER = eINSTANCE.getSuper_suffix_Identifier();
+    EReference BIT_EXPRESSION_NR__EXPRESSION = eINSTANCE.getBit_Expression_NR_Expression();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ArgumentsImpl <em>Arguments</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl <em>Logical Expression NR</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.ArgumentsImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArguments()
+     * @see org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogical_Expression_NR()
      * @generated
      */
-    EClass ARGUMENTS = eINSTANCE.getArguments();
+    EClass LOGICAL_EXPRESSION_NR = eINSTANCE.getLogical_Expression_NR();
 
     /**
-     * The meta object literal for the '<em><b>Lparent</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ARGUMENTS__LPARENT = eINSTANCE.getArguments_Lparent();
-
-    /**
-     * The meta object literal for the '<em><b>Expressionlist</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ARGUMENTS__EXPRESSIONLIST = eINSTANCE.getArguments_Expressionlist();
+    EReference LOGICAL_EXPRESSION_NR__EXPRESSION = eINSTANCE.getLogical_Expression_NR_Expression();
 
     /**
-     * The meta object literal for the '<em><b>Rparent</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>True</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ARGUMENTS__RPARENT = eINSTANCE.getArguments_Rparent();
+    EAttribute LOGICAL_EXPRESSION_NR__TRUE = eINSTANCE.getLogical_Expression_NR_True();
+
+    /**
+     * The meta object literal for the '<em><b>False</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGICAL_EXPRESSION_NR__FALSE = eINSTANCE.getLogical_Expression_NR_False();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Arg_ListImpl <em>Arg List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Arg_ListImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArg_List()
+     * @generated
+     */
+    EClass ARG_LIST = eINSTANCE.getArg_List();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARG_LIST__EXPRESSION = eINSTANCE.getArg_List_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARG_LIST__EXPRESSIONS = eINSTANCE.getArg_List_Expressions();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Numeric_Expression_NRImpl <em>Numeric Expression NR</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Numeric_Expression_NRImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNumeric_Expression_NR()
+     * @generated
+     */
+    EClass NUMERIC_EXPRESSION_NR = eINSTANCE.getNumeric_Expression_NR();
+
+    /**
+     * The meta object literal for the '<em><b>Sinal numeric</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMERIC_EXPRESSION_NR__SINAL_NUMERIC = eINSTANCE.getNumeric_Expression_NR_Sinal_numeric();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NUMERIC_EXPRESSION_NR__EXPRESSION = eINSTANCE.getNumeric_Expression_NR_Expression();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Switch_statementImpl <em>Switch statement</em>}' class.

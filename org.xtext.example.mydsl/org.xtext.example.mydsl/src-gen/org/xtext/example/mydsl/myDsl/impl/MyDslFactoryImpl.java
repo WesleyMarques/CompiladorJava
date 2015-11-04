@@ -83,45 +83,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
       case MyDslPackage.FOR_STATEMENT: return createFor_Statement();
-      case MyDslPackage.FOR_CONTROL: return createFor_control();
-      case MyDslPackage.VARIABLE: return createVariable();
-      case MyDslPackage.VARIABLE_VALUE: return createVariable_value();
       case MyDslPackage.PRIMITIVE_TYPE: return createPrimitive_type();
-      case MyDslPackage.FOR_INIT: return createFor_init();
-      case MyDslPackage.FOR_EXPRESSION: return createFor_expression();
-      case MyDslPackage.FOR_UPDATE: return createFor_update();
-      case MyDslPackage.FOR_UPDATE_OPERATOR: return createFor_update_operator();
-      case MyDslPackage.FOR_EXPRESSION_OPERATOR: return createFor_expression_operator();
-      case MyDslPackage.PARENS_EXPRESSION: return createParens_expression();
-      case MyDslPackage.EXPRESSION_LIST: return createExpression_list();
       case MyDslPackage.EXPRESSION: return createExpression();
-      case MyDslPackage.CONDITIONAL_EXPRESSION: return createConditional_expression();
-      case MyDslPackage.CONDITIONAL_OR_EXPRESSION: return createConditional_OR_expression();
-      case MyDslPackage.CONDITIONAL_AND_EXPRESSION: return createConditional_AND_expression();
-      case MyDslPackage.INCLUSIVE_OR_EXPRESSION: return createInclusive_OR_expression();
-      case MyDslPackage.EXCLUSIVE_OR_EXPRESSION: return createExclusive_OR_expression();
-      case MyDslPackage.AND_EXPRESSION: return createAND_expression();
-      case MyDslPackage.EQUALITY_EXPRESSION: return createEquality_expression();
-      case MyDslPackage.INSTANCE_OF_EXPRESSION: return createInstanceOf_expression();
-      case MyDslPackage.RELATIONAL_EXPRESSION: return createRelational_expression();
-      case MyDslPackage.SHIFT_EXPRESSION: return createShift_expression();
-      case MyDslPackage.ADDITIVE_EXPRESSION: return createAdditive_expression();
-      case MyDslPackage.MULTIPLICATIVE_EXPRESSION: return createMultiplicative_expression();
-      case MyDslPackage.UNARY_EXPRESSION: return createUnary_expression();
-      case MyDslPackage.UNARY_EXPRESSION_NOT_PLUS_MINUS: return createUnary_expression_Not_Plus_Minus();
-      case MyDslPackage.CAST_EXPRESSION: return createCast_expression();
-      case MyDslPackage.PRIMARY_EXPRESSION: return createPrimary_expression();
-      case MyDslPackage.IDENTIFIER_SUFFIX: return createIdentifier_suffix();
-      case MyDslPackage.CREATOR: return createCreator();
-      case MyDslPackage.CREATED_NAME: return createCreated_name();
-      case MyDslPackage.INNER_CREATOR: return createInner_creator();
-      case MyDslPackage.ARRAY_CREATOR_REST: return createArray_creator_rest();
-      case MyDslPackage.CLASS_CREATOR_REST: return createClass_creator_rest();
-      case MyDslPackage.EXPLICIT_GENERIC_INVOCATION: return createExplicit_generic_invocation();
-      case MyDslPackage.NON_WILDCARD_TYPE_ARGUMENTS: return createNon_wildcard_type_arguments();
-      case MyDslPackage.SELECTOR: return createSelector();
-      case MyDslPackage.SUPER_SUFFIX: return createSuper_suffix();
-      case MyDslPackage.ARGUMENTS: return createArguments();
+      case MyDslPackage.EXPRESSION_AUX: return createExpression_aux();
+      case MyDslPackage.AMPERSAND_RULE: return createAmpersand_Rule();
+      case MyDslPackage.FLOAT_LITERAL: return createFloat_Literal();
+      case MyDslPackage.LITERAL_EXPRESSION: return createLiteral_Expression();
+      case MyDslPackage.CREATING_EXPRESSION: return createCreating_Expression();
+      case MyDslPackage.CAST_EXPRESSION: return createCast_Expression();
+      case MyDslPackage.BIT_EXPRESSION_NR: return createBit_Expression_NR();
+      case MyDslPackage.LOGICAL_EXPRESSION_NR: return createLogical_Expression_NR();
+      case MyDslPackage.ARG_LIST: return createArg_List();
+      case MyDslPackage.NUMERIC_EXPRESSION_NR: return createNumeric_Expression_NR();
       case MyDslPackage.SWITCH_STATEMENT: return createSwitch_statement();
       case MyDslPackage.WHILE_STATEMENT: return createWhile_Statement();
       case MyDslPackage.DO_STATEMENT: return createDo_Statement();
@@ -348,120 +321,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public For_control createFor_control()
-  {
-    For_controlImpl for_control = new For_controlImpl();
-    return for_control;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Variable createVariable()
-  {
-    VariableImpl variable = new VariableImpl();
-    return variable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Variable_value createVariable_value()
-  {
-    Variable_valueImpl variable_value = new Variable_valueImpl();
-    return variable_value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Primitive_type createPrimitive_type()
   {
     Primitive_typeImpl primitive_type = new Primitive_typeImpl();
     return primitive_type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public For_init createFor_init()
-  {
-    For_initImpl for_init = new For_initImpl();
-    return for_init;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public For_expression createFor_expression()
-  {
-    For_expressionImpl for_expression = new For_expressionImpl();
-    return for_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public For_update createFor_update()
-  {
-    For_updateImpl for_update = new For_updateImpl();
-    return for_update;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public For_update_operator createFor_update_operator()
-  {
-    For_update_operatorImpl for_update_operator = new For_update_operatorImpl();
-    return for_update_operator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public For_expression_operator createFor_expression_operator()
-  {
-    For_expression_operatorImpl for_expression_operator = new For_expression_operatorImpl();
-    return for_expression_operator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Parens_expression createParens_expression()
-  {
-    Parens_expressionImpl parens_expression = new Parens_expressionImpl();
-    return parens_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression_list createExpression_list()
-  {
-    Expression_listImpl expression_list = new Expression_listImpl();
-    return expression_list;
   }
 
   /**
@@ -480,10 +343,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Conditional_expression createConditional_expression()
+  public Expression_aux createExpression_aux()
   {
-    Conditional_expressionImpl conditional_expression = new Conditional_expressionImpl();
-    return conditional_expression;
+    Expression_auxImpl expression_aux = new Expression_auxImpl();
+    return expression_aux;
   }
 
   /**
@@ -491,10 +354,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Conditional_OR_expression createConditional_OR_expression()
+  public Ampersand_Rule createAmpersand_Rule()
   {
-    Conditional_OR_expressionImpl conditional_OR_expression = new Conditional_OR_expressionImpl();
-    return conditional_OR_expression;
+    Ampersand_RuleImpl ampersand_Rule = new Ampersand_RuleImpl();
+    return ampersand_Rule;
   }
 
   /**
@@ -502,10 +365,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Conditional_AND_expression createConditional_AND_expression()
+  public Float_Literal createFloat_Literal()
   {
-    Conditional_AND_expressionImpl conditional_AND_expression = new Conditional_AND_expressionImpl();
-    return conditional_AND_expression;
+    Float_LiteralImpl float_Literal = new Float_LiteralImpl();
+    return float_Literal;
   }
 
   /**
@@ -513,10 +376,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Inclusive_OR_expression createInclusive_OR_expression()
+  public Literal_Expression createLiteral_Expression()
   {
-    Inclusive_OR_expressionImpl inclusive_OR_expression = new Inclusive_OR_expressionImpl();
-    return inclusive_OR_expression;
+    Literal_ExpressionImpl literal_Expression = new Literal_ExpressionImpl();
+    return literal_Expression;
   }
 
   /**
@@ -524,10 +387,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exclusive_OR_expression createExclusive_OR_expression()
+  public Creating_Expression createCreating_Expression()
   {
-    Exclusive_OR_expressionImpl exclusive_OR_expression = new Exclusive_OR_expressionImpl();
-    return exclusive_OR_expression;
+    Creating_ExpressionImpl creating_Expression = new Creating_ExpressionImpl();
+    return creating_Expression;
   }
 
   /**
@@ -535,10 +398,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AND_expression createAND_expression()
+  public Cast_Expression createCast_Expression()
   {
-    AND_expressionImpl anD_expression = new AND_expressionImpl();
-    return anD_expression;
+    Cast_ExpressionImpl cast_Expression = new Cast_ExpressionImpl();
+    return cast_Expression;
   }
 
   /**
@@ -546,10 +409,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Equality_expression createEquality_expression()
+  public Bit_Expression_NR createBit_Expression_NR()
   {
-    Equality_expressionImpl equality_expression = new Equality_expressionImpl();
-    return equality_expression;
+    Bit_Expression_NRImpl bit_Expression_NR = new Bit_Expression_NRImpl();
+    return bit_Expression_NR;
   }
 
   /**
@@ -557,10 +420,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public InstanceOf_expression createInstanceOf_expression()
+  public Logical_Expression_NR createLogical_Expression_NR()
   {
-    InstanceOf_expressionImpl instanceOf_expression = new InstanceOf_expressionImpl();
-    return instanceOf_expression;
+    Logical_Expression_NRImpl logical_Expression_NR = new Logical_Expression_NRImpl();
+    return logical_Expression_NR;
   }
 
   /**
@@ -568,10 +431,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Relational_expression createRelational_expression()
+  public Arg_List createArg_List()
   {
-    Relational_expressionImpl relational_expression = new Relational_expressionImpl();
-    return relational_expression;
+    Arg_ListImpl arg_List = new Arg_ListImpl();
+    return arg_List;
   }
 
   /**
@@ -579,197 +442,10 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Shift_expression createShift_expression()
+  public Numeric_Expression_NR createNumeric_Expression_NR()
   {
-    Shift_expressionImpl shift_expression = new Shift_expressionImpl();
-    return shift_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Additive_expression createAdditive_expression()
-  {
-    Additive_expressionImpl additive_expression = new Additive_expressionImpl();
-    return additive_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Multiplicative_expression createMultiplicative_expression()
-  {
-    Multiplicative_expressionImpl multiplicative_expression = new Multiplicative_expressionImpl();
-    return multiplicative_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Unary_expression createUnary_expression()
-  {
-    Unary_expressionImpl unary_expression = new Unary_expressionImpl();
-    return unary_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Unary_expression_Not_Plus_Minus createUnary_expression_Not_Plus_Minus()
-  {
-    Unary_expression_Not_Plus_MinusImpl unary_expression_Not_Plus_Minus = new Unary_expression_Not_Plus_MinusImpl();
-    return unary_expression_Not_Plus_Minus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Cast_expression createCast_expression()
-  {
-    Cast_expressionImpl cast_expression = new Cast_expressionImpl();
-    return cast_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Primary_expression createPrimary_expression()
-  {
-    Primary_expressionImpl primary_expression = new Primary_expressionImpl();
-    return primary_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Identifier_suffix createIdentifier_suffix()
-  {
-    Identifier_suffixImpl identifier_suffix = new Identifier_suffixImpl();
-    return identifier_suffix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Creator createCreator()
-  {
-    CreatorImpl creator = new CreatorImpl();
-    return creator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Created_name createCreated_name()
-  {
-    Created_nameImpl created_name = new Created_nameImpl();
-    return created_name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Inner_creator createInner_creator()
-  {
-    Inner_creatorImpl inner_creator = new Inner_creatorImpl();
-    return inner_creator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Array_creator_rest createArray_creator_rest()
-  {
-    Array_creator_restImpl array_creator_rest = new Array_creator_restImpl();
-    return array_creator_rest;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Class_creator_rest createClass_creator_rest()
-  {
-    Class_creator_restImpl class_creator_rest = new Class_creator_restImpl();
-    return class_creator_rest;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Explicit_generic_invocation createExplicit_generic_invocation()
-  {
-    Explicit_generic_invocationImpl explicit_generic_invocation = new Explicit_generic_invocationImpl();
-    return explicit_generic_invocation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Non_wildcard_type_arguments createNon_wildcard_type_arguments()
-  {
-    Non_wildcard_type_argumentsImpl non_wildcard_type_arguments = new Non_wildcard_type_argumentsImpl();
-    return non_wildcard_type_arguments;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Selector createSelector()
-  {
-    SelectorImpl selector = new SelectorImpl();
-    return selector;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Super_suffix createSuper_suffix()
-  {
-    Super_suffixImpl super_suffix = new Super_suffixImpl();
-    return super_suffix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Arguments createArguments()
-  {
-    ArgumentsImpl arguments = new ArgumentsImpl();
-    return arguments;
+    Numeric_Expression_NRImpl numeric_Expression_NR = new Numeric_Expression_NRImpl();
+    return numeric_Expression_NR;
   }
 
   /**

@@ -167,7 +167,6 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Array_initializer array_initializer = (Array_initializer)theEObject;
         T result = caseArray_initializer(array_initializer);
-        if (result == null) result = caseArray_creator_rest(array_initializer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -207,80 +206,10 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.FOR_CONTROL:
-      {
-        For_control for_control = (For_control)theEObject;
-        T result = caseFor_control(for_control);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.VARIABLE:
-      {
-        Variable variable = (Variable)theEObject;
-        T result = caseVariable(variable);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.VARIABLE_VALUE:
-      {
-        Variable_value variable_value = (Variable_value)theEObject;
-        T result = caseVariable_value(variable_value);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyDslPackage.PRIMITIVE_TYPE:
       {
         Primitive_type primitive_type = (Primitive_type)theEObject;
         T result = casePrimitive_type(primitive_type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.FOR_INIT:
-      {
-        For_init for_init = (For_init)theEObject;
-        T result = caseFor_init(for_init);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.FOR_EXPRESSION:
-      {
-        For_expression for_expression = (For_expression)theEObject;
-        T result = caseFor_expression(for_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.FOR_UPDATE:
-      {
-        For_update for_update = (For_update)theEObject;
-        T result = caseFor_update(for_update);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.FOR_UPDATE_OPERATOR:
-      {
-        For_update_operator for_update_operator = (For_update_operator)theEObject;
-        T result = caseFor_update_operator(for_update_operator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.FOR_EXPRESSION_OPERATOR:
-      {
-        For_expression_operator for_expression_operator = (For_expression_operator)theEObject;
-        T result = caseFor_expression_operator(for_expression_operator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.PARENS_EXPRESSION:
-      {
-        Parens_expression parens_expression = (Parens_expression)theEObject;
-        T result = caseParens_expression(parens_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.EXPRESSION_LIST:
-      {
-        Expression_list expression_list = (Expression_list)theEObject;
-        T result = caseExpression_list(expression_list);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -291,197 +220,73 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.CONDITIONAL_EXPRESSION:
+      case MyDslPackage.EXPRESSION_AUX:
       {
-        Conditional_expression conditional_expression = (Conditional_expression)theEObject;
-        T result = caseConditional_expression(conditional_expression);
-        if (result == null) result = caseExpression(conditional_expression);
+        Expression_aux expression_aux = (Expression_aux)theEObject;
+        T result = caseExpression_aux(expression_aux);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.CONDITIONAL_OR_EXPRESSION:
+      case MyDslPackage.AMPERSAND_RULE:
       {
-        Conditional_OR_expression conditional_OR_expression = (Conditional_OR_expression)theEObject;
-        T result = caseConditional_OR_expression(conditional_OR_expression);
+        Ampersand_Rule ampersand_Rule = (Ampersand_Rule)theEObject;
+        T result = caseAmpersand_Rule(ampersand_Rule);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.CONDITIONAL_AND_EXPRESSION:
+      case MyDslPackage.FLOAT_LITERAL:
       {
-        Conditional_AND_expression conditional_AND_expression = (Conditional_AND_expression)theEObject;
-        T result = caseConditional_AND_expression(conditional_AND_expression);
+        Float_Literal float_Literal = (Float_Literal)theEObject;
+        T result = caseFloat_Literal(float_Literal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.INCLUSIVE_OR_EXPRESSION:
+      case MyDslPackage.LITERAL_EXPRESSION:
       {
-        Inclusive_OR_expression inclusive_OR_expression = (Inclusive_OR_expression)theEObject;
-        T result = caseInclusive_OR_expression(inclusive_OR_expression);
+        Literal_Expression literal_Expression = (Literal_Expression)theEObject;
+        T result = caseLiteral_Expression(literal_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.EXCLUSIVE_OR_EXPRESSION:
+      case MyDslPackage.CREATING_EXPRESSION:
       {
-        Exclusive_OR_expression exclusive_OR_expression = (Exclusive_OR_expression)theEObject;
-        T result = caseExclusive_OR_expression(exclusive_OR_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.AND_EXPRESSION:
-      {
-        AND_expression anD_expression = (AND_expression)theEObject;
-        T result = caseAND_expression(anD_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.EQUALITY_EXPRESSION:
-      {
-        Equality_expression equality_expression = (Equality_expression)theEObject;
-        T result = caseEquality_expression(equality_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.INSTANCE_OF_EXPRESSION:
-      {
-        InstanceOf_expression instanceOf_expression = (InstanceOf_expression)theEObject;
-        T result = caseInstanceOf_expression(instanceOf_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.RELATIONAL_EXPRESSION:
-      {
-        Relational_expression relational_expression = (Relational_expression)theEObject;
-        T result = caseRelational_expression(relational_expression);
-        if (result == null) result = caseInstanceOf_expression(relational_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.SHIFT_EXPRESSION:
-      {
-        Shift_expression shift_expression = (Shift_expression)theEObject;
-        T result = caseShift_expression(shift_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.ADDITIVE_EXPRESSION:
-      {
-        Additive_expression additive_expression = (Additive_expression)theEObject;
-        T result = caseAdditive_expression(additive_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.MULTIPLICATIVE_EXPRESSION:
-      {
-        Multiplicative_expression multiplicative_expression = (Multiplicative_expression)theEObject;
-        T result = caseMultiplicative_expression(multiplicative_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.UNARY_EXPRESSION:
-      {
-        Unary_expression unary_expression = (Unary_expression)theEObject;
-        T result = caseUnary_expression(unary_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.UNARY_EXPRESSION_NOT_PLUS_MINUS:
-      {
-        Unary_expression_Not_Plus_Minus unary_expression_Not_Plus_Minus = (Unary_expression_Not_Plus_Minus)theEObject;
-        T result = caseUnary_expression_Not_Plus_Minus(unary_expression_Not_Plus_Minus);
-        if (result == null) result = caseUnary_expression(unary_expression_Not_Plus_Minus);
+        Creating_Expression creating_Expression = (Creating_Expression)theEObject;
+        T result = caseCreating_Expression(creating_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
       case MyDslPackage.CAST_EXPRESSION:
       {
-        Cast_expression cast_expression = (Cast_expression)theEObject;
-        T result = caseCast_expression(cast_expression);
+        Cast_Expression cast_Expression = (Cast_Expression)theEObject;
+        T result = caseCast_Expression(cast_Expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.PRIMARY_EXPRESSION:
+      case MyDslPackage.BIT_EXPRESSION_NR:
       {
-        Primary_expression primary_expression = (Primary_expression)theEObject;
-        T result = casePrimary_expression(primary_expression);
+        Bit_Expression_NR bit_Expression_NR = (Bit_Expression_NR)theEObject;
+        T result = caseBit_Expression_NR(bit_Expression_NR);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.IDENTIFIER_SUFFIX:
+      case MyDslPackage.LOGICAL_EXPRESSION_NR:
       {
-        Identifier_suffix identifier_suffix = (Identifier_suffix)theEObject;
-        T result = caseIdentifier_suffix(identifier_suffix);
+        Logical_Expression_NR logical_Expression_NR = (Logical_Expression_NR)theEObject;
+        T result = caseLogical_Expression_NR(logical_Expression_NR);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.CREATOR:
+      case MyDslPackage.ARG_LIST:
       {
-        Creator creator = (Creator)theEObject;
-        T result = caseCreator(creator);
+        Arg_List arg_List = (Arg_List)theEObject;
+        T result = caseArg_List(arg_List);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.CREATED_NAME:
+      case MyDslPackage.NUMERIC_EXPRESSION_NR:
       {
-        Created_name created_name = (Created_name)theEObject;
-        T result = caseCreated_name(created_name);
-        if (result == null) result = caseCreator(created_name);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.INNER_CREATOR:
-      {
-        Inner_creator inner_creator = (Inner_creator)theEObject;
-        T result = caseInner_creator(inner_creator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.ARRAY_CREATOR_REST:
-      {
-        Array_creator_rest array_creator_rest = (Array_creator_rest)theEObject;
-        T result = caseArray_creator_rest(array_creator_rest);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.CLASS_CREATOR_REST:
-      {
-        Class_creator_rest class_creator_rest = (Class_creator_rest)theEObject;
-        T result = caseClass_creator_rest(class_creator_rest);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.EXPLICIT_GENERIC_INVOCATION:
-      {
-        Explicit_generic_invocation explicit_generic_invocation = (Explicit_generic_invocation)theEObject;
-        T result = caseExplicit_generic_invocation(explicit_generic_invocation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.NON_WILDCARD_TYPE_ARGUMENTS:
-      {
-        Non_wildcard_type_arguments non_wildcard_type_arguments = (Non_wildcard_type_arguments)theEObject;
-        T result = caseNon_wildcard_type_arguments(non_wildcard_type_arguments);
-        if (result == null) result = caseCreator(non_wildcard_type_arguments);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.SELECTOR:
-      {
-        Selector selector = (Selector)theEObject;
-        T result = caseSelector(selector);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.SUPER_SUFFIX:
-      {
-        Super_suffix super_suffix = (Super_suffix)theEObject;
-        T result = caseSuper_suffix(super_suffix);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.ARGUMENTS:
-      {
-        Arguments arguments = (Arguments)theEObject;
-        T result = caseArguments(arguments);
+        Numeric_Expression_NR numeric_Expression_NR = (Numeric_Expression_NR)theEObject;
+        T result = caseNumeric_Expression_NR(numeric_Expression_NR);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -843,54 +648,6 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>For control</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For control</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_control(For_control object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariable(Variable object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable value</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable value</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariable_value(Variable_value object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Primitive type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -902,118 +659,6 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePrimitive_type(Primitive_type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For init</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For init</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_init(For_init object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_expression(For_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For update</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For update</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_update(For_update object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For update operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For update operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_update_operator(For_update_operator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>For expression operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For expression operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFor_expression_operator(For_expression_operator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parens expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parens expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParens_expression(Parens_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression list</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression list</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression_list(Expression_list object)
   {
     return null;
   }
@@ -1035,433 +680,161 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Conditional expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Expression aux</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Conditional expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Expression aux</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConditional_expression(Conditional_expression object)
+  public T caseExpression_aux(Expression_aux object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Conditional OR expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ampersand Rule</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Conditional OR expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ampersand Rule</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConditional_OR_expression(Conditional_OR_expression object)
+  public T caseAmpersand_Rule(Ampersand_Rule object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Conditional AND expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Float Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Conditional AND expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Float Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConditional_AND_expression(Conditional_AND_expression object)
+  public T caseFloat_Literal(Float_Literal object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Inclusive OR expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Literal Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Inclusive OR expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Literal Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInclusive_OR_expression(Inclusive_OR_expression object)
+  public T caseLiteral_Expression(Literal_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Exclusive OR expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Creating Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exclusive OR expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Creating Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExclusive_OR_expression(Exclusive_OR_expression object)
+  public T caseCreating_Expression(Creating_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>AND expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>AND expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAND_expression(AND_expression object)
+  public T caseCast_Expression(Cast_Expression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Equality expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Bit Expression NR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equality expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Bit Expression NR</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEquality_expression(Equality_expression object)
+  public T caseBit_Expression_NR(Bit_Expression_NR object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Instance Of expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Logical Expression NR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Instance Of expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Logical Expression NR</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInstanceOf_expression(InstanceOf_expression object)
+  public T caseLogical_Expression_NR(Logical_Expression_NR object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Relational expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Arg List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Relational expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Arg List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRelational_expression(Relational_expression object)
+  public T caseArg_List(Arg_List object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Shift expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Numeric Expression NR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Shift expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Numeric Expression NR</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseShift_expression(Shift_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Additive expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Additive expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAdditive_expression(Additive_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiplicative expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiplicative expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMultiplicative_expression(Multiplicative_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnary_expression(Unary_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary expression Not Plus Minus</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary expression Not Plus Minus</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnary_expression_Not_Plus_Minus(Unary_expression_Not_Plus_Minus object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Cast expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Cast expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCast_expression(Cast_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Primary expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primary expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePrimary_expression(Primary_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Identifier suffix</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Identifier suffix</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIdentifier_suffix(Identifier_suffix object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Creator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Creator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCreator(Creator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Created name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Created name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCreated_name(Created_name object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Inner creator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Inner creator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInner_creator(Inner_creator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Array creator rest</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Array creator rest</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArray_creator_rest(Array_creator_rest object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Class creator rest</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Class creator rest</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseClass_creator_rest(Class_creator_rest object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Explicit generic invocation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Explicit generic invocation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExplicit_generic_invocation(Explicit_generic_invocation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Non wildcard type arguments</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Non wildcard type arguments</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNon_wildcard_type_arguments(Non_wildcard_type_arguments object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Selector</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Selector</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSelector(Selector object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Super suffix</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Super suffix</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSuper_suffix(Super_suffix object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Arguments</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Arguments</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArguments(Arguments object)
+  public T caseNumeric_Expression_NR(Numeric_Expression_NR object)
   {
     return null;
   }

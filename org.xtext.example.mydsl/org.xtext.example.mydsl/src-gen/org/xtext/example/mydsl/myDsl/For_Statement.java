@@ -12,10 +12,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getLparent <em>Lparent</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getForControl <em>For Control</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getRParent <em>RParent</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getForStatement <em>For Statement</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression2 <em>Expression2</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression3 <em>Expression3</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.For_Statement#getStatement <em>Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,107 +27,133 @@ import org.eclipse.emf.ecore.EObject;
 public interface For_Statement extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Lparent</b></em>' attribute.
+   * Returns the value of the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Lparent</em>' attribute isn't clear,
+   * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Lparent</em>' attribute.
-   * @see #setLparent(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_Lparent()
-   * @model
-   * @generated
-   */
-  String getLparent();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getLparent <em>Lparent</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lparent</em>' attribute.
-   * @see #getLparent()
-   * @generated
-   */
-  void setLparent(String value);
-
-  /**
-   * Returns the value of the '<em><b>For Control</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>For Control</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>For Control</em>' containment reference.
-   * @see #setForControl(For_control)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_ForControl()
+   * @return the value of the '<em>Variable</em>' containment reference.
+   * @see #setVariable(Variable_declaration)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_Variable()
    * @model containment="true"
    * @generated
    */
-  For_control getForControl();
+  Variable_declaration getVariable();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getForControl <em>For Control</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getVariable <em>Variable</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>For Control</em>' containment reference.
-   * @see #getForControl()
+   * @param value the new value of the '<em>Variable</em>' containment reference.
+   * @see #getVariable()
    * @generated
    */
-  void setForControl(For_control value);
+  void setVariable(Variable_declaration value);
 
   /**
-   * Returns the value of the '<em><b>RParent</b></em>' attribute.
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>RParent</em>' attribute isn't clear,
+   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>RParent</em>' attribute.
-   * @see #setRParent(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_RParent()
-   * @model
-   * @generated
-   */
-  String getRParent();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getRParent <em>RParent</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>RParent</em>' attribute.
-   * @see #getRParent()
-   * @generated
-   */
-  void setRParent(String value);
-
-  /**
-   * Returns the value of the '<em><b>For Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>For Statement</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>For Statement</em>' containment reference.
-   * @see #setForStatement(Statement)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_ForStatement()
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(Expression)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_Expression()
    * @model containment="true"
    * @generated
    */
-  Statement getForStatement();
+  Expression getExpression();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getForStatement <em>For Statement</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>For Statement</em>' containment reference.
-   * @see #getForStatement()
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
    * @generated
    */
-  void setForStatement(Statement value);
+  void setExpression(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Expression2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression2</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression2</em>' containment reference.
+   * @see #setExpression2(Expression)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_Expression2()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpression2();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression2 <em>Expression2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression2</em>' containment reference.
+   * @see #getExpression2()
+   * @generated
+   */
+  void setExpression2(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Expression3</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expression3</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression3</em>' containment reference.
+   * @see #setExpression3(Expression)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_Expression3()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpression3();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getExpression3 <em>Expression3</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression3</em>' containment reference.
+   * @see #getExpression3()
+   * @generated
+   */
+  void setExpression3(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Statement</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statement</em>' containment reference.
+   * @see #setStatement(Statement)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getFor_Statement_Statement()
+   * @model containment="true"
+   * @generated
+   */
+  Statement getStatement();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.For_Statement#getStatement <em>Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statement</em>' containment reference.
+   * @see #getStatement()
+   * @generated
+   */
+  void setStatement(Statement value);
 
 } // For_Statement
