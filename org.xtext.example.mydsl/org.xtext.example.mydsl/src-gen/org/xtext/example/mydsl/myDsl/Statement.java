@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getRet <em>Ret</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}</li>
@@ -313,6 +314,32 @@ public interface Statement extends EObject
    * @generated
    */
   void setSyncStatement(Statement value);
+
+  /**
+   * Returns the value of the '<em><b>Ret</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ret</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ret</em>' attribute.
+   * @see #setRet(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_Ret()
+   * @model
+   * @generated
+   */
+  String getRet();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getRet <em>Ret</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ret</em>' attribute.
+   * @see #getRet()
+   * @generated
+   */
+  void setRet(String value);
 
   /**
    * Returns the value of the '<em><b>Try Statement</b></em>' containment reference.

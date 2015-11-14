@@ -57,6 +57,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_auxAccess().getLogicalSignAlternatives_8_0_0_0(), "rule__Expression_aux__LogicalSignAlternatives_8_0_0_0");
 					put(grammarAccess.getExpression_auxAccess().getStringSignAlternatives_10_0_0(), "rule__Expression_aux__StringSignAlternatives_10_0_0");
 					put(grammarAccess.getExpression_auxAccess().getBitSignAlternatives_11_0_0(), "rule__Expression_aux__BitSignAlternatives_11_0_0");
+					put(grammarAccess.getExpression_auxAccess().getLogicOpAlternatives_12_0_0(), "rule__Expression_aux__LogicOpAlternatives_12_0_0");
 					put(grammarAccess.getAmpersand_RuleAccess().getAlternatives_1(), "rule__Ampersand_Rule__Alternatives_1");
 					put(grammarAccess.getLiteral_ExpressionAccess().getAlternatives(), "rule__Literal_Expression__Alternatives");
 					put(grammarAccess.getLiteral_ExpressionAccess().getAlternatives_0(), "rule__Literal_Expression__Alternatives_0");
@@ -64,6 +65,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCreating_ExpressionAccess().getAlternatives_1_1_1(), "rule__Creating_Expression__Alternatives_1_1_1");
 					put(grammarAccess.getCreating_ExpressionAccess().getAlternatives_1_1_2(), "rule__Creating_Expression__Alternatives_1_1_2");
 					put(grammarAccess.getLogical_Expression_NRAccess().getAlternatives(), "rule__Logical_Expression_NR__Alternatives");
+					put(grammarAccess.getLogical_Expression_NRAccess().getAlternatives_0_1(), "rule__Logical_Expression_NR__Alternatives_0_1");
 					put(grammarAccess.getNumeric_Expression_NRAccess().getSinal_numericAlternatives_0_0(), "rule__Numeric_Expression_NR__Sinal_numericAlternatives_0_0");
 					put(grammarAccess.getSwitch_statementAccess().getAlternatives_6(), "rule__Switch_statement__Alternatives_6");
 					put(grammarAccess.getImport_statementAccess().getAlternatives_1(), "rule__Import_statement__Alternatives_1");
@@ -136,6 +138,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_auxAccess().getGroup_9(), "rule__Expression_aux__Group_9__0");
 					put(grammarAccess.getExpression_auxAccess().getGroup_10(), "rule__Expression_aux__Group_10__0");
 					put(grammarAccess.getExpression_auxAccess().getGroup_11(), "rule__Expression_aux__Group_11__0");
+					put(grammarAccess.getExpression_auxAccess().getGroup_12(), "rule__Expression_aux__Group_12__0");
 					put(grammarAccess.getAmpersand_RuleAccess().getGroup(), "rule__Ampersand_Rule__Group__0");
 					put(grammarAccess.getFloat_LiteralAccess().getGroup(), "rule__Float_Literal__Group__0");
 					put(grammarAccess.getLiteral_ExpressionAccess().getGroup_0_0(), "rule__Literal_Expression__Group_0_0__0");
@@ -149,6 +152,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCast_ExpressionAccess().getGroup(), "rule__Cast_Expression__Group__0");
 					put(grammarAccess.getBit_Expression_NRAccess().getGroup(), "rule__Bit_Expression_NR__Group__0");
 					put(grammarAccess.getLogical_Expression_NRAccess().getGroup_0(), "rule__Logical_Expression_NR__Group_0__0");
+					put(grammarAccess.getLogical_Expression_NRAccess().getGroup_0_1_1(), "rule__Logical_Expression_NR__Group_0_1_1__0");
+					put(grammarAccess.getLogical_Expression_NRAccess().getGroup_1(), "rule__Logical_Expression_NR__Group_1__0");
 					put(grammarAccess.getArg_ListAccess().getGroup(), "rule__Arg_List__Group__0");
 					put(grammarAccess.getArg_ListAccess().getGroup_1(), "rule__Arg_List__Group_1__0");
 					put(grammarAccess.getNumeric_Expression_NRAccess().getGroup(), "rule__Numeric_Expression_NR__Group__0");
@@ -238,6 +243,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStatementAccess().getExpressionAssignment_7_1(), "rule__Statement__ExpressionAssignment_7_1");
 					put(grammarAccess.getStatementAccess().getRparentAssignment_7_2(), "rule__Statement__RparentAssignment_7_2");
 					put(grammarAccess.getStatementAccess().getSyncStatementAssignment_7_3(), "rule__Statement__SyncStatementAssignment_7_3");
+					put(grammarAccess.getStatementAccess().getRetAssignment_8_1(), "rule__Statement__RetAssignment_8_1");
 					put(grammarAccess.getStatementAccess().getExpressionAssignment_8_2(), "rule__Statement__ExpressionAssignment_8_2");
 					put(grammarAccess.getStatementAccess().getExpressionAssignment_9_2(), "rule__Statement__ExpressionAssignment_9_2");
 					put(grammarAccess.getStatementAccess().getTryStatementAssignment_11(), "rule__Statement__TryStatementAssignment_11");
@@ -302,6 +308,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_auxAccess().getBitSignAssignment_11_0(), "rule__Expression_aux__BitSignAssignment_11_0");
 					put(grammarAccess.getExpression_auxAccess().getExpressionBitAssignment_11_1(), "rule__Expression_aux__ExpressionBitAssignment_11_1");
 					put(grammarAccess.getExpression_auxAccess().getAuxAssignment_11_2(), "rule__Expression_aux__AuxAssignment_11_2");
+					put(grammarAccess.getExpression_auxAccess().getLogicOpAssignment_12_0(), "rule__Expression_aux__LogicOpAssignment_12_0");
+					put(grammarAccess.getExpression_auxAccess().getExp1Assignment_12_1(), "rule__Expression_aux__Exp1Assignment_12_1");
 					put(grammarAccess.getAmpersand_RuleAccess().getA1Assignment_0(), "rule__Ampersand_Rule__A1Assignment_0");
 					put(grammarAccess.getAmpersand_RuleAccess().getA2Assignment_1_0(), "rule__Ampersand_Rule__A2Assignment_1_0");
 					put(grammarAccess.getFloat_LiteralAccess().getDecimalDigits1Assignment_0(), "rule__Float_Literal__DecimalDigits1Assignment_0");
@@ -312,7 +320,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLiteral_ExpressionAccess().getExp1Assignment_0_1_0(), "rule__Literal_Expression__Exp1Assignment_0_1_0");
 					put(grammarAccess.getLiteral_ExpressionAccess().getExp2Assignment_1(), "rule__Literal_Expression__Exp2Assignment_1");
 					put(grammarAccess.getLiteral_ExpressionAccess().getStringAssignment_2(), "rule__Literal_Expression__StringAssignment_2");
-					put(grammarAccess.getLiteral_ExpressionAccess().getCharAssignment_3(), "rule__Literal_Expression__CharAssignment_3");
+					put(grammarAccess.getLiteral_ExpressionAccess().getCharLitAssignment_3(), "rule__Literal_Expression__CharLitAssignment_3");
 					put(grammarAccess.getCreating_ExpressionAccess().getClassNameAssignment_1_0_0(), "rule__Creating_Expression__ClassNameAssignment_1_0_0");
 					put(grammarAccess.getCreating_ExpressionAccess().getArgListAssignment_1_0_2(), "rule__Creating_Expression__ArgListAssignment_1_0_2");
 					put(grammarAccess.getCreating_ExpressionAccess().getTypeSpecifierAssignment_1_1_0(), "rule__Creating_Expression__TypeSpecifierAssignment_1_1_0");
@@ -321,9 +329,11 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCast_ExpressionAccess().getTypeAssignment_1(), "rule__Cast_Expression__TypeAssignment_1");
 					put(grammarAccess.getCast_ExpressionAccess().getExpressionAssignment_3(), "rule__Cast_Expression__ExpressionAssignment_3");
 					put(grammarAccess.getBit_Expression_NRAccess().getExpressionAssignment_1(), "rule__Bit_Expression_NR__ExpressionAssignment_1");
-					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_0_1(), "rule__Logical_Expression_NR__ExpressionAssignment_0_1");
-					put(grammarAccess.getLogical_Expression_NRAccess().getTrueAssignment_1(), "rule__Logical_Expression_NR__TrueAssignment_1");
-					put(grammarAccess.getLogical_Expression_NRAccess().getFalseAssignment_2(), "rule__Logical_Expression_NR__FalseAssignment_2");
+					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_0_1_0(), "rule__Logical_Expression_NR__ExpressionAssignment_0_1_0");
+					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_0_1_1_1(), "rule__Logical_Expression_NR__ExpressionAssignment_0_1_1_1");
+					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_1_1(), "rule__Logical_Expression_NR__ExpressionAssignment_1_1");
+					put(grammarAccess.getLogical_Expression_NRAccess().getTrueAssignment_2(), "rule__Logical_Expression_NR__TrueAssignment_2");
+					put(grammarAccess.getLogical_Expression_NRAccess().getFalseAssignment_3(), "rule__Logical_Expression_NR__FalseAssignment_3");
 					put(grammarAccess.getArg_ListAccess().getExpressionAssignment_0(), "rule__Arg_List__ExpressionAssignment_0");
 					put(grammarAccess.getArg_ListAccess().getExpressionsAssignment_1_1(), "rule__Arg_List__ExpressionsAssignment_1_1");
 					put(grammarAccess.getNumeric_Expression_NRAccess().getSinal_numericAssignment_0(), "rule__Numeric_Expression_NR__Sinal_numericAssignment_0");

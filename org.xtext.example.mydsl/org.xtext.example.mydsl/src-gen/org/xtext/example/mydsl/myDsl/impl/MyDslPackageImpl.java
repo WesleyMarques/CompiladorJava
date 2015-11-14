@@ -1252,9 +1252,19 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getStatement_Ret()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getStatement_TryStatement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(11);
+    return (EReference)statementEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -1264,7 +1274,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EAttribute getStatement_NameStatement()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(12);
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(13);
   }
 
   /**
@@ -1274,7 +1284,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EReference getStatement_Statement()
   {
-    return (EReference)statementEClass.getEStructuralFeatures().get(13);
+    return (EReference)statementEClass.getEStructuralFeatures().get(14);
   }
 
   /**
@@ -1284,7 +1294,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EAttribute getStatement_Name()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(14);
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(15);
   }
 
   /**
@@ -1652,6 +1662,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getExpression_aux_LogicOp()
+  {
+    return (EAttribute)expression_auxEClass.getEStructuralFeatures().get(15);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAmpersand_Rule()
   {
     return ampersand_RuleEClass;
@@ -1782,7 +1802,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLiteral_Expression_Char()
+  public EAttribute getLiteral_Expression_CharLit()
   {
     return (EAttribute)literal_ExpressionEClass.getEStructuralFeatures().get(4);
   }
@@ -2440,6 +2460,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(statementEClass, STATEMENT__EXPRESSION);
     createEAttribute(statementEClass, STATEMENT__RPARENT);
     createEReference(statementEClass, STATEMENT__SYNC_STATEMENT);
+    createEAttribute(statementEClass, STATEMENT__RET);
     createEReference(statementEClass, STATEMENT__TRY_STATEMENT);
     createEAttribute(statementEClass, STATEMENT__NAME_STATEMENT);
     createEReference(statementEClass, STATEMENT__STATEMENT);
@@ -2484,6 +2505,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(expression_auxEClass, EXPRESSION_AUX__STRING_SIGN);
     createEAttribute(expression_auxEClass, EXPRESSION_AUX__BIT_SIGN);
     createEReference(expression_auxEClass, EXPRESSION_AUX__EXPRESSION_BIT);
+    createEAttribute(expression_auxEClass, EXPRESSION_AUX__LOGIC_OP);
 
     ampersand_RuleEClass = createEClass(AMPERSAND_RULE);
     createEAttribute(ampersand_RuleEClass, AMPERSAND_RULE__A1);
@@ -2500,7 +2522,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(literal_ExpressionEClass, LITERAL_EXPRESSION__EXP1);
     createEReference(literal_ExpressionEClass, LITERAL_EXPRESSION__EXP2);
     createEAttribute(literal_ExpressionEClass, LITERAL_EXPRESSION__STRING);
-    createEAttribute(literal_ExpressionEClass, LITERAL_EXPRESSION__CHAR);
+    createEAttribute(literal_ExpressionEClass, LITERAL_EXPRESSION__CHAR_LIT);
 
     creating_ExpressionEClass = createEClass(CREATING_EXPRESSION);
     createEAttribute(creating_ExpressionEClass, CREATING_EXPRESSION__CLASS_NAME);
@@ -2703,6 +2725,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatement_Rparent(), ecorePackage.getEString(), "rparent", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_SyncStatement(), this.getStatement(), null, "syncStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_Ret(), ecorePackage.getEString(), "ret", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_TryStatement(), this.getTry_statement(), null, "tryStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatement_NameStatement(), ecorePackage.getEString(), "nameStatement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2747,6 +2770,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getExpression_aux_StringSign(), ecorePackage.getEString(), "stringSign", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_aux_BitSign(), ecorePackage.getEString(), "bitSign", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_aux_ExpressionBit(), this.getExpression(), null, "expressionBit", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_aux_LogicOp(), ecorePackage.getEString(), "logicOp", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ampersand_RuleEClass, Ampersand_Rule.class, "Ampersand_Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAmpersand_Rule_A1(), ecorePackage.getEString(), "a1", null, 0, 1, Ampersand_Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2763,7 +2787,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getLiteral_Expression_Exp1(), ecorePackage.getEInt(), "exp1", null, 0, 1, Literal_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLiteral_Expression_Exp2(), this.getFloat_Literal(), null, "exp2", null, 0, 1, Literal_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLiteral_Expression_String(), ecorePackage.getEString(), "string", null, 0, 1, Literal_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLiteral_Expression_Char(), ecorePackage.getEString(), "char", null, 0, 1, Literal_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLiteral_Expression_CharLit(), ecorePackage.getEString(), "charLit", null, 0, 1, Literal_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(creating_ExpressionEClass, Creating_Expression.class, "Creating_Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCreating_Expression_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, Creating_Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

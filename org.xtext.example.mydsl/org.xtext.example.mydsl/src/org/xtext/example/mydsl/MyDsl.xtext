@@ -134,7 +134,7 @@ Statement:
 	forStatement = For_Statement |
 	switchStatement = Switch_statement |
 	"synchronized(" expression = Expression rparent = RPAREN syncStatement = Statement|
-	{Statement}"return" (expression = Expression)?  ";" |
+	{Statement}ret = "return" (expression = Expression)?  ";" |
 	{Statement}"throw" (expression = Expression)? ";" | 	
 	Statement_block |
 	tryStatement = Try_statement |
@@ -200,16 +200,20 @@ Expression_aux :
 	 |(sgin=(INCREMENT|DECREMENT) aux=Expression_aux)
 	 |(numericSign=("+" | PLUS_EQUAL | "-" | MINUS_EQUAL | MULTIPLY | MULTIPLY_EQUAL | DIVIDE | DIVIDE_EQUAL | MODULE | MODULE_EQUAL) exp2=Expression aux=Expression_aux)
 	 |(testingSign=( BT | ST | BE | SE | DOUBLE_EQUAL | DIFFERENT ) exp1=Expression aux=Expression_aux)
-	 |((logicalSign=( OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL ) | ampersand=Ampersand_Rule) exp1=Expression aux=Expression_aux)
+	 |((logicalSign=(OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL ) | ampersand=Ampersand_Rule) exp1=Expression aux=Expression_aux)
 	 |(WAT exp1=Expression COLON exp2=Expression aux=Expression_aux)
 	 |(stringSign=("+" | PLUS_EQUAL) exp1=Expression aux=Expression_aux)
 	 |(bitSign=( R_SHIFT_EQUAL | L_SHIFT | R_SHIFT | SUPER_SHIFT ) expressionBit=Expression aux=Expression_aux)
+	 | logicOp = (OR_LOGIC | AND) exp1 = Expression
 	 | {Expression_aux}
 ;
 
 terminal INSTANCEOF:
 	"instanceof"
 ;
+
+terminal OR_LOGIC: "||";
+terminal AND:"&&";
 
 terminal L_SHIFT:
 	"<<"	
@@ -325,7 +329,7 @@ Literal_Expression:
 	((exp=HEXA LONG?) | (exp1=DECIMAL_DIGITS LONG?))
 	| exp2=Float_Literal
 	| (string=STRING)
-	| (char=CHAR)
+	| (charLit=CHAR)
 ;
 
 terminal LONG:
@@ -365,7 +369,8 @@ terminal NOT:
 ;
 
 Logical_Expression_NR:
-	(EXCLAMATION expression=Expression)
+	(exclamation = EXCLAMATION (expression=Expression | LPAREN expression = Expression RPAREN))
+	| LPAREN expression = Expression RPAREN
 	| true=TRUE
 	| false=FALSE
 ;

@@ -15,19 +15,19 @@ import org.xtex.example.mydsl.exceptions.MyDslException;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Constructor_declaration;
 import org.xtext.example.mydsl.myDsl.Expression;
+import org.xtext.example.mydsl.myDsl.Expression_aux;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
+import org.xtext.example.mydsl.myDsl.Logical_Expression_NR;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
-import org.xtext.example.mydsl.myDsl.Variable_declarator;
-import org.xtext.example.mydsl.myDsl.Variable_initializer;
+import org.xtext.example.mydsl.myDsl.While_Statement;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
 import org.xtext.example.mydsl.validation.utils.ContructorValidate;
-import org.xtext.example.mydsl.validation.utils.ExpressionValidate;
 import org.xtext.example.mydsl.validation.utils.MethodObj;
 import org.xtext.example.mydsl.validation.utils.MethodValidate;
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate;
@@ -44,6 +44,8 @@ public class MyDslValidator extends AbstractMyDslValidator {
   private final String INTERFACE = "interface";
   
   private final String METHOD = "method";
+  
+  private final String VARIABLE = "variable";
   
   private final String CONSTRUCTOR = "constructor";
   
@@ -76,7 +78,9 @@ public class MyDslValidator extends AbstractMyDslValidator {
         EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
         this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD);
         EList<Field_declaration> _fieldsDeclaration_1 = cd.getFieldsDeclaration();
-        _xblockexpression = this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR);
+        this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR);
+        EList<Field_declaration> _fieldsDeclaration_2 = cd.getFieldsDeclaration();
+        _xblockexpression = this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE);
       }
       _xifexpression = _xblockexpression;
     } else {
@@ -185,6 +189,13 @@ public class MyDslValidator extends AbstractMyDslValidator {
       boolean _equals_1 = fieldType.equals(this.CONSTRUCTOR);
       if (_equals_1) {
         _xifexpression_1 = this.validaContructor(declaration);
+      } else {
+        Object _xifexpression_2 = null;
+        boolean _equals_2 = fieldType.equals(this.VARIABLE);
+        if (_equals_2) {
+          _xifexpression_2 = null;
+        }
+        _xifexpression_1 = ((List<ConstructorObj>)_xifexpression_2);
       }
       _xifexpression = _xifexpression_1;
     }
@@ -213,8 +224,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
             constAux = ((ConstructorObj) _get_1);
             String _message = e.getMessage();
             Constructor_declaration _md = constAux.getMd();
-            this.error(_message, _md, 
-              MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+            this.error(_message, _md, MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
           }
           List<Object> _nodeError_2 = e.getNodeError();
           for (final Object constError : _nodeError_2) {
@@ -292,15 +302,37 @@ public class MyDslValidator extends AbstractMyDslValidator {
   }
   
   @Check
-  public String variableDeclaration(final Variable_declaration vd) {
-    String _xblockexpression = null;
-    {
-      ExpressionValidate ev = new ExpressionValidate();
-      Variable_declarator _nameVariable = vd.getNameVariable();
-      Variable_initializer _vari = _nameVariable.getVari();
-      Expression _expression = _vari.getExpression();
-      _xblockexpression = ev.validaExpressao(_expression);
+  public Object variableDeclaration(final Variable_declaration vd) {
+    return null;
+  }
+  
+  @Check
+  public void validWhile(final While_Statement ws) {
+    Expression exp = ws.getExpression();
+    Expression_aux aux = exp.getAux();
+    Logical_Expression_NR _logicalExpression = exp.getLogicalExpression();
+    boolean _notEquals = (!Objects.equal(_logicalExpression, null));
+    if (_notEquals) {
+      while (((!Objects.equal(aux.getLogicalSign(), null)) || (!Objects.equal(exp.getLogicalExpression(), null)))) {
+        {
+          Expression _exp1 = aux.getExp1();
+          exp = _exp1;
+          Expression_aux _aux = aux.getAux();
+          aux = _aux;
+          String _logicalSign = aux.getLogicalSign();
+          boolean _equals = Objects.equal(_logicalSign, null);
+          if (_equals) {
+            this.error("Operando not avalible", aux, MyDslPackage.Literals.EXPRESSION_AUX__LOGICAL_SIGN);
+          }
+          Logical_Expression_NR _logicalExpression_1 = exp.getLogicalExpression();
+          boolean _notEquals_1 = (!Objects.equal(_logicalExpression_1, null));
+          if (_notEquals_1) {
+            this.error("type not avalible", exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+          }
+        }
+      }
+    } else {
+      this.error("parameter of While invalid", exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
     }
-    return _xblockexpression;
   }
 }

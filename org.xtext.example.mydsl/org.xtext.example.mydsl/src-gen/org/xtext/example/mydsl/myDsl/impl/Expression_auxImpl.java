@@ -39,6 +39,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getStringSign <em>String Sign</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getBitSign <em>Bit Sign</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getExpressionBit <em>Expression Bit</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getLogicOp <em>Logic Op</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,6 +266,26 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected Expression expressionBit;
+
+  /**
+   * The default value of the '{@link #getLogicOp() <em>Logic Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLogicOp()
+   * @generated
+   * @ordered
+   */
+  protected static final String LOGIC_OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLogicOp() <em>Logic Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLogicOp()
+   * @generated
+   * @ordered
+   */
+  protected String logicOp = LOGIC_OP_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -837,6 +858,29 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getLogicOp()
+  {
+    return logicOp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLogicOp(String newLogicOp)
+  {
+    String oldLogicOp = logicOp;
+    logicOp = newLogicOp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPRESSION_AUX__LOGIC_OP, oldLogicOp, logicOp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -902,6 +946,8 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return getBitSign();
       case MyDslPackage.EXPRESSION_AUX__EXPRESSION_BIT:
         return getExpressionBit();
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
+        return getLogicOp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -960,6 +1006,9 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return;
       case MyDslPackage.EXPRESSION_AUX__EXPRESSION_BIT:
         setExpressionBit((Expression)newValue);
+        return;
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
+        setLogicOp((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -1020,6 +1069,9 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
       case MyDslPackage.EXPRESSION_AUX__EXPRESSION_BIT:
         setExpressionBit((Expression)null);
         return;
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
+        setLogicOp(LOGIC_OP_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -1064,6 +1116,8 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return BIT_SIGN_EDEFAULT == null ? bitSign != null : !BIT_SIGN_EDEFAULT.equals(bitSign);
       case MyDslPackage.EXPRESSION_AUX__EXPRESSION_BIT:
         return expressionBit != null;
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
+        return LOGIC_OP_EDEFAULT == null ? logicOp != null : !LOGIC_OP_EDEFAULT.equals(logicOp);
     }
     return super.eIsSet(featureID);
   }
@@ -1093,6 +1147,8 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
     result.append(stringSign);
     result.append(", bitSign: ");
     result.append(bitSign);
+    result.append(", logicOp: ");
+    result.append(logicOp);
     result.append(')');
     return result.toString();
   }

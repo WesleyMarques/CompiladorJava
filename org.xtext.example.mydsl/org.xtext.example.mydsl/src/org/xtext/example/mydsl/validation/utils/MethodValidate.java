@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.xtex.example.mydsl.exceptions.MyDslException;
-import org.xtext.example.mydsl.myDsl.Constructor_declaration;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.Parameter;
+import org.xtext.example.mydsl.myDsl.Statement;
 
 public class MethodValidate {
 
@@ -26,6 +26,12 @@ public class MethodValidate {
 				
 				MethodObj newMethod = new MethodObj(md.getNameMethod(), methodReturnType, getAllParameters(md),
 						md.getModifiersMethod().contains("abstract"), md);
+				List<Statement> stm = md.getStatementMethod().getStatments();
+				for ( Statement actualStatement : stm) {
+					if(actualStatement.getVariableDeclaration() != null){
+						newMethod.setFields(actualStatement.getVariableDeclaration());
+					}
+				}
 				if (!allMethods.containsKey(md.getNameMethod())) {
 					allMethods.put(md.getNameMethod(), new ArrayList<MethodObj>());
 				} else {

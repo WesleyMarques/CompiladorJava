@@ -110,6 +110,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/rparent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/syncStatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/ret"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/tryStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Statement/nameStatement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Statement/statement"/>
@@ -154,6 +155,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Expression_aux/stringSign"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Expression_aux/bitSign"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression_aux/expressionBit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Expression_aux/logicOp"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Ampersand_Rule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Ampersand_Rule/a1"/>
@@ -170,7 +172,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal_Expression/exp1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Literal_Expression/exp2"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal_Expression/string"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal_Expression/char"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Literal_Expression/charLit"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Creating_Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Creating_Expression/className"/>

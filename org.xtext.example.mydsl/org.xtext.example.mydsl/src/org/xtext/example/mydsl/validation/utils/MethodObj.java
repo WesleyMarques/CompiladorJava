@@ -1,8 +1,10 @@
 package org.xtext.example.mydsl.validation.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.xtext.example.mydsl.myDsl.Method_declaration;
+import org.xtext.example.mydsl.myDsl.Variable_declaration;
 
 public class MethodObj {
 	
@@ -11,6 +13,8 @@ public class MethodObj {
 	private List<String> parameters;
 	private boolean isAbstract;
 	private Method_declaration md;
+	private List<Variable_declaration> fields;
+	
 	
 	public MethodObj(String name, String returnType, List<String> parameters, boolean isAbstract, Method_declaration md) {
 		this.name = name;
@@ -18,7 +22,16 @@ public class MethodObj {
 		this.parameters = parameters;
 		this.isAbstract= isAbstract;
 		this.md = md;
+		this.fields = new ArrayList<Variable_declaration>();
 		
+	}
+	
+	public List<Variable_declaration> getFields() {
+		return fields;
+	}
+
+	public void setFields(Variable_declaration fields) {
+		this.fields.add(fields);
 	}
 	
 	public Method_declaration getMd() {

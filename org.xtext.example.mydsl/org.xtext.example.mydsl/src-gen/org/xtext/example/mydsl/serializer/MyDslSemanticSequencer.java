@@ -407,7 +407,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (exp=HEXA | exp1=DECIMAL_DIGITS | exp2=Float_Literal | string=STRING | char=CHAR)
+	 *     (exp=HEXA | exp1=DECIMAL_DIGITS | exp2=Float_Literal | string=STRING | charLit=CHAR)
 	 */
 	protected void sequence_Literal_Expression(EObject context, Literal_Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -416,7 +416,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (expression=Expression | true=TRUE | false=FALSE)
+	 *     (expression=Expression | expression=Expression | expression=Expression | true=TRUE | false=FALSE)
 	 */
 	protected void sequence_Logical_Expression_NR(EObject context, Logical_Expression_NR semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -520,7 +520,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((expression=Expression?) | (expression=Expression?) | (name=ID?) | (name=ID?))
+	 *     ((ret='return' expression=Expression?) | (expression=Expression?) | (name=ID?) | (name=ID?))
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

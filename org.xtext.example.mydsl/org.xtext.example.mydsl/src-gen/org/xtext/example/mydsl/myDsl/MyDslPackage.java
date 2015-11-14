@@ -956,13 +956,22 @@ public interface MyDslPackage extends EPackage
   int STATEMENT__SYNC_STATEMENT = 10;
 
   /**
+   * The feature id for the '<em><b>Ret</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__RET = 11;
+
+  /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__TRY_STATEMENT = 11;
+  int STATEMENT__TRY_STATEMENT = 12;
 
   /**
    * The feature id for the '<em><b>Name Statement</b></em>' attribute.
@@ -971,7 +980,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME_STATEMENT = 12;
+  int STATEMENT__NAME_STATEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -980,7 +989,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__STATEMENT = 13;
+  int STATEMENT__STATEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -989,7 +998,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = 14;
+  int STATEMENT__NAME = 15;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -998,7 +1007,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 15;
+  int STATEMENT_FEATURE_COUNT = 16;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl <em>Statement block</em>}' class.
@@ -1108,6 +1117,15 @@ public interface MyDslPackage extends EPackage
    * @ordered
    */
   int STATEMENT_BLOCK__SYNC_STATEMENT = STATEMENT__SYNC_STATEMENT;
+
+  /**
+   * The feature id for the '<em><b>Ret</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__RET = STATEMENT__RET;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -1537,13 +1555,22 @@ public interface MyDslPackage extends EPackage
   int EXPRESSION_AUX__EXPRESSION_BIT = 14;
 
   /**
+   * The feature id for the '<em><b>Logic Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_AUX__LOGIC_OP = 15;
+
+  /**
    * The number of structural features of the '<em>Expression aux</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_AUX_FEATURE_COUNT = 15;
+  int EXPRESSION_AUX_FEATURE_COUNT = 16;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl <em>Ampersand Rule</em>}' class.
@@ -1684,13 +1711,13 @@ public interface MyDslPackage extends EPackage
   int LITERAL_EXPRESSION__STRING = 3;
 
   /**
-   * The feature id for the '<em><b>Char</b></em>' attribute.
+   * The feature id for the '<em><b>Char Lit</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL_EXPRESSION__CHAR = 4;
+  int LITERAL_EXPRESSION__CHAR_LIT = 4;
 
   /**
    * The number of structural features of the '<em>Literal Expression</em>' class.
@@ -3229,6 +3256,17 @@ public interface MyDslPackage extends EPackage
   EReference getStatement_SyncStatement();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Statement#getRet <em>Ret</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ret</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getRet()
+   * @see #getStatement()
+   * @generated
+   */
+  EAttribute getStatement_Ret();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getTryStatement <em>Try Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3665,6 +3703,17 @@ public interface MyDslPackage extends EPackage
   EReference getExpression_aux_ExpressionBit();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicOp <em>Logic Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Logic Op</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getLogicOp()
+   * @see #getExpression_aux()
+   * @generated
+   */
+  EAttribute getExpression_aux_LogicOp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Ampersand_Rule <em>Ampersand Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3805,15 +3854,15 @@ public interface MyDslPackage extends EPackage
   EAttribute getLiteral_Expression_String();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getChar <em>Char</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getCharLit <em>Char Lit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Char</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getChar()
+   * @return the meta object for the attribute '<em>Char Lit</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Literal_Expression#getCharLit()
    * @see #getLiteral_Expression()
    * @generated
    */
-  EAttribute getLiteral_Expression_Char();
+  EAttribute getLiteral_Expression_CharLit();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Creating_Expression <em>Creating Expression</em>}'.
@@ -5122,6 +5171,14 @@ public interface MyDslPackage extends EPackage
     EReference STATEMENT__SYNC_STATEMENT = eINSTANCE.getStatement_SyncStatement();
 
     /**
+     * The meta object literal for the '<em><b>Ret</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMENT__RET = eINSTANCE.getStatement_Ret();
+
+    /**
      * The meta object literal for the '<em><b>Try Statement</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5450,6 +5507,14 @@ public interface MyDslPackage extends EPackage
     EReference EXPRESSION_AUX__EXPRESSION_BIT = eINSTANCE.getExpression_aux_ExpressionBit();
 
     /**
+     * The meta object literal for the '<em><b>Logic Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION_AUX__LOGIC_OP = eINSTANCE.getExpression_aux_LogicOp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl <em>Ampersand Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5560,12 +5625,12 @@ public interface MyDslPackage extends EPackage
     EAttribute LITERAL_EXPRESSION__STRING = eINSTANCE.getLiteral_Expression_String();
 
     /**
-     * The meta object literal for the '<em><b>Char</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Char Lit</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LITERAL_EXPRESSION__CHAR = eINSTANCE.getLiteral_Expression_Char();
+    EAttribute LITERAL_EXPRESSION__CHAR_LIT = eINSTANCE.getLiteral_Expression_CharLit();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl <em>Creating Expression</em>}' class.

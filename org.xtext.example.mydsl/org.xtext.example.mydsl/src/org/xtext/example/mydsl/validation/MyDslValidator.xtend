@@ -10,16 +10,20 @@ import java.util.Map
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.validation.Check
 import org.xtex.example.mydsl.exceptions.MyDslException
+import org.xtext.example.mydsl.myDsl.Arg_List
 import org.xtext.example.mydsl.myDsl.Class_declaration
+import org.xtext.example.mydsl.myDsl.Expression
+import org.xtext.example.mydsl.myDsl.Expression_aux
 import org.xtext.example.mydsl.myDsl.Field_declaration
 import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declaration
+import org.xtext.example.mydsl.myDsl.Variable_declarator
+import org.xtext.example.mydsl.myDsl.While_Statement
 import org.xtext.example.mydsl.validation.utils.ConstructorObj
 import org.xtext.example.mydsl.validation.utils.ContructorValidate
-import org.xtext.example.mydsl.validation.utils.ExpressionValidate
 import org.xtext.example.mydsl.validation.utils.MethodObj
 import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
@@ -35,8 +39,9 @@ class MyDslValidator extends AbstractMyDslValidator {
 	private final String CLASS = "class";
 	private final String INTERFACE = "interface";
 	private final String METHOD = "method";
+	private final String VARIABLE = "variable";
 	private final String CONSTRUCTOR = "constructor";
-	
+
 	public Map<String, String> typeInValidation = new HashMap<String, String>();
 	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
 	public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
@@ -52,7 +57,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			validaClass(cd);
 			validaFieldDeclaration(cd.fieldsDeclaration, METHOD);
 			validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR);
-			
+			validaFieldDeclaration(cd.fieldsDeclaration, VARIABLE);
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
@@ -106,73 +111,97 @@ class MyDslValidator extends AbstractMyDslValidator {
 			validaMethods(declaration);
 		} else if (fieldType.equals(CONSTRUCTOR)) {
 			validaContructor(declaration);
+		} else if (fieldType.equals(VARIABLE)) {
+			//validaVariables(declaration);
 		}
 
 	}
-	
+
 	def validaContructor(EList<Field_declaration> list) {
 		var ContructorValidate cv = new ContructorValidate();
-		try{
-			this.constructors = cv.constructorValidateAll(list,typeInValidation.get("name"));
-		}catch(MyDslException e){
+		try {
+			this.constructors = cv.constructorValidateAll(list, typeInValidation.get("name"));
+		} catch (MyDslException e) {
 			var ConstructorObj constAux;
-			if(e.nodeError.size() == 1){
+			if (e.nodeError.size() == 1) {
 				constAux = e.nodeError.get(0) as ConstructorObj;
-				error(e.message, constAux.md,
-					MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+				error(e.message, constAux.md, MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
 			}
-			
+
 			for (Object constError : e.nodeError) {
 				constAux = constError as ConstructorObj;
-				error(e.message+ (constAux	) + " in Type " + typeInValidation.get("name"), constAux.md,
+				error(e.message + (constAux	) + " in Type " + typeInValidation.get("name"), constAux.md,
 					MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
 			}
 		}
-		
-	}
 
-	def validaModifiers(EList<String> list, String type) throws Exception{
-		var ModifiersValidate modValidate = new ModifiersValidate();
-		var String typeName = typeInValidation.get("name");
-		var int size = list.size();
-		var String firstModifier;
-		if (size > 0) {
-			firstModifier = list.get(0);
-		}
-		try {
-			if (type.equals(CLASS)) {
-				modValidate.classValidate(size, firstModifier, typeName, list);
-			} else if (type.equals(INTERFACE)) {
-				modValidate.interfaceValidate(size, firstModifier, typeName, list);
+	}
+	
+	
+
+			def validaModifiers(EList<String> list, String type) throws Exception{
+				var ModifiersValidate modValidate = new ModifiersValidate();
+				var String typeName = typeInValidation.get("name");
+				var int size = list.size();
+				var String firstModifier;
+				if (size > 0) {
+					firstModifier = list.get(0);
+				}
+				try {
+					if (type.equals(CLASS)) {
+						modValidate.classValidate(size, firstModifier, typeName, list);
+					} else if (type.equals(INTERFACE)) {
+						modValidate.interfaceValidate(size, firstModifier, typeName, list);
+					}
+
+				} catch (Exception e) {
+					throw e;
+				}
+
 			}
 
-		} catch (Exception e) {
-			throw e;
+			@Check
+			def checkMethodDeclaration(Method_declaration md) {
+
+				var ModifiersValidate modValidate = new ModifiersValidate();
+				var EList<String> methodMods = md.modifiersMethod;
+				var int size = methodMods.size();
+				try {
+					modValidate.methodValidate(size, md.nameMethod, methodMods, typeInValidation.get("name"),
+						typeInValidation.get("abstract"), md.statementMethod != null);
+				} catch (Exception e) {
+					error(e.message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+				}
+
+			}
+
+			@Check
+			def variableDeclaration(Variable_declaration vd) {
+				
+			}
+			
+			@Check
+			def validWhile(While_Statement ws){
+				var Expression exp = ws.expression;
+				var Expression_aux aux = exp.aux;
+				if(exp.logicalExpression != null){
+					while(aux.logicalSign != null || exp.logicalExpression != null){
+						exp = aux.exp1;
+						aux = aux.aux;
+						if(aux.logicalSign == null){
+							error("Operando not avalible",aux,MyDslPackage.Literals.EXPRESSION_AUX__LOGICAL_SIGN);
+						}if(exp.logicalExpression != null){
+							error("type not avalible",exp,MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+						}						
+					}
+					
+				}else{
+					error("parameter of While invalid",exp,MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+				}
+				
+				
+				
+			}
+			
+
 		}
-
-	}
-
-	@Check
-	def checkMethodDeclaration(Method_declaration md) {
-
-		var ModifiersValidate modValidate = new ModifiersValidate();
-		var EList<String> methodMods = md.modifiersMethod;
-		var int size = methodMods.size();
-		try {
-			modValidate.methodValidate(size, md.nameMethod, methodMods, typeInValidation.get("name"),
-				typeInValidation.get("abstract"), md.statementMethod != null);
-		} catch (Exception e) {
-			error(e.message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-		}
-
-	}
-	
-	@Check
-	def variableDeclaration(Variable_declaration vd){
-		var ExpressionValidate ev = new ExpressionValidate();
-		ev.validaExpressao(vd.nameVariable.vari.expression);
-		
-	}
-	
-
-}

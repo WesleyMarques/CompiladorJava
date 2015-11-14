@@ -26,7 +26,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getExp1 <em>Exp1</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getExp2 <em>Exp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getString <em>String</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getChar <em>Char</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getCharLit <em>Char Lit</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,24 +105,24 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
   protected String string = STRING_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getChar() <em>Char</em>}' attribute.
+   * The default value of the '{@link #getCharLit() <em>Char Lit</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getChar()
+   * @see #getCharLit()
    * @generated
    * @ordered
    */
-  protected static final String CHAR_EDEFAULT = null;
+  protected static final String CHAR_LIT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getChar() <em>Char</em>}' attribute.
+   * The cached value of the '{@link #getCharLit() <em>Char Lit</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getChar()
+   * @see #getCharLit()
    * @generated
    * @ordered
    */
-  protected String char_ = CHAR_EDEFAULT;
+  protected String charLit = CHAR_LIT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -267,9 +267,9 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getChar()
+  public String getCharLit()
   {
-    return char_;
+    return charLit;
   }
 
   /**
@@ -277,12 +277,12 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setChar(String newChar)
+  public void setCharLit(String newCharLit)
   {
-    String oldChar = char_;
-    char_ = newChar;
+    String oldCharLit = charLit;
+    charLit = newCharLit;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LITERAL_EXPRESSION__CHAR, oldChar, char_));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LITERAL_EXPRESSION__CHAR_LIT, oldCharLit, charLit));
   }
 
   /**
@@ -319,8 +319,8 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
         return getExp2();
       case MyDslPackage.LITERAL_EXPRESSION__STRING:
         return getString();
-      case MyDslPackage.LITERAL_EXPRESSION__CHAR:
-        return getChar();
+      case MyDslPackage.LITERAL_EXPRESSION__CHAR_LIT:
+        return getCharLit();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -347,8 +347,8 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
       case MyDslPackage.LITERAL_EXPRESSION__STRING:
         setString((String)newValue);
         return;
-      case MyDslPackage.LITERAL_EXPRESSION__CHAR:
-        setChar((String)newValue);
+      case MyDslPackage.LITERAL_EXPRESSION__CHAR_LIT:
+        setCharLit((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -376,8 +376,8 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
       case MyDslPackage.LITERAL_EXPRESSION__STRING:
         setString(STRING_EDEFAULT);
         return;
-      case MyDslPackage.LITERAL_EXPRESSION__CHAR:
-        setChar(CHAR_EDEFAULT);
+      case MyDslPackage.LITERAL_EXPRESSION__CHAR_LIT:
+        setCharLit(CHAR_LIT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -401,8 +401,8 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
         return exp2 != null;
       case MyDslPackage.LITERAL_EXPRESSION__STRING:
         return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
-      case MyDslPackage.LITERAL_EXPRESSION__CHAR:
-        return CHAR_EDEFAULT == null ? char_ != null : !CHAR_EDEFAULT.equals(char_);
+      case MyDslPackage.LITERAL_EXPRESSION__CHAR_LIT:
+        return CHAR_LIT_EDEFAULT == null ? charLit != null : !CHAR_LIT_EDEFAULT.equals(charLit);
     }
     return super.eIsSet(featureID);
   }
@@ -424,8 +424,8 @@ public class Literal_ExpressionImpl extends MinimalEObjectImpl.Container impleme
     result.append(exp1);
     result.append(", string: ");
     result.append(string);
-    result.append(", char: ");
-    result.append(char_);
+    result.append(", charLit: ");
+    result.append(charLit);
     result.append(')');
     return result.toString();
   }

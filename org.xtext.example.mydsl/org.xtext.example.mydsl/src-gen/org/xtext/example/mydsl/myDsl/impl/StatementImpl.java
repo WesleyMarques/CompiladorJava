@@ -47,6 +47,7 @@ import org.xtext.example.mydsl.myDsl.While_Statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getRet <em>Ret</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
@@ -187,6 +188,26 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @ordered
    */
   protected Statement syncStatement;
+
+  /**
+   * The default value of the '{@link #getRet() <em>Ret</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRet()
+   * @generated
+   * @ordered
+   */
+  protected static final String RET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRet() <em>Ret</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRet()
+   * @generated
+   * @ordered
+   */
+  protected String ret = RET_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getTryStatement() <em>Try Statement</em>}' containment reference.
@@ -718,6 +739,29 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getRet()
+  {
+    return ret;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRet(String newRet)
+  {
+    String oldRet = ret;
+    ret = newRet;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__RET, oldRet, ret));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Try_statement getTryStatement()
   {
     return tryStatement;
@@ -923,6 +967,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return getRparent();
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         return getSyncStatement();
+      case MyDslPackage.STATEMENT__RET:
+        return getRet();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
@@ -979,6 +1025,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return;
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         setSyncStatement((Statement)newValue);
+        return;
+      case MyDslPackage.STATEMENT__RET:
+        setRet((String)newValue);
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
@@ -1039,6 +1088,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         setSyncStatement((Statement)null);
         return;
+      case MyDslPackage.STATEMENT__RET:
+        setRet(RET_EDEFAULT);
+        return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
         return;
@@ -1087,6 +1139,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return RPARENT_EDEFAULT == null ? rparent != null : !RPARENT_EDEFAULT.equals(rparent);
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         return syncStatement != null;
+      case MyDslPackage.STATEMENT__RET:
+        return RET_EDEFAULT == null ? ret != null : !RET_EDEFAULT.equals(ret);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
@@ -1114,6 +1168,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
     result.append(g);
     result.append(", rparent: ");
     result.append(rparent);
+    result.append(", ret: ");
+    result.append(ret);
     result.append(", nameStatement: ");
     result.append(nameStatement);
     result.append(", name: ");

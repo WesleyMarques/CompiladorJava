@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp1 <em>Exp1</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp2 <em>Exp2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getString <em>String</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getChar <em>Char</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getCharLit <em>Char Lit</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,29 +131,29 @@ public interface Literal_Expression extends EObject
   void setString(String value);
 
   /**
-   * Returns the value of the '<em><b>Char</b></em>' attribute.
+   * Returns the value of the '<em><b>Char Lit</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Char</em>' attribute isn't clear,
+   * If the meaning of the '<em>Char Lit</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Char</em>' attribute.
-   * @see #setChar(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLiteral_Expression_Char()
+   * @return the value of the '<em>Char Lit</em>' attribute.
+   * @see #setCharLit(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLiteral_Expression_CharLit()
    * @model
    * @generated
    */
-  String getChar();
+  String getCharLit();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getChar <em>Char</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getCharLit <em>Char Lit</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Char</em>' attribute.
-   * @see #getChar()
+   * @param value the new value of the '<em>Char Lit</em>' attribute.
+   * @see #getCharLit()
    * @generated
    */
-  void setChar(String value);
+  void setCharLit(String value);
 
 } // Literal_Expression

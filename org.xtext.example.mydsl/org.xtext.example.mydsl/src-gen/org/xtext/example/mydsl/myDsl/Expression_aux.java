@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getStringSign <em>String Sign</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getBitSign <em>Bit Sign</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExpressionBit <em>Expression Bit</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicOp <em>Logic Op</em>}</li>
  * </ul>
  * </p>
  *
@@ -425,5 +426,31 @@ public interface Expression_aux extends EObject
    * @generated
    */
   void setExpressionBit(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Logic Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Logic Op</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Logic Op</em>' attribute.
+   * @see #setLogicOp(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExpression_aux_LogicOp()
+   * @model
+   * @generated
+   */
+  String getLogicOp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicOp <em>Logic Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Logic Op</em>' attribute.
+   * @see #getLogicOp()
+   * @generated
+   */
+  void setLogicOp(String value);
 
 } // Expression_aux
