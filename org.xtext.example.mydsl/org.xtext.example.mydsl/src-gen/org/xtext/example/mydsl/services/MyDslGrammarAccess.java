@@ -1715,8 +1715,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cLogicOpAlternatives_12_0_0 = (Alternatives)cLogicOpAssignment_12_0.eContents().get(0);
 		private final RuleCall cLogicOpOR_LOGICTerminalRuleCall_12_0_0_0 = (RuleCall)cLogicOpAlternatives_12_0_0.eContents().get(0);
 		private final RuleCall cLogicOpANDTerminalRuleCall_12_0_0_1 = (RuleCall)cLogicOpAlternatives_12_0_0.eContents().get(1);
-		private final Assignment cExp1Assignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final RuleCall cExp1ExpressionParserRuleCall_12_1_0 = (RuleCall)cExp1Assignment_12_1.eContents().get(0);
+		private final Assignment cLogicExpAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cLogicExpExpressionParserRuleCall_12_1_0 = (RuleCall)cLogicExpAssignment_12_1.eContents().get(0);
 		private final Action cExpression_auxAction_13 = (Action)cAlternatives.eContents().get(13);
 		
 		//Expression_aux:
@@ -1728,7 +1728,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	(logicalSign=(OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL) | ampersand=Ampersand_Rule)
 		//	exp1=Expression aux=Expression_aux | WAT exp1=Expression COLON exp2=Expression aux=Expression_aux | stringSign=("+" |
 		//	PLUS_EQUAL) exp1=Expression aux=Expression_aux | bitSign=(R_SHIFT_EQUAL | L_SHIFT | R_SHIFT | SUPER_SHIFT)
-		//	expressionBit=Expression aux=Expression_aux | logicOp=(OR_LOGIC | AND) exp1=Expression | {Expression_aux};
+		//	expressionBit=Expression aux=Expression_aux | logicOp=(OR_LOGIC | AND) logicExp=Expression | {Expression_aux};
 		@Override public ParserRule getRule() { return rule; }
 
 		//(LPAREN argList=Arg_List? RPAREN) aux=Expression_aux | ("[" expression2=Expression "]") aux=Expression_aux | ("."
@@ -1739,7 +1739,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//(logicalSign=(OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL) | ampersand=Ampersand_Rule)
 		//exp1=Expression aux=Expression_aux | WAT exp1=Expression COLON exp2=Expression aux=Expression_aux | stringSign=("+" |
 		//PLUS_EQUAL) exp1=Expression aux=Expression_aux | bitSign=(R_SHIFT_EQUAL | L_SHIFT | R_SHIFT | SUPER_SHIFT)
-		//expressionBit=Expression aux=Expression_aux | logicOp=(OR_LOGIC | AND) exp1=Expression | {Expression_aux}
+		//expressionBit=Expression aux=Expression_aux | logicOp=(OR_LOGIC | AND) logicExp=Expression | {Expression_aux}
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//(LPAREN argList=Arg_List? RPAREN) aux=Expression_aux
@@ -2105,7 +2105,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression_aux
 		public RuleCall getAuxExpression_auxParserRuleCall_11_2_0() { return cAuxExpression_auxParserRuleCall_11_2_0; }
 
-		//logicOp=(OR_LOGIC | AND) exp1=Expression
+		//logicOp=(OR_LOGIC | AND) logicExp=Expression
 		public Group getGroup_12() { return cGroup_12; }
 
 		//logicOp=(OR_LOGIC | AND)
@@ -2120,11 +2120,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//AND
 		public RuleCall getLogicOpANDTerminalRuleCall_12_0_0_1() { return cLogicOpANDTerminalRuleCall_12_0_0_1; }
 
-		//exp1=Expression
-		public Assignment getExp1Assignment_12_1() { return cExp1Assignment_12_1; }
+		//logicExp=Expression
+		public Assignment getLogicExpAssignment_12_1() { return cLogicExpAssignment_12_1; }
 
 		//Expression
-		public RuleCall getExp1ExpressionParserRuleCall_12_1_0() { return cExp1ExpressionParserRuleCall_12_1_0; }
+		public RuleCall getLogicExpExpressionParserRuleCall_12_1_0() { return cLogicExpExpressionParserRuleCall_12_1_0; }
 
 		//{Expression_aux}
 		public Action getExpression_auxAction_13() { return cExpression_auxAction_13; }
@@ -2483,7 +2483,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Logical_Expression_NR");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final RuleCall cEXCLAMATIONTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Assignment cExclamationAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cExclamationEXCLAMATIONTerminalRuleCall_0_0_0 = (RuleCall)cExclamationAssignment_0_0.eContents().get(0);
 		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
 		private final Assignment cExpressionAssignment_0_1_0 = (Assignment)cAlternatives_0_1.eContents().get(0);
 		private final RuleCall cExpressionExpressionParserRuleCall_0_1_0_0 = (RuleCall)cExpressionAssignment_0_1_0.eContents().get(0);
@@ -2503,19 +2504,22 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFalseFALSETerminalRuleCall_3_0 = (RuleCall)cFalseAssignment_3.eContents().get(0);
 		
 		//Logical_Expression_NR:
-		//	EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN) | LPAREN expression=Expression RPAREN |
-		//	true=TRUE | false=FALSE;
+		//	exclamation=EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN) | LPAREN expression=Expression
+		//	RPAREN | true=TRUE | false=FALSE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN) | LPAREN expression=Expression RPAREN |
-		//true=TRUE | false=FALSE
+		//exclamation=EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN) | LPAREN expression=Expression
+		//RPAREN | true=TRUE | false=FALSE
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN)
+		//exclamation=EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN)
 		public Group getGroup_0() { return cGroup_0; }
 
+		//exclamation=EXCLAMATION
+		public Assignment getExclamationAssignment_0_0() { return cExclamationAssignment_0_0; }
+
 		//EXCLAMATION
-		public RuleCall getEXCLAMATIONTerminalRuleCall_0_0() { return cEXCLAMATIONTerminalRuleCall_0_0; }
+		public RuleCall getExclamationEXCLAMATIONTerminalRuleCall_0_0_0() { return cExclamationEXCLAMATIONTerminalRuleCall_0_0_0; }
 
 		//expression=Expression | LPAREN expression=Expression RPAREN
 		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
@@ -3712,7 +3716,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	(logicalSign=(OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL) | ampersand=Ampersand_Rule)
 	//	exp1=Expression aux=Expression_aux | WAT exp1=Expression COLON exp2=Expression aux=Expression_aux | stringSign=("+" |
 	//	PLUS_EQUAL) exp1=Expression aux=Expression_aux | bitSign=(R_SHIFT_EQUAL | L_SHIFT | R_SHIFT | SUPER_SHIFT)
-	//	expressionBit=Expression aux=Expression_aux | logicOp=(OR_LOGIC | AND) exp1=Expression | {Expression_aux};
+	//	expressionBit=Expression aux=Expression_aux | logicOp=(OR_LOGIC | AND) logicExp=Expression | {Expression_aux};
 	public Expression_auxElements getExpression_auxAccess() {
 		return pExpression_aux;
 	}
@@ -3988,8 +3992,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//Logical_Expression_NR:
-	//	EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN) | LPAREN expression=Expression RPAREN |
-	//	true=TRUE | false=FALSE;
+	//	exclamation=EXCLAMATION (expression=Expression | LPAREN expression=Expression RPAREN) | LPAREN expression=Expression
+	//	RPAREN | true=TRUE | false=FALSE;
 	public Logical_Expression_NRElements getLogical_Expression_NRAccess() {
 		return pLogical_Expression_NR;
 	}

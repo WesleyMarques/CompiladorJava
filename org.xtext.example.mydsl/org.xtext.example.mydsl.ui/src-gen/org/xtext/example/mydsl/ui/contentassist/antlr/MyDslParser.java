@@ -309,7 +309,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpression_auxAccess().getExpressionBitAssignment_11_1(), "rule__Expression_aux__ExpressionBitAssignment_11_1");
 					put(grammarAccess.getExpression_auxAccess().getAuxAssignment_11_2(), "rule__Expression_aux__AuxAssignment_11_2");
 					put(grammarAccess.getExpression_auxAccess().getLogicOpAssignment_12_0(), "rule__Expression_aux__LogicOpAssignment_12_0");
-					put(grammarAccess.getExpression_auxAccess().getExp1Assignment_12_1(), "rule__Expression_aux__Exp1Assignment_12_1");
+					put(grammarAccess.getExpression_auxAccess().getLogicExpAssignment_12_1(), "rule__Expression_aux__LogicExpAssignment_12_1");
 					put(grammarAccess.getAmpersand_RuleAccess().getA1Assignment_0(), "rule__Ampersand_Rule__A1Assignment_0");
 					put(grammarAccess.getAmpersand_RuleAccess().getA2Assignment_1_0(), "rule__Ampersand_Rule__A2Assignment_1_0");
 					put(grammarAccess.getFloat_LiteralAccess().getDecimalDigits1Assignment_0(), "rule__Float_Literal__DecimalDigits1Assignment_0");
@@ -329,6 +329,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCast_ExpressionAccess().getTypeAssignment_1(), "rule__Cast_Expression__TypeAssignment_1");
 					put(grammarAccess.getCast_ExpressionAccess().getExpressionAssignment_3(), "rule__Cast_Expression__ExpressionAssignment_3");
 					put(grammarAccess.getBit_Expression_NRAccess().getExpressionAssignment_1(), "rule__Bit_Expression_NR__ExpressionAssignment_1");
+					put(grammarAccess.getLogical_Expression_NRAccess().getExclamationAssignment_0_0(), "rule__Logical_Expression_NR__ExclamationAssignment_0_0");
 					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_0_1_0(), "rule__Logical_Expression_NR__ExpressionAssignment_0_1_0");
 					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_0_1_1_1(), "rule__Logical_Expression_NR__ExpressionAssignment_0_1_1_1");
 					put(grammarAccess.getLogical_Expression_NRAccess().getExpressionAssignment_1_1(), "rule__Logical_Expression_NR__ExpressionAssignment_1_1");

@@ -416,7 +416,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (expression=Expression | expression=Expression | expression=Expression | true=TRUE | false=FALSE)
+	 *     ((exclamation=EXCLAMATION (expression=Expression | expression=Expression)) | expression=Expression | true=TRUE | false=FALSE)
 	 */
 	protected void sequence_Logical_Expression_NR(EObject context, Logical_Expression_NR semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -54,8 +54,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if(ruleCall.getRule() == grammarAccess.getCOLONRule())
 			return getCOLONToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getEXCLAMATIONRule())
-			return getEXCLAMATIONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getEXTENDSRule())
 			return getEXTENDSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINSTANCEOFRule())
@@ -90,17 +88,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ":";
-	}
-	
-	/**
-	 * terminal EXCLAMATION:
-	 * 	"!"
-	 * ;
-	 */
-	protected String getEXCLAMATIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "!";
 	}
 	
 	/**

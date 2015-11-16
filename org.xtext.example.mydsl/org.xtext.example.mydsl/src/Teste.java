@@ -1,9 +1,9 @@
 abstract class Teste {
 
-	private transient static int teste = 0;
+	public static void main(String[] args) {
+		while (true) {
 
-	
-	
+		}
+	}
 
-	
 }

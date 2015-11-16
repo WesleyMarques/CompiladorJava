@@ -10,7 +10,6 @@ import java.util.Map
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.validation.Check
 import org.xtex.example.mydsl.exceptions.MyDslException
-import org.xtext.example.mydsl.myDsl.Arg_List
 import org.xtext.example.mydsl.myDsl.Class_declaration
 import org.xtext.example.mydsl.myDsl.Expression
 import org.xtext.example.mydsl.myDsl.Expression_aux
@@ -20,10 +19,10 @@ import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declaration
-import org.xtext.example.mydsl.myDsl.Variable_declarator
 import org.xtext.example.mydsl.myDsl.While_Statement
 import org.xtext.example.mydsl.validation.utils.ConstructorObj
 import org.xtext.example.mydsl.validation.utils.ContructorValidate
+import org.xtext.example.mydsl.validation.utils.ExpressionValidate
 import org.xtext.example.mydsl.validation.utils.MethodObj
 import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
@@ -70,6 +69,17 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	}
 
+	@Check
+	def validExpression(Expression exp) {
+		var ExpressionValidate ev = new ExpressionValidate();
+		try {
+			ev.validate(exp);
+
+		}catch(Exception e){
+			error(e.message, exp, MyDslPackage.Literals.EXPRESSION);
+		}
+	}
+
 	def validaMethods(EList<Field_declaration> list) {
 		var MethodValidate mv = new MethodValidate();
 		try {
@@ -112,7 +122,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 		} else if (fieldType.equals(CONSTRUCTOR)) {
 			validaContructor(declaration);
 		} else if (fieldType.equals(VARIABLE)) {
-			//validaVariables(declaration);
+			// validaVariables(declaration);
 		}
 
 	}
@@ -136,72 +146,67 @@ class MyDslValidator extends AbstractMyDslValidator {
 		}
 
 	}
-	
-	
 
-			def validaModifiers(EList<String> list, String type) throws Exception{
-				var ModifiersValidate modValidate = new ModifiersValidate();
-				var String typeName = typeInValidation.get("name");
-				var int size = list.size();
-				var String firstModifier;
-				if (size > 0) {
-					firstModifier = list.get(0);
-				}
-				try {
-					if (type.equals(CLASS)) {
-						modValidate.classValidate(size, firstModifier, typeName, list);
-					} else if (type.equals(INTERFACE)) {
-						modValidate.interfaceValidate(size, firstModifier, typeName, list);
-					}
-
-				} catch (Exception e) {
-					throw e;
-				}
-
-			}
-
-			@Check
-			def checkMethodDeclaration(Method_declaration md) {
-
-				var ModifiersValidate modValidate = new ModifiersValidate();
-				var EList<String> methodMods = md.modifiersMethod;
-				var int size = methodMods.size();
-				try {
-					modValidate.methodValidate(size, md.nameMethod, methodMods, typeInValidation.get("name"),
-						typeInValidation.get("abstract"), md.statementMethod != null);
-				} catch (Exception e) {
-					error(e.message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-				}
-
-			}
-
-			@Check
-			def variableDeclaration(Variable_declaration vd) {
-				
-			}
-			
-			@Check
-			def validWhile(While_Statement ws){
-				var Expression exp = ws.expression;
-				var Expression_aux aux = exp.aux;
-				if(exp.logicalExpression != null){
-					while(aux.logicalSign != null || exp.logicalExpression != null){
-						exp = aux.exp1;
-						aux = aux.aux;
-						if(aux.logicalSign == null){
-							error("Operando not avalible",aux,MyDslPackage.Literals.EXPRESSION_AUX__LOGICAL_SIGN);
-						}if(exp.logicalExpression != null){
-							error("type not avalible",exp,MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
-						}						
-					}
-					
-				}else{
-					error("parameter of While invalid",exp,MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
-				}
-				
-				
-				
-			}
-			
-
+	def validaModifiers(EList<String> list, String type) throws Exception{
+		var ModifiersValidate modValidate = new ModifiersValidate();
+		var String typeName = typeInValidation.get("name");
+		var int size = list.size();
+		var String firstModifier;
+		if (size > 0) {
+			firstModifier = list.get(0);
 		}
+		try {
+			if (type.equals(CLASS)) {
+				modValidate.classValidate(size, firstModifier, typeName, list);
+			} else if (type.equals(INTERFACE)) {
+				modValidate.interfaceValidate(size, firstModifier, typeName, list);
+			}
+
+		} catch (Exception e) {
+			throw e;
+		}
+
+	}
+
+	@Check
+	def checkMethodDeclaration(Method_declaration md) {
+
+		var ModifiersValidate modValidate = new ModifiersValidate();
+		var EList<String> methodMods = md.modifiersMethod;
+		var int size = methodMods.size();
+		try {
+			modValidate.methodValidate(size, md.nameMethod, methodMods, typeInValidation.get("name"),
+				typeInValidation.get("abstract"), md.statementMethod != null);
+		} catch (Exception e) {
+			error(e.message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+		}
+
+	}
+
+	@Check
+	def variableDeclaration(Variable_declaration vd) {
+	}
+
+	@Check
+	def validWhile(While_Statement ws) {
+		var Expression exp = ws.expression;
+		var Expression_aux aux = exp.aux;
+		if (exp.logicalExpression != null) {
+			while (aux.logicalSign != null || exp.logicalExpression != null) {
+				exp = aux.exp1;
+				aux = aux.aux;
+				if (aux.logicalSign == null) {
+					error("Operando not avalible", aux, MyDslPackage.Literals.EXPRESSION_AUX__LOGICAL_SIGN);
+				}
+				if (exp.logicalExpression != null) {
+					error("type not avalible", exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+				}
+			}
+
+		} else {
+			error("parameter of While invalid", exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+		}
+
+	}
+
+}

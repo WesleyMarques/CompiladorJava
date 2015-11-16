@@ -156,6 +156,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Expression_aux/bitSign"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression_aux/expressionBit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Expression_aux/logicOp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression_aux/logicExp"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Ampersand_Rule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Ampersand_Rule/a1"/>
@@ -188,6 +189,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Bit_Expression_NR/expression"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Logical_Expression_NR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Logical_Expression_NR/exclamation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Logical_Expression_NR/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Logical_Expression_NR/true"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Logical_Expression_NR/false"/>

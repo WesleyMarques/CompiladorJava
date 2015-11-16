@@ -204,7 +204,7 @@ Expression_aux :
 	 |(WAT exp1=Expression COLON exp2=Expression aux=Expression_aux)
 	 |(stringSign=("+" | PLUS_EQUAL) exp1=Expression aux=Expression_aux)
 	 |(bitSign=( R_SHIFT_EQUAL | L_SHIFT | R_SHIFT | SUPER_SHIFT ) expressionBit=Expression aux=Expression_aux)
-	 | logicOp = (OR_LOGIC | AND) exp1 = Expression
+	 | logicOp = (OR_LOGIC | AND) logicExp = Expression
 	 | {Expression_aux}
 ;
 

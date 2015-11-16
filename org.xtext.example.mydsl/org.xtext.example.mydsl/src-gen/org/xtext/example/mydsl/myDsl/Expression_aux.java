@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getBitSign <em>Bit Sign</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getExpressionBit <em>Expression Bit</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicOp <em>Logic Op</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicExp <em>Logic Exp</em>}</li>
  * </ul>
  * </p>
  *
@@ -452,5 +453,31 @@ public interface Expression_aux extends EObject
    * @generated
    */
   void setLogicOp(String value);
+
+  /**
+   * Returns the value of the '<em><b>Logic Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Logic Exp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Logic Exp</em>' containment reference.
+   * @see #setLogicExp(Expression)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExpression_aux_LogicExp()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getLogicExp();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicExp <em>Logic Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Logic Exp</em>' containment reference.
+   * @see #getLogicExp()
+   * @generated
+   */
+  void setLogicExp(Expression value);
 
 } // Expression_aux

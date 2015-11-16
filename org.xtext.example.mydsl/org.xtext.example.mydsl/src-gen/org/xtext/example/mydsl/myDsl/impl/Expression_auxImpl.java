@@ -40,6 +40,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getBitSign <em>Bit Sign</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getExpressionBit <em>Expression Bit</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getLogicOp <em>Logic Op</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getLogicExp <em>Logic Exp</em>}</li>
  * </ul>
  * </p>
  *
@@ -286,6 +287,16 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String logicOp = LOGIC_OP_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLogicExp() <em>Logic Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLogicExp()
+   * @generated
+   * @ordered
+   */
+  protected Expression logicExp;
 
   /**
    * <!-- begin-user-doc -->
@@ -881,6 +892,54 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression getLogicExp()
+  {
+    return logicExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLogicExp(Expression newLogicExp, NotificationChain msgs)
+  {
+    Expression oldLogicExp = logicExp;
+    logicExp = newLogicExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPRESSION_AUX__LOGIC_EXP, oldLogicExp, newLogicExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLogicExp(Expression newLogicExp)
+  {
+    if (newLogicExp != logicExp)
+    {
+      NotificationChain msgs = null;
+      if (logicExp != null)
+        msgs = ((InternalEObject)logicExp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPRESSION_AUX__LOGIC_EXP, null, msgs);
+      if (newLogicExp != null)
+        msgs = ((InternalEObject)newLogicExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPRESSION_AUX__LOGIC_EXP, null, msgs);
+      msgs = basicSetLogicExp(newLogicExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPRESSION_AUX__LOGIC_EXP, newLogicExp, newLogicExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -902,6 +961,8 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return basicSetAmpersand(null, msgs);
       case MyDslPackage.EXPRESSION_AUX__EXPRESSION_BIT:
         return basicSetExpressionBit(null, msgs);
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_EXP:
+        return basicSetLogicExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -948,6 +1009,8 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return getExpressionBit();
       case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
         return getLogicOp();
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_EXP:
+        return getLogicExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -1009,6 +1072,9 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return;
       case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
         setLogicOp((String)newValue);
+        return;
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_EXP:
+        setLogicExp((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -1072,6 +1138,9 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
       case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
         setLogicOp(LOGIC_OP_EDEFAULT);
         return;
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_EXP:
+        setLogicExp((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -1118,6 +1187,8 @@ public class Expression_auxImpl extends MinimalEObjectImpl.Container implements 
         return expressionBit != null;
       case MyDslPackage.EXPRESSION_AUX__LOGIC_OP:
         return LOGIC_OP_EDEFAULT == null ? logicOp != null : !LOGIC_OP_EDEFAULT.equals(logicOp);
+      case MyDslPackage.EXPRESSION_AUX__LOGIC_EXP:
+        return logicExp != null;
     }
     return super.eIsSet(featureID);
   }

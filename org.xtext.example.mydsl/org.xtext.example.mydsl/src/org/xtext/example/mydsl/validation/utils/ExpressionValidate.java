@@ -7,20 +7,23 @@ public class ExpressionValidate {
 	
 	private Expression exp;
 
-	public void validate(Expression exp){
+	public void validate(Expression exp) throws Exception{
 		this.exp = exp;
 		if (exp.getLogicalExpression() != null) {
-			validExp("logical");
+			if(!validExp("logical")){
+				throw new Exception("Expression not well formed");
+			}
+		}else{
+			
 		}
 		
 	}
 	
-	private String validExp(String type){
+	private boolean validExp(String type){
 		
 		switch (type) {
 		case "logical":
-			validateLogical(exp);			
-			break;
+			return validateLogical(exp);			
 
 		default:
 			break;
@@ -28,7 +31,7 @@ public class ExpressionValidate {
 		
 		
 		
-		return null;
+		return false;
 	}
 
 	private boolean validateLogical(Expression exp) {
@@ -37,13 +40,16 @@ public class ExpressionValidate {
 			return false;
 		}else{
 			if(exp.getLogicalExpression().getExpression() != null){
-				return validateLogical(exp.getLogicalExpression().getExpression());
+				ans = validateLogical(exp.getLogicalExpression().getExpression());
 			}			
 		}
 		if(exp.getAux() != null){
-			
+			if(exp.getAux().getLogicExp() != null){
+				return ans && validateLogical(exp.getAux().getLogicExp());
+			}else{
+				return false;
+			}
 		}
-		
 		return ans;
 		
 	}

@@ -3810,16 +3810,16 @@ ruleExpression_aux returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExpression_auxAccess().getExp1ExpressionParserRuleCall_12_1_0()); 
+	        newCompositeNode(grammarAccess.getExpression_auxAccess().getLogicExpExpressionParserRuleCall_12_1_0()); 
 	    }
-		lv_exp1_41_0=ruleExpression		{
+		lv_logicExp_41_0=ruleExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExpression_auxRule());
 	        }
        		set(
        			$current, 
-       			"exp1",
-        		lv_exp1_41_0, 
+       			"logicExp",
+        		lv_logicExp_41_0, 
         		"Expression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -4405,11 +4405,25 @@ ruleLogical_Expression_NR returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((this_EXCLAMATION_0=RULE_EXCLAMATION
-    { 
-    newLeafNode(this_EXCLAMATION_0, grammarAccess.getLogical_Expression_NRAccess().getEXCLAMATIONTerminalRuleCall_0_0()); 
-    }
-((
+(((
+(
+		lv_exclamation_0_0=RULE_EXCLAMATION
+		{
+			newLeafNode(lv_exclamation_0_0, grammarAccess.getLogical_Expression_NRAccess().getExclamationEXCLAMATIONTerminalRuleCall_0_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLogical_Expression_NRRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"exclamation",
+        		lv_exclamation_0_0, 
+        		"EXCLAMATION");
+	    }
+
+)
+)((
 (
 		{ 
 	        newCompositeNode(grammarAccess.getLogical_Expression_NRAccess().getExpressionExpressionParserRuleCall_0_1_0_0()); 

@@ -22,6 +22,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getExclamation <em>Exclamation</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getTrue <em>True</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getFalse <em>False</em>}</li>
@@ -32,6 +33,26 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  */
 public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container implements Logical_Expression_NR
 {
+  /**
+   * The default value of the '{@link #getExclamation() <em>Exclamation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExclamation()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXCLAMATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExclamation() <em>Exclamation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExclamation()
+   * @generated
+   * @ordered
+   */
+  protected String exclamation = EXCLAMATION_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -101,6 +122,29 @@ public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container impl
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.LOGICAL_EXPRESSION_NR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getExclamation()
+  {
+    return exclamation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExclamation(String newExclamation)
+  {
+    String oldExclamation = exclamation;
+    exclamation = newExclamation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LOGICAL_EXPRESSION_NR__EXCLAMATION, oldExclamation, exclamation));
   }
 
   /**
@@ -223,6 +267,8 @@ public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case MyDslPackage.LOGICAL_EXPRESSION_NR__EXCLAMATION:
+        return getExclamation();
       case MyDslPackage.LOGICAL_EXPRESSION_NR__EXPRESSION:
         return getExpression();
       case MyDslPackage.LOGICAL_EXPRESSION_NR__TRUE:
@@ -243,6 +289,9 @@ public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case MyDslPackage.LOGICAL_EXPRESSION_NR__EXCLAMATION:
+        setExclamation((String)newValue);
+        return;
       case MyDslPackage.LOGICAL_EXPRESSION_NR__EXPRESSION:
         setExpression((Expression)newValue);
         return;
@@ -266,6 +315,9 @@ public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case MyDslPackage.LOGICAL_EXPRESSION_NR__EXCLAMATION:
+        setExclamation(EXCLAMATION_EDEFAULT);
+        return;
       case MyDslPackage.LOGICAL_EXPRESSION_NR__EXPRESSION:
         setExpression((Expression)null);
         return;
@@ -289,6 +341,8 @@ public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case MyDslPackage.LOGICAL_EXPRESSION_NR__EXCLAMATION:
+        return EXCLAMATION_EDEFAULT == null ? exclamation != null : !EXCLAMATION_EDEFAULT.equals(exclamation);
       case MyDslPackage.LOGICAL_EXPRESSION_NR__EXPRESSION:
         return expression != null;
       case MyDslPackage.LOGICAL_EXPRESSION_NR__TRUE:
@@ -310,7 +364,9 @@ public class Logical_Expression_NRImpl extends MinimalEObjectImpl.Container impl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (true: ");
+    result.append(" (exclamation: ");
+    result.append(exclamation);
+    result.append(", true: ");
     result.append(true_);
     result.append(", false: ");
     result.append(false_);

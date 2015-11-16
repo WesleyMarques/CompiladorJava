@@ -105,6 +105,12 @@ public class MyDslValidator extends AbstractMyDslValidator {
     return _xifexpression;
   }
   
+  @Check
+  public void validExpression(final Expression exp) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from EClass to EStructuralFeature");
+  }
+  
   public Map<String, List<MethodObj>> validaMethods(final EList<Field_declaration> list) {
     Map<String, List<MethodObj>> _xblockexpression = null;
     {

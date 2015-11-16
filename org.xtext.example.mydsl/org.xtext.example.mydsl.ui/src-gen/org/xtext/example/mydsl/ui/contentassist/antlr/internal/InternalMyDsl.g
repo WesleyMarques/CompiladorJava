@@ -8665,9 +8665,9 @@ rule__Expression_aux__Group_12__1__Impl
     }
 :
 (
-{ before(grammarAccess.getExpression_auxAccess().getExp1Assignment_12_1()); }
-(rule__Expression_aux__Exp1Assignment_12_1)
-{ after(grammarAccess.getExpression_auxAccess().getExp1Assignment_12_1()); }
+{ before(grammarAccess.getExpression_auxAccess().getLogicExpAssignment_12_1()); }
+(rule__Expression_aux__LogicExpAssignment_12_1)
+{ after(grammarAccess.getExpression_auxAccess().getLogicExpAssignment_12_1()); }
 )
 
 ;
@@ -9750,9 +9750,9 @@ rule__Logical_Expression_NR__Group_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getLogical_Expression_NRAccess().getEXCLAMATIONTerminalRuleCall_0_0()); }
-	RULE_EXCLAMATION
-{ after(grammarAccess.getLogical_Expression_NRAccess().getEXCLAMATIONTerminalRuleCall_0_0()); }
+{ before(grammarAccess.getLogical_Expression_NRAccess().getExclamationAssignment_0_0()); }
+(rule__Logical_Expression_NR__ExclamationAssignment_0_0)
+{ after(grammarAccess.getLogical_Expression_NRAccess().getExclamationAssignment_0_0()); }
 )
 
 ;
@@ -14001,14 +14001,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Expression_aux__Exp1Assignment_12_1
+rule__Expression_aux__LogicExpAssignment_12_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getExpression_auxAccess().getExp1ExpressionParserRuleCall_12_1_0()); }
-	ruleExpression{ after(grammarAccess.getExpression_auxAccess().getExp1ExpressionParserRuleCall_12_1_0()); }
+{ before(grammarAccess.getExpression_auxAccess().getLogicExpExpressionParserRuleCall_12_1_0()); }
+	ruleExpression{ after(grammarAccess.getExpression_auxAccess().getLogicExpExpressionParserRuleCall_12_1_0()); }
 )
 
 ;
@@ -14294,6 +14294,21 @@ rule__Bit_Expression_NR__ExpressionAssignment_1
 (
 { before(grammarAccess.getBit_Expression_NRAccess().getExpressionExpressionParserRuleCall_1_0()); }
 	ruleExpression{ after(grammarAccess.getBit_Expression_NRAccess().getExpressionExpressionParserRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Logical_Expression_NR__ExclamationAssignment_0_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLogical_Expression_NRAccess().getExclamationEXCLAMATIONTerminalRuleCall_0_0_0()); }
+	RULE_EXCLAMATION{ after(grammarAccess.getLogical_Expression_NRAccess().getExclamationEXCLAMATIONTerminalRuleCall_0_0_0()); }
 )
 
 ;

@@ -1564,13 +1564,22 @@ public interface MyDslPackage extends EPackage
   int EXPRESSION_AUX__LOGIC_OP = 15;
 
   /**
+   * The feature id for the '<em><b>Logic Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_AUX__LOGIC_EXP = 16;
+
+  /**
    * The number of structural features of the '<em>Expression aux</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_AUX_FEATURE_COUNT = 16;
+  int EXPRESSION_AUX_FEATURE_COUNT = 17;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl <em>Ampersand Rule</em>}' class.
@@ -1859,13 +1868,22 @@ public interface MyDslPackage extends EPackage
   int LOGICAL_EXPRESSION_NR = 28;
 
   /**
+   * The feature id for the '<em><b>Exclamation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_EXPRESSION_NR__EXCLAMATION = 0;
+
+  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGICAL_EXPRESSION_NR__EXPRESSION = 0;
+  int LOGICAL_EXPRESSION_NR__EXPRESSION = 1;
 
   /**
    * The feature id for the '<em><b>True</b></em>' attribute.
@@ -1874,7 +1892,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL_EXPRESSION_NR__TRUE = 1;
+  int LOGICAL_EXPRESSION_NR__TRUE = 2;
 
   /**
    * The feature id for the '<em><b>False</b></em>' attribute.
@@ -1883,7 +1901,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL_EXPRESSION_NR__FALSE = 2;
+  int LOGICAL_EXPRESSION_NR__FALSE = 3;
 
   /**
    * The number of structural features of the '<em>Logical Expression NR</em>' class.
@@ -1892,7 +1910,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL_EXPRESSION_NR_FEATURE_COUNT = 3;
+  int LOGICAL_EXPRESSION_NR_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Arg_ListImpl <em>Arg List</em>}' class.
@@ -3714,6 +3732,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getExpression_aux_LogicOp();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Expression_aux#getLogicExp <em>Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Logic Exp</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Expression_aux#getLogicExp()
+   * @see #getExpression_aux()
+   * @generated
+   */
+  EReference getExpression_aux_LogicExp();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Ampersand_Rule <em>Ampersand Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3980,6 +4009,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getLogical_Expression_NR();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExclamation <em>Exclamation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exclamation</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExclamation()
+   * @see #getLogical_Expression_NR()
+   * @generated
+   */
+  EAttribute getLogical_Expression_NR_Exclamation();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExpression <em>Expression</em>}'.
@@ -5515,6 +5555,14 @@ public interface MyDslPackage extends EPackage
     EAttribute EXPRESSION_AUX__LOGIC_OP = eINSTANCE.getExpression_aux_LogicOp();
 
     /**
+     * The meta object literal for the '<em><b>Logic Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION_AUX__LOGIC_EXP = eINSTANCE.getExpression_aux_LogicExp();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Ampersand_RuleImpl <em>Ampersand Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5727,6 +5775,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass LOGICAL_EXPRESSION_NR = eINSTANCE.getLogical_Expression_NR();
+
+    /**
+     * The meta object literal for the '<em><b>Exclamation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGICAL_EXPRESSION_NR__EXCLAMATION = eINSTANCE.getLogical_Expression_NR_Exclamation();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.

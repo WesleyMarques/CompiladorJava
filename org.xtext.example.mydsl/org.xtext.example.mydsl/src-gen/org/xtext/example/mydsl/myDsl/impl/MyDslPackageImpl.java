@@ -1672,6 +1672,16 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpression_aux_LogicExp()
+  {
+    return (EReference)expression_auxEClass.getEStructuralFeatures().get(16);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAmpersand_Rule()
   {
     return ampersand_RuleEClass;
@@ -1922,9 +1932,19 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getLogical_Expression_NR_Exclamation()
+  {
+    return (EAttribute)logical_Expression_NREClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getLogical_Expression_NR_Expression()
   {
-    return (EReference)logical_Expression_NREClass.getEStructuralFeatures().get(0);
+    return (EReference)logical_Expression_NREClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1934,7 +1954,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EAttribute getLogical_Expression_NR_True()
   {
-    return (EAttribute)logical_Expression_NREClass.getEStructuralFeatures().get(1);
+    return (EAttribute)logical_Expression_NREClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1944,7 +1964,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    */
   public EAttribute getLogical_Expression_NR_False()
   {
-    return (EAttribute)logical_Expression_NREClass.getEStructuralFeatures().get(2);
+    return (EAttribute)logical_Expression_NREClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2506,6 +2526,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEAttribute(expression_auxEClass, EXPRESSION_AUX__BIT_SIGN);
     createEReference(expression_auxEClass, EXPRESSION_AUX__EXPRESSION_BIT);
     createEAttribute(expression_auxEClass, EXPRESSION_AUX__LOGIC_OP);
+    createEReference(expression_auxEClass, EXPRESSION_AUX__LOGIC_EXP);
 
     ampersand_RuleEClass = createEClass(AMPERSAND_RULE);
     createEAttribute(ampersand_RuleEClass, AMPERSAND_RULE__A1);
@@ -2538,6 +2559,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(bit_Expression_NREClass, BIT_EXPRESSION_NR__EXPRESSION);
 
     logical_Expression_NREClass = createEClass(LOGICAL_EXPRESSION_NR);
+    createEAttribute(logical_Expression_NREClass, LOGICAL_EXPRESSION_NR__EXCLAMATION);
     createEReference(logical_Expression_NREClass, LOGICAL_EXPRESSION_NR__EXPRESSION);
     createEAttribute(logical_Expression_NREClass, LOGICAL_EXPRESSION_NR__TRUE);
     createEAttribute(logical_Expression_NREClass, LOGICAL_EXPRESSION_NR__FALSE);
@@ -2771,6 +2793,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEAttribute(getExpression_aux_BitSign(), ecorePackage.getEString(), "bitSign", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_aux_ExpressionBit(), this.getExpression(), null, "expressionBit", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_aux_LogicOp(), ecorePackage.getEString(), "logicOp", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_aux_LogicExp(), this.getExpression(), null, "logicExp", null, 0, 1, Expression_aux.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ampersand_RuleEClass, Ampersand_Rule.class, "Ampersand_Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAmpersand_Rule_A1(), ecorePackage.getEString(), "a1", null, 0, 1, Ampersand_Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2803,6 +2826,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getBit_Expression_NR_Expression(), this.getExpression(), null, "expression", null, 0, 1, Bit_Expression_NR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logical_Expression_NREClass, Logical_Expression_NR.class, "Logical_Expression_NR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLogical_Expression_NR_Exclamation(), ecorePackage.getEString(), "exclamation", null, 0, 1, Logical_Expression_NR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLogical_Expression_NR_Expression(), this.getExpression(), null, "expression", null, 0, 1, Logical_Expression_NR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLogical_Expression_NR_True(), ecorePackage.getEString(), "true", null, 0, 1, Logical_Expression_NR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLogical_Expression_NR_False(), ecorePackage.getEString(), "false", null, 0, 1, Logical_Expression_NR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
