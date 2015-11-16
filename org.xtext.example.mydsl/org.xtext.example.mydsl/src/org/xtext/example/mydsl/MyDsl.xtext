@@ -60,7 +60,7 @@ Constructor_declaration:
 	(modifiersConstructor += Modifier*) nameConstructor = ID 
 	lParen = LPAREN (parameterListConstructor = Parameter_list)? rparent = RPAREN(statementConstructor = Statement_block)
 ;
-
+	
 Parameter_list:
 	parameter = Parameter ("," parameters += Parameter)*
 ;

@@ -41,11 +41,17 @@ public class ExpressionValidate {
 		}else{
 			if(exp.getLogicalExpression().getExpression() != null){
 				ans = validateLogical(exp.getLogicalExpression().getExpression());
-			}			
+			}else if(exp.getLogicalExpression().getFalse() != null || exp.getLogicalExpression().getTrue() != null){			
+				ans = true;
+			}else{
+				return false;
+			}
 		}
 		if(exp.getAux() != null){
-			if(exp.getAux().getLogicExp() != null){
+			if(exp.getAux().getLogicOp() != null && exp.getAux().getLogicExp() != null){
 				return ans && validateLogical(exp.getAux().getLogicExp());
+			}else if(exp.getAux().getLogicOp() == null && exp.getAux().getLogicExp() == null){
+				return ans && true;
 			}else{
 				return false;
 			}

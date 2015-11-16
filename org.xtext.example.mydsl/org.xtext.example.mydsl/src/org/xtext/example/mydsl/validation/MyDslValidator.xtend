@@ -76,7 +76,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 			ev.validate(exp);
 
 		}catch(Exception e){
-			error(e.message, exp, MyDslPackage.Literals.EXPRESSION);
+			error(e.message, exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
 		}
 	}
 

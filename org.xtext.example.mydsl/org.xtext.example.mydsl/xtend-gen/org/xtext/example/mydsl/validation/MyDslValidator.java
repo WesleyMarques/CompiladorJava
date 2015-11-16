@@ -28,6 +28,7 @@ import org.xtext.example.mydsl.myDsl.While_Statement;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
 import org.xtext.example.mydsl.validation.utils.ContructorValidate;
+import org.xtext.example.mydsl.validation.utils.ExpressionValidate;
 import org.xtext.example.mydsl.validation.utils.MethodObj;
 import org.xtext.example.mydsl.validation.utils.MethodValidate;
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate;
@@ -107,8 +108,18 @@ public class MyDslValidator extends AbstractMyDslValidator {
   
   @Check
   public void validExpression(final Expression exp) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from EClass to EStructuralFeature");
+    ExpressionValidate ev = new ExpressionValidate();
+    try {
+      ev.validate(exp);
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        String _message = e.getMessage();
+        this.error(_message, exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
   }
   
   public Map<String, List<MethodObj>> validaMethods(final EList<Field_declaration> list) {
