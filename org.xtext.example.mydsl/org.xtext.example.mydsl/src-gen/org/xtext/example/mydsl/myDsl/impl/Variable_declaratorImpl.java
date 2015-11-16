@@ -2,14 +2,20 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
@@ -23,6 +29,7 @@ import org.xtext.example.mydsl.myDsl.Variable_initializer;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declaratorImpl#getNameVariable <em>Name Variable</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declaratorImpl#getLenVector <em>Len Vector</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declaratorImpl#getVari <em>Vari</em>}</li>
  * </ul>
  * </p>
@@ -50,6 +57,16 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected String nameVariable = NAME_VARIABLE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLenVector() <em>Len Vector</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLenVector()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> lenVector;
 
   /**
    * The cached value of the '{@link #getVari() <em>Vari</em>}' containment reference.
@@ -103,6 +120,20 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
     nameVariable = newNameVariable;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARIABLE_DECLARATOR__NAME_VARIABLE, oldNameVariable, nameVariable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getLenVector()
+  {
+    if (lenVector == null)
+    {
+      lenVector = new EDataTypeEList<String>(String.class, this, MyDslPackage.VARIABLE_DECLARATOR__LEN_VECTOR);
+    }
+    return lenVector;
   }
 
   /**
@@ -181,6 +212,8 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
     {
       case MyDslPackage.VARIABLE_DECLARATOR__NAME_VARIABLE:
         return getNameVariable();
+      case MyDslPackage.VARIABLE_DECLARATOR__LEN_VECTOR:
+        return getLenVector();
       case MyDslPackage.VARIABLE_DECLARATOR__VARI:
         return getVari();
     }
@@ -192,6 +225,7 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -199,6 +233,10 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
     {
       case MyDslPackage.VARIABLE_DECLARATOR__NAME_VARIABLE:
         setNameVariable((String)newValue);
+        return;
+      case MyDslPackage.VARIABLE_DECLARATOR__LEN_VECTOR:
+        getLenVector().clear();
+        getLenVector().addAll((Collection<? extends String>)newValue);
         return;
       case MyDslPackage.VARIABLE_DECLARATOR__VARI:
         setVari((Variable_initializer)newValue);
@@ -220,6 +258,9 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
       case MyDslPackage.VARIABLE_DECLARATOR__NAME_VARIABLE:
         setNameVariable(NAME_VARIABLE_EDEFAULT);
         return;
+      case MyDslPackage.VARIABLE_DECLARATOR__LEN_VECTOR:
+        getLenVector().clear();
+        return;
       case MyDslPackage.VARIABLE_DECLARATOR__VARI:
         setVari((Variable_initializer)null);
         return;
@@ -239,6 +280,8 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
     {
       case MyDslPackage.VARIABLE_DECLARATOR__NAME_VARIABLE:
         return NAME_VARIABLE_EDEFAULT == null ? nameVariable != null : !NAME_VARIABLE_EDEFAULT.equals(nameVariable);
+      case MyDslPackage.VARIABLE_DECLARATOR__LEN_VECTOR:
+        return lenVector != null && !lenVector.isEmpty();
       case MyDslPackage.VARIABLE_DECLARATOR__VARI:
         return vari != null;
     }
@@ -258,6 +301,8 @@ public class Variable_declaratorImpl extends MinimalEObjectImpl.Container implem
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (nameVariable: ");
     result.append(nameVariable);
+    result.append(", lenVector: ");
+    result.append(lenVector);
     result.append(')');
     return result.toString();
   }

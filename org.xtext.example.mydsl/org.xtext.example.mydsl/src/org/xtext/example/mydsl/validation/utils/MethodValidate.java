@@ -10,6 +10,7 @@ import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.Parameter;
 import org.xtext.example.mydsl.myDsl.Statement;
+import org.xtext.example.mydsl.myDsl.Variable_declarator;
 
 public class MethodValidate {
 
@@ -29,7 +30,20 @@ public class MethodValidate {
 				List<Statement> stm = md.getStatementMethod().getStatments();
 				for ( Statement actualStatement : stm) {
 					if(actualStatement.getVariableDeclaration() != null){
-						newMethod.setFields(actualStatement.getVariableDeclaration());
+						Variable variable = null;
+						try{
+							variable = new Variable(actualStatement.getVariableDeclaration());
+						}catch(Exception e){						
+							excep = new MyDslException("Variable declaration error");
+							excep.setNodeError(actualStatement.getVariableDeclaration());
+						}
+						newMethod.setFields(variable);
+						if(variable.getCountNames() > 0){
+							for (Variable_declarator varDecl : actualStatement.getVariableDeclaration().getNames()) {
+								variable.setName(varDecl.getNameVariable());
+								newMethod.setFields(variable);
+							}
+						}
 					}
 				}
 				if (!allMethods.containsKey(md.getNameMethod())) {

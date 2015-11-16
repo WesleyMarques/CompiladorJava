@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.xtext.example.mydsl.myDsl.Method_declaration;
-import org.xtext.example.mydsl.myDsl.Variable_declaration;
 
 public class MethodObj {
 	
@@ -13,7 +12,7 @@ public class MethodObj {
 	private List<String> parameters;
 	private boolean isAbstract;
 	private Method_declaration md;
-	private List<Variable_declaration> fields;
+	private List<Variable> fields;
 	
 	
 	public MethodObj(String name, String returnType, List<String> parameters, boolean isAbstract, Method_declaration md) {
@@ -22,15 +21,15 @@ public class MethodObj {
 		this.parameters = parameters;
 		this.isAbstract= isAbstract;
 		this.md = md;
-		this.fields = new ArrayList<Variable_declaration>();
+		this.fields = new ArrayList<Variable>();
 		
 	}
 	
-	public List<Variable_declaration> getFields() {
+	public List<Variable> getFields() {
 		return fields;
 	}
 
-	public void setFields(Variable_declaration fields) {
+	public void setFields(Variable fields) {
 		this.fields.add(fields);
 	}
 	

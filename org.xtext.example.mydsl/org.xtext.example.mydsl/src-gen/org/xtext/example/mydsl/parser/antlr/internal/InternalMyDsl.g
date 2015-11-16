@@ -1248,20 +1248,42 @@ ruleVariable_declarator returns [EObject current=null]
 	    }
 
 )
-)((	otherlv_1='[' 
+)(((
+(
+		lv_lenVector_1_0=	'[' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketKeyword_1_0_0());
+        newLeafNode(lv_lenVector_1_0, grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketKeyword_1_0_0_0());
     }
-	otherlv_2=']' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getVariable_declaratorRule());
+	        }
+       		addWithLastConsumed($current, "lenVector", lv_lenVector_1_0, "[");
+	    }
+
+)
+)	otherlv_2=']' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getVariable_declaratorAccess().getRightSquareBracketKeyword_1_0_1());
     }
 )
-    |	otherlv_3='[]' 
+    |(
+(
+		lv_lenVector_3_0=	'[]' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketRightSquareBracketKeyword_1_1());
+        newLeafNode(lv_lenVector_3_0, grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0());
     }
-)*(	otherlv_4='=' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getVariable_declaratorRule());
+	        }
+       		addWithLastConsumed($current, "lenVector", lv_lenVector_3_0, "[]");
+	    }
+
+)
+))*(	otherlv_4='=' 
     {
     	newLeafNode(otherlv_4, grammarAccess.getVariable_declaratorAccess().getEqualsSignKeyword_2_0());
     }

@@ -602,7 +602,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (nameVariable=ID vari=Variable_initializer?)
+	 *     (nameVariable=ID (lenVector+='[' | lenVector+='[]')* vari=Variable_initializer?)
 	 */
 	protected void sequence_Variable_declarator(EObject context, Variable_declarator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

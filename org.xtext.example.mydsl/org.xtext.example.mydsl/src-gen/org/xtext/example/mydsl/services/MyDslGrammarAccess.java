@@ -677,19 +677,21 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameVariableIDTerminalRuleCall_0_0 = (RuleCall)cNameVariableAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Assignment cLenVectorAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final Keyword cLenVectorLeftSquareBracketKeyword_1_0_0_0 = (Keyword)cLenVectorAssignment_1_0_0.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Keyword cLeftSquareBracketRightSquareBracketKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Assignment cLenVectorAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final Keyword cLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0 = (Keyword)cLenVectorAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cEqualsSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cVariAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cVariVariable_initializerParserRuleCall_2_1_0 = (RuleCall)cVariAssignment_2_1.eContents().get(0);
 		
 		//Variable_declarator:
-		//	nameVariable=ID ("[" "]" | "[]")* ("=" vari=Variable_initializer)?;
+		//	nameVariable=ID (lenVector+="[" "]" | lenVector+="[]")* ("=" vari=Variable_initializer)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//nameVariable=ID ("[" "]" | "[]")* ("=" vari=Variable_initializer)?
+		//nameVariable=ID (lenVector+="[" "]" | lenVector+="[]")* ("=" vari=Variable_initializer)?
 		public Group getGroup() { return cGroup; }
 
 		//nameVariable=ID
@@ -698,20 +700,26 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameVariableIDTerminalRuleCall_0_0() { return cNameVariableIDTerminalRuleCall_0_0; }
 
-		//("[" "]" | "[]")*
+		//(lenVector+="[" "]" | lenVector+="[]")*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//"[" "]"
+		//lenVector+="[" "]"
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
+		//lenVector+="["
+		public Assignment getLenVectorAssignment_1_0_0() { return cLenVectorAssignment_1_0_0; }
+
 		//"["
-		public Keyword getLeftSquareBracketKeyword_1_0_0() { return cLeftSquareBracketKeyword_1_0_0; }
+		public Keyword getLenVectorLeftSquareBracketKeyword_1_0_0_0() { return cLenVectorLeftSquareBracketKeyword_1_0_0_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_1_0_1() { return cRightSquareBracketKeyword_1_0_1; }
 
+		//lenVector+="[]"
+		public Assignment getLenVectorAssignment_1_1() { return cLenVectorAssignment_1_1; }
+
 		//"[]"
-		public Keyword getLeftSquareBracketRightSquareBracketKeyword_1_1() { return cLeftSquareBracketRightSquareBracketKeyword_1_1; }
+		public Keyword getLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0() { return cLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0; }
 
 		//("=" vari=Variable_initializer)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -3544,7 +3552,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Variable_declarator:
-	//	nameVariable=ID ("[" "]" | "[]")* ("=" vari=Variable_initializer)?;
+	//	nameVariable=ID (lenVector+="[" "]" | lenVector+="[]")* ("=" vari=Variable_initializer)?;
 	public Variable_declaratorElements getVariable_declaratorAccess() {
 		return pVariable_declarator;
 	}

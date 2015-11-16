@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
+import org.xtext.example.mydsl.myDsl.Variable_declarator;
 import org.xtext.example.mydsl.myDsl.While_Statement;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
@@ -32,6 +33,7 @@ import org.xtext.example.mydsl.validation.utils.ExpressionValidate;
 import org.xtext.example.mydsl.validation.utils.MethodObj;
 import org.xtext.example.mydsl.validation.utils.MethodValidate;
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate;
+import org.xtext.example.mydsl.validation.utils.Variable;
 
 /**
  * This class contains custom validation rules.
@@ -58,12 +60,14 @@ public class MyDslValidator extends AbstractMyDslValidator {
   
   public List<ConstructorObj> constructors = new ArrayList<ConstructorObj>();
   
+  public List<Variable> globalVaribles = new ArrayList<Variable>();
+  
   @Check
   public Object validaTypeDeclaration(final Type_declaration td) {
     Object _xifexpression = null;
     Class_declaration _classDec = td.getClassDec();
     if ((_classDec instanceof Class_declaration)) {
-      Object _xblockexpression = null;
+      String _xblockexpression = null;
       {
         Class_declaration _classDec_1 = td.getClassDec();
         Class_declaration cd = ((Class_declaration) _classDec_1);
@@ -81,7 +85,8 @@ public class MyDslValidator extends AbstractMyDslValidator {
         EList<Field_declaration> _fieldsDeclaration_1 = cd.getFieldsDeclaration();
         this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR);
         EList<Field_declaration> _fieldsDeclaration_2 = cd.getFieldsDeclaration();
-        _xblockexpression = this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE);
+        this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE);
+        _xblockexpression = this.typeInValidation.put("tipo", "class");
       }
       _xifexpression = _xblockexpression;
     } else {
@@ -134,14 +139,21 @@ public class MyDslValidator extends AbstractMyDslValidator {
       } catch (final Throwable _t) {
         if (_t instanceof MyDslException) {
           final MyDslException e = (MyDslException)_t;
-          MethodObj metAux = null;
           List<Object> _nodeError = e.getNodeError();
-          for (final Object methodsError : _nodeError) {
+          if ((_nodeError instanceof Variable_declaration)) {
+            List<Object> _nodeError_1 = e.getNodeError();
+            Variable_declaration vd = ((Variable_declaration) _nodeError_1);
+            String _message = e.getMessage();
+            this.error(_message, vd, MyDslPackage.Literals.VARIABLE_DECLARATION__MODIFIERS_VARIABLE);
+          }
+          MethodObj metAux = null;
+          List<Object> _nodeError_2 = e.getNodeError();
+          for (final Object methodsError : _nodeError_2) {
             {
               metAux = ((MethodObj) methodsError);
-              String _message = e.getMessage();
+              String _message_1 = e.getMessage();
               String _string = metAux.toString();
-              String _plus = (_message + _string);
+              String _plus = (_message_1 + _string);
               String _plus_1 = (_plus + " in Type ");
               String _get_1 = this.typeInValidation.get("name");
               String _plus_2 = (_plus_1 + _get_1);
@@ -207,16 +219,49 @@ public class MyDslValidator extends AbstractMyDslValidator {
       if (_equals_1) {
         _xifexpression_1 = this.validaContructor(declaration);
       } else {
-        Object _xifexpression_2 = null;
         boolean _equals_2 = fieldType.equals(this.VARIABLE);
         if (_equals_2) {
-          _xifexpression_2 = null;
+          this.validaVariables(declaration);
         }
-        _xifexpression_1 = ((List<ConstructorObj>)_xifexpression_2);
       }
       _xifexpression = _xifexpression_1;
     }
     return _xifexpression;
+  }
+  
+  public void validaVariables(final EList<Field_declaration> list) {
+    for (final Field_declaration fd : list) {
+      Variable_declaration _variableDeclaration = fd.getVariableDeclaration();
+      boolean _notEquals = (!Objects.equal(_variableDeclaration, null));
+      if (_notEquals) {
+        Variable variable = null;
+        try {
+          Variable_declaration _variableDeclaration_1 = fd.getVariableDeclaration();
+          Variable _variable = new Variable(_variableDeclaration_1);
+          variable = _variable;
+        } catch (final Throwable _t) {
+          if (_t instanceof Exception) {
+            final Exception e = (Exception)_t;
+          } else {
+            throw Exceptions.sneakyThrow(_t);
+          }
+        }
+        this.globalVaribles.add(variable);
+        int _countNames = variable.getCountNames();
+        boolean _greaterThan = (_countNames > 0);
+        if (_greaterThan) {
+          Variable_declaration _variableDeclaration_2 = fd.getVariableDeclaration();
+          EList<Variable_declarator> _names = _variableDeclaration_2.getNames();
+          for (final Variable_declarator varDecl : _names) {
+            {
+              String _nameVariable = varDecl.getNameVariable();
+              variable.setName(_nameVariable);
+              this.globalVaribles.add(variable);
+            }
+          }
+        }
+      }
+    }
   }
   
   public List<ConstructorObj> validaContructor(final EList<Field_declaration> list) {

@@ -1428,11 +1428,9 @@ rule__Variable_declarator__Alternatives_1
 )
 
     |(
-{ before(grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketRightSquareBracketKeyword_1_1()); }
-
-	'[]' 
-
-{ after(grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketRightSquareBracketKeyword_1_1()); }
+{ before(grammarAccess.getVariable_declaratorAccess().getLenVectorAssignment_1_1()); }
+(rule__Variable_declarator__LenVectorAssignment_1_1)
+{ after(grammarAccess.getVariable_declaratorAccess().getLenVectorAssignment_1_1()); }
 )
 
 ;
@@ -4754,11 +4752,9 @@ rule__Variable_declarator__Group_1_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketKeyword_1_0_0()); }
-
-	'[' 
-
-{ after(grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketKeyword_1_0_0()); }
+{ before(grammarAccess.getVariable_declaratorAccess().getLenVectorAssignment_1_0_0()); }
+(rule__Variable_declarator__LenVectorAssignment_1_0_0)
+{ after(grammarAccess.getVariable_declaratorAccess().getLenVectorAssignment_1_0_0()); }
 )
 
 ;
@@ -12642,6 +12638,52 @@ rule__Variable_declarator__NameVariableAssignment_0
 (
 { before(grammarAccess.getVariable_declaratorAccess().getNameVariableIDTerminalRuleCall_0_0()); }
 	RULE_ID{ after(grammarAccess.getVariable_declaratorAccess().getNameVariableIDTerminalRuleCall_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Variable_declarator__LenVectorAssignment_1_0_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketKeyword_1_0_0_0()); }
+(
+{ before(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketKeyword_1_0_0_0()); }
+
+	'[' 
+
+{ after(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketKeyword_1_0_0_0()); }
+)
+
+{ after(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketKeyword_1_0_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Variable_declarator__LenVectorAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0()); }
+(
+{ before(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0()); }
+
+	'[]' 
+
+{ after(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0()); }
+)
+
+{ after(grammarAccess.getVariable_declaratorAccess().getLenVectorLeftSquareBracketRightSquareBracketKeyword_1_1_0()); }
 )
 
 ;

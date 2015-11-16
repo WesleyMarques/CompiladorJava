@@ -74,7 +74,7 @@ Variable_declaration:
 ;
 
 Variable_declarator:
-	nameVariable = ID ("[""]" | "[]")*   ("="vari = Variable_initializer)?
+	nameVariable = ID  (lenVector += "[""]" | lenVector += "[]")*   ("="vari = Variable_initializer)?
 ;
 
 Variable_initializer:

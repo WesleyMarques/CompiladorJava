@@ -690,13 +690,22 @@ public interface MyDslPackage extends EPackage
   int VARIABLE_DECLARATOR__NAME_VARIABLE = 0;
 
   /**
+   * The feature id for the '<em><b>Len Vector</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DECLARATOR__LEN_VECTOR = 1;
+
+  /**
    * The feature id for the '<em><b>Vari</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATOR__VARI = 1;
+  int VARIABLE_DECLARATOR__VARI = 2;
 
   /**
    * The number of structural features of the '<em>Variable declarator</em>' class.
@@ -705,7 +714,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATOR_FEATURE_COUNT = 2;
+  int VARIABLE_DECLARATOR_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Variable_initializerImpl <em>Variable initializer</em>}' class.
@@ -2972,6 +2981,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getVariable_declarator_NameVariable();
 
   /**
+   * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Variable_declarator#getLenVector <em>Len Vector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Len Vector</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Variable_declarator#getLenVector()
+   * @see #getVariable_declarator()
+   * @generated
+   */
+  EAttribute getVariable_declarator_LenVector();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Variable_declarator#getVari <em>Vari</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4973,6 +4993,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute VARIABLE_DECLARATOR__NAME_VARIABLE = eINSTANCE.getVariable_declarator_NameVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Len Vector</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_DECLARATOR__LEN_VECTOR = eINSTANCE.getVariable_declarator_LenVector();
 
     /**
      * The meta object literal for the '<em><b>Vari</b></em>' containment reference feature.

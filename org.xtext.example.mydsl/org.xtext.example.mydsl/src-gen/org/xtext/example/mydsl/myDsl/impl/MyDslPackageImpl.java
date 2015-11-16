@@ -972,9 +972,19 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getVariable_declarator_LenVector()
+  {
+    return (EAttribute)variable_declaratorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getVariable_declarator_Vari()
   {
-    return (EReference)variable_declaratorEClass.getEStructuralFeatures().get(1);
+    return (EReference)variable_declaratorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2446,6 +2456,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     variable_declaratorEClass = createEClass(VARIABLE_DECLARATOR);
     createEAttribute(variable_declaratorEClass, VARIABLE_DECLARATOR__NAME_VARIABLE);
+    createEAttribute(variable_declaratorEClass, VARIABLE_DECLARATOR__LEN_VECTOR);
     createEReference(variable_declaratorEClass, VARIABLE_DECLARATOR__VARI);
 
     variable_initializerEClass = createEClass(VARIABLE_INITIALIZER);
@@ -2713,6 +2724,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     initEClass(variable_declaratorEClass, Variable_declarator.class, "Variable_declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariable_declarator_NameVariable(), ecorePackage.getEString(), "nameVariable", null, 0, 1, Variable_declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_declarator_LenVector(), ecorePackage.getEString(), "lenVector", null, 0, -1, Variable_declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getVariable_declarator_Vari(), this.getVariable_initializer(), null, "vari", null, 0, 1, Variable_declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variable_initializerEClass, Variable_initializer.class, "Variable_initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

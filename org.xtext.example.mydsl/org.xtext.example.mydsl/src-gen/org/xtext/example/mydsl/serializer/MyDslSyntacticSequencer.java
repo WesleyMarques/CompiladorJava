@@ -32,7 +32,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Parameter___LeftSquareBracketRightSquareBracketKeyword_2_1_q___LeftSquareBracketKeyword_2_0_0_RightSquareBracketKeyword_2_0_1__q__p;
 	protected AbstractElementAlias match_Statement_SemicolonKeyword_15_1_or___BreakKeyword_13_1_SemicolonKeyword_13_3___or___ContinueKeyword_14_1_SemicolonKeyword_14_3___or___ThrowKeyword_9_1_SemicolonKeyword_9_3__;
 	protected AbstractElementAlias match_Switch_statement___DefaultKeyword_6_1_0_COLONTerminalRuleCall_6_1_1__a;
-	protected AbstractElementAlias match_Variable_declarator___LeftSquareBracketRightSquareBracketKeyword_1_1_q___LeftSquareBracketKeyword_1_0_0_RightSquareBracketKeyword_1_0_1__q__p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -47,7 +46,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Parameter___LeftSquareBracketRightSquareBracketKeyword_2_1_q___LeftSquareBracketKeyword_2_0_0_RightSquareBracketKeyword_2_0_1__q__p = new GroupAlias(true, false, new TokenAlias(false, true, grammarAccess.getParameterAccess().getLeftSquareBracketRightSquareBracketKeyword_2_1()), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterAccess().getLeftSquareBracketKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getParameterAccess().getRightSquareBracketKeyword_2_0_1())));
 		match_Statement_SemicolonKeyword_15_1_or___BreakKeyword_13_1_SemicolonKeyword_13_3___or___ContinueKeyword_14_1_SemicolonKeyword_14_3___or___ThrowKeyword_9_1_SemicolonKeyword_9_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getBreakKeyword_13_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_13_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getContinueKeyword_14_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_14_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getStatementAccess().getThrowKeyword_9_1()), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_9_3())), new TokenAlias(false, false, grammarAccess.getStatementAccess().getSemicolonKeyword_15_1()));
 		match_Switch_statement___DefaultKeyword_6_1_0_COLONTerminalRuleCall_6_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getSwitch_statementAccess().getDefaultKeyword_6_1_0()), new TokenAlias(false, false, grammarAccess.getSwitch_statementAccess().getCOLONTerminalRuleCall_6_1_1()));
-		match_Variable_declarator___LeftSquareBracketRightSquareBracketKeyword_1_1_q___LeftSquareBracketKeyword_1_0_0_RightSquareBracketKeyword_1_0_1__q__p = new GroupAlias(true, false, new TokenAlias(false, true, grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketRightSquareBracketKeyword_1_1()), new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getVariable_declaratorAccess().getLeftSquareBracketKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getVariable_declaratorAccess().getRightSquareBracketKeyword_1_0_1())));
 	}
 	
 	@Override
@@ -237,8 +235,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Statement_SemicolonKeyword_15_1_or___BreakKeyword_13_1_SemicolonKeyword_13_3___or___ContinueKeyword_14_1_SemicolonKeyword_14_3___or___ThrowKeyword_9_1_SemicolonKeyword_9_3__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Switch_statement___DefaultKeyword_6_1_0_COLONTerminalRuleCall_6_1_1__a.equals(syntax))
 				emit_Switch_statement___DefaultKeyword_6_1_0_COLONTerminalRuleCall_6_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Variable_declarator___LeftSquareBracketRightSquareBracketKeyword_1_1_q___LeftSquareBracketKeyword_1_0_0_RightSquareBracketKeyword_1_0_1__q__p.equals(syntax))
-				emit_Variable_declarator___LeftSquareBracketRightSquareBracketKeyword_1_1_q___LeftSquareBracketKeyword_1_0_0_RightSquareBracketKeyword_1_0_1__q__p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -360,18 +356,6 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     switchStatements+=Statement (ambiguity) switchStatements+=Statement
 	 */
 	protected void emit_Switch_statement___DefaultKeyword_6_1_0_COLONTerminalRuleCall_6_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('[]'? ('[' ']')?)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     nameVariable=ID (ambiguity) '=' vari=Variable_initializer
-	 *     nameVariable=ID (ambiguity) (rule end)
-	 */
-	protected void emit_Variable_declarator___LeftSquareBracketRightSquareBracketKeyword_1_1_q___LeftSquareBracketKeyword_1_0_0_RightSquareBracketKeyword_1_0_1__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

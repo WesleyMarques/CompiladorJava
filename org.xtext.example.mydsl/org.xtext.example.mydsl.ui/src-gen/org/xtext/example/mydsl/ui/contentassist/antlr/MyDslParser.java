@@ -220,6 +220,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariable_declarationAccess().getNameVariableAssignment_2(), "rule__Variable_declaration__NameVariableAssignment_2");
 					put(grammarAccess.getVariable_declarationAccess().getNamesAssignment_3_1(), "rule__Variable_declaration__NamesAssignment_3_1");
 					put(grammarAccess.getVariable_declaratorAccess().getNameVariableAssignment_0(), "rule__Variable_declarator__NameVariableAssignment_0");
+					put(grammarAccess.getVariable_declaratorAccess().getLenVectorAssignment_1_0_0(), "rule__Variable_declarator__LenVectorAssignment_1_0_0");
+					put(grammarAccess.getVariable_declaratorAccess().getLenVectorAssignment_1_1(), "rule__Variable_declarator__LenVectorAssignment_1_1");
 					put(grammarAccess.getVariable_declaratorAccess().getVariAssignment_2_1(), "rule__Variable_declarator__VariAssignment_2_1");
 					put(grammarAccess.getVariable_initializerAccess().getArray_initAssignment_0(), "rule__Variable_initializer__Array_initAssignment_0");
 					put(grammarAccess.getVariable_initializerAccess().getExpressionAssignment_1(), "rule__Variable_initializer__ExpressionAssignment_1");

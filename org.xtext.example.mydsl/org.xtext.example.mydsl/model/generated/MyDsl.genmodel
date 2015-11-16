@@ -76,6 +76,7 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Variable_declarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Variable_declarator/nameVariable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Variable_declarator/lenVector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Variable_declarator/vari"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Variable_initializer">
