@@ -7,14 +7,15 @@ import java.util.Map;
 
 public class Classes {	
 
-	private Map<String,Heranca> classes;
-	private Map<String, Heranca> interfaces;
+	public Map<String,Heranca> classes;
+	public Map<String, Heranca> interfaces;
 	
 	public Classes() {
 		classes = new HashMap<String, Heranca>();
 		interfaces = new HashMap<String, Heranca>();
 		
 	}
+
 	
 	public void addClass(String name, boolean isAbstract){
 		Heranca aux = new Heranca(isAbstract);
@@ -95,6 +96,14 @@ public class Classes {
 			methodNames = new HashMap<String, List<MethodObj>>();
 			this.isAbstract = isAbs;
 			
+		}
+		
+		public List<String> getExtends(){
+			return extendsClass;
+		}
+		
+		public List<String> getimplements(){
+			return implementsInterface;
 		}
 		
 		public void setMethod(Map<String, List<MethodObj>> methods) {

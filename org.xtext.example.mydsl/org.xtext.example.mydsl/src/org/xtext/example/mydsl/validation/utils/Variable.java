@@ -3,7 +3,6 @@ package org.xtext.example.mydsl.validation.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
 
 public class Variable {
