@@ -1059,9 +1059,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
 		//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
-		//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
-		//	Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break"
-		//	name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
+		//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block
+		//	| tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break" name=ID? ";" |
+		//	{Statement} "continue" name=ID? ";" | {Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
 		//variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
@@ -1431,8 +1431,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//=> (numericExpression3=Numeric_Expression_NR) aux=Expression_aux | logicalExpression=Logical_Expression_NR
 		//aux=Expression_aux | bitExpression=Bit_Expression_NR aux=Expression_aux | => (castExpression=Cast_Expression)
 		//aux=Expression_aux | => (creatingExpression=Creating_Expression) aux=Expression_aux |
-		//literalExpression=Literal_Expression aux=Expression_aux | null=NULL aux=Expression_aux | super=SUPER
-		//aux=Expression_aux | this=THIS aux=Expression_aux | name=ID aux=Expression_aux
+		//literalExpression=Literal_Expression aux=Expression_aux | null=NULL aux=Expression_aux | super=SUPER aux=Expression_aux
+		//| this=THIS aux=Expression_aux | name=ID aux=Expression_aux
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//=> (numericExpression3=Numeric_Expression_NR) aux=Expression_aux
@@ -1741,8 +1741,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//(LPAREN argList=Arg_List? RPAREN) aux=Expression_aux | ("[" expression2=Expression "]") aux=Expression_aux | ("."
 		//expression2=Expression) aux=Expression_aux | ("," expressionComma=Expression) aux=Expression_aux | (INSTANCEOF
-		//name=Class_name) aux=Expression_aux | sgin=(INCREMENT | DECREMENT) aux=Expression_aux | numericSign=("+" | PLUS_EQUAL
-		//| "-" | MINUS_EQUAL | MULTIPLY | MULTIPLY_EQUAL | DIVIDE | DIVIDE_EQUAL | MODULE | MODULE_EQUAL) exp2=Expression
+		//name=Class_name) aux=Expression_aux | sgin=(INCREMENT | DECREMENT) aux=Expression_aux | numericSign=("+" | PLUS_EQUAL |
+		//"-" | MINUS_EQUAL | MULTIPLY | MULTIPLY_EQUAL | DIVIDE | DIVIDE_EQUAL | MODULE | MODULE_EQUAL) exp2=Expression
 		//aux=Expression_aux | testingSign=(BT | ST | BE | SE | DOUBLE_EQUAL | DIFFERENT) exp1=Expression aux=Expression_aux |
 		//(logicalSign=(OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL) | ampersand=Ampersand_Rule)
 		//exp1=Expression aux=Expression_aux | WAT exp1=Expression COLON exp2=Expression aux=Expression_aux | stringSign=("+" |
@@ -2330,8 +2330,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRPARENTerminalRuleCall_1_2_2 = (RuleCall)cGroup_1_2.eContents().get(2);
 		
 		//Creating_Expression:
-		//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression
-		//	"]" | "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
+		//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression "]"
+		//	| "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
 		@Override public ParserRule getRule() { return rule; }
 
 		//NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression "]" |
@@ -2930,8 +2930,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinallyStatementStatementParserRuleCall_3_1_0 = (RuleCall)cFinallyStatementAssignment_3_1.eContents().get(0);
 		
 		//Try_statement:
-		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
-		//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
+		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
+		//	("finally" finallyStatement=Statement)?;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
@@ -3649,9 +3649,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
 	//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 	//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
-	//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
-	//	Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break"
-	//	name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
+	//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block
+	//	| tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break" name=ID? ";" |
+	//	{Statement} "continue" name=ID? ";" | {Statement} ";";
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -3951,8 +3951,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//Creating_Expression:
-	//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression
-	//	"]" | "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
+	//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression "]"
+	//	| "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
 	public Creating_ExpressionElements getCreating_ExpressionAccess() {
 		return pCreating_Expression;
 	}
@@ -4103,8 +4103,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Try_statement:
-	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
-	//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
+	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
+	//	("finally" finallyStatement=Statement)?;
 	public Try_statementElements getTry_statementAccess() {
 		return pTry_statement;
 	}
@@ -4217,8 +4217,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal FLOATING_POINT_LITERAL:
-	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+
-	//	EXPONENT FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
+	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+ EXPONENT
+	//	FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
 	public TerminalRule getFLOATING_POINT_LITERALRule() {
 		return tFLOATING_POINT_LITERAL;
 	} 

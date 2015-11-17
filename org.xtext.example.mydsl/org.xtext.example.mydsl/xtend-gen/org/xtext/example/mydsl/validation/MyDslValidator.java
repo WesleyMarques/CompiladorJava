@@ -65,40 +65,40 @@ public class MyDslValidator extends AbstractMyDslValidator {
       boolean _findClass = this.allClasses.findClass(_className);
       boolean _not = (!_findClass);
       if (_not) {
-        String _classHerdada = cd.getClassHerdada();
-        boolean _notEquals = (!Objects.equal(_classHerdada, null));
-        if (_notEquals) {
-          String _className_1 = cd.getClassName();
-          EList<String> _modifiers = cd.getModifiers();
-          ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
-          boolean _contains = _arrayList.contains("abstract");
-          String _classHerdada_1 = cd.getClassHerdada();
-          this.allClasses.addClass(_className_1, _contains, _classHerdada_1);
-        } else {
-          String _className_2 = cd.getClassName();
-          EList<String> _modifiers_1 = cd.getModifiers();
-          ArrayList<String> _arrayList_1 = new ArrayList<String>(_modifiers_1);
-          boolean _contains_1 = _arrayList_1.contains("abstract");
-          this.allClasses.addClass(_className_2, _contains_1);
-        }
-        String _interfaceImplementada = cd.getInterfaceImplementada();
-        boolean _notEquals_1 = (!Objects.equal(_interfaceImplementada, null));
-        if (_notEquals_1) {
-          List<String> aux = new ArrayList<String>();
-          String _interfaceImplementada_1 = cd.getInterfaceImplementada();
-          aux.add(_interfaceImplementada_1);
-          EList<String> _interfacesImplementadas = cd.getInterfacesImplementadas();
-          int _size = _interfacesImplementadas.size();
-          boolean _greaterThan = (_size > 0);
-          if (_greaterThan) {
-            EList<String> _interfacesImplementadas_1 = cd.getInterfacesImplementadas();
-            for (final String interfaces : _interfacesImplementadas_1) {
-              aux.add(interfaces);
-            }
+      }
+      String _classHerdada = cd.getClassHerdada();
+      boolean _notEquals = (!Objects.equal(_classHerdada, null));
+      if (_notEquals) {
+        String _className_1 = cd.getClassName();
+        EList<String> _modifiers = cd.getModifiers();
+        ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
+        boolean _contains = _arrayList.contains("abstract");
+        String _classHerdada_1 = cd.getClassHerdada();
+        this.allClasses.addClass(_className_1, _contains, _classHerdada_1);
+      } else {
+        String _className_2 = cd.getClassName();
+        EList<String> _modifiers_1 = cd.getModifiers();
+        ArrayList<String> _arrayList_1 = new ArrayList<String>(_modifiers_1);
+        boolean _contains_1 = _arrayList_1.contains("abstract");
+        this.allClasses.addClass(_className_2, _contains_1);
+      }
+      String _interfaceImplementada = cd.getInterfaceImplementada();
+      boolean _notEquals_1 = (!Objects.equal(_interfaceImplementada, null));
+      if (_notEquals_1) {
+        List<String> aux = new ArrayList<String>();
+        String _interfaceImplementada_1 = cd.getInterfaceImplementada();
+        aux.add(_interfaceImplementada_1);
+        EList<String> _interfacesImplementadas = cd.getInterfacesImplementadas();
+        int _size = _interfacesImplementadas.size();
+        boolean _greaterThan = (_size > 0);
+        if (_greaterThan) {
+          EList<String> _interfacesImplementadas_1 = cd.getInterfacesImplementadas();
+          for (final String interfaces : _interfacesImplementadas_1) {
+            aux.add(interfaces);
           }
-          String _className_3 = cd.getClassName();
-          this.allClasses.setInterfacesImple(aux, _className_3);
         }
+        String _className_3 = cd.getClassName();
+        this.allClasses.setInterfacesImple(aux, _className_3);
       }
       String _className_4 = cd.getClassName();
       this.validaClass(cd, _className_4);
@@ -113,26 +113,58 @@ public class MyDslValidator extends AbstractMyDslValidator {
       this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE, _className_7, true);
       Set<String> _keySet = this.allClasses.classes.keySet();
       for (final String key : _keySet) {
-        boolean _and = false;
-        Classes.Heranca _get = this.allClasses.classes.get(key);
-        List<String> _extends = _get.getExtends();
-        int _size_1 = _extends.size();
-        boolean _greaterThan_1 = (_size_1 > 0);
-        if (!_greaterThan_1) {
-          _and = false;
-        } else {
-          int _size_2 = this.allClasses.classes.size();
-          boolean _greaterThan_2 = (_size_2 > 1);
-          _and = _greaterThan_2;
-        }
-        if (_and) {
-          Classes.Heranca _get_1 = this.allClasses.classes.get(key);
-          List<String> _extends_1 = _get_1.getExtends();
-          String _get_2 = _extends_1.get(0);
-          boolean _containsKey = this.allClasses.classes.containsKey(_get_2);
-          boolean _not_1 = (!_containsKey);
-          if (_not_1) {
-            this.error("Class extend not exist!", cd, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_HERDADA);
+        {
+          boolean _and = false;
+          Classes.Heranca _get = this.allClasses.classes.get(key);
+          List<String> _extends = _get.getExtends();
+          int _size_1 = _extends.size();
+          boolean _greaterThan_1 = (_size_1 > 0);
+          if (!_greaterThan_1) {
+            _and = false;
+          } else {
+            int _size_2 = this.allClasses.classes.size();
+            boolean _greaterThan_2 = (_size_2 > 0);
+            _and = _greaterThan_2;
+          }
+          if (_and) {
+            Classes.Heranca _get_1 = this.allClasses.classes.get(key);
+            List<String> _extends_1 = _get_1.getExtends();
+            String _get_2 = _extends_1.get(0);
+            boolean _containsKey = this.allClasses.classes.containsKey(_get_2);
+            boolean _not_1 = (!_containsKey);
+            if (_not_1) {
+              Classes.Heranca _get_3 = this.allClasses.classes.get(key);
+              List<String> _extends_2 = _get_3.getExtends();
+              String _get_4 = _extends_2.get(0);
+              String _plus = ("Class " + _get_4);
+              String _plus_1 = (_plus + " in extend not exist!");
+              this.error(_plus_1, cd, 
+                MyDslPackage.Literals.CLASS_DECLARATION__CLASS_HERDADA);
+            }
+          }
+          boolean _and_1 = false;
+          Classes.Heranca _get_5 = this.allClasses.classes.get(key);
+          List<String> _implements = _get_5.getimplements();
+          int _size_3 = _implements.size();
+          boolean _greaterThan_3 = (_size_3 > 0);
+          if (!_greaterThan_3) {
+            _and_1 = false;
+          } else {
+            int _size_4 = this.allClasses.classes.size();
+            boolean _greaterThan_4 = (_size_4 > 0);
+            _and_1 = _greaterThan_4;
+          }
+          if (_and_1) {
+            Classes.Heranca _get_6 = this.allClasses.classes.get(key);
+            List<String> _implements_1 = _get_6.getimplements();
+            for (final String inter : _implements_1) {
+              boolean _containsKey_1 = this.allClasses.interfaces.containsKey(inter);
+              boolean _not_2 = (!_containsKey_1);
+              if (_not_2) {
+                this.error((("Interface " + inter) + " in implements not exist!"), cd, 
+                  MyDslPackage.Literals.CLASS_DECLARATION__CLASS_HERDADA);
+              }
+            }
           }
         }
       }
@@ -141,8 +173,8 @@ public class MyDslValidator extends AbstractMyDslValidator {
       Interface_declaration id = ((Interface_declaration) _interfaceDec);
       String _interfaceName = id.getInterfaceName();
       boolean _findInterface = this.allClasses.findInterface(_interfaceName);
-      boolean _not_2 = (!_findInterface);
-      if (_not_2) {
+      boolean _not_1 = (!_findInterface);
+      if (_not_1) {
         String _interfaceName_1 = id.getInterfaceName();
         EList<String> _modifiers_2 = id.getModifiers();
         ArrayList<String> _arrayList_2 = new ArrayList<String>(_modifiers_2);
@@ -155,9 +187,9 @@ public class MyDslValidator extends AbstractMyDslValidator {
           String _interfaceHerdada_1 = id.getInterfaceHerdada();
           aux_1.add(_interfaceHerdada_1);
           EList<String> _interfacesHerdadas = id.getInterfacesHerdadas();
-          int _size_3 = _interfacesHerdadas.size();
-          boolean _greaterThan_3 = (_size_3 > 0);
-          if (_greaterThan_3) {
+          int _size_1 = _interfacesHerdadas.size();
+          boolean _greaterThan_1 = (_size_1 > 0);
+          if (_greaterThan_1) {
             EList<String> _interfacesHerdadas_1 = id.getInterfacesHerdadas();
             for (final String interfaces_1 : _interfacesHerdadas_1) {
               aux_1.add(interfaces_1);
@@ -172,6 +204,33 @@ public class MyDslValidator extends AbstractMyDslValidator {
       EList<Field_declaration> _fieldsDeclaration_3 = id.getFieldsDeclaration();
       String _interfaceName_4 = id.getInterfaceName();
       this.validaFieldDeclaration(_fieldsDeclaration_3, this.METHOD, _interfaceName_4, false);
+      Set<String> _keySet_1 = this.allClasses.interfaces.keySet();
+      for (final String key_1 : _keySet_1) {
+        boolean _and = false;
+        Classes.Heranca _get = this.allClasses.interfaces.get(key_1);
+        List<String> _implements = _get.getimplements();
+        int _size_2 = _implements.size();
+        boolean _greaterThan_2 = (_size_2 > 0);
+        if (!_greaterThan_2) {
+          _and = false;
+        } else {
+          int _size_3 = this.allClasses.interfaces.size();
+          boolean _greaterThan_3 = (_size_3 > 0);
+          _and = _greaterThan_3;
+        }
+        if (_and) {
+          Classes.Heranca _get_1 = this.allClasses.interfaces.get(key_1);
+          List<String> _implements_1 = _get_1.getimplements();
+          for (final String inter : _implements_1) {
+            boolean _containsKey = this.allClasses.interfaces.containsKey(inter);
+            boolean _not_2 = (!_containsKey);
+            if (_not_2) {
+              this.error((("Interface " + inter) + " in implements not exist!"), id, 
+                MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_HERDADA);
+            }
+          }
+        }
+      }
     }
   }
   

@@ -49,33 +49,43 @@ class MyDslValidator extends AbstractMyDslValidator {
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
 			if (!allClasses.findClass(cd.className)) {
-				if (cd.classHerdada != null) {
-					allClasses.addClass(cd.className, new ArrayList<String>(cd.modifiers).contains("abstract"),
-						cd.classHerdada);
-				} else {
-					allClasses.addClass(cd.className, new ArrayList<String>(cd.modifiers).contains("abstract"));
-				}
+			}
+			if (cd.classHerdada != null) {
+				allClasses.addClass(cd.className, new ArrayList<String>(cd.modifiers).contains("abstract"),
+					cd.classHerdada);
+			} else {
+				allClasses.addClass(cd.className, new ArrayList<String>(cd.modifiers).contains("abstract"));
+			}
 
-				if (cd.interfaceImplementada != null) {
-					var List<String> aux = new ArrayList<String>();
-					aux.add(cd.interfaceImplementada);
-					if (cd.interfacesImplementadas.size > 0) {
-						for (String interfaces : cd.interfacesImplementadas) {
-							aux.add(interfaces);
-						}
+			if (cd.interfaceImplementada != null) {
+				var List<String> aux = new ArrayList<String>();
+				aux.add(cd.interfaceImplementada);
+				if (cd.interfacesImplementadas.size > 0) {
+					for (String interfaces : cd.interfacesImplementadas) {
+						aux.add(interfaces);
 					}
-					allClasses.setInterfacesImple(aux, cd.className);
 				}
+				allClasses.setInterfacesImple(aux, cd.className);
 			}
 			validaClass(cd, cd.className);
 			validaFieldDeclaration(cd.fieldsDeclaration, METHOD, cd.className, true);
 			validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR, cd.className, true);
 			validaFieldDeclaration(cd.fieldsDeclaration, VARIABLE, cd.className, true);
 			for (String key : allClasses.classes.keySet) {
-				if (allClasses.classes.get(key).getExtends().size() > 0 && allClasses.classes.size() > 1) {
+				if (allClasses.classes.get(key).getExtends().size() > 0 && allClasses.classes.size() > 0) {
 					if (!allClasses.classes.containsKey(allClasses.classes.get(key).getExtends().get(0))) {
-						error("Class extend not exist!", cd, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_HERDADA);
+						error("Class " + allClasses.classes.get(key).getExtends().get(0) + " in extend not exist!", cd,
+							MyDslPackage.Literals.CLASS_DECLARATION__CLASS_HERDADA);
 					}
+				}
+				if (allClasses.classes.get(key).getimplements().size() > 0 && allClasses.classes.size() > 0) {
+					for (String inter : allClasses.classes.get(key).getimplements()) {
+						if (!allClasses.interfaces.containsKey(inter)) {
+							error("Interface " + inter + " in implements not exist!", cd,
+								MyDslPackage.Literals.CLASS_DECLARATION__CLASS_HERDADA);
+						}
+					}
+
 				}
 			}
 
@@ -97,6 +107,17 @@ class MyDslValidator extends AbstractMyDslValidator {
 			}
 			validaInterface(id, id.interfaceName);
 			validaFieldDeclaration(id.fieldsDeclaration, METHOD, id.interfaceName, false);
+			for (String key : allClasses.interfaces.keySet) {
+				if (allClasses.interfaces.get(key).getimplements().size() > 0 && allClasses.interfaces.size() > 0) {
+					for (String inter : allClasses.interfaces.get(key).getimplements()) {
+						if (!allClasses.interfaces.containsKey(inter)) {
+							error("Interface " + inter + " in implements not exist!", id,
+								MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_HERDADA);
+						}
+					}
+
+				}
+			}
 		}
 
 	}
