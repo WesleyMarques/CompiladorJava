@@ -28,6 +28,7 @@ import org.xtext.example.mydsl.validation.utils.MethodObj
 import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
 import org.xtext.example.mydsl.validation.utils.Variable
+import org.xtext.example.mydsl.validation.utils.Classes
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -43,33 +44,36 @@ class MyDslValidator extends AbstractMyDslValidator {
 	private final String VARIABLE = "variable";
 	private final String CONSTRUCTOR = "constructor";
 
-	public Map<String, String> typeInValidation = new HashMap<String, String>();
+	
 	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
-	public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
-	public List<ConstructorObj> constructors = new ArrayList<ConstructorObj>();
-	public List<Variable> globalVaribles = new ArrayList<Variable>();
+	
+	
+	// public List<Variable> globalVaribles = new ArrayList<Variable>();
+	public Classes allClasses = new Classes();
 
 	@Check
 	def validaTypeDeclaration(Type_declaration td) {
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
-			typeInValidation.put("tipo", "class");
-			typeInValidation.put("name", cd.className);
-			typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
-			validaClass(cd);
-			validaFieldDeclaration(cd.fieldsDeclaration, METHOD);
-			validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR);
-			validaFieldDeclaration(cd.fieldsDeclaration, VARIABLE);
-			typeInValidation.put("tipo", "class");
-			
+			if (!allClasses.findClass(cd.className)) {
+				validaClass(cd, cd.className);
+				validaFieldDeclaration(cd.fieldsDeclaration, METHOD, cd.className);
+				validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR, cd.className);
+				validaFieldDeclaration(cd.fieldsDeclaration, VARIABLE, cd.className);
+				
+			}
+
+			//typeInValidation.put("tipo", "class");
+			//typeInValidation.put("name", cd.className);
+			//typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
-			typeInValidation.put("tipo", "interface");
-			typeInValidation.put("name", id.interfaceName);
-			typeInValidation.put("abstract", new ArrayList<String>(id.modifiers).contains("abstract") + "");
-			validaInterface(id);
-			validaFieldDeclaration(id.fieldsDeclaration, METHOD);
+			if (allClasses.findInterface(id.interfaceName)) {
+				validaInterface(id, id.interfaceName);
+				validaFieldDeclaration(id.fieldsDeclaration, METHOD, id.interfaceName);
+			}
+
 		}
 
 	}
@@ -85,10 +89,10 @@ class MyDslValidator extends AbstractMyDslValidator {
 		}
 	}
 
-	def validaMethods(EList<Field_declaration> list) {
+	def validaMethods(EList<Field_declaration> list, String typeName) {
 		var MethodValidate mv = new MethodValidate();
 		try {
-			methodNames = mv.methodValidateAll(list, typeInValidation.get("name"));
+			allClasses.setMethods(mv.methodValidateAll(list, typeName),typeName);
 		} catch (MyDslException e) {
 			if (e.nodeError instanceof Variable_declaration) {
 				var Variable_declaration vd = e.nodeError as Variable_declaration;
@@ -98,16 +102,16 @@ class MyDslValidator extends AbstractMyDslValidator {
 			var MethodObj metAux;
 			for (Object methodsError : e.nodeError) {
 				metAux = methodsError as MethodObj;
-				error(e.message + (metAux.toString) + " in Type " + typeInValidation.get("name"), metAux.md,
+				error(e.message + (metAux.toString) + " in Type " + typeName, metAux.md,
 					MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
 			}
 		}
 
 	}
 
-	def validaClass(Class_declaration declaration) {
+	def validaClass(Class_declaration declaration, String typeName) {
 		try {
-			validaModifiers(declaration.modifiers, CLASS);
+			validaModifiers(declaration.modifiers, CLASS, typeName);
 		} catch (Exception e) {
 			error(e.message, declaration, MyDslPackage.Literals.CLASS_DECLARATION__CLASS_NAME);
 		}
@@ -116,9 +120,9 @@ class MyDslValidator extends AbstractMyDslValidator {
 		interfaces.add(declaration.interfaceImplementada);
 	}
 
-	def validaInterface(Interface_declaration declaration) {
+	def validaInterface(Interface_declaration declaration, String typeName) {
 		try {
-			validaModifiers(declaration.modifiers, INTERFACE);
+			validaModifiers(declaration.modifiers, INTERFACE, typeName);
 		} catch (Exception e) {
 			error(e.message, declaration, MyDslPackage.Literals.INTERFACE_DECLARATION__INTERFACE_NAME);
 
@@ -126,30 +130,30 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	}
 
-	def validaFieldDeclaration(EList<Field_declaration> declaration, String fieldType) {
+	def validaFieldDeclaration(EList<Field_declaration> declaration, String fieldType, String typeName) {
 		if (fieldType.equals(METHOD)) {
-			validaMethods(declaration);
+			validaMethods(declaration,typeName);
 		} else if (fieldType.equals(CONSTRUCTOR)) {
-			validaContructor(declaration);
+			validaContructor(declaration,typeName);
 		} else if (fieldType.equals(VARIABLE)) {
-			validaVariables(declaration);
+			validaVariables(declaration,typeName);
 		}
 
 	}
 
-	def validaVariables(EList<Field_declaration> list) {
+	def validaVariables(EList<Field_declaration> list, String typeName) {
 		for (Field_declaration fd : list) {
 			if (fd.variableDeclaration != null) {
 				var Variable variable = null;
 				try {
 					variable = new Variable(fd.getVariableDeclaration());
-				} catch (Exception e) {					
+				} catch (Exception e) {
 				}
-				globalVaribles.add(variable);
+				allClasses.setGlobalVar(variable, typeName);
 				if (variable.getCountNames() > 0) {
 					for (Variable_declarator varDecl : fd.getVariableDeclaration().getNames()) {
 						variable.setName(varDecl.getNameVariable());
-						globalVaribles.add(variable);
+						allClasses.setGlobalVar(variable, typeName);
 					}
 				}
 			}
@@ -158,10 +162,10 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	}
 
-	def validaContructor(EList<Field_declaration> list) {
+	def validaContructor(EList<Field_declaration> list, String typeName) {
 		var ContructorValidate cv = new ContructorValidate();
 		try {
-			this.constructors = cv.constructorValidateAll(list, typeInValidation.get("name"));
+			allClasses.setConstructors(cv.constructorValidateAll(list, typeName));
 		} catch (MyDslException e) {
 			var ConstructorObj constAux;
 			if (e.nodeError.size() == 1) {
@@ -171,16 +175,15 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 			for (Object constError : e.nodeError) {
 				constAux = constError as ConstructorObj;
-				error(e.message + (constAux	) + " in Type " + typeInValidation.get("name"), constAux.md,
+				error(e.message + (constAux	) + " in Type " + typeName, constAux.md,
 					MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
 			}
 		}
 
 	}
 
-	def validaModifiers(EList<String> list, String type) throws Exception{
+	def validaModifiers(EList<String> list, String type, String typeName) throws Exception{
 		var ModifiersValidate modValidate = new ModifiersValidate();
-		var String typeName = typeInValidation.get("name");
 		var int size = list.size();
 		var String firstModifier;
 		if (size > 0) {
@@ -206,8 +209,8 @@ class MyDslValidator extends AbstractMyDslValidator {
 		var EList<String> methodMods = md.modifiersMethod;
 		var int size = methodMods.size();
 		try {
-			modValidate.methodValidate(size, md.nameMethod, methodMods, typeInValidation.get("name"),
-				typeInValidation.get("abstract"), md.statementMethod != null);
+			modValidate.methodValidate(size, md.nameMethod, methodMods, "",
+				"", md.statementMethod != null);
 		} catch (Exception e) {
 			error(e.message, md, MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
 		}

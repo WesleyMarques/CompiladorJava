@@ -4,7 +4,6 @@
 package org.xtext.example.mydsl.validation;
 
 import com.google.common.base.Objects;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +26,7 @@ import org.xtext.example.mydsl.myDsl.Variable_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
 import org.xtext.example.mydsl.myDsl.While_Statement;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
+import org.xtext.example.mydsl.validation.utils.Classes;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
 import org.xtext.example.mydsl.validation.utils.ContructorValidate;
 import org.xtext.example.mydsl.validation.utils.ExpressionValidate;
@@ -52,63 +52,45 @@ public class MyDslValidator extends AbstractMyDslValidator {
   
   private final String CONSTRUCTOR = "constructor";
   
-  public Map<String, String> typeInValidation = new HashMap<String, String>();
-  
   public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
   
-  public Map<String, List<MethodObj>> methodNames = new HashMap<String, List<MethodObj>>();
-  
-  public List<ConstructorObj> constructors = new ArrayList<ConstructorObj>();
-  
-  public List<Variable> globalVaribles = new ArrayList<Variable>();
+  public Classes allClasses = new Classes();
   
   @Check
-  public Object validaTypeDeclaration(final Type_declaration td) {
-    Object _xifexpression = null;
+  public void validaTypeDeclaration(final Type_declaration td) {
     Class_declaration _classDec = td.getClassDec();
     if ((_classDec instanceof Class_declaration)) {
-      String _xblockexpression = null;
-      {
-        Class_declaration _classDec_1 = td.getClassDec();
-        Class_declaration cd = ((Class_declaration) _classDec_1);
-        this.typeInValidation.put("tipo", "class");
-        String _className = cd.getClassName();
-        this.typeInValidation.put("name", _className);
-        EList<String> _modifiers = cd.getModifiers();
-        ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
-        boolean _contains = _arrayList.contains("abstract");
-        String _plus = (Boolean.valueOf(_contains) + "");
-        this.typeInValidation.put("abstract", _plus);
-        this.validaClass(cd);
+      Class_declaration _classDec_1 = td.getClassDec();
+      Class_declaration cd = ((Class_declaration) _classDec_1);
+      String _className = cd.getClassName();
+      boolean _findClass = this.allClasses.findClass(_className);
+      boolean _not = (!_findClass);
+      if (_not) {
+        String _className_1 = cd.getClassName();
+        this.validaClass(cd, _className_1);
         EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
-        this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD);
+        String _className_2 = cd.getClassName();
+        this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD, _className_2);
         EList<Field_declaration> _fieldsDeclaration_1 = cd.getFieldsDeclaration();
-        this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR);
+        String _className_3 = cd.getClassName();
+        this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR, _className_3);
         EList<Field_declaration> _fieldsDeclaration_2 = cd.getFieldsDeclaration();
-        this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE);
-        _xblockexpression = this.typeInValidation.put("tipo", "class");
+        String _className_4 = cd.getClassName();
+        this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE, _className_4);
       }
-      _xifexpression = _xblockexpression;
     } else {
-      Object _xblockexpression_1 = null;
-      {
-        Interface_declaration _interfaceDec = td.getInterfaceDec();
-        Interface_declaration id = ((Interface_declaration) _interfaceDec);
-        this.typeInValidation.put("tipo", "interface");
-        String _interfaceName = id.getInterfaceName();
-        this.typeInValidation.put("name", _interfaceName);
-        EList<String> _modifiers = id.getModifiers();
-        ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
-        boolean _contains = _arrayList.contains("abstract");
-        String _plus = (Boolean.valueOf(_contains) + "");
-        this.typeInValidation.put("abstract", _plus);
-        this.validaInterface(id);
-        EList<Field_declaration> _fieldsDeclaration = id.getFieldsDeclaration();
-        _xblockexpression_1 = this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD);
+      Interface_declaration _interfaceDec = td.getInterfaceDec();
+      Interface_declaration id = ((Interface_declaration) _interfaceDec);
+      String _interfaceName = id.getInterfaceName();
+      boolean _findInterface = this.allClasses.findInterface(_interfaceName);
+      if (_findInterface) {
+        String _interfaceName_1 = id.getInterfaceName();
+        this.validaInterface(id, _interfaceName_1);
+        EList<Field_declaration> _fieldsDeclaration_3 = id.getFieldsDeclaration();
+        String _interfaceName_2 = id.getInterfaceName();
+        this.validaFieldDeclaration(_fieldsDeclaration_3, this.METHOD, _interfaceName_2);
       }
-      _xifexpression = _xblockexpression_1;
     }
-    return _xifexpression;
   }
   
   @Check
@@ -127,56 +109,48 @@ public class MyDslValidator extends AbstractMyDslValidator {
     }
   }
   
-  public Map<String, List<MethodObj>> validaMethods(final EList<Field_declaration> list) {
-    Map<String, List<MethodObj>> _xblockexpression = null;
-    {
-      MethodValidate mv = new MethodValidate();
-      Map<String, List<MethodObj>> _xtrycatchfinallyexpression = null;
-      try {
-        String _get = this.typeInValidation.get("name");
-        Map<String, List<MethodObj>> _methodValidateAll = mv.methodValidateAll(list, _get);
-        _xtrycatchfinallyexpression = this.methodNames = _methodValidateAll;
-      } catch (final Throwable _t) {
-        if (_t instanceof MyDslException) {
-          final MyDslException e = (MyDslException)_t;
-          List<Object> _nodeError = e.getNodeError();
-          if ((_nodeError instanceof Variable_declaration)) {
-            List<Object> _nodeError_1 = e.getNodeError();
-            Variable_declaration vd = ((Variable_declaration) _nodeError_1);
-            String _message = e.getMessage();
-            this.error(_message, vd, MyDslPackage.Literals.VARIABLE_DECLARATION__MODIFIERS_VARIABLE);
-          }
-          MethodObj metAux = null;
-          List<Object> _nodeError_2 = e.getNodeError();
-          for (final Object methodsError : _nodeError_2) {
-            {
-              metAux = ((MethodObj) methodsError);
-              String _message_1 = e.getMessage();
-              String _string = metAux.toString();
-              String _plus = (_message_1 + _string);
-              String _plus_1 = (_plus + " in Type ");
-              String _get_1 = this.typeInValidation.get("name");
-              String _plus_2 = (_plus_1 + _get_1);
-              Method_declaration _md = metAux.getMd();
-              this.error(_plus_2, _md, 
-                MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-            }
-          }
-        } else {
-          throw Exceptions.sneakyThrow(_t);
+  public void validaMethods(final EList<Field_declaration> list, final String typeName) {
+    MethodValidate mv = new MethodValidate();
+    try {
+      Map<String, List<MethodObj>> _methodValidateAll = mv.methodValidateAll(list, typeName);
+      this.allClasses.setMethods(_methodValidateAll, typeName);
+    } catch (final Throwable _t) {
+      if (_t instanceof MyDslException) {
+        final MyDslException e = (MyDslException)_t;
+        List<Object> _nodeError = e.getNodeError();
+        if ((_nodeError instanceof Variable_declaration)) {
+          List<Object> _nodeError_1 = e.getNodeError();
+          Variable_declaration vd = ((Variable_declaration) _nodeError_1);
+          String _message = e.getMessage();
+          this.error(_message, vd, MyDslPackage.Literals.VARIABLE_DECLARATION__MODIFIERS_VARIABLE);
         }
+        MethodObj metAux = null;
+        List<Object> _nodeError_2 = e.getNodeError();
+        for (final Object methodsError : _nodeError_2) {
+          {
+            metAux = ((MethodObj) methodsError);
+            String _message_1 = e.getMessage();
+            String _string = metAux.toString();
+            String _plus = (_message_1 + _string);
+            String _plus_1 = (_plus + " in Type ");
+            String _plus_2 = (_plus_1 + typeName);
+            Method_declaration _md = metAux.getMd();
+            this.error(_plus_2, _md, 
+              MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+          }
+        }
+      } else {
+        throw Exceptions.sneakyThrow(_t);
       }
-      _xblockexpression = _xtrycatchfinallyexpression;
     }
-    return _xblockexpression;
   }
   
-  public boolean validaClass(final Class_declaration declaration) {
+  public boolean validaClass(final Class_declaration declaration, final String typeName) {
     boolean _xblockexpression = false;
     {
       try {
         EList<String> _modifiers = declaration.getModifiers();
-        this.validaModifiers(_modifiers, this.CLASS);
+        this.validaModifiers(_modifiers, this.CLASS, typeName);
       } catch (final Throwable _t) {
         if (_t instanceof Exception) {
           final Exception e = (Exception)_t;
@@ -193,10 +167,10 @@ public class MyDslValidator extends AbstractMyDslValidator {
     return _xblockexpression;
   }
   
-  public void validaInterface(final Interface_declaration declaration) {
+  public void validaInterface(final Interface_declaration declaration, final String typeName) {
     try {
       EList<String> _modifiers = declaration.getModifiers();
-      this.validaModifiers(_modifiers, this.INTERFACE);
+      this.validaModifiers(_modifiers, this.INTERFACE, typeName);
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception e = (Exception)_t;
@@ -208,28 +182,24 @@ public class MyDslValidator extends AbstractMyDslValidator {
     }
   }
   
-  public Object validaFieldDeclaration(final EList<Field_declaration> declaration, final String fieldType) {
-    Object _xifexpression = null;
+  public void validaFieldDeclaration(final EList<Field_declaration> declaration, final String fieldType, final String typeName) {
     boolean _equals = fieldType.equals(this.METHOD);
     if (_equals) {
-      _xifexpression = this.validaMethods(declaration);
+      this.validaMethods(declaration, typeName);
     } else {
-      List<ConstructorObj> _xifexpression_1 = null;
       boolean _equals_1 = fieldType.equals(this.CONSTRUCTOR);
       if (_equals_1) {
-        _xifexpression_1 = this.validaContructor(declaration);
+        this.validaContructor(declaration, typeName);
       } else {
         boolean _equals_2 = fieldType.equals(this.VARIABLE);
         if (_equals_2) {
-          this.validaVariables(declaration);
+          this.validaVariables(declaration, typeName);
         }
       }
-      _xifexpression = _xifexpression_1;
     }
-    return _xifexpression;
   }
   
-  public void validaVariables(final EList<Field_declaration> list) {
+  public void validaVariables(final EList<Field_declaration> list, final String typeName) {
     for (final Field_declaration fd : list) {
       Variable_declaration _variableDeclaration = fd.getVariableDeclaration();
       boolean _notEquals = (!Objects.equal(_variableDeclaration, null));
@@ -246,7 +216,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
             throw Exceptions.sneakyThrow(_t);
           }
         }
-        this.globalVaribles.add(variable);
+        this.allClasses.setGlobalVar(variable, typeName);
         int _countNames = variable.getCountNames();
         boolean _greaterThan = (_countNames > 0);
         if (_greaterThan) {
@@ -256,7 +226,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
             {
               String _nameVariable = varDecl.getNameVariable();
               variable.setName(_nameVariable);
-              this.globalVaribles.add(variable);
+              this.allClasses.setGlobalVar(variable, typeName);
             }
           }
         }
@@ -264,56 +234,47 @@ public class MyDslValidator extends AbstractMyDslValidator {
     }
   }
   
-  public List<ConstructorObj> validaContructor(final EList<Field_declaration> list) {
-    List<ConstructorObj> _xblockexpression = null;
-    {
-      ContructorValidate cv = new ContructorValidate();
-      List<ConstructorObj> _xtrycatchfinallyexpression = null;
-      try {
-        String _get = this.typeInValidation.get("name");
-        List<ConstructorObj> _constructorValidateAll = cv.constructorValidateAll(list, _get);
-        _xtrycatchfinallyexpression = this.constructors = _constructorValidateAll;
-      } catch (final Throwable _t) {
-        if (_t instanceof MyDslException) {
-          final MyDslException e = (MyDslException)_t;
-          ConstructorObj constAux = null;
-          List<Object> _nodeError = e.getNodeError();
-          int _size = _nodeError.size();
-          boolean _equals = (_size == 1);
-          if (_equals) {
-            List<Object> _nodeError_1 = e.getNodeError();
-            Object _get_1 = _nodeError_1.get(0);
-            constAux = ((ConstructorObj) _get_1);
-            String _message = e.getMessage();
-            Constructor_declaration _md = constAux.getMd();
-            this.error(_message, _md, MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
-          }
-          List<Object> _nodeError_2 = e.getNodeError();
-          for (final Object constError : _nodeError_2) {
-            {
-              constAux = ((ConstructorObj) constError);
-              String _message_1 = e.getMessage();
-              String _plus = (_message_1 + constAux);
-              String _plus_1 = (_plus + " in Type ");
-              String _get_2 = this.typeInValidation.get("name");
-              String _plus_2 = (_plus_1 + _get_2);
-              Constructor_declaration _md_1 = constAux.getMd();
-              this.error(_plus_2, _md_1, 
-                MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
-            }
-          }
-        } else {
-          throw Exceptions.sneakyThrow(_t);
+  public void validaContructor(final EList<Field_declaration> list, final String typeName) {
+    ContructorValidate cv = new ContructorValidate();
+    try {
+      List<ConstructorObj> _constructorValidateAll = cv.constructorValidateAll(list, typeName);
+      this.allClasses.setConstructors(_constructorValidateAll);
+    } catch (final Throwable _t) {
+      if (_t instanceof MyDslException) {
+        final MyDslException e = (MyDslException)_t;
+        ConstructorObj constAux = null;
+        List<Object> _nodeError = e.getNodeError();
+        int _size = _nodeError.size();
+        boolean _equals = (_size == 1);
+        if (_equals) {
+          List<Object> _nodeError_1 = e.getNodeError();
+          Object _get = _nodeError_1.get(0);
+          constAux = ((ConstructorObj) _get);
+          String _message = e.getMessage();
+          Constructor_declaration _md = constAux.getMd();
+          this.error(_message, _md, MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
         }
+        List<Object> _nodeError_2 = e.getNodeError();
+        for (final Object constError : _nodeError_2) {
+          {
+            constAux = ((ConstructorObj) constError);
+            String _message_1 = e.getMessage();
+            String _plus = (_message_1 + constAux);
+            String _plus_1 = (_plus + " in Type ");
+            String _plus_2 = (_plus_1 + typeName);
+            Constructor_declaration _md_1 = constAux.getMd();
+            this.error(_plus_2, _md_1, 
+              MyDslPackage.Literals.CONSTRUCTOR_DECLARATION__NAME_CONSTRUCTOR);
+          }
+        }
+      } else {
+        throw Exceptions.sneakyThrow(_t);
       }
-      _xblockexpression = _xtrycatchfinallyexpression;
     }
-    return _xblockexpression;
   }
   
-  public void validaModifiers(final EList<String> list, final String type) throws Exception {
+  public void validaModifiers(final EList<String> list, final String type, final String typeName) throws Exception {
     ModifiersValidate modValidate = new ModifiersValidate();
-    String typeName = this.typeInValidation.get("name");
     int size = list.size();
     String firstModifier = null;
     if ((size > 0)) {
@@ -347,11 +308,10 @@ public class MyDslValidator extends AbstractMyDslValidator {
     int size = methodMods.size();
     try {
       String _nameMethod = md.getNameMethod();
-      String _get = this.typeInValidation.get("name");
-      String _get_1 = this.typeInValidation.get("abstract");
       Statement_block _statementMethod = md.getStatementMethod();
       boolean _notEquals = (!Objects.equal(_statementMethod, null));
-      modValidate.methodValidate(size, _nameMethod, methodMods, _get, _get_1, _notEquals);
+      modValidate.methodValidate(size, _nameMethod, methodMods, "", 
+        "", _notEquals);
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception e = (Exception)_t;
