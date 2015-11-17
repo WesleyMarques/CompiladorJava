@@ -21,6 +21,7 @@ import org.xtext.example.mydsl.myDsl.Type_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declarator
 import org.xtext.example.mydsl.myDsl.While_Statement
+import org.xtext.example.mydsl.validation.utils.Classes
 import org.xtext.example.mydsl.validation.utils.ConstructorObj
 import org.xtext.example.mydsl.validation.utils.ContructorValidate
 import org.xtext.example.mydsl.validation.utils.ExpressionValidate
@@ -28,7 +29,6 @@ import org.xtext.example.mydsl.validation.utils.MethodObj
 import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
 import org.xtext.example.mydsl.validation.utils.Variable
-import org.xtext.example.mydsl.validation.utils.Classes
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -45,10 +45,6 @@ class MyDslValidator extends AbstractMyDslValidator {
 	private final String CONSTRUCTOR = "constructor";
 
 	
-	public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
-	
-	
-	// public List<Variable> globalVaribles = new ArrayList<Variable>();
 	public Classes allClasses = new Classes();
 
 	@Check
@@ -56,24 +52,44 @@ class MyDslValidator extends AbstractMyDslValidator {
 		if (td.classDec instanceof Class_declaration) {
 			var Class_declaration cd = td.classDec as Class_declaration;
 			if (!allClasses.findClass(cd.className)) {
-				validaClass(cd, cd.className);
-				validaFieldDeclaration(cd.fieldsDeclaration, METHOD, cd.className);
-				validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR, cd.className);
-				validaFieldDeclaration(cd.fieldsDeclaration, VARIABLE, cd.className);
+				allClasses.addClass(cd.className, new ArrayList<String>(cd.modifiers).contains("abstract"));
+				validaClass(cd, cd.className);				validaFieldDeclaration(cd.fieldsDeclaration, METHOD, cd.className, true);
+				validaFieldDeclaration(cd.fieldsDeclaration, CONSTRUCTOR, cd.className, true);
+				validaFieldDeclaration(cd.fieldsDeclaration, VARIABLE, cd.className, true);
 				
+				if(cd.classHerdada != null){
+					allClasses.addClass(cd.className, new ArrayList<String>(cd.modifiers).contains("abstract"), cd.classHerdada);
+				}
+				if(cd.interfaceImplementada != null){
+					var List<String> aux = new ArrayList<String>();
+					aux.add(cd.interfaceImplementada);
+					if(cd.interfacesImplementadas.size > 0){
+						for(String interfaces:cd.interfacesImplementadas){
+							aux.add(interfaces);
+						}						
+					}
+					allClasses.setInterfacesImple(aux, cd.className);					
+				}				
 			}
-
-			//typeInValidation.put("tipo", "class");
-			//typeInValidation.put("name", cd.className);
-			//typeInValidation.put("abstract", new ArrayList<String>(cd.modifiers).contains("abstract") + "");
 
 		} else {
 			var Interface_declaration id = td.interfaceDec as Interface_declaration;
-			if (allClasses.findInterface(id.interfaceName)) {
+			if (!allClasses.findInterface(id.interfaceName)) {
+				allClasses.addInter(id.interfaceName, new ArrayList<String>(id.modifiers).contains("abstract"));				
 				validaInterface(id, id.interfaceName);
-				validaFieldDeclaration(id.fieldsDeclaration, METHOD, id.interfaceName);
+				validaFieldDeclaration(id.fieldsDeclaration, METHOD, id.interfaceName, false);
+				if(id.interfaceHerdada != null){
+					var List<String> aux = new ArrayList<String>();
+					aux.add(id.interfaceHerdada);
+					if(id.interfacesHerdadas.size > 0){
+						for(String interfaces:id.interfacesHerdadas){
+							aux.add(interfaces);
+						}						
+					}
+					allClasses.setInterfacesImpleToInt(aux, id.interfaceName);					
+				}
 			}
-
+			
 		}
 
 	}
@@ -83,16 +99,23 @@ class MyDslValidator extends AbstractMyDslValidator {
 		var ExpressionValidate ev = new ExpressionValidate();
 		try {
 			ev.validate(exp);
-
 		} catch (Exception e) {
 			error(e.message, exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
 		}
 	}
 
-	def validaMethods(EList<Field_declaration> list, String typeName) {
+	def validaMethods(EList<Field_declaration> list, String typeName, boolean isClass) {
 		var MethodValidate mv = new MethodValidate();
 		try {
-			allClasses.setMethods(mv.methodValidateAll(list, typeName),typeName);
+			if(isClass){				
+				allClasses.setMethods(mv.methodValidateAll(list, typeName),typeName);
+			}
+			else{
+				allClasses.setMethodsInter(mv.methodValidateAll(list, typeName),typeName);
+			}
+			
+			
+			
 		} catch (MyDslException e) {
 			if (e.nodeError instanceof Variable_declaration) {
 				var Variable_declaration vd = e.nodeError as Variable_declaration;
@@ -130,9 +153,9 @@ class MyDslValidator extends AbstractMyDslValidator {
 
 	}
 
-	def validaFieldDeclaration(EList<Field_declaration> declaration, String fieldType, String typeName) {
+	def validaFieldDeclaration(EList<Field_declaration> declaration, String fieldType, String typeName, boolean isClass) {
 		if (fieldType.equals(METHOD)) {
-			validaMethods(declaration,typeName);
+			validaMethods(declaration,typeName, isClass);
 		} else if (fieldType.equals(CONSTRUCTOR)) {
 			validaContructor(declaration,typeName);
 		} else if (fieldType.equals(VARIABLE)) {
@@ -165,7 +188,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 	def validaContructor(EList<Field_declaration> list, String typeName) {
 		var ContructorValidate cv = new ContructorValidate();
 		try {
-			allClasses.setConstructors(cv.constructorValidateAll(list, typeName));
+			allClasses.setConstructors(cv.constructorValidateAll(list, typeName),typeName);
 		} catch (MyDslException e) {
 			var ConstructorObj constAux;
 			if (e.nodeError.size() == 1) {

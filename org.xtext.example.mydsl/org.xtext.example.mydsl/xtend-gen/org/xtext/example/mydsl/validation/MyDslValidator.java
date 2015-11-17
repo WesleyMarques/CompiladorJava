@@ -4,7 +4,7 @@
 package org.xtext.example.mydsl.validation;
 
 import com.google.common.base.Objects;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.emf.common.util.EList;
@@ -52,8 +52,6 @@ public class MyDslValidator extends AbstractMyDslValidator {
   
   private final String CONSTRUCTOR = "constructor";
   
-  public Map<String, List<String>> classeExtends = new HashMap<String, List<String>>();
-  
   public Classes allClasses = new Classes();
   
   @Check
@@ -67,28 +65,85 @@ public class MyDslValidator extends AbstractMyDslValidator {
       boolean _not = (!_findClass);
       if (_not) {
         String _className_1 = cd.getClassName();
-        this.validaClass(cd, _className_1);
-        EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
+        EList<String> _modifiers = cd.getModifiers();
+        ArrayList<String> _arrayList = new ArrayList<String>(_modifiers);
+        boolean _contains = _arrayList.contains("abstract");
+        this.allClasses.addClass(_className_1, _contains);
         String _className_2 = cd.getClassName();
-        this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD, _className_2);
-        EList<Field_declaration> _fieldsDeclaration_1 = cd.getFieldsDeclaration();
+        this.validaClass(cd, _className_2);
+        EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
         String _className_3 = cd.getClassName();
-        this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR, _className_3);
-        EList<Field_declaration> _fieldsDeclaration_2 = cd.getFieldsDeclaration();
+        this.validaFieldDeclaration(_fieldsDeclaration, this.METHOD, _className_3, true);
+        EList<Field_declaration> _fieldsDeclaration_1 = cd.getFieldsDeclaration();
         String _className_4 = cd.getClassName();
-        this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE, _className_4);
+        this.validaFieldDeclaration(_fieldsDeclaration_1, this.CONSTRUCTOR, _className_4, true);
+        EList<Field_declaration> _fieldsDeclaration_2 = cd.getFieldsDeclaration();
+        String _className_5 = cd.getClassName();
+        this.validaFieldDeclaration(_fieldsDeclaration_2, this.VARIABLE, _className_5, true);
+        String _classHerdada = cd.getClassHerdada();
+        boolean _notEquals = (!Objects.equal(_classHerdada, null));
+        if (_notEquals) {
+          String _className_6 = cd.getClassName();
+          EList<String> _modifiers_1 = cd.getModifiers();
+          ArrayList<String> _arrayList_1 = new ArrayList<String>(_modifiers_1);
+          boolean _contains_1 = _arrayList_1.contains("abstract");
+          String _classHerdada_1 = cd.getClassHerdada();
+          this.allClasses.addClass(_className_6, _contains_1, _classHerdada_1);
+        }
+        String _interfaceImplementada = cd.getInterfaceImplementada();
+        boolean _notEquals_1 = (!Objects.equal(_interfaceImplementada, null));
+        if (_notEquals_1) {
+          List<String> aux = new ArrayList<String>();
+          String _interfaceImplementada_1 = cd.getInterfaceImplementada();
+          aux.add(_interfaceImplementada_1);
+          EList<String> _interfacesImplementadas = cd.getInterfacesImplementadas();
+          int _size = _interfacesImplementadas.size();
+          boolean _greaterThan = (_size > 0);
+          if (_greaterThan) {
+            EList<String> _interfacesImplementadas_1 = cd.getInterfacesImplementadas();
+            for (final String interfaces : _interfacesImplementadas_1) {
+              aux.add(interfaces);
+            }
+          }
+          String _className_7 = cd.getClassName();
+          this.allClasses.setInterfacesImple(aux, _className_7);
+        }
       }
     } else {
       Interface_declaration _interfaceDec = td.getInterfaceDec();
       Interface_declaration id = ((Interface_declaration) _interfaceDec);
       String _interfaceName = id.getInterfaceName();
       boolean _findInterface = this.allClasses.findInterface(_interfaceName);
-      if (_findInterface) {
+      boolean _not_1 = (!_findInterface);
+      if (_not_1) {
         String _interfaceName_1 = id.getInterfaceName();
-        this.validaInterface(id, _interfaceName_1);
-        EList<Field_declaration> _fieldsDeclaration_3 = id.getFieldsDeclaration();
+        EList<String> _modifiers_2 = id.getModifiers();
+        ArrayList<String> _arrayList_2 = new ArrayList<String>(_modifiers_2);
+        boolean _contains_2 = _arrayList_2.contains("abstract");
+        this.allClasses.addInter(_interfaceName_1, _contains_2);
         String _interfaceName_2 = id.getInterfaceName();
-        this.validaFieldDeclaration(_fieldsDeclaration_3, this.METHOD, _interfaceName_2);
+        this.validaInterface(id, _interfaceName_2);
+        EList<Field_declaration> _fieldsDeclaration_3 = id.getFieldsDeclaration();
+        String _interfaceName_3 = id.getInterfaceName();
+        this.validaFieldDeclaration(_fieldsDeclaration_3, this.METHOD, _interfaceName_3, false);
+        String _interfaceHerdada = id.getInterfaceHerdada();
+        boolean _notEquals_2 = (!Objects.equal(_interfaceHerdada, null));
+        if (_notEquals_2) {
+          List<String> aux_1 = new ArrayList<String>();
+          String _interfaceHerdada_1 = id.getInterfaceHerdada();
+          aux_1.add(_interfaceHerdada_1);
+          EList<String> _interfacesHerdadas = id.getInterfacesHerdadas();
+          int _size_1 = _interfacesHerdadas.size();
+          boolean _greaterThan_1 = (_size_1 > 0);
+          if (_greaterThan_1) {
+            EList<String> _interfacesHerdadas_1 = id.getInterfacesHerdadas();
+            for (final String interfaces_1 : _interfacesHerdadas_1) {
+              aux_1.add(interfaces_1);
+            }
+          }
+          String _interfaceName_4 = id.getInterfaceName();
+          this.allClasses.setInterfacesImpleToInt(aux_1, _interfaceName_4);
+        }
       }
     }
   }
@@ -109,11 +164,16 @@ public class MyDslValidator extends AbstractMyDslValidator {
     }
   }
   
-  public void validaMethods(final EList<Field_declaration> list, final String typeName) {
+  public void validaMethods(final EList<Field_declaration> list, final String typeName, final boolean isClass) {
     MethodValidate mv = new MethodValidate();
     try {
-      Map<String, List<MethodObj>> _methodValidateAll = mv.methodValidateAll(list, typeName);
-      this.allClasses.setMethods(_methodValidateAll, typeName);
+      if (isClass) {
+        Map<String, List<MethodObj>> _methodValidateAll = mv.methodValidateAll(list, typeName);
+        this.allClasses.setMethods(_methodValidateAll, typeName);
+      } else {
+        Map<String, List<MethodObj>> _methodValidateAll_1 = mv.methodValidateAll(list, typeName);
+        this.allClasses.setMethodsInter(_methodValidateAll_1, typeName);
+      }
     } catch (final Throwable _t) {
       if (_t instanceof MyDslException) {
         final MyDslException e = (MyDslException)_t;
@@ -182,10 +242,10 @@ public class MyDslValidator extends AbstractMyDslValidator {
     }
   }
   
-  public void validaFieldDeclaration(final EList<Field_declaration> declaration, final String fieldType, final String typeName) {
+  public void validaFieldDeclaration(final EList<Field_declaration> declaration, final String fieldType, final String typeName, final boolean isClass) {
     boolean _equals = fieldType.equals(this.METHOD);
     if (_equals) {
-      this.validaMethods(declaration, typeName);
+      this.validaMethods(declaration, typeName, isClass);
     } else {
       boolean _equals_1 = fieldType.equals(this.CONSTRUCTOR);
       if (_equals_1) {
@@ -238,7 +298,7 @@ public class MyDslValidator extends AbstractMyDslValidator {
     ContructorValidate cv = new ContructorValidate();
     try {
       List<ConstructorObj> _constructorValidateAll = cv.constructorValidateAll(list, typeName);
-      this.allClasses.setConstructors(_constructorValidateAll);
+      this.allClasses.setConstructors(_constructorValidateAll, typeName);
     } catch (final Throwable _t) {
       if (_t instanceof MyDslException) {
         final MyDslException e = (MyDslException)_t;

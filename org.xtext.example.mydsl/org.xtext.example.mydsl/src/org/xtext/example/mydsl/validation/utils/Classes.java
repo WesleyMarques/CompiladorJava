@@ -16,13 +16,41 @@ public class Classes {
 		
 	}
 	
+	public void addClass(String name, boolean isAbstract){
+		Heranca aux = new Heranca(isAbstract);
+		classes.put(name,aux);
+	}
+	public void addClass(String name, boolean isAbstract, String classHerdada){
+		addClass(name,isAbstract);
+		classes.get(name).addClass(classHerdada);
+	}
+	
+	public void addInter(String name, boolean isAbstract){
+		Heranca aux = new Heranca(isAbstract);
+		interfaces.put(name,aux);
+	}
+	
+	public void setInterfacesImple(List<String> inter, String className){
+		for (String string : inter) {
+			classes.get(className).addInterface(string);			
+		}
+		
+	}
+	
+	public void setInterfacesImpleToInt(List<String> inter, String interName){
+		for (String string : inter) {
+			interfaces.get(interName).addInterface(string);			
+		}
+		
+	}
+	
 	public List<ConstructorObj> getConstructors(String className) {
-		Heranca actualCons = classes.get("className");
+		Heranca actualCons = classes.get(className);
 		return actualCons.getConstructors();
 	}
 
-	public void setConstructors(List<ConstructorObj> constructors) {
-		Heranca actualCons = classes.get("className");
+	public void setConstructors(List<ConstructorObj> constructors, String className) {
+		Heranca actualCons = classes.get(className);
 		actualCons.setConstructors(constructors);
 	}
 	
@@ -42,22 +70,30 @@ public class Classes {
 		classes.get(className).setMethod(method);
 	}
 	
+	public void setMethodsInter(Map<String, List<MethodObj>> method, String className){
+		interfaces.get(className).setMethod(method);
+	}
+	
+	
+	
+	
 	public class Heranca{
 		private List<String> extendsClass;
 		private List<String> implementsInterface;
 		private List<Variable> globalVaribles;
 		private List<ConstructorObj> constructors;
-		
+		private boolean isAbstract;
 
 		private Map<String, List<MethodObj>> methodNames;
 		
 		
-		public Heranca() {
+		public Heranca(boolean isAbs) {
 			extendsClass = new ArrayList<String>();
 			implementsInterface = new ArrayList<String>();
 			globalVaribles = new ArrayList<Variable>();
 			constructors = new ArrayList<ConstructorObj>();
 			methodNames = new HashMap<String, List<MethodObj>>();
+			this.isAbstract = isAbs;
 			
 		}
 		
