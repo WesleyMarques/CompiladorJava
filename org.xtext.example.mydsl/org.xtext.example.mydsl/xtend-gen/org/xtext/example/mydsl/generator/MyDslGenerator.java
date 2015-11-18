@@ -3,9 +3,24 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.myDsl.Class_declaration;
+import org.xtext.example.mydsl.myDsl.Expression;
+import org.xtext.example.mydsl.myDsl.Field_declaration;
+import org.xtext.example.mydsl.myDsl.Literal_Expression;
+import org.xtext.example.mydsl.myDsl.Logical_Expression_NR;
+import org.xtext.example.mydsl.myDsl.Variable_declaration;
+import org.xtext.example.mydsl.myDsl.Variable_declarator;
+import org.xtext.example.mydsl.myDsl.Variable_initializer;
 
 /**
  * Generates code from your model files on save.
@@ -14,7 +29,149 @@ import org.eclipse.xtext.generator.IGenerator;
  */
 @SuppressWarnings("all")
 public class MyDslGenerator implements IGenerator {
+  private Integer variables = Integer.valueOf(0);
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<Class_declaration> _filter = Iterables.<Class_declaration>filter(_iterable, Class_declaration.class);
+    for (final Class_declaration e : _filter) {
+      String _className = e.getClassName();
+      String _string = _className.toString();
+      String _plus = (_string + ".txt");
+      CharSequence _compile = this.compile(e);
+      fsa.generateFile(_plus, _compile);
+    }
+  }
+  
+  public CharSequence compile(final Class_declaration cd) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
+      for(final Field_declaration f : _fieldsDeclaration) {
+        CharSequence _compileField = this.compileField(f);
+        _builder.append(_compileField, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileField(final Field_declaration declaration) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((declaration instanceof Variable_declaration)) {
+        Variable_declarator _nameVariable = ((Variable_declaration)declaration).getNameVariable();
+        CharSequence _compileVariable = this.compileVariable(((Variable_declaration) _nameVariable));
+        _builder.append(_compileVariable, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileVariable(final Variable_declaration declaration) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Variable_declarator _nameVariable = declaration.getNameVariable();
+      Variable_initializer _vari = _nameVariable.getVari();
+      boolean _notEquals = (!Objects.equal(_vari, null));
+      if (_notEquals) {
+        {
+          Variable_declarator _nameVariable_1 = declaration.getNameVariable();
+          Variable_initializer _vari_1 = _nameVariable_1.getVari();
+          Expression _expression = _vari_1.getExpression();
+          Literal_Expression _literalExpression = _expression.getLiteralExpression();
+          boolean _notEquals_1 = (!Objects.equal(_literalExpression, null));
+          if (_notEquals_1) {
+            _builder.append("LD R");
+            String _string = this.variables.toString();
+            _builder.append(_string, "");
+            _builder.append(", #");
+            Variable_declarator _nameVariable_2 = declaration.getNameVariable();
+            Variable_initializer _vari_2 = _nameVariable_2.getVari();
+            Expression _expression_1 = _vari_2.getExpression();
+            Literal_Expression _literalExpression_1 = _expression_1.getLiteralExpression();
+            int _exp1 = _literalExpression_1.getExp1();
+            _builder.append(_exp1, "");
+            _builder.newLineIfNotEmpty();
+            this.increment();
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          Variable_declarator _nameVariable_3 = declaration.getNameVariable();
+          Variable_initializer _vari_3 = _nameVariable_3.getVari();
+          Expression _expression_2 = _vari_3.getExpression();
+          Logical_Expression_NR _logicalExpression = _expression_2.getLogicalExpression();
+          boolean _notEquals_2 = (!Objects.equal(_logicalExpression, null));
+          if (_notEquals_2) {
+            {
+              Variable_declarator _nameVariable_4 = declaration.getNameVariable();
+              Variable_initializer _vari_4 = _nameVariable_4.getVari();
+              Expression _expression_3 = _vari_4.getExpression();
+              Logical_Expression_NR _logicalExpression_1 = _expression_3.getLogicalExpression();
+              Expression _expression_4 = _logicalExpression_1.getExpression();
+              boolean _notEquals_3 = (!Objects.equal(_expression_4, null));
+              if (_notEquals_3) {
+                _builder.append("LD R");
+                String _string_1 = this.variables.toString();
+                _builder.append(_string_1, "");
+                _builder.append(", ");
+                Variable_declarator _nameVariable_5 = declaration.getNameVariable();
+                Variable_initializer _vari_5 = _nameVariable_5.getVari();
+                Expression _expression_5 = _vari_5.getExpression();
+                Logical_Expression_NR _logicalExpression_2 = _expression_5.getLogicalExpression();
+                Expression _expression_6 = _logicalExpression_2.getExpression();
+                String _string_2 = _expression_6.toString();
+                _builder.append(_string_2, "");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+        _builder.newLine();
+      } else {
+        _builder.append("LD R");
+        String _string_3 = this.variables.toString();
+        _builder.append(_string_3, "");
+        _builder.append(", ");
+        Variable_declarator _nameVariable_6 = declaration.getNameVariable();
+        String _nameVariable_7 = _nameVariable_6.getNameVariable();
+        String _string_4 = _nameVariable_7.toString();
+        _builder.append(_string_4, "");
+        _builder.newLineIfNotEmpty();
+        this.increment();
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Variable_declarator> _names = declaration.getNames();
+      boolean _isEmpty = _names.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        {
+          EList<Variable_declarator> _names_1 = declaration.getNames();
+          for(final Variable_declarator name : _names_1) {
+            _builder.append("LD R");
+            String _string_5 = this.variables.toString();
+            _builder.append(_string_5, "");
+            _builder.append(", ");
+            Variable_declarator _nameVariable_8 = declaration.getNameVariable();
+            String _string_6 = _nameVariable_8.toString();
+            _builder.append(_string_6, "");
+            _builder.newLineIfNotEmpty();
+            this.increment();
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public void increment() {
+    this.variables++;
   }
 }

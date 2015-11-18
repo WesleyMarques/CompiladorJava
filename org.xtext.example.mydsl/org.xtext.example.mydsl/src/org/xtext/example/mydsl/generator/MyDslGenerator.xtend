@@ -4,8 +4,11 @@
 package org.xtext.example.mydsl.generator
 
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.generator.IGenerator
+import org.xtext.example.mydsl.myDsl.Class_declaration
+import org.xtext.example.mydsl.myDsl.Field_declaration
+import org.xtext.example.mydsl.myDsl.Variable_declaration
 
 /**
  * Generates code from your model files on save.
@@ -13,12 +16,53 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class MyDslGenerator implements IGenerator {
-	
+
+	Integer variables = 0;
+
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		for (e : resource.allContents.toIterable.filter(Class_declaration)) {
+			fsa.generateFile(e.className.toString() + ".txt", e.compile)
+		}
+	}
+
+	def compile(Class_declaration cd) '''
+		«FOR f : cd.fieldsDeclaration»
+			«f.compileField»
+		«ENDFOR»
+	'''
+
+	def compileField(Field_declaration declaration) '''
+		«IF declaration instanceof Variable_declaration»
+			«(declaration.nameVariable as Variable_declaration).compileVariable»
+		«ENDIF»		
+	'''
+
+	def compileVariable(Variable_declaration declaration) '''
+		«IF declaration.nameVariable.vari != null»
+			«IF declaration.nameVariable.vari.expression.literalExpression != null»
+				LD R«variables.toString()», #«declaration.nameVariable.vari.expression.literalExpression.exp1»
+				«increment»
+			«ENDIF»
+			«IF declaration.nameVariable.vari.expression.logicalExpression != null»
+				«IF declaration.nameVariable.vari.expression.logicalExpression.expression != null»
+					LD R«variables.toString()», «declaration.nameVariable.vari.expression.logicalExpression.expression.toString»
+				«ENDIF»
+			«ENDIF»
+			
+			«ELSE»
+			LD R«variables.toString()», «declaration.nameVariable.nameVariable.toString»
+			«increment»
+		«ENDIF»
+		«IF !declaration.names.isEmpty»
+			«FOR name: declaration.names»
+				LD R«variables.toString()», «declaration.nameVariable.toString»
+				«increment»
+			«ENDFOR»
+		«ENDIF» 	
+	'''
+
+	def void increment() {
+		variables++;
 	}
 }
+

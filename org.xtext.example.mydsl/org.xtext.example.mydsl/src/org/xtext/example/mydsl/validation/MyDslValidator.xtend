@@ -20,6 +20,7 @@ import org.xtext.example.mydsl.myDsl.Variable_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declarator
 import org.xtext.example.mydsl.myDsl.While_Statement
 import org.xtext.example.mydsl.validation.utils.Classes
+import org.xtext.example.mydsl.validation.utils.Classes.Heranca
 import org.xtext.example.mydsl.validation.utils.ConstructorObj
 import org.xtext.example.mydsl.validation.utils.ContructorValidate
 import org.xtext.example.mydsl.validation.utils.ExpressionValidate
@@ -266,29 +267,13 @@ class MyDslValidator extends AbstractMyDslValidator {
 	}
 
 	@Check
-	def variableDeclaration(Variable_declaration vd) {
+	def variableDeclaration(Variable_declarator vd) {
+		var String name = vd.nameVariable;
+		var List<Variable> global;
+		
+		
 	}
 
-	@Check
-	def validWhile(While_Statement ws) {
-		var Expression exp = ws.expression;
-		var Expression_aux aux = exp.aux;
-		if (exp.logicalExpression != null) {
-			while (aux.logicalSign != null || exp.logicalExpression != null) {
-				exp = aux.exp1;
-				aux = aux.aux;
-				if (aux.logicalSign == null) {
-					error("Operando not avalible", aux, MyDslPackage.Literals.EXPRESSION_AUX__LOGICAL_SIGN);
-				}
-				if (exp.logicalExpression != null) {
-					error("type not avalible", exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
-				}
-			}
 
-		} else {
-			error("parameter of While invalid", exp, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
-		}
-
-	}
 
 }

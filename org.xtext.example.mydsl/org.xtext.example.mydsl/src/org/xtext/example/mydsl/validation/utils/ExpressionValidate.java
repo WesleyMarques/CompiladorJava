@@ -1,11 +1,21 @@
 package org.xtext.example.mydsl.validation.utils;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.xtext.example.mydsl.myDsl.Expression;
 
 public class ExpressionValidate {
 	
 	
 	private Expression exp;
+	private Map<String, List<String>> castTypes = null;
+	
+	public ExpressionValidate() {
+		castTypes = new HashMap<String, List<String>>();
+		
+	}
 
 	public void validate(Expression exp) throws Exception{
 		this.exp = exp;
@@ -13,7 +23,9 @@ public class ExpressionValidate {
 			if(!validExp("logical")){
 				throw new Exception("Expression not well formed");
 			}
-		}else{
+		}else if(exp.getCastExpression() != null){
+			String typeCast = exp.getCastExpression().getType().getTypeSpecifier();
+			
 			
 		}
 		
