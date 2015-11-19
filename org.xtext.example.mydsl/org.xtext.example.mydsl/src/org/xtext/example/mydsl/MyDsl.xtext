@@ -136,7 +136,7 @@ Statement:
 	"synchronized(" expression = Expression rparent = RPAREN syncStatement = Statement|
 	{Statement}ret = "return" (expression = Expression)?  ";" |
 	{Statement}"throw" (expression = Expression)? ";" | 	
-	Statement_block |
+	statementBlock = Statement_block |
 	tryStatement = Try_statement |
 	nameStatement = ID COLON statement = Statement | 	
 	{Statement}"break" name = ID? ";" |

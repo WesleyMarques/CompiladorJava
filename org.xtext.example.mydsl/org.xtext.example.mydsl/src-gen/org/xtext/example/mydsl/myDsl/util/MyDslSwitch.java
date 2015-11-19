@@ -188,7 +188,6 @@ public class MyDslSwitch<T> extends Switch<T>
       {
         Statement_block statement_block = (Statement_block)theEObject;
         T result = caseStatement_block(statement_block);
-        if (result == null) result = caseStatement(statement_block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.For_Statement;
 import org.xtext.example.mydsl.myDsl.If_statement;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement;
+import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Switch_statement;
 import org.xtext.example.mydsl.myDsl.Try_statement;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
@@ -48,6 +49,7 @@ import org.xtext.example.mydsl.myDsl.While_Statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getRet <em>Ret</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getStatementBlock <em>Statement Block</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
@@ -208,6 +210,16 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @ordered
    */
   protected String ret = RET_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getStatementBlock() <em>Statement Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatementBlock()
+   * @generated
+   * @ordered
+   */
+  protected Statement_block statementBlock;
 
   /**
    * The cached value of the '{@link #getTryStatement() <em>Try Statement</em>}' containment reference.
@@ -762,6 +774,54 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
+  public Statement_block getStatementBlock()
+  {
+    return statementBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatementBlock(Statement_block newStatementBlock, NotificationChain msgs)
+  {
+    Statement_block oldStatementBlock = statementBlock;
+    statementBlock = newStatementBlock;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT_BLOCK, oldStatementBlock, newStatementBlock);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatementBlock(Statement_block newStatementBlock)
+  {
+    if (newStatementBlock != statementBlock)
+    {
+      NotificationChain msgs = null;
+      if (statementBlock != null)
+        msgs = ((InternalEObject)statementBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT_BLOCK, null, msgs);
+      if (newStatementBlock != null)
+        msgs = ((InternalEObject)newStatementBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.STATEMENT__STATEMENT_BLOCK, null, msgs);
+      msgs = basicSetStatementBlock(newStatementBlock, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.STATEMENT__STATEMENT_BLOCK, newStatementBlock, newStatementBlock));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Try_statement getTryStatement()
   {
     return tryStatement;
@@ -927,6 +987,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return basicSetExpression(null, msgs);
       case MyDslPackage.STATEMENT__SYNC_STATEMENT:
         return basicSetSyncStatement(null, msgs);
+      case MyDslPackage.STATEMENT__STATEMENT_BLOCK:
+        return basicSetStatementBlock(null, msgs);
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return basicSetTryStatement(null, msgs);
       case MyDslPackage.STATEMENT__STATEMENT:
@@ -969,6 +1031,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return getSyncStatement();
       case MyDslPackage.STATEMENT__RET:
         return getRet();
+      case MyDslPackage.STATEMENT__STATEMENT_BLOCK:
+        return getStatementBlock();
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return getTryStatement();
       case MyDslPackage.STATEMENT__NAME_STATEMENT:
@@ -1028,6 +1092,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return;
       case MyDslPackage.STATEMENT__RET:
         setRet((String)newValue);
+        return;
+      case MyDslPackage.STATEMENT__STATEMENT_BLOCK:
+        setStatementBlock((Statement_block)newValue);
         return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)newValue);
@@ -1091,6 +1158,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
       case MyDslPackage.STATEMENT__RET:
         setRet(RET_EDEFAULT);
         return;
+      case MyDslPackage.STATEMENT__STATEMENT_BLOCK:
+        setStatementBlock((Statement_block)null);
+        return;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         setTryStatement((Try_statement)null);
         return;
@@ -1141,6 +1211,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
         return syncStatement != null;
       case MyDslPackage.STATEMENT__RET:
         return RET_EDEFAULT == null ? ret != null : !RET_EDEFAULT.equals(ret);
+      case MyDslPackage.STATEMENT__STATEMENT_BLOCK:
+        return statementBlock != null;
       case MyDslPackage.STATEMENT__TRY_STATEMENT:
         return tryStatement != null;
       case MyDslPackage.STATEMENT__NAME_STATEMENT:

@@ -124,7 +124,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Statement_block"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement_block" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Statement_block">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rCurly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statments" upperBound="-1"
         eType="#//Statement" containment="true"/>
@@ -152,6 +152,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="syncStatement" eType="#//Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ret" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statementBlock" eType="#//Statement_block"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tryStatement" eType="#//Try_statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

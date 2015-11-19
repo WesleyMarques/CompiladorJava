@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getSyncStatement <em>Sync Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getRet <em>Ret</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatementBlock <em>Statement Block</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getNameStatement <em>Name Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}</li>
@@ -340,6 +341,32 @@ public interface Statement extends EObject
    * @generated
    */
   void setRet(String value);
+
+  /**
+   * Returns the value of the '<em><b>Statement Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Statement Block</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statement Block</em>' containment reference.
+   * @see #setStatementBlock(Statement_block)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_StatementBlock()
+   * @model containment="true"
+   * @generated
+   */
+  Statement_block getStatementBlock();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Statement#getStatementBlock <em>Statement Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statement Block</em>' containment reference.
+   * @see #getStatementBlock()
+   * @generated
+   */
+  void setStatementBlock(Statement_block value);
 
   /**
    * Returns the value of the '<em><b>Try Statement</b></em>' containment reference.

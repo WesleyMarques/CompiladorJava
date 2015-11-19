@@ -856,6 +856,52 @@ public interface MyDslPackage extends EPackage
   int STATIC_INITIALIZER_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl <em>Statement block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement_block()
+   * @generated
+   */
+  int STATEMENT_BLOCK = 16;
+
+  /**
+   * The feature id for the '<em><b>RCurly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__RCURLY = 0;
+
+  /**
+   * The feature id for the '<em><b>Statments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__STATMENTS = 1;
+
+  /**
+   * The feature id for the '<em><b>LCurly</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK__LCURLY = 2;
+
+  /**
+   * The number of structural features of the '<em>Statement block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_BLOCK_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -974,13 +1020,22 @@ public interface MyDslPackage extends EPackage
   int STATEMENT__RET = 11;
 
   /**
+   * The feature id for the '<em><b>Statement Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__STATEMENT_BLOCK = 12;
+
+  /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT__TRY_STATEMENT = 12;
+  int STATEMENT__TRY_STATEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Name Statement</b></em>' attribute.
@@ -989,7 +1044,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME_STATEMENT = 13;
+  int STATEMENT__NAME_STATEMENT = 14;
 
   /**
    * The feature id for the '<em><b>Statement</b></em>' containment reference.
@@ -998,7 +1053,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__STATEMENT = 14;
+  int STATEMENT__STATEMENT = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1007,7 +1062,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = 15;
+  int STATEMENT__NAME = 16;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -1016,197 +1071,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 16;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl <em>Statement block</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement_block()
-   * @generated
-   */
-  int STATEMENT_BLOCK = 16;
-
-  /**
-   * The feature id for the '<em><b>Variable Declaration</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__VARIABLE_DECLARATION = STATEMENT__VARIABLE_DECLARATION;
-
-  /**
-   * The feature id for the '<em><b>Expression Statement</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__EXPRESSION_STATEMENT = STATEMENT__EXPRESSION_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>G</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__G = STATEMENT__G;
-
-  /**
-   * The feature id for the '<em><b>If Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__IF_STATEMENT = STATEMENT__IF_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__DO_STATEMENT = STATEMENT__DO_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>While Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__WHILE_STATEMENT = STATEMENT__WHILE_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>For Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__FOR_STATEMENT = STATEMENT__FOR_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Switch Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__SWITCH_STATEMENT = STATEMENT__SWITCH_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__EXPRESSION = STATEMENT__EXPRESSION;
-
-  /**
-   * The feature id for the '<em><b>Rparent</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__RPARENT = STATEMENT__RPARENT;
-
-  /**
-   * The feature id for the '<em><b>Sync Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__SYNC_STATEMENT = STATEMENT__SYNC_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Ret</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__RET = STATEMENT__RET;
-
-  /**
-   * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__TRY_STATEMENT = STATEMENT__TRY_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Name Statement</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__NAME_STATEMENT = STATEMENT__NAME_STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Statement</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__STATEMENT = STATEMENT__STATEMENT;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__NAME = STATEMENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>RCurly</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__RCURLY = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Statments</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__STATMENTS = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>LCurly</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK__LCURLY = STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Statement block</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int STATEMENT_FEATURE_COUNT = 17;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.For_StatementImpl <em>For Statement</em>}' class.
@@ -3305,6 +3170,17 @@ public interface MyDslPackage extends EPackage
   EAttribute getStatement_Ret();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getStatementBlock <em>Statement Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement Block</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Statement#getStatementBlock()
+   * @see #getStatement()
+   * @generated
+   */
+  EReference getStatement_StatementBlock();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Statement#getTryStatement <em>Try Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5245,6 +5121,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute STATEMENT__RET = eINSTANCE.getStatement_Ret();
+
+    /**
+     * The meta object literal for the '<em><b>Statement Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__STATEMENT_BLOCK = eINSTANCE.getStatement_StatementBlock();
 
     /**
      * The meta object literal for the '<em><b>Try Statement</b></em>' containment reference feature.

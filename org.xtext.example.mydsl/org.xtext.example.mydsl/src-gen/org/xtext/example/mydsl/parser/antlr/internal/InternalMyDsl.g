@@ -2082,19 +2082,25 @@ ruleStatement returns [EObject current=null]
     	newLeafNode(otherlv_19, grammarAccess.getStatementAccess().getSemicolonKeyword_9_3());
     }
 )
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        newCompositeNode(grammarAccess.getStatementAccess().getStatement_blockParserRuleCall_10()); 
-    }
-    this_Statement_block_20=ruleStatement_block
-    { 
-        $current = $this_Statement_block_20.current; 
-        afterParserOrEnumRuleCall();
-    }
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStatementAccess().getStatementBlockStatement_blockParserRuleCall_10_0()); 
+	    }
+		lv_statementBlock_20_0=ruleStatement_block		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"statementBlock",
+        		lv_statementBlock_20_0, 
+        		"Statement_block");
+	        afterParserOrEnumRuleCall();
+	    }
 
+)
+)
     |(
 (
 		{ 

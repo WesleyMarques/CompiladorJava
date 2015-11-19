@@ -1029,7 +1029,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
 		private final RuleCall cExpressionExpressionParserRuleCall_9_2_0 = (RuleCall)cExpressionAssignment_9_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_9_3 = (Keyword)cGroup_9.eContents().get(3);
-		private final RuleCall cStatement_blockParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final Assignment cStatementBlockAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
+		private final RuleCall cStatementBlockStatement_blockParserRuleCall_10_0 = (RuleCall)cStatementBlockAssignment_10.eContents().get(0);
 		private final Assignment cTryStatementAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
 		private final RuleCall cTryStatementTry_statementParserRuleCall_11_0 = (RuleCall)cTryStatementAssignment_11.eContents().get(0);
 		private final Group cGroup_12 = (Group)cAlternatives.eContents().get(12);
@@ -1059,17 +1060,17 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
 		//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
-		//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block
-		//	| tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break" name=ID? ";" |
-		//	{Statement} "continue" name=ID? ";" | {Statement} ";";
+		//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
+		//	statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement}
+		//	"break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
 		//variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
 		//doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
-		//{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block
-		//| tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break" name=ID? ";" |
-		//{Statement} "continue" name=ID? ";" | {Statement} ";"
+		//{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
+		//statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement}
+		//"break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//variableDeclaration=Variable_declaration
@@ -1186,8 +1187,11 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_9_3() { return cSemicolonKeyword_9_3; }
 
+		//statementBlock=Statement_block
+		public Assignment getStatementBlockAssignment_10() { return cStatementBlockAssignment_10; }
+
 		//Statement_block
-		public RuleCall getStatement_blockParserRuleCall_10() { return cStatement_blockParserRuleCall_10; }
+		public RuleCall getStatementBlockStatement_blockParserRuleCall_10_0() { return cStatementBlockStatement_blockParserRuleCall_10_0; }
 
 		//tryStatement=Try_statement
 		public Assignment getTryStatementAssignment_11() { return cTryStatementAssignment_11; }
@@ -3649,9 +3653,9 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
 	//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 	//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
-	//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" | Statement_block
-	//	| tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement} "break" name=ID? ";" |
-	//	{Statement} "continue" name=ID? ";" | {Statement} ";";
+	//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
+	//	statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement}
+	//	"break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}

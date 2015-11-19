@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -36,7 +37,7 @@ import org.xtext.example.mydsl.myDsl.Statement_block;
  *
  * @generated
  */
-public class Statement_blockImpl extends StatementImpl implements Statement_block
+public class Statement_blockImpl extends MinimalEObjectImpl.Container implements Statement_block
 {
   /**
    * The default value of the '{@link #getRCurly() <em>RCurly</em>}' attribute.

@@ -10,7 +10,6 @@ import org.eclipse.xtext.validation.Check
 import org.xtex.example.mydsl.exceptions.MyDslException
 import org.xtext.example.mydsl.myDsl.Class_declaration
 import org.xtext.example.mydsl.myDsl.Expression
-import org.xtext.example.mydsl.myDsl.Expression_aux
 import org.xtext.example.mydsl.myDsl.Field_declaration
 import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
@@ -18,9 +17,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Type_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declarator
-import org.xtext.example.mydsl.myDsl.While_Statement
 import org.xtext.example.mydsl.validation.utils.Classes
-import org.xtext.example.mydsl.validation.utils.Classes.Heranca
 import org.xtext.example.mydsl.validation.utils.ConstructorObj
 import org.xtext.example.mydsl.validation.utils.ContructorValidate
 import org.xtext.example.mydsl.validation.utils.ExpressionValidate
