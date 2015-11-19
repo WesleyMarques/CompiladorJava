@@ -37,10 +37,6 @@ public class MyDslGenerator implements IGenerator {
   
   private Integer address = Integer.valueOf(0);
   
-  private Integer labelIndex = Integer.valueOf(0);
-  
-  private String Labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     this.variables = Integer.valueOf(1);
@@ -95,6 +91,9 @@ public class MyDslGenerator implements IGenerator {
     {
       EList<Field_declaration> _fieldsDeclaration = cd.getFieldsDeclaration();
       for(final Field_declaration f : _fieldsDeclaration) {
+        CharSequence _compileField = this.compileField(f);
+        _builder.append(_compileField, "");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
@@ -286,9 +285,13 @@ public class MyDslGenerator implements IGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t\t\t\t\t\t\t");
+    String _string = this.address.toString();
+    _builder.append(_string, "");
+    _builder.append(": BR #StartWHILE");
+    _builder.newLineIfNotEmpty();
+    this.nextAddress();
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\t\t\t\t\t\t\t");
     _builder.append("#EndWHILE:");
     _builder.newLine();
     return _builder;
@@ -490,7 +493,7 @@ public class MyDslGenerator implements IGenerator {
                           Integer _integer_3 = new Integer((this.variables).intValue());
                           String _string_19 = _integer_3.toString();
                           _builder.append(_string_19, "");
-                          _builder.append(", #ENDWHILE");
+                          _builder.append(", #EndWHILE");
                           _builder.newLineIfNotEmpty();
                           this.nextAddress();
                           _builder.newLineIfNotEmpty();
@@ -522,7 +525,7 @@ public class MyDslGenerator implements IGenerator {
                             Integer _integer_7 = new Integer((this.variables).intValue());
                             String _string_25 = _integer_7.toString();
                             _builder.append(_string_25, "");
-                            _builder.append(", #ENDWHILE");
+                            _builder.append(", #EndWHILE");
                             _builder.newLineIfNotEmpty();
                             this.nextAddress();
                             _builder.newLineIfNotEmpty();
@@ -554,7 +557,7 @@ public class MyDslGenerator implements IGenerator {
                               Integer _integer_11 = new Integer((this.variables).intValue());
                               String _string_31 = _integer_11.toString();
                               _builder.append(_string_31, "");
-                              _builder.append(", #ENDWHILE");
+                              _builder.append(", #EndWHILE");
                               _builder.newLineIfNotEmpty();
                               this.nextAddress();
                               _builder.newLineIfNotEmpty();
@@ -586,7 +589,7 @@ public class MyDslGenerator implements IGenerator {
                                 Integer _integer_15 = new Integer((this.variables).intValue());
                                 String _string_37 = _integer_15.toString();
                                 _builder.append(_string_37, "");
-                                _builder.append(", #ENDWHILE");
+                                _builder.append(", #EndWHILE");
                                 _builder.newLineIfNotEmpty();
                                 this.nextAddress();
                                 _builder.newLineIfNotEmpty();
@@ -620,7 +623,7 @@ public class MyDslGenerator implements IGenerator {
                                   Integer _integer_19 = new Integer((this.variables).intValue());
                                   String _string_43 = _integer_19.toString();
                                   _builder.append(_string_43, "");
-                                  _builder.append(", #ENDWHILE");
+                                  _builder.append(", #EndWHILE");
                                   _builder.newLineIfNotEmpty();
                                   this.nextAddress();
                                   _builder.newLineIfNotEmpty();
@@ -654,7 +657,7 @@ public class MyDslGenerator implements IGenerator {
                                     Integer _integer_23 = new Integer((this.variables).intValue());
                                     String _string_49 = _integer_23.toString();
                                     _builder.append(_string_49, "");
-                                    _builder.append(", #ENDWHILE");
+                                    _builder.append(", #EndWHILE");
                                     _builder.newLineIfNotEmpty();
                                     this.nextAddress();
                                     _builder.newLineIfNotEmpty();
@@ -857,14 +860,6 @@ public class MyDslGenerator implements IGenerator {
     this.address = Integer.valueOf(((this.address).intValue() + 8));
   }
   
-  public void nextLabel() {
-    this.labelIndex++;
-  }
-  
-  public char getLabel(final int index) {
-    return this.Labels.charAt(index);
-  }
-  
   public CharSequence generateString(final Variable_declarator declarator) {
     StringConcatenation _builder = new StringConcatenation();
     String _string = this.address.toString();
@@ -999,17 +994,18 @@ public class MyDslGenerator implements IGenerator {
         Variable_initializer _vari_6 = declarator.getVari();
         Expression _expression_8 = _vari_6.getExpression();
         Expression_aux _aux = _expression_8.getAux();
-        boolean _notEquals_5 = (!Objects.equal(_aux, null));
+        Expression _logicExp = _aux.getLogicExp();
+        boolean _notEquals_5 = (!Objects.equal(_logicExp, null));
         if (_notEquals_5) {
           Variable_initializer _vari_7 = declarator.getVari();
           Expression _expression_9 = _vari_7.getExpression();
           Expression_aux _aux_1 = _expression_9.getAux();
-          Expression _logicExp = _aux_1.getLogicExp();
+          Expression _logicExp_1 = _aux_1.getLogicExp();
           Variable_initializer _vari_8 = declarator.getVari();
           Expression _expression_10 = _vari_8.getExpression();
           Expression_aux _aux_2 = _expression_10.getAux();
           String _logicOp = _aux_2.getLogicOp();
-          CharSequence _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp, _logicOp);
+          CharSequence _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp_1, _logicOp);
           _builder.append(_generateSimpleLogicalExpression_1, "");
           _builder.newLineIfNotEmpty();
         }
@@ -1115,10 +1111,11 @@ public class MyDslGenerator implements IGenerator {
     _builder.append(": BRF R");
     String _string_5 = Integer.valueOf(((this.variables).intValue() - 1)).toString();
     _builder.append(_string_5, "");
-    _builder.append(", #");
+    _builder.append(", #EndWHILE");
     _builder.newLineIfNotEmpty();
     this.nextAddress();
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.newLine();
     return _builder;
   }

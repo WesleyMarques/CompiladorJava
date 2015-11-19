@@ -7,7 +7,6 @@ import org.eclipse.xtext.generator.IGenerator
 import org.xtext.example.mydsl.myDsl.Class_declaration
 import org.xtext.example.mydsl.myDsl.Expression
 import org.xtext.example.mydsl.myDsl.Field_declaration
-import org.xtext.example.mydsl.myDsl.For_Statement
 import org.xtext.example.mydsl.myDsl.Interface_declaration
 import org.xtext.example.mydsl.myDsl.Method_declaration
 import org.xtext.example.mydsl.myDsl.Statement
@@ -25,8 +24,6 @@ class MyDslGenerator implements IGenerator {
 
 	Integer variables = 1;
 	Integer address = 0;
-	Integer labelIndex = 0;
-	String Labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		variables = 1;
@@ -51,7 +48,7 @@ class MyDslGenerator implements IGenerator {
 		«address»LD SP, 1000
 		«nextAddress»
 		«FOR f : cd.fieldsDeclaration»
-		«««			«f.compileField»
+			«f.compileField»
 		«ENDFOR»
 	'''
 
@@ -114,13 +111,9 @@ class MyDslGenerator implements IGenerator {
 		«IF whileStatement.whileStatement != null»
 			«compileStatement(whileStatement.whileStatement)»
 		«ENDIF»
-		«««IF whileStatement.expression2 != null»
-			«««compileExpression(whileStatement.expression2)»
-		«««ENDIF»
+		«address.toString()»: BR #StartWHILE
+		«nextAddress»
 		
-		«««IF whileStatement.expression3 != null»
-			«««compileExpression(whileStatement.expression3)»
-		«««ENDIF»
 		#EndWHILE:
 	'''
 
@@ -172,34 +165,34 @@ class MyDslGenerator implements IGenerator {
 					«IF expression.aux.testingSign.equals("<")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGTZ R«new Integer(variables).toString()», #ENDWHILE
+						«address.toString()»: BGTZ R«new Integer(variables).toString()», #EndWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals(">")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGTZ R«new Integer(variables).toString()», #ENDWHILE
+						«address.toString()»: BGTZ R«new Integer(variables).toString()», #EndWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals(">=")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGEZ R«new Integer(variables).toString()», #ENDWHILE
+						«address.toString()»: BGEZ R«new Integer(variables).toString()», #EndWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals("<=")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGEZ R«new Integer(variables).toString()», #ENDWHILE
+						«address.toString()»: BGEZ R«new Integer(variables).toString()», #EndWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals("==")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
 						«increment»
-						«address.toString()»: CMP R«new Integer(variables).toString()», #ENDWHILE
+						«address.toString()»: CMP R«new Integer(variables).toString()», #EndWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals("!=")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
 						«increment»
-						«address.toString()»: CMP R«new Integer(variables).toString()», #ENDWHILE
+						«address.toString()»: CMP R«new Integer(variables).toString()», #EndWHILE
 						«nextAddress»
 					«ENDIF»
 				«ENDIF»
@@ -260,13 +253,9 @@ class MyDslGenerator implements IGenerator {
 		address = address + 8;
 	}
 
-	def void nextLabel() {
-		labelIndex++;
-	}
 
-	def char getLabel(int index) {
-		return Labels.charAt(index);
-	}
+
+	
 
 	def generateString(Variable_declarator declarator) '''
 		«address.toString()»: LD R«variables.toString()», "«declarator.vari.expression.literalExpression.string»"
@@ -296,7 +285,7 @@ class MyDslGenerator implements IGenerator {
 		«ENDIF»
 		«IF declarator.vari.expression.logicalExpression.expression != null»
 			«generateSimpleLogicalExpression(declarator.vari.expression.logicalExpression.expression, "")»
-		«ELSEIF declarator.vari.expression.aux != null»
+		«ELSEIF declarator.vari.expression.aux.logicExp != null»
 			«generateSimpleLogicalExpression(declarator.vari.expression.aux.logicExp, declarator.vari.expression.aux.logicOp)»
 		«ENDIF»
 		«address.toString()»: ST «declarator.nameVariable», R«new Integer(variables-1).toString()»
@@ -319,8 +308,9 @@ class MyDslGenerator implements IGenerator {
 		«ELSEIF declarator.aux.logicExp != null»
 			«generateSimpleLogicalExpression(declarator.aux.logicExp, declarator.aux.logicOp)»
 		«ENDIF»
-		«address.toString()»: BRF R«(variables-1).toString()», #
+		«address.toString()»: BRF R«(variables-1).toString()», #EndWHILE
 		«nextAddress»
+		
 		
 	'''
 
