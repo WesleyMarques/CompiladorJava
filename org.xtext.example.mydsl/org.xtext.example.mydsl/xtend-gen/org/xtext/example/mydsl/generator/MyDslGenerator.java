@@ -14,7 +14,6 @@ import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Expression;
 import org.xtext.example.mydsl.myDsl.Expression_aux;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
-import org.xtext.example.mydsl.myDsl.For_Statement;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
 import org.xtext.example.mydsl.myDsl.Literal_Expression;
 import org.xtext.example.mydsl.myDsl.Logical_Expression_NR;
@@ -25,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
 import org.xtext.example.mydsl.myDsl.Variable_initializer;
+import org.xtext.example.mydsl.myDsl.While_Statement;
 
 /**
  * Generates code from your model files on save.
@@ -112,6 +112,10 @@ public class MyDslGenerator implements IGenerator {
       } else {
         Method_declaration _methodName = declaration.getMethodName();
         if ((_methodName instanceof Method_declaration)) {
+          Method_declaration _methodName_1 = declaration.getMethodName();
+          CharSequence _compileMethod = this.compileMethod(((Method_declaration) _methodName_1));
+          _builder.append(_compileMethod, "");
+          _builder.newLineIfNotEmpty();
         }
       }
     }
@@ -176,43 +180,64 @@ public class MyDslGenerator implements IGenerator {
         _builder.append(_compileVariable, "");
         _builder.newLineIfNotEmpty();
       } else {
+        boolean _and = false;
         Variable_declaration _variableDeclaration_2 = statement.getVariableDeclaration();
-        Variable_declarator _nameVariable = _variableDeclaration_2.getNameVariable();
-        boolean _notEquals_1 = (!Objects.equal(_nameVariable, null));
-        if (_notEquals_1) {
+        boolean _notEquals_1 = (!Objects.equal(_variableDeclaration_2, null));
+        if (!_notEquals_1) {
+          _and = false;
+        } else {
           Variable_declaration _variableDeclaration_3 = statement.getVariableDeclaration();
-          Variable_declarator _nameVariable_1 = _variableDeclaration_3.getNameVariable();
+          Variable_declarator _nameVariable = _variableDeclaration_3.getNameVariable();
+          boolean _notEquals_2 = (!Objects.equal(_nameVariable, null));
+          _and = _notEquals_2;
+        }
+        if (_and) {
+          Variable_declaration _variableDeclaration_4 = statement.getVariableDeclaration();
+          Variable_declarator _nameVariable_1 = _variableDeclaration_4.getNameVariable();
           CharSequence _compileDeclarator = this.compileDeclarator(_nameVariable_1);
           _builder.append(_compileDeclarator, "");
           _builder.newLineIfNotEmpty();
         } else {
-          For_Statement _forStatement = statement.getForStatement();
-          boolean _notEquals_2 = (!Objects.equal(_forStatement, null));
-          if (_notEquals_2) {
-            For_Statement _forStatement_1 = statement.getForStatement();
-            CharSequence _compileForStatement = this.compileForStatement(_forStatement_1);
-            _builder.append(_compileForStatement, "");
+          While_Statement _whileStatement = statement.getWhileStatement();
+          boolean _notEquals_3 = (!Objects.equal(_whileStatement, null));
+          if (_notEquals_3) {
+            While_Statement _whileStatement_1 = statement.getWhileStatement();
+            CharSequence _compileWhileStatement = this.compileWhileStatement(_whileStatement_1);
+            _builder.append(_compileWhileStatement, "");
             _builder.newLineIfNotEmpty();
           } else {
             String _ret = statement.getRet();
-            boolean _notEquals_3 = (!Objects.equal(_ret, null));
-            if (_notEquals_3) {
+            boolean _notEquals_4 = (!Objects.equal(_ret, null));
+            if (_notEquals_4) {
               String _ret_1 = statement.getRet();
               CharSequence _compileReturnStatement = this.compileReturnStatement(_ret_1);
               _builder.append(_compileReturnStatement, "");
               _builder.newLineIfNotEmpty();
             } else {
+              boolean _and_1 = false;
               EList<Expression> _expressionStatement = statement.getExpressionStatement();
-              boolean _notEquals_4 = (!Objects.equal(_expressionStatement, null));
-              if (_notEquals_4) {
-                Expression _expression = statement.getExpression();
-                CharSequence _compileExpression = this.compileExpression(_expression);
-                _builder.append(_compileExpression, "");
-                _builder.newLineIfNotEmpty();
+              boolean _notEquals_5 = (!Objects.equal(_expressionStatement, null));
+              if (!_notEquals_5) {
+                _and_1 = false;
+              } else {
+                EList<Expression> _expressionStatement_1 = statement.getExpressionStatement();
+                int _size = _expressionStatement_1.size();
+                boolean _greaterThan = (_size > 0);
+                _and_1 = _greaterThan;
+              }
+              if (_and_1) {
+                {
+                  EList<Expression> _expressionStatement_2 = statement.getExpressionStatement();
+                  for(final Expression exp : _expressionStatement_2) {
+                    CharSequence _compileExpression = this.compileExpression(exp);
+                    _builder.append(_compileExpression, "");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
               } else {
                 Statement_block _statementBlock = statement.getStatementBlock();
-                boolean _notEquals_5 = (!Objects.equal(_statementBlock, null));
-                if (_notEquals_5) {
+                boolean _notEquals_6 = (!Objects.equal(_statementBlock, null));
+                if (_notEquals_6) {
                   Statement_block _statementBlock_1 = statement.getStatementBlock();
                   Object _compileStatementBlock = this.compileStatementBlock(_statementBlock_1);
                   _builder.append(_compileStatementBlock, "");
@@ -237,49 +262,34 @@ public class MyDslGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence compileForStatement(final For_Statement forStatement) {
+  public CharSequence compileWhileStatement(final While_Statement whileStatement) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("#StartWHILE:");
+    _builder.newLine();
     {
-      Variable_declaration _variable = forStatement.getVariable();
-      boolean _notEquals = (!Objects.equal(_variable, null));
+      Expression _expression = whileStatement.getExpression();
+      boolean _notEquals = (!Objects.equal(_expression, null));
       if (_notEquals) {
-        Variable_declaration _variable_1 = forStatement.getVariable();
-        CharSequence _compileVariable = this.compileVariable(_variable_1);
-        _builder.append(_compileVariable, "");
+        Expression _expression_1 = whileStatement.getExpression();
+        CharSequence _generateSimpleLogical = this.generateSimpleLogical(_expression_1);
+        _builder.append(_generateSimpleLogical, "");
         _builder.newLineIfNotEmpty();
       }
     }
     {
-      Expression _expression2 = forStatement.getExpression2();
-      boolean _notEquals_1 = (!Objects.equal(_expression2, null));
+      Statement _whileStatement = whileStatement.getWhileStatement();
+      boolean _notEquals_1 = (!Objects.equal(_whileStatement, null));
       if (_notEquals_1) {
-        Expression _expression2_1 = forStatement.getExpression2();
-        CharSequence _compileExpression = this.compileExpression(_expression2_1);
-        _builder.append(_compileExpression, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      Statement _statement = forStatement.getStatement();
-      boolean _notEquals_2 = (!Objects.equal(_statement, null));
-      if (_notEquals_2) {
-        Statement _statement_1 = forStatement.getStatement();
-        Object _compileStatement = this.compileStatement(_statement_1);
+        Statement _whileStatement_1 = whileStatement.getWhileStatement();
+        Object _compileStatement = this.compileStatement(_whileStatement_1);
         _builder.append(_compileStatement, "");
         _builder.newLineIfNotEmpty();
       }
     }
-    {
-      Expression _expression3 = forStatement.getExpression3();
-      boolean _notEquals_3 = (!Objects.equal(_expression3, null));
-      if (_notEquals_3) {
-        Expression _expression3_1 = forStatement.getExpression3();
-        CharSequence _compileExpression_1 = this.compileExpression(_expression3_1);
-        _builder.append(_compileExpression_1, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("#ENDFOR:");
+    _builder.append("\t\t\t\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t\t");
+    _builder.append("#EndWHILE:");
     _builder.newLine();
     return _builder;
   }
@@ -335,7 +345,7 @@ public class MyDslGenerator implements IGenerator {
         Logical_Expression_NR _logicalExpression = expression.getLogicalExpression();
         boolean _notEquals_3 = (!Objects.equal(_logicalExpression, null));
         if (_notEquals_3) {
-          CharSequence _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(expression);
+          CharSequence _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(expression, "");
           _builder.append(_generateSimpleLogicalExpression, "");
           _builder.newLineIfNotEmpty();
         } else {
@@ -375,7 +385,7 @@ public class MyDslGenerator implements IGenerator {
                   _builder.newLineIfNotEmpty();
                   String _string_3 = this.address.toString();
                   _builder.append(_string_3, "");
-                  _builder.append(": ADD SP, SP, #methodSize");
+                  _builder.append(": SUB SP, SP, #methodSize");
                   _builder.newLineIfNotEmpty();
                   this.nextAddress();
                   _builder.newLineIfNotEmpty();
@@ -480,7 +490,7 @@ public class MyDslGenerator implements IGenerator {
                           Integer _integer_3 = new Integer((this.variables).intValue());
                           String _string_19 = _integer_3.toString();
                           _builder.append(_string_19, "");
-                          _builder.append(", #ENDFOR");
+                          _builder.append(", #ENDWHILE");
                           _builder.newLineIfNotEmpty();
                           this.nextAddress();
                           _builder.newLineIfNotEmpty();
@@ -512,7 +522,7 @@ public class MyDslGenerator implements IGenerator {
                             Integer _integer_7 = new Integer((this.variables).intValue());
                             String _string_25 = _integer_7.toString();
                             _builder.append(_string_25, "");
-                            _builder.append(", #ENDFOR");
+                            _builder.append(", #ENDWHILE");
                             _builder.newLineIfNotEmpty();
                             this.nextAddress();
                             _builder.newLineIfNotEmpty();
@@ -544,7 +554,7 @@ public class MyDslGenerator implements IGenerator {
                               Integer _integer_11 = new Integer((this.variables).intValue());
                               String _string_31 = _integer_11.toString();
                               _builder.append(_string_31, "");
-                              _builder.append(", #ENDFOR");
+                              _builder.append(", #ENDWHILE");
                               _builder.newLineIfNotEmpty();
                               this.nextAddress();
                               _builder.newLineIfNotEmpty();
@@ -576,7 +586,7 @@ public class MyDslGenerator implements IGenerator {
                                 Integer _integer_15 = new Integer((this.variables).intValue());
                                 String _string_37 = _integer_15.toString();
                                 _builder.append(_string_37, "");
-                                _builder.append(", #ENDFOR");
+                                _builder.append(", #ENDWHILE");
                                 _builder.newLineIfNotEmpty();
                                 this.nextAddress();
                                 _builder.newLineIfNotEmpty();
@@ -610,7 +620,7 @@ public class MyDslGenerator implements IGenerator {
                                   Integer _integer_19 = new Integer((this.variables).intValue());
                                   String _string_43 = _integer_19.toString();
                                   _builder.append(_string_43, "");
-                                  _builder.append(", #ENDFOR");
+                                  _builder.append(", #ENDWHILE");
                                   _builder.newLineIfNotEmpty();
                                   this.nextAddress();
                                   _builder.newLineIfNotEmpty();
@@ -644,7 +654,7 @@ public class MyDslGenerator implements IGenerator {
                                     Integer _integer_23 = new Integer((this.variables).intValue());
                                     String _string_49 = _integer_23.toString();
                                     _builder.append(_string_49, "");
-                                    _builder.append(", #ENDFOR");
+                                    _builder.append(", #ENDWHILE");
                                     _builder.newLineIfNotEmpty();
                                     this.nextAddress();
                                     _builder.newLineIfNotEmpty();
@@ -938,18 +948,7 @@ public class MyDslGenerator implements IGenerator {
         this.increment();
         _builder.newLineIfNotEmpty();
         this.nextAddress();
-        _builder.newLineIfNotEmpty();
-        String _string_2 = this.address.toString();
-        _builder.append(_string_2, "");
-        _builder.append(": ST ");
-        String _nameVariable = declarator.getNameVariable();
-        _builder.append(_nameVariable, "");
-        _builder.append(", R");
-        Integer _integer = new Integer(((this.variables).intValue() - 1));
-        String _string_3 = _integer.toString();
-        _builder.append(_string_3, "");
-        _builder.newLineIfNotEmpty();
-        this.nextAddress();
+        _builder.append("\t\t\t");
         _builder.newLineIfNotEmpty();
       } else {
         boolean _and_1 = false;
@@ -963,117 +962,6 @@ public class MyDslGenerator implements IGenerator {
           Variable_initializer _vari_3 = declarator.getVari();
           Expression _expression_3 = _vari_3.getExpression();
           Logical_Expression_NR _logicalExpression_3 = _expression_3.getLogicalExpression();
-          String _false = _logicalExpression_3.getFalse();
-          boolean _notEquals_3 = (!Objects.equal(_false, null));
-          _and_1 = _notEquals_3;
-        }
-        if (_and_1) {
-          String _string_4 = this.address.toString();
-          _builder.append(_string_4, "");
-          _builder.append(": LD R");
-          String _string_5 = this.variables.toString();
-          _builder.append(_string_5, "");
-          _builder.append(", FALSE");
-          _builder.newLineIfNotEmpty();
-          this.increment();
-          _builder.newLineIfNotEmpty();
-          this.nextAddress();
-          _builder.newLineIfNotEmpty();
-          String _string_6 = this.address.toString();
-          _builder.append(_string_6, "");
-          _builder.append(": ST ");
-          String _nameVariable_1 = declarator.getNameVariable();
-          _builder.append(_nameVariable_1, "");
-          _builder.append(", R");
-          Integer _integer_1 = new Integer(((this.variables).intValue() - 1));
-          String _string_7 = _integer_1.toString();
-          _builder.append(_string_7, "");
-          _builder.newLineIfNotEmpty();
-          this.nextAddress();
-          _builder.newLineIfNotEmpty();
-        }
-      }
-    }
-    {
-      Variable_initializer _vari_4 = declarator.getVari();
-      Expression _expression_4 = _vari_4.getExpression();
-      Logical_Expression_NR _logicalExpression_4 = _expression_4.getLogicalExpression();
-      Expression _expression_5 = _logicalExpression_4.getExpression();
-      boolean _notEquals_4 = (!Objects.equal(_expression_5, null));
-      if (_notEquals_4) {
-        String _string_8 = this.address.toString();
-        _builder.append(_string_8, "");
-        Variable_initializer _vari_5 = declarator.getVari();
-        Expression _expression_6 = _vari_5.getExpression();
-        Logical_Expression_NR _logicalExpression_5 = _expression_6.getLogicalExpression();
-        Expression _expression_7 = _logicalExpression_5.getExpression();
-        CharSequence _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(_expression_7);
-        _builder.append(_generateSimpleLogicalExpression, "");
-        _builder.newLineIfNotEmpty();
-        this.increment();
-        _builder.newLineIfNotEmpty();
-        this.nextAddress();
-        _builder.newLineIfNotEmpty();
-      } else {
-        Variable_initializer _vari_6 = declarator.getVari();
-        Expression _expression_8 = _vari_6.getExpression();
-        Expression_aux _aux = _expression_8.getAux();
-        boolean _notEquals_5 = (!Objects.equal(_aux, null));
-        if (_notEquals_5) {
-          String _string_9 = this.address.toString();
-          _builder.append(_string_9, "");
-          Variable_initializer _vari_7 = declarator.getVari();
-          Expression _expression_9 = _vari_7.getExpression();
-          Expression_aux _aux_1 = _expression_9.getAux();
-          Expression _logicExp = _aux_1.getLogicExp();
-          CharSequence _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp);
-          _builder.append(_generateSimpleLogicalExpression_1, "");
-          _builder.newLineIfNotEmpty();
-          this.increment();
-          _builder.newLineIfNotEmpty();
-          this.nextAddress();
-          _builder.newLineIfNotEmpty();
-        }
-      }
-    }
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence generateSimpleLogicalExpression(final Expression expression) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      boolean _and = false;
-      Logical_Expression_NR _logicalExpression = expression.getLogicalExpression();
-      boolean _notEquals = (!Objects.equal(_logicalExpression, null));
-      if (!_notEquals) {
-        _and = false;
-      } else {
-        Logical_Expression_NR _logicalExpression_1 = expression.getLogicalExpression();
-        String _true = _logicalExpression_1.getTrue();
-        boolean _notEquals_1 = (!Objects.equal(_true, null));
-        _and = _notEquals_1;
-      }
-      if (_and) {
-        String _string = this.address.toString();
-        _builder.append(_string, "");
-        _builder.append(": LD R");
-        String _string_1 = this.variables.toString();
-        _builder.append(_string_1, "");
-        _builder.append(", TRUE");
-        _builder.newLineIfNotEmpty();
-        this.increment();
-        _builder.newLineIfNotEmpty();
-        this.nextAddress();
-        _builder.newLineIfNotEmpty();
-      } else {
-        boolean _and_1 = false;
-        Logical_Expression_NR _logicalExpression_2 = expression.getLogicalExpression();
-        boolean _notEquals_2 = (!Objects.equal(_logicalExpression_2, null));
-        if (!_notEquals_2) {
-          _and_1 = false;
-        } else {
-          Logical_Expression_NR _logicalExpression_3 = expression.getLogicalExpression();
           String _false = _logicalExpression_3.getFalse();
           boolean _notEquals_3 = (!Objects.equal(_false, null));
           _and_1 = _notEquals_3;
@@ -1094,20 +982,231 @@ public class MyDslGenerator implements IGenerator {
       }
     }
     {
-      Logical_Expression_NR _logicalExpression_4 = expression.getLogicalExpression();
-      Expression _expression = _logicalExpression_4.getExpression();
-      boolean _notEquals_4 = (!Objects.equal(_expression, null));
+      Variable_initializer _vari_4 = declarator.getVari();
+      Expression _expression_4 = _vari_4.getExpression();
+      Logical_Expression_NR _logicalExpression_4 = _expression_4.getLogicalExpression();
+      Expression _expression_5 = _logicalExpression_4.getExpression();
+      boolean _notEquals_4 = (!Objects.equal(_expression_5, null));
       if (_notEquals_4) {
-        String _string_4 = this.address.toString();
-        _builder.append(_string_4, "");
-        Logical_Expression_NR _logicalExpression_5 = expression.getLogicalExpression();
-        Expression _expression_1 = _logicalExpression_5.getExpression();
-        Object _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(_expression_1);
+        Variable_initializer _vari_5 = declarator.getVari();
+        Expression _expression_6 = _vari_5.getExpression();
+        Logical_Expression_NR _logicalExpression_5 = _expression_6.getLogicalExpression();
+        Expression _expression_7 = _logicalExpression_5.getExpression();
+        CharSequence _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(_expression_7, "");
         _builder.append(_generateSimpleLogicalExpression, "");
+        _builder.newLineIfNotEmpty();
+      } else {
+        Variable_initializer _vari_6 = declarator.getVari();
+        Expression _expression_8 = _vari_6.getExpression();
+        Expression_aux _aux = _expression_8.getAux();
+        boolean _notEquals_5 = (!Objects.equal(_aux, null));
+        if (_notEquals_5) {
+          Variable_initializer _vari_7 = declarator.getVari();
+          Expression _expression_9 = _vari_7.getExpression();
+          Expression_aux _aux_1 = _expression_9.getAux();
+          Expression _logicExp = _aux_1.getLogicExp();
+          Variable_initializer _vari_8 = declarator.getVari();
+          Expression _expression_10 = _vari_8.getExpression();
+          Expression_aux _aux_2 = _expression_10.getAux();
+          String _logicOp = _aux_2.getLogicOp();
+          CharSequence _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp, _logicOp);
+          _builder.append(_generateSimpleLogicalExpression_1, "");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    String _string_4 = this.address.toString();
+    _builder.append(_string_4, "");
+    _builder.append(": ST ");
+    String _nameVariable = declarator.getNameVariable();
+    _builder.append(_nameVariable, "");
+    _builder.append(", R");
+    Integer _integer = new Integer(((this.variables).intValue() - 1));
+    String _string_5 = _integer.toString();
+    _builder.append(_string_5, "");
+    _builder.newLineIfNotEmpty();
+    this.nextAddress();
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateSimpleLogical(final Expression declarator) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _and = false;
+      Logical_Expression_NR _logicalExpression = declarator.getLogicalExpression();
+      boolean _notEquals = (!Objects.equal(_logicalExpression, null));
+      if (!_notEquals) {
+        _and = false;
+      } else {
+        Logical_Expression_NR _logicalExpression_1 = declarator.getLogicalExpression();
+        String _true = _logicalExpression_1.getTrue();
+        boolean _notEquals_1 = (!Objects.equal(_true, null));
+        _and = _notEquals_1;
+      }
+      if (_and) {
+        String _string = this.address.toString();
+        _builder.append(_string, "");
+        _builder.append(": LD R");
+        String _string_1 = this.variables.toString();
+        _builder.append(_string_1, "");
+        _builder.append(", TRUE");
         _builder.newLineIfNotEmpty();
         this.increment();
         _builder.newLineIfNotEmpty();
         this.nextAddress();
+        _builder.append("\t\t\t");
+        _builder.newLineIfNotEmpty();
+      } else {
+        boolean _and_1 = false;
+        Logical_Expression_NR _logicalExpression_2 = declarator.getLogicalExpression();
+        boolean _notEquals_2 = (!Objects.equal(_logicalExpression_2, null));
+        if (!_notEquals_2) {
+          _and_1 = false;
+        } else {
+          Logical_Expression_NR _logicalExpression_3 = declarator.getLogicalExpression();
+          String _false = _logicalExpression_3.getFalse();
+          boolean _notEquals_3 = (!Objects.equal(_false, null));
+          _and_1 = _notEquals_3;
+        }
+        if (_and_1) {
+          String _string_2 = this.address.toString();
+          _builder.append(_string_2, "");
+          _builder.append(": LD R");
+          String _string_3 = this.variables.toString();
+          _builder.append(_string_3, "");
+          _builder.append(", FALSE");
+          _builder.newLineIfNotEmpty();
+          this.increment();
+          _builder.newLineIfNotEmpty();
+          this.nextAddress();
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    {
+      Logical_Expression_NR _logicalExpression_4 = declarator.getLogicalExpression();
+      Expression _expression = _logicalExpression_4.getExpression();
+      boolean _notEquals_4 = (!Objects.equal(_expression, null));
+      if (_notEquals_4) {
+        Logical_Expression_NR _logicalExpression_5 = declarator.getLogicalExpression();
+        Expression _expression_1 = _logicalExpression_5.getExpression();
+        CharSequence _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(_expression_1, "");
+        _builder.append(_generateSimpleLogicalExpression, "");
+        _builder.newLineIfNotEmpty();
+      } else {
+        Expression_aux _aux = declarator.getAux();
+        Expression _logicExp = _aux.getLogicExp();
+        boolean _notEquals_5 = (!Objects.equal(_logicExp, null));
+        if (_notEquals_5) {
+          Expression_aux _aux_1 = declarator.getAux();
+          Expression _logicExp_1 = _aux_1.getLogicExp();
+          Expression_aux _aux_2 = declarator.getAux();
+          String _logicOp = _aux_2.getLogicOp();
+          CharSequence _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp_1, _logicOp);
+          _builder.append(_generateSimpleLogicalExpression_1, "");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    String _string_4 = this.address.toString();
+    _builder.append(_string_4, "");
+    _builder.append(": BRF R");
+    String _string_5 = Integer.valueOf(((this.variables).intValue() - 1)).toString();
+    _builder.append(_string_5, "");
+    _builder.append(", #");
+    _builder.newLineIfNotEmpty();
+    this.nextAddress();
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence generateSimpleLogicalExpression(final Expression expression, final String op) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _and = false;
+      Logical_Expression_NR _logicalExpression = expression.getLogicalExpression();
+      boolean _notEquals = (!Objects.equal(_logicalExpression, null));
+      if (!_notEquals) {
+        _and = false;
+      } else {
+        Logical_Expression_NR _logicalExpression_1 = expression.getLogicalExpression();
+        String _true = _logicalExpression_1.getTrue();
+        boolean _notEquals_1 = (!Objects.equal(_true, null));
+        _and = _notEquals_1;
+      }
+      if (_and) {
+        {
+          boolean _equals = op.equals("&&");
+          if (_equals) {
+            String _string = this.address.toString();
+            _builder.append(_string, "");
+            _builder.append(": AND R");
+            String _string_1 = Integer.valueOf(((this.variables).intValue() - 1)).toString();
+            _builder.append(_string_1, "");
+            _builder.append(", TRUE");
+            _builder.newLineIfNotEmpty();
+          } else {
+            String _string_2 = this.address.toString();
+            _builder.append(_string_2, "");
+            _builder.append(": OR R");
+            String _string_3 = Integer.valueOf(((this.variables).intValue() - 1)).toString();
+            _builder.append(_string_3, "");
+            _builder.append(", TRUE");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        this.nextAddress();
+        _builder.newLineIfNotEmpty();
+      } else {
+        boolean _and_1 = false;
+        Logical_Expression_NR _logicalExpression_2 = expression.getLogicalExpression();
+        boolean _notEquals_2 = (!Objects.equal(_logicalExpression_2, null));
+        if (!_notEquals_2) {
+          _and_1 = false;
+        } else {
+          Logical_Expression_NR _logicalExpression_3 = expression.getLogicalExpression();
+          String _false = _logicalExpression_3.getFalse();
+          boolean _notEquals_3 = (!Objects.equal(_false, null));
+          _and_1 = _notEquals_3;
+        }
+        if (_and_1) {
+          {
+            boolean _equals_1 = op.equals("&&");
+            if (_equals_1) {
+              String _string_4 = this.address.toString();
+              _builder.append(_string_4, "");
+              _builder.append(": AND R");
+              String _string_5 = Integer.valueOf(((this.variables).intValue() - 1)).toString();
+              _builder.append(_string_5, "");
+              _builder.append(", FALSE");
+              _builder.newLineIfNotEmpty();
+            } else {
+              String _string_6 = this.address.toString();
+              _builder.append(_string_6, "");
+              _builder.append(": OR R");
+              String _string_7 = Integer.valueOf(((this.variables).intValue() - 1)).toString();
+              _builder.append(_string_7, "");
+              _builder.append(", FALSE");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+          this.nextAddress();
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    {
+      Logical_Expression_NR _logicalExpression_4 = expression.getLogicalExpression();
+      Expression _expression = _logicalExpression_4.getExpression();
+      boolean _notEquals_4 = (!Objects.equal(_expression, null));
+      if (_notEquals_4) {
+        Logical_Expression_NR _logicalExpression_5 = expression.getLogicalExpression();
+        Expression _expression_1 = _logicalExpression_5.getExpression();
+        Object _generateSimpleLogicalExpression = this.generateSimpleLogicalExpression(_expression_1, op);
+        _builder.append(_generateSimpleLogicalExpression, "");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -1116,16 +1215,12 @@ public class MyDslGenerator implements IGenerator {
       Expression _logicExp = _aux.getLogicExp();
       boolean _notEquals_5 = (!Objects.equal(_logicExp, null));
       if (_notEquals_5) {
-        String _string_5 = this.address.toString();
-        _builder.append(_string_5, "");
         Expression_aux _aux_1 = expression.getAux();
         Expression _logicExp_1 = _aux_1.getLogicExp();
-        Object _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp_1);
+        Expression_aux _aux_2 = expression.getAux();
+        String _logicOp = _aux_2.getLogicOp();
+        Object _generateSimpleLogicalExpression_1 = this.generateSimpleLogicalExpression(_logicExp_1, _logicOp);
         _builder.append(_generateSimpleLogicalExpression_1, "");
-        _builder.newLineIfNotEmpty();
-        this.increment();
-        _builder.newLineIfNotEmpty();
-        this.nextAddress();
         _builder.newLineIfNotEmpty();
       }
     }

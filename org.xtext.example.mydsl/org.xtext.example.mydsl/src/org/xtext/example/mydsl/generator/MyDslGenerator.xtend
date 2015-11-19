@@ -14,6 +14,7 @@ import org.xtext.example.mydsl.myDsl.Statement
 import org.xtext.example.mydsl.myDsl.Statement_block
 import org.xtext.example.mydsl.myDsl.Variable_declaration
 import org.xtext.example.mydsl.myDsl.Variable_declarator
+import org.xtext.example.mydsl.myDsl.While_Statement
 
 /**
  * Generates code from your model files on save.
@@ -58,7 +59,7 @@ class MyDslGenerator implements IGenerator {
 		«IF declaration.variableDeclaration instanceof Variable_declaration»
 			«(declaration.variableDeclaration as Variable_declaration).compileVariable»
 		«ELSEIF declaration.methodName instanceof Method_declaration»
-			«««(declaration.methodName as Method_declaration).compileMethod»
+			«(declaration.methodName as Method_declaration).compileMethod»
 		«ENDIF»		
 	'''
 
@@ -85,14 +86,16 @@ class MyDslGenerator implements IGenerator {
 	def compileStatement(Statement statement) '''
 		«IF statement.variableDeclaration != null»
 			«compileVariable(statement.variableDeclaration)»
-		«ELSEIF statement.variableDeclaration.nameVariable != null»
+		«ELSEIF statement.variableDeclaration != null && statement.variableDeclaration.nameVariable != null»
 			«compileDeclarator(statement.variableDeclaration.nameVariable)»
-		«ELSEIF statement.forStatement != null»
-			«compileForStatement(statement.forStatement)»
+		«ELSEIF statement.whileStatement != null»
+			«compileWhileStatement(statement.whileStatement)»
 		«ELSEIF statement.ret != null»
 			«compileReturnStatement(statement.ret)»
-		«ELSEIF statement.expressionStatement != null»
-			«compileExpression(statement.expression)»
+		«ELSEIF statement.expressionStatement != null && statement.expressionStatement.size > 0»
+			«FOR exp : statement.expressionStatement»
+				«compileExpression(exp)»
+			«ENDFOR»
 		«ELSEIF statement.statementBlock != null»
 			«compileStatementBlock(statement.statementBlock)»
 		«ENDIF»
@@ -103,20 +106,22 @@ class MyDslGenerator implements IGenerator {
 		«nextAddress»
 	'''
 
-	def compileForStatement(For_Statement forStatement) '''
-		«IF forStatement.variable != null»
-			«compileVariable(forStatement.variable)»
+	def compileWhileStatement(While_Statement whileStatement) '''
+		#StartWHILE:
+		«IF whileStatement.expression != null»
+			«generateSimpleLogical(whileStatement.expression)»
 		«ENDIF»
-		«IF forStatement.expression2 != null»
-			«compileExpression(forStatement.expression2)»
+		«IF whileStatement.whileStatement != null»
+			«compileStatement(whileStatement.whileStatement)»
 		«ENDIF»
-		«IF forStatement.statement != null»
-			«compileStatement(forStatement.statement)»
-		«ENDIF»
-		«IF forStatement.expression3 != null»
-			«compileExpression(forStatement.expression3)»
-		«ENDIF»
-		#ENDFOR:
+		«««IF whileStatement.expression2 != null»
+			«««compileExpression(whileStatement.expression2)»
+		«««ENDIF»
+		
+		«««IF whileStatement.expression3 != null»
+			«««compileExpression(whileStatement.expression3)»
+		«««ENDIF»
+		#EndWHILE:
 	'''
 
 	def compileExpression(Expression expression) '''
@@ -133,7 +138,7 @@ class MyDslGenerator implements IGenerator {
 				«ENDIF»
 			«ENDIF»
 			«ELSEIF expression.logicalExpression != null»
-			«generateSimpleLogicalExpression(expression)»
+			«generateSimpleLogicalExpression(expression,"")»
 			«ELSEIF expression.numericExpression3 != null»
 			«generateNumericExpression(expression)»
 		«ELSEIF expression.name != null»
@@ -144,7 +149,7 @@ class MyDslGenerator implements IGenerator {
 				«nextAddress»
 				«address»: BR «expression.name»
 				«nextAddress»
-				«address.toString()»: ADD SP, SP, #methodSize
+				«address.toString()»: SUB SP, SP, #methodSize
 				«nextAddress»
 			«ELSE»
 				«address.toString()»: LD R«variables.toString», *«expression.name»
@@ -167,34 +172,34 @@ class MyDslGenerator implements IGenerator {
 					«IF expression.aux.testingSign.equals("<")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGTZ R«new Integer(variables).toString()», #ENDFOR
+						«address.toString()»: BGTZ R«new Integer(variables).toString()», #ENDWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals(">")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGTZ R«new Integer(variables).toString()», #ENDFOR
+						«address.toString()»: BGTZ R«new Integer(variables).toString()», #ENDWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals(">=")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGEZ R«new Integer(variables).toString()», #ENDFOR
+						«address.toString()»: BGEZ R«new Integer(variables).toString()», #ENDWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals("<=")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
-						«address.toString()»: BGEZ R«new Integer(variables).toString()», #ENDFOR
+						«address.toString()»: BGEZ R«new Integer(variables).toString()», #ENDWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals("==")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
 						«increment»
-						«address.toString()»: CMP R«new Integer(variables).toString()», #ENDFOR
+						«address.toString()»: CMP R«new Integer(variables).toString()», #ENDWHILE
 						«nextAddress»
 					«ELSEIF expression.aux.testingSign.equals("!=")»
 						«address.toString()»: SUB R«new Integer(variables).toString()», R«new Integer(variables-2).toString()» , R«new Integer(variables-1).toString()»
 						«nextAddress»
 						«increment»
-						«address.toString()»: CMP R«new Integer(variables).toString()», #ENDFOR
+						«address.toString()»: CMP R«new Integer(variables).toString()», #ENDWHILE
 						«nextAddress»
 					«ENDIF»
 				«ENDIF»
@@ -279,53 +284,67 @@ class MyDslGenerator implements IGenerator {
 		«nextAddress»
 	'''
 
-	def generateSimpleLogical(
-		Variable_declarator declarator
-	) '''
+	def generateSimpleLogical(Variable_declarator declarator) '''
 		«IF declarator.vari.expression.logicalExpression != null && declarator.vari.expression.logicalExpression.^true != null»
 			«address.toString()»: LD R«variables.toString()», TRUE
 			«increment»
-			«nextAddress»
-			«address.toString()»: ST «declarator.nameVariable», R«new Integer(variables-1).toString()»
-			«nextAddress»
+			«nextAddress»			
 		«ELSEIF declarator.vari.expression.logicalExpression != null && declarator.vari.expression.logicalExpression.^false != null»
 			«address.toString()»: LD R«variables.toString()», FALSE
 			«increment»
 			«nextAddress»
-			«address.toString()»: ST «declarator.nameVariable», R«new Integer(variables-1).toString()»
-			«nextAddress»
 		«ENDIF»
 		«IF declarator.vari.expression.logicalExpression.expression != null»
-			«address.toString()»«generateSimpleLogicalExpression(declarator.vari.expression.logicalExpression.expression)»
-			«increment»
-			«nextAddress»
+			«generateSimpleLogicalExpression(declarator.vari.expression.logicalExpression.expression, "")»
 		«ELSEIF declarator.vari.expression.aux != null»
-			«address.toString()»«generateSimpleLogicalExpression(declarator.vari.expression.aux.logicExp)»
-			«increment»
-			«nextAddress»
-		«ENDIF»	
+			«generateSimpleLogicalExpression(declarator.vari.expression.aux.logicExp, declarator.vari.expression.aux.logicOp)»
+		«ENDIF»
+		«address.toString()»: ST «declarator.nameVariable», R«new Integer(variables-1).toString()»
+		«nextAddress»
 		
 	'''
-
-	def generateSimpleLogicalExpression(Expression expression) '''
-		«IF expression.logicalExpression != null && expression.logicalExpression.^true != null»
+	
+	def generateSimpleLogical(Expression declarator) '''
+		«IF declarator.logicalExpression != null && declarator.logicalExpression.^true != null»
 			«address.toString()»: LD R«variables.toString()», TRUE
 			«increment»
-			«nextAddress»
-		«ELSEIF expression.logicalExpression != null && expression.logicalExpression.^false != null»
+			«nextAddress»			
+		«ELSEIF declarator.logicalExpression != null && declarator.logicalExpression.^false != null»
 			«address.toString()»: LD R«variables.toString()», FALSE
 			«increment»
 			«nextAddress»
 		«ENDIF»
-		«IF expression.logicalExpression.expression != null»
-			«address.toString()»«generateSimpleLogicalExpression(expression.logicalExpression.expression)»
-			«increment»
+		«IF declarator.logicalExpression.expression != null»
+			«generateSimpleLogicalExpression(declarator.logicalExpression.expression, "")»
+		«ELSEIF declarator.aux.logicExp != null»
+			«generateSimpleLogicalExpression(declarator.aux.logicExp, declarator.aux.logicOp)»
+		«ENDIF»
+		«address.toString()»: BRF R«(variables-1).toString()», #
+		«nextAddress»
+		
+	'''
+
+	def generateSimpleLogicalExpression(Expression expression, String op) '''
+		«IF expression.logicalExpression != null && expression.logicalExpression.^true != null»
+			«IF op.equals("&&")»
+				«address.toString()»: AND R«(variables-1).toString()», TRUE
+			«ELSE»
+				«address.toString()»: OR R«(variables-1).toString()», TRUE
+			«ENDIF»			
+			«nextAddress»
+		«ELSEIF expression.logicalExpression != null && expression.logicalExpression.^false != null»
+			«IF op.equals("&&")»
+				«address.toString()»: AND R«(variables-1).toString()», FALSE
+			«ELSE»
+				«address.toString()»: OR R«(variables-1).toString()», FALSE
+			«ENDIF»			
 			«nextAddress»
 		«ENDIF»
+		«IF expression.logicalExpression.expression != null»
+			«generateSimpleLogicalExpression(expression.logicalExpression.expression, op)»
+		«ENDIF»
 		«IF expression.aux.logicExp != null»
-			«address.toString()»«generateSimpleLogicalExpression(expression.aux.logicExp)»
-			«increment»
-			«nextAddress»
+			«generateSimpleLogicalExpression(expression.aux.logicExp, expression.aux.logicOp)»
 		«ENDIF»
 	'''
 
