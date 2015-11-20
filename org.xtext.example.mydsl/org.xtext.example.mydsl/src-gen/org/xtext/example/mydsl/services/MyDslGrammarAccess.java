@@ -851,53 +851,67 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class Type_specifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Type_specifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cBooleanKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cByteKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cCharKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cShortKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cIntKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cFloatKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Keyword cLongKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
-		private final Keyword cDoubleKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cVoidKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
-		private final RuleCall cClass_nameParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final Assignment cPrimitiveTypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Alternatives cPrimitiveTypeAlternatives_0_0 = (Alternatives)cPrimitiveTypeAssignment_0.eContents().get(0);
+		private final Keyword cPrimitiveTypeBooleanKeyword_0_0_0 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(0);
+		private final Keyword cPrimitiveTypeByteKeyword_0_0_1 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(1);
+		private final Keyword cPrimitiveTypeCharKeyword_0_0_2 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(2);
+		private final Keyword cPrimitiveTypeShortKeyword_0_0_3 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(3);
+		private final Keyword cPrimitiveTypeIntKeyword_0_0_4 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(4);
+		private final Keyword cPrimitiveTypeFloatKeyword_0_0_5 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(5);
+		private final Keyword cPrimitiveTypeLongKeyword_0_0_6 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(6);
+		private final Keyword cPrimitiveTypeDoubleKeyword_0_0_7 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(7);
+		private final Keyword cPrimitiveTypeVoidKeyword_0_0_8 = (Keyword)cPrimitiveTypeAlternatives_0_0.eContents().get(8);
+		private final Assignment cClassNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cClassNameClass_nameParserRuleCall_1_0 = (RuleCall)cClassNameAssignment_1.eContents().get(0);
 		
 		//Type_specifier:
-		//	"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void" | Class_name;
+		//	primitiveType=("boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void") |
+		//	className=Class_name;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void" | Class_name
+		//primitiveType=("boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void") |
+		//className=Class_name
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//primitiveType=("boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void")
+		public Assignment getPrimitiveTypeAssignment_0() { return cPrimitiveTypeAssignment_0; }
+
+		//"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void"
+		public Alternatives getPrimitiveTypeAlternatives_0_0() { return cPrimitiveTypeAlternatives_0_0; }
+
 		//"boolean"
-		public Keyword getBooleanKeyword_0() { return cBooleanKeyword_0; }
+		public Keyword getPrimitiveTypeBooleanKeyword_0_0_0() { return cPrimitiveTypeBooleanKeyword_0_0_0; }
 
 		//"byte"
-		public Keyword getByteKeyword_1() { return cByteKeyword_1; }
+		public Keyword getPrimitiveTypeByteKeyword_0_0_1() { return cPrimitiveTypeByteKeyword_0_0_1; }
 
 		//"char"
-		public Keyword getCharKeyword_2() { return cCharKeyword_2; }
+		public Keyword getPrimitiveTypeCharKeyword_0_0_2() { return cPrimitiveTypeCharKeyword_0_0_2; }
 
 		//"short"
-		public Keyword getShortKeyword_3() { return cShortKeyword_3; }
+		public Keyword getPrimitiveTypeShortKeyword_0_0_3() { return cPrimitiveTypeShortKeyword_0_0_3; }
 
 		//"int"
-		public Keyword getIntKeyword_4() { return cIntKeyword_4; }
+		public Keyword getPrimitiveTypeIntKeyword_0_0_4() { return cPrimitiveTypeIntKeyword_0_0_4; }
 
 		//"float"
-		public Keyword getFloatKeyword_5() { return cFloatKeyword_5; }
+		public Keyword getPrimitiveTypeFloatKeyword_0_0_5() { return cPrimitiveTypeFloatKeyword_0_0_5; }
 
 		//"long"
-		public Keyword getLongKeyword_6() { return cLongKeyword_6; }
+		public Keyword getPrimitiveTypeLongKeyword_0_0_6() { return cPrimitiveTypeLongKeyword_0_0_6; }
 
 		//"double"
-		public Keyword getDoubleKeyword_7() { return cDoubleKeyword_7; }
+		public Keyword getPrimitiveTypeDoubleKeyword_0_0_7() { return cPrimitiveTypeDoubleKeyword_0_0_7; }
 
 		//"void"
-		public Keyword getVoidKeyword_8() { return cVoidKeyword_8; }
+		public Keyword getPrimitiveTypeVoidKeyword_0_0_8() { return cPrimitiveTypeVoidKeyword_0_0_8; }
+
+		//className=Class_name
+		public Assignment getClassNameAssignment_1() { return cClassNameAssignment_1; }
 
 		//Class_name
-		public RuleCall getClass_nameParserRuleCall_9() { return cClass_nameParserRuleCall_9; }
+		public RuleCall getClassNameClass_nameParserRuleCall_1_0() { return cClassNameClass_nameParserRuleCall_1_0; }
 	}
 
 	public class ModifierElements extends AbstractParserRuleElementFinder {
@@ -1061,8 +1075,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 		//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 		//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
-		//	statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement |
-		//	{Statement} "break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
+		//	statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement}
+		//	"break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
 		@Override public ParserRule getRule() { return rule; }
 
 		//variableDeclaration=Variable_declaration | expressionStatement+=Expression g=";" | ifStatement=If_statement |
@@ -1435,8 +1449,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//=> (numericExpression3=Numeric_Expression_NR) aux=Expression_aux | logicalExpression=Logical_Expression_NR
 		//aux=Expression_aux | bitExpression=Bit_Expression_NR aux=Expression_aux | => (castExpression=Cast_Expression)
 		//aux=Expression_aux | => (creatingExpression=Creating_Expression) aux=Expression_aux |
-		//literalExpression=Literal_Expression aux=Expression_aux | null=NULL aux=Expression_aux | super=SUPER
-		//aux=Expression_aux | this=THIS aux=Expression_aux | name=ID aux=Expression_aux
+		//literalExpression=Literal_Expression aux=Expression_aux | null=NULL aux=Expression_aux | super=SUPER aux=Expression_aux
+		//| this=THIS aux=Expression_aux | name=ID aux=Expression_aux
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//=> (numericExpression3=Numeric_Expression_NR) aux=Expression_aux
@@ -1745,8 +1759,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//(LPAREN argList=Arg_List? RPAREN) aux=Expression_aux | ("[" expression2=Expression "]") aux=Expression_aux | ("."
 		//expression2=Expression) aux=Expression_aux | ("," expressionComma=Expression) aux=Expression_aux | (INSTANCEOF
-		//name=Class_name) aux=Expression_aux | sgin=(INCREMENT | DECREMENT) aux=Expression_aux | numericSign=("+" | PLUS_EQUAL
-		//| "-" | MINUS_EQUAL | MULTIPLY | MULTIPLY_EQUAL | DIVIDE | DIVIDE_EQUAL | MODULE | MODULE_EQUAL) exp2=Expression
+		//name=Class_name) aux=Expression_aux | sgin=(INCREMENT | DECREMENT) aux=Expression_aux | numericSign=("+" | PLUS_EQUAL |
+		//"-" | MINUS_EQUAL | MULTIPLY | MULTIPLY_EQUAL | DIVIDE | DIVIDE_EQUAL | MODULE | MODULE_EQUAL) exp2=Expression
 		//aux=Expression_aux | testingSign=(BT | ST | BE | SE | DOUBLE_EQUAL | DIFFERENT) exp1=Expression aux=Expression_aux |
 		//(logicalSign=(OR | OR_EQUAL | EXP | EXP_EQUAL | DOUBLE_OR_EQUAL | MODULE | MODULE_EQUAL) | ampersand=Ampersand_Rule)
 		//exp1=Expression aux=Expression_aux | WAT exp1=Expression COLON exp2=Expression aux=Expression_aux | stringSign=("+" |
@@ -2334,8 +2348,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRPARENTerminalRuleCall_1_2_2 = (RuleCall)cGroup_1_2.eContents().get(2);
 		
 		//Creating_Expression:
-		//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression
-		//	"]" | "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
+		//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression "]"
+		//	| "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
 		@Override public ParserRule getRule() { return rule; }
 
 		//NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression "]" |
@@ -2934,8 +2948,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFinallyStatementStatementParserRuleCall_3_1_0 = (RuleCall)cFinallyStatementAssignment_3_1.eContents().get(0);
 		
 		//Try_statement:
-		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
-		//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
+		//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
+		//	("finally" finallyStatement=Statement)?;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
@@ -3603,7 +3617,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//Type_specifier:
-	//	"boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void" | Class_name;
+	//	primitiveType=("boolean" | "byte" | "char" | "short" | "int" | "float" | "long" | "double" | "void") |
+	//	className=Class_name;
 	public Type_specifierElements getType_specifierAccess() {
 		return pType_specifier;
 	}
@@ -3654,8 +3669,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	doStatement=Do_Statement | whileStatement=While_Statement | forStatement=For_Statement |
 	//	switchStatement=Switch_statement | "synchronized(" expression=Expression rparent=RPAREN syncStatement=Statement |
 	//	{Statement} ret="return" expression=Expression? ";" | {Statement} "throw" expression=Expression? ";" |
-	//	statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement |
-	//	{Statement} "break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
+	//	statementBlock=Statement_block | tryStatement=Try_statement | nameStatement=ID COLON statement=Statement | {Statement}
+	//	"break" name=ID? ";" | {Statement} "continue" name=ID? ";" | {Statement} ";";
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -3955,8 +3970,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//Creating_Expression:
-	//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression
-	//	"]" | "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
+	//	NEW (className=Class_name LPAREN argList=Arg_List RPAREN | typeSpecifier=Type_specifier ("[" expression=Expression "]"
+	//	| "[]")? ("[" "]" | "[]")* | LPAREN expression=Expression RPAREN);
 	public Creating_ExpressionElements getCreating_ExpressionAccess() {
 		return pCreating_Expression;
 	}
@@ -4107,8 +4122,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Try_statement:
-	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN
-	//	catchStatement+=Statement)* ("finally" finallyStatement=Statement)?;
+	//	"try" tryStatement=Statement ("catch" lParen+=LPAREN parameters+=Parameter rparent+=RPAREN catchStatement+=Statement)*
+	//	("finally" finallyStatement=Statement)?;
 	public Try_statementElements getTry_statementAccess() {
 		return pTry_statement;
 	}
@@ -4221,8 +4236,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal FLOATING_POINT_LITERAL:
-	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+
-	//	EXPONENT FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
+	//	"0".."9"+ "." "0".."9"* EXPONENT? FLOAT_TYPE_SUFFIX? | "." "0".."9"+ EXPONENT? FLOAT_TYPE_SUFFIX? | "0".."9"+ EXPONENT
+	//	FLOAT_TYPE_SUFFIX? | "0".."9"+ FLOAT_TYPE_SUFFIX;
 	public TerminalRule getFLOATING_POINT_LITERALRule() {
 		return tFLOATING_POINT_LITERAL;
 	} 

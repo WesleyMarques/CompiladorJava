@@ -150,6 +150,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseType_specifier(Type_specifier object)
+      {
+        return createType_specifierAdapter();
+      }
+      @Override
       public Adapter caseStatic_initializer(Static_initializer object)
       {
         return createStatic_initializerAdapter();
@@ -507,6 +512,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Type_specifier <em>Type specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Type_specifier
+   * @generated
+   */
+  public Adapter createType_specifierAdapter()
   {
     return null;
   }

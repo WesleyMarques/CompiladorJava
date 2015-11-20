@@ -24,7 +24,7 @@ public class ExpressionValidate {
 				throw new Exception("Expression not well formed");
 			}
 		}else if(exp.getCastExpression() != null){
-			String typeCast = exp.getCastExpression().getType().getTypeSpecifier();
+			String typeCast = exp.getCastExpression().getType().getTypeSpecifier().getPrimitiveType() != null?exp.getCastExpression().getType().getTypeSpecifier().getPrimitiveType():exp.getCastExpression().getType().getTypeSpecifier().getClassName();
 			
 			
 		}

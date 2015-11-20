@@ -51,6 +51,7 @@ import org.xtext.example.mydsl.myDsl.Switch_statement;
 import org.xtext.example.mydsl.myDsl.Try_statement;
 import org.xtext.example.mydsl.myDsl.Type;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
+import org.xtext.example.mydsl.myDsl.Type_specifier;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
 import org.xtext.example.mydsl.myDsl.Variable_initializer;
@@ -167,6 +168,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.TYPE_DECLARATION:
 				sequence_Type_declaration(context, (Type_declaration) semanticObject); 
+				return; 
+			case MyDslPackage.TYPE_SPECIFIER:
+				sequence_Type_specifier(context, (Type_specifier) semanticObject); 
 				return; 
 			case MyDslPackage.VARIABLE_DECLARATION:
 				sequence_Variable_declaration(context, (Variable_declaration) semanticObject); 
@@ -587,6 +591,26 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (comment=DOC_COMMENT? (classDec=Class_declaration | interfaceDec=Interface_declaration))
 	 */
 	protected void sequence_Type_declaration(EObject context, Type_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         primitiveType='boolean' | 
+	 *         primitiveType='byte' | 
+	 *         primitiveType='char' | 
+	 *         primitiveType='short' | 
+	 *         primitiveType='int' | 
+	 *         primitiveType='float' | 
+	 *         primitiveType='long' | 
+	 *         primitiveType='double' | 
+	 *         primitiveType='void' | 
+	 *         className=Class_name
+	 *     )
+	 */
+	protected void sequence_Type_specifier(EObject context, Type_specifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

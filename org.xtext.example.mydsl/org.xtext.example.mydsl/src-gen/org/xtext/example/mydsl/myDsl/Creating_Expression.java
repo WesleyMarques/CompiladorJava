@@ -78,30 +78,30 @@ public interface Creating_Expression extends EObject
   void setArgList(Arg_List value);
 
   /**
-   * Returns the value of the '<em><b>Type Specifier</b></em>' attribute.
+   * Returns the value of the '<em><b>Type Specifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type Specifier</em>' attribute isn't clear,
+   * If the meaning of the '<em>Type Specifier</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type Specifier</em>' attribute.
-   * @see #setTypeSpecifier(String)
+   * @return the value of the '<em>Type Specifier</em>' containment reference.
+   * @see #setTypeSpecifier(Type_specifier)
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCreating_Expression_TypeSpecifier()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getTypeSpecifier();
+  Type_specifier getTypeSpecifier();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier <em>Type Specifier</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier <em>Type Specifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type Specifier</em>' attribute.
+   * @param value the new value of the '<em>Type Specifier</em>' containment reference.
    * @see #getTypeSpecifier()
    * @generated
    */
-  void setTypeSpecifier(String value);
+  void setTypeSpecifier(Type_specifier value);
 
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

@@ -1507,95 +1507,154 @@ ruleType returns [EObject current=null]
 
 
 // Entry rule entryRuleType_specifier
-entryRuleType_specifier returns [String current=null] 
+entryRuleType_specifier returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getType_specifierRule()); } 
+	{ newCompositeNode(grammarAccess.getType_specifierRule()); }
 	 iv_ruleType_specifier=ruleType_specifier 
-	 { $current=$iv_ruleType_specifier.current.getText(); }  
+	 { $current=$iv_ruleType_specifier.current; } 
 	 EOF 
 ;
 
 // Rule Type_specifier
-ruleType_specifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+ruleType_specifier returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+((
 (
-	kw='boolean' 
+(
+		lv_primitiveType_0_1=	'boolean' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getBooleanKeyword_0()); 
+        newLeafNode(lv_primitiveType_0_1, grammarAccess.getType_specifierAccess().getPrimitiveTypeBooleanKeyword_0_0_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_1, null);
+	    }
 
-    |
-	kw='byte' 
+    |		lv_primitiveType_0_2=	'byte' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getByteKeyword_1()); 
+        newLeafNode(lv_primitiveType_0_2, grammarAccess.getType_specifierAccess().getPrimitiveTypeByteKeyword_0_0_1());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_2, null);
+	    }
 
-    |
-	kw='char' 
+    |		lv_primitiveType_0_3=	'char' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getCharKeyword_2()); 
+        newLeafNode(lv_primitiveType_0_3, grammarAccess.getType_specifierAccess().getPrimitiveTypeCharKeyword_0_0_2());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_3, null);
+	    }
 
-    |
-	kw='short' 
+    |		lv_primitiveType_0_4=	'short' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getShortKeyword_3()); 
+        newLeafNode(lv_primitiveType_0_4, grammarAccess.getType_specifierAccess().getPrimitiveTypeShortKeyword_0_0_3());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_4, null);
+	    }
 
-    |
-	kw='int' 
+    |		lv_primitiveType_0_5=	'int' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getIntKeyword_4()); 
+        newLeafNode(lv_primitiveType_0_5, grammarAccess.getType_specifierAccess().getPrimitiveTypeIntKeyword_0_0_4());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_5, null);
+	    }
 
-    |
-	kw='float' 
+    |		lv_primitiveType_0_6=	'float' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getFloatKeyword_5()); 
+        newLeafNode(lv_primitiveType_0_6, grammarAccess.getType_specifierAccess().getPrimitiveTypeFloatKeyword_0_0_5());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_6, null);
+	    }
 
-    |
-	kw='long' 
+    |		lv_primitiveType_0_7=	'long' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getLongKeyword_6()); 
+        newLeafNode(lv_primitiveType_0_7, grammarAccess.getType_specifierAccess().getPrimitiveTypeLongKeyword_0_0_6());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_7, null);
+	    }
 
-    |
-	kw='double' 
+    |		lv_primitiveType_0_8=	'double' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getDoubleKeyword_7()); 
+        newLeafNode(lv_primitiveType_0_8, grammarAccess.getType_specifierAccess().getPrimitiveTypeDoubleKeyword_0_0_7());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_8, null);
+	    }
 
-    |
-	kw='void' 
+    |		lv_primitiveType_0_9=	'void' 
     {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getType_specifierAccess().getVoidKeyword_8()); 
+        newLeafNode(lv_primitiveType_0_9, grammarAccess.getType_specifierAccess().getPrimitiveTypeVoidKeyword_0_0_8());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getType_specifierRule());
+	        }
+       		setWithLastConsumed($current, "primitiveType", lv_primitiveType_0_9, null);
+	    }
 
-    |
-    { 
-        newCompositeNode(grammarAccess.getType_specifierAccess().getClass_nameParserRuleCall_9()); 
-    }
-    this_Class_name_9=ruleClass_name    {
-		$current.merge(this_Class_name_9);
-    }
-
-    { 
-        afterParserOrEnumRuleCall();
-    }
 )
-    ;
+
+)
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getType_specifierAccess().getClassNameClass_nameParserRuleCall_1_0()); 
+	    }
+		lv_className_1_0=ruleClass_name		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getType_specifierRule());
+	        }
+       		set(
+       			$current, 
+       			"className",
+        		lv_className_1_0, 
+        		"Class_name");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
 
 
 

@@ -5,10 +5,12 @@ package org.xtext.example.mydsl.myDsl.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Type;
+import org.xtext.example.mydsl.myDsl.Type_specifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,24 +38,14 @@ import org.xtext.example.mydsl.myDsl.Type;
 public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
   /**
-   * The default value of the '{@link #getTypeSpecifier() <em>Type Specifier</em>}' attribute.
+   * The cached value of the '{@link #getTypeSpecifier() <em>Type Specifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTypeSpecifier()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_SPECIFIER_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTypeSpecifier() <em>Type Specifier</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypeSpecifier()
-   * @generated
-   * @ordered
-   */
-  protected String typeSpecifier = TYPE_SPECIFIER_EDEFAULT;
+  protected Type_specifier typeSpecifier;
 
   /**
    * The cached value of the '{@link #getTypeVector() <em>Type Vector</em>}' attribute list.
@@ -90,7 +83,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTypeSpecifier()
+  public Type_specifier getTypeSpecifier()
   {
     return typeSpecifier;
   }
@@ -100,12 +93,37 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeSpecifier(String newTypeSpecifier)
+  public NotificationChain basicSetTypeSpecifier(Type_specifier newTypeSpecifier, NotificationChain msgs)
   {
-    String oldTypeSpecifier = typeSpecifier;
+    Type_specifier oldTypeSpecifier = typeSpecifier;
     typeSpecifier = newTypeSpecifier;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.TYPE__TYPE_SPECIFIER, oldTypeSpecifier, typeSpecifier));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.TYPE__TYPE_SPECIFIER, oldTypeSpecifier, newTypeSpecifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeSpecifier(Type_specifier newTypeSpecifier)
+  {
+    if (newTypeSpecifier != typeSpecifier)
+    {
+      NotificationChain msgs = null;
+      if (typeSpecifier != null)
+        msgs = ((InternalEObject)typeSpecifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.TYPE__TYPE_SPECIFIER, null, msgs);
+      if (newTypeSpecifier != null)
+        msgs = ((InternalEObject)newTypeSpecifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.TYPE__TYPE_SPECIFIER, null, msgs);
+      msgs = basicSetTypeSpecifier(newTypeSpecifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.TYPE__TYPE_SPECIFIER, newTypeSpecifier, newTypeSpecifier));
   }
 
   /**
@@ -120,6 +138,22 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
       typeVector = new EDataTypeEList<String>(String.class, this, MyDslPackage.TYPE__TYPE_VECTOR);
     }
     return typeVector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyDslPackage.TYPE__TYPE_SPECIFIER:
+        return basicSetTypeSpecifier(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -152,7 +186,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     switch (featureID)
     {
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
-        setTypeSpecifier((String)newValue);
+        setTypeSpecifier((Type_specifier)newValue);
         return;
       case MyDslPackage.TYPE__TYPE_VECTOR:
         getTypeVector().clear();
@@ -173,7 +207,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     switch (featureID)
     {
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
-        setTypeSpecifier(TYPE_SPECIFIER_EDEFAULT);
+        setTypeSpecifier((Type_specifier)null);
         return;
       case MyDslPackage.TYPE__TYPE_VECTOR:
         getTypeVector().clear();
@@ -193,7 +227,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     switch (featureID)
     {
       case MyDslPackage.TYPE__TYPE_SPECIFIER:
-        return TYPE_SPECIFIER_EDEFAULT == null ? typeSpecifier != null : !TYPE_SPECIFIER_EDEFAULT.equals(typeSpecifier);
+        return typeSpecifier != null;
       case MyDslPackage.TYPE__TYPE_VECTOR:
         return typeVector != null && !typeVector.isEmpty();
     }
@@ -211,9 +245,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (typeSpecifier: ");
-    result.append(typeSpecifier);
-    result.append(", typeVector: ");
+    result.append(" (typeVector: ");
     result.append(typeVector);
     result.append(')');
     return result.toString();

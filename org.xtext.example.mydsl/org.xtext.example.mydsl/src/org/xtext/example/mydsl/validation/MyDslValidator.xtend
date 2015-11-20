@@ -196,6 +196,15 @@ class MyDslValidator extends AbstractMyDslValidator {
 					variable = new Variable(fd.getVariableDeclaration());
 				} catch (Exception e) {
 				}
+				
+				if(fd.variableDeclaration.type.typeSpecifier.className != null && !allClasses.classes.keySet.contains(variable.type) && !allClasses.interfaces.keySet.contains(variable.type)){
+					
+					error("Identifier " + fd.variableDeclaration.type.typeSpecifier.className + " not found.", fd.variableDeclaration.type,
+					MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+				}
+				
+				
+				
 				allClasses.setGlobalVar(variable, typeName);
 				if (variable.getCountNames() > 0) {
 					for (Variable_declarator varDecl : fd.getVariableDeclaration().getNames()) {
@@ -203,10 +212,32 @@ class MyDslValidator extends AbstractMyDslValidator {
 						allClasses.setGlobalVar(variable, typeName);
 					}
 				}
+				if (fd.variableDeclaration.nameVariable.vari != null) {
+					
+				}
 			}
 
 		}
 
+	}
+
+	def getTypeExp(Expression exp) {
+		if (exp.name == null && exp.literalExpression == null && exp.logicalExpression == null) {
+			error("Invalid expression", exp.aux, MyDslPackage.Literals.EXPRESSION_AUX__ARG_LIST);
+			return null;
+		}
+		if (exp.literalExpression != null) {
+			if (exp.literalExpression.exp2 != null) {
+				return "float";
+			} else if (exp.literalExpression.string != null) {
+				return "String";
+			} else if (exp.literalExpression.charLit != null) {
+				return "char";
+			} else {
+				return "int";
+			}
+		} else if (exp.name != null) {
+		}
 	}
 
 	def validaContructor(EList<Field_declaration> list, String typeName) {
@@ -267,10 +298,7 @@ class MyDslValidator extends AbstractMyDslValidator {
 	def variableDeclaration(Variable_declarator vd) {
 		var String name = vd.nameVariable;
 		var List<Variable> global;
-		
-		
+
 	}
-
-
 
 }

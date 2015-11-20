@@ -71,7 +71,7 @@ public class MethodValidate {
 	
 
 	private String returnTypeToString(Method_declaration md) {
-		String methodReturnType = md.getTypeMethod().getTypeSpecifier();
+		String methodReturnType = md.getTypeMethod().getTypeSpecifier().getPrimitiveType() != null?md.getTypeMethod().getTypeSpecifier().getPrimitiveType():md.getTypeMethod().getTypeSpecifier().getClassName();
 		if (md.getTypeMethod().getTypeVector() != null) {
 			for (String vect : md.getTypeMethod().getTypeVector()) {
 				methodReturnType += vect;
@@ -97,7 +97,7 @@ public class MethodValidate {
 		List<String> paramsFiltered = new ArrayList<String>();
 		String aux = "";
 		for (Parameter param : list) {
-			aux = param.getType().getTypeSpecifier();
+			aux = param.getType().getTypeSpecifier().getPrimitiveType() != null?param.getType().getTypeSpecifier().getPrimitiveType():param.getType().getTypeSpecifier().getClassName();
 			if (param.getType().getTypeVector().size()>0) {
 				for (int i = 0; i < param.getType().getTypeVector().size();i++) {
 					aux += param.getType().getTypeVector().get(i);

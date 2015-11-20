@@ -45,6 +45,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariable_declaratorAccess().getAlternatives_1(), "rule__Variable_declarator__Alternatives_1");
 					put(grammarAccess.getVariable_initializerAccess().getAlternatives(), "rule__Variable_initializer__Alternatives");
 					put(grammarAccess.getType_specifierAccess().getAlternatives(), "rule__Type_specifier__Alternatives");
+					put(grammarAccess.getType_specifierAccess().getPrimitiveTypeAlternatives_0_0(), "rule__Type_specifier__PrimitiveTypeAlternatives_0_0");
 					put(grammarAccess.getModifierAccess().getAlternatives(), "rule__Modifier__Alternatives");
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
 					put(grammarAccess.getFor_StatementAccess().getAlternatives_2(), "rule__For_Statement__Alternatives_2");
@@ -229,6 +230,8 @@ public class MyDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArray_initializerAccess().getVariableinitializerAssignment_2_1_1(), "rule__Array_initializer__VariableinitializerAssignment_2_1_1");
 					put(grammarAccess.getTypeAccess().getTypeSpecifierAssignment_0(), "rule__Type__TypeSpecifierAssignment_0");
 					put(grammarAccess.getTypeAccess().getTypeVectorAssignment_1(), "rule__Type__TypeVectorAssignment_1");
+					put(grammarAccess.getType_specifierAccess().getPrimitiveTypeAssignment_0(), "rule__Type_specifier__PrimitiveTypeAssignment_0");
+					put(grammarAccess.getType_specifierAccess().getClassNameAssignment_1(), "rule__Type_specifier__ClassNameAssignment_1");
 					put(grammarAccess.getStatic_initializerAccess().getStaticAssignment_0(), "rule__Static_initializer__StaticAssignment_0");
 					put(grammarAccess.getStatic_initializerAccess().getNameAssignment_1(), "rule__Static_initializer__NameAssignment_1");
 					put(grammarAccess.getStatement_blockAccess().getRCurlyAssignment_1(), "rule__Statement_block__RCurlyAssignment_1");

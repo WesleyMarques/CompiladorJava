@@ -15,14 +15,21 @@ import org.xtex.example.mydsl.exceptions.MyDslException;
 import org.xtext.example.mydsl.myDsl.Class_declaration;
 import org.xtext.example.mydsl.myDsl.Constructor_declaration;
 import org.xtext.example.mydsl.myDsl.Expression;
+import org.xtext.example.mydsl.myDsl.Expression_aux;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
+import org.xtext.example.mydsl.myDsl.Float_Literal;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
+import org.xtext.example.mydsl.myDsl.Literal_Expression;
+import org.xtext.example.mydsl.myDsl.Logical_Expression_NR;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
+import org.xtext.example.mydsl.myDsl.Type;
 import org.xtext.example.mydsl.myDsl.Type_declaration;
+import org.xtext.example.mydsl.myDsl.Type_specifier;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
+import org.xtext.example.mydsl.myDsl.Variable_initializer;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.utils.Classes;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
@@ -359,12 +366,49 @@ public class MyDslValidator extends AbstractMyDslValidator {
             throw Exceptions.sneakyThrow(_t);
           }
         }
+        boolean _and = false;
+        boolean _and_1 = false;
+        Variable_declaration _variableDeclaration_2 = fd.getVariableDeclaration();
+        Type _type = _variableDeclaration_2.getType();
+        Type_specifier _typeSpecifier = _type.getTypeSpecifier();
+        String _className = _typeSpecifier.getClassName();
+        boolean _notEquals_1 = (!Objects.equal(_className, null));
+        if (!_notEquals_1) {
+          _and_1 = false;
+        } else {
+          Set<String> _keySet = this.allClasses.classes.keySet();
+          String _type_1 = variable.getType();
+          boolean _contains = _keySet.contains(_type_1);
+          boolean _not = (!_contains);
+          _and_1 = _not;
+        }
+        if (!_and_1) {
+          _and = false;
+        } else {
+          Set<String> _keySet_1 = this.allClasses.interfaces.keySet();
+          String _type_2 = variable.getType();
+          boolean _contains_1 = _keySet_1.contains(_type_2);
+          boolean _not_1 = (!_contains_1);
+          _and = _not_1;
+        }
+        if (_and) {
+          Variable_declaration _variableDeclaration_3 = fd.getVariableDeclaration();
+          Type _type_3 = _variableDeclaration_3.getType();
+          Type_specifier _typeSpecifier_1 = _type_3.getTypeSpecifier();
+          String _className_1 = _typeSpecifier_1.getClassName();
+          String _plus = ("Identifier " + _className_1);
+          String _plus_1 = (_plus + " not found.");
+          Variable_declaration _variableDeclaration_4 = fd.getVariableDeclaration();
+          Type _type_4 = _variableDeclaration_4.getType();
+          this.error(_plus_1, _type_4, 
+            MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+        }
         this.allClasses.setGlobalVar(variable, typeName);
         int _countNames = variable.getCountNames();
         boolean _greaterThan = (_countNames > 0);
         if (_greaterThan) {
-          Variable_declaration _variableDeclaration_2 = fd.getVariableDeclaration();
-          EList<Variable_declarator> _names = _variableDeclaration_2.getNames();
+          Variable_declaration _variableDeclaration_5 = fd.getVariableDeclaration();
+          EList<Variable_declarator> _names = _variableDeclaration_5.getNames();
           for (final Variable_declarator varDecl : _names) {
             {
               String _nameVariable = varDecl.getNameVariable();
@@ -373,8 +417,80 @@ public class MyDslValidator extends AbstractMyDslValidator {
             }
           }
         }
+        Variable_declaration _variableDeclaration_6 = fd.getVariableDeclaration();
+        Variable_declarator _nameVariable = _variableDeclaration_6.getNameVariable();
+        Variable_initializer _vari = _nameVariable.getVari();
+        boolean _notEquals_2 = (!Objects.equal(_vari, null));
+        if (_notEquals_2) {
+        }
       }
     }
+  }
+  
+  public String getTypeExp(final Expression exp) {
+    Object _xblockexpression = null;
+    {
+      boolean _and = false;
+      boolean _and_1 = false;
+      String _name = exp.getName();
+      boolean _equals = Objects.equal(_name, null);
+      if (!_equals) {
+        _and_1 = false;
+      } else {
+        Literal_Expression _literalExpression = exp.getLiteralExpression();
+        boolean _equals_1 = Objects.equal(_literalExpression, null);
+        _and_1 = _equals_1;
+      }
+      if (!_and_1) {
+        _and = false;
+      } else {
+        Logical_Expression_NR _logicalExpression = exp.getLogicalExpression();
+        boolean _equals_2 = Objects.equal(_logicalExpression, null);
+        _and = _equals_2;
+      }
+      if (_and) {
+        Expression_aux _aux = exp.getAux();
+        this.error("Invalid expression", _aux, MyDslPackage.Literals.EXPRESSION_AUX__ARG_LIST);
+        return null;
+      }
+      Object _xifexpression = null;
+      Literal_Expression _literalExpression_1 = exp.getLiteralExpression();
+      boolean _notEquals = (!Objects.equal(_literalExpression_1, null));
+      if (_notEquals) {
+        Literal_Expression _literalExpression_2 = exp.getLiteralExpression();
+        Float_Literal _exp2 = _literalExpression_2.getExp2();
+        boolean _notEquals_1 = (!Objects.equal(_exp2, null));
+        if (_notEquals_1) {
+          return "float";
+        } else {
+          Literal_Expression _literalExpression_3 = exp.getLiteralExpression();
+          String _string = _literalExpression_3.getString();
+          boolean _notEquals_2 = (!Objects.equal(_string, null));
+          if (_notEquals_2) {
+            return "String";
+          } else {
+            Literal_Expression _literalExpression_4 = exp.getLiteralExpression();
+            String _charLit = _literalExpression_4.getCharLit();
+            boolean _notEquals_3 = (!Objects.equal(_charLit, null));
+            if (_notEquals_3) {
+              return "char";
+            } else {
+              return "int";
+            }
+          }
+        }
+      } else {
+        Object _xifexpression_1 = null;
+        String _name_1 = exp.getName();
+        boolean _notEquals_4 = (!Objects.equal(_name_1, null));
+        if (_notEquals_4) {
+          _xifexpression_1 = null;
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return ((String)_xblockexpression);
   }
   
   public void validaContructor(final EList<Field_declaration> list, final String typeName) {

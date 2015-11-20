@@ -158,6 +158,15 @@ public interface MyDslFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Type specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type specifier</em>'.
+   * @generated
+   */
+  Type_specifier createType_specifier();
+
+  /**
    * Returns a new object of class '<em>Static initializer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

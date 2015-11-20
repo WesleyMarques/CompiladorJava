@@ -54,7 +54,7 @@ public class Variable {
 	}
 	
 	private String returnTypeToString(Variable_declaration md) {
-		String methodReturnType = md.getType().getTypeSpecifier();
+		String methodReturnType = md.getType().getTypeSpecifier().getPrimitiveType() != null?md.getType().getTypeSpecifier().getPrimitiveType():md.getType().getTypeSpecifier().getClassName();
 		if (md.getType().getTypeVector() != null) {
 			for (String vect : md.getType().getTypeVector()) {
 				methodReturnType += vect;

@@ -792,7 +792,7 @@ public interface MyDslPackage extends EPackage
   int TYPE = 14;
 
   /**
-   * The feature id for the '<em><b>Type Specifier</b></em>' attribute.
+   * The feature id for the '<em><b>Type Specifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -819,6 +819,43 @@ public interface MyDslPackage extends EPackage
   int TYPE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Type_specifierImpl <em>Type specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.Type_specifierImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getType_specifier()
+   * @generated
+   */
+  int TYPE_SPECIFIER = 15;
+
+  /**
+   * The feature id for the '<em><b>Primitive Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__PRIMITIVE_TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Class Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__CLASS_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Type specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.Static_initializerImpl <em>Static initializer</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -826,7 +863,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatic_initializer()
    * @generated
    */
-  int STATIC_INITIALIZER = 15;
+  int STATIC_INITIALIZER = 16;
 
   /**
    * The feature id for the '<em><b>Static</b></em>' attribute.
@@ -863,7 +900,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement_block()
    * @generated
    */
-  int STATEMENT_BLOCK = 16;
+  int STATEMENT_BLOCK = 17;
 
   /**
    * The feature id for the '<em><b>RCurly</b></em>' attribute.
@@ -909,7 +946,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 17;
+  int STATEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Variable Declaration</b></em>' containment reference.
@@ -1081,7 +1118,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFor_Statement()
    * @generated
    */
-  int FOR_STATEMENT = 18;
+  int FOR_STATEMENT = 19;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -1145,10 +1182,10 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPrimitive_type()
    * @generated
    */
-  int PRIMITIVE_TYPE = 19;
+  int PRIMITIVE_TYPE = 20;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1173,7 +1210,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 20;
+  int EXPRESSION = 21;
 
   /**
    * The feature id for the '<em><b>Numeric Expression3</b></em>' containment reference.
@@ -1291,7 +1328,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getExpression_aux()
    * @generated
    */
-  int EXPRESSION_AUX = 21;
+  int EXPRESSION_AUX = 22;
 
   /**
    * The feature id for the '<em><b>Arg List</b></em>' containment reference.
@@ -1463,7 +1500,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getAmpersand_Rule()
    * @generated
    */
-  int AMPERSAND_RULE = 22;
+  int AMPERSAND_RULE = 23;
 
   /**
    * The feature id for the '<em><b>A1</b></em>' attribute.
@@ -1500,7 +1537,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFloat_Literal()
    * @generated
    */
-  int FLOAT_LITERAL = 23;
+  int FLOAT_LITERAL = 24;
 
   /**
    * The feature id for the '<em><b>Decimal Digits1</b></em>' attribute.
@@ -1555,7 +1592,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLiteral_Expression()
    * @generated
    */
-  int LITERAL_EXPRESSION = 24;
+  int LITERAL_EXPRESSION = 25;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' attribute.
@@ -1619,7 +1656,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCreating_Expression()
    * @generated
    */
-  int CREATING_EXPRESSION = 25;
+  int CREATING_EXPRESSION = 26;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -1640,7 +1677,7 @@ public interface MyDslPackage extends EPackage
   int CREATING_EXPRESSION__ARG_LIST = 1;
 
   /**
-   * The feature id for the '<em><b>Type Specifier</b></em>' attribute.
+   * The feature id for the '<em><b>Type Specifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1674,7 +1711,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCast_Expression()
    * @generated
    */
-  int CAST_EXPRESSION = 26;
+  int CAST_EXPRESSION = 27;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1711,7 +1748,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getBit_Expression_NR()
    * @generated
    */
-  int BIT_EXPRESSION_NR = 27;
+  int BIT_EXPRESSION_NR = 28;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1739,7 +1776,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLogical_Expression_NR()
    * @generated
    */
-  int LOGICAL_EXPRESSION_NR = 28;
+  int LOGICAL_EXPRESSION_NR = 29;
 
   /**
    * The feature id for the '<em><b>Exclamation</b></em>' attribute.
@@ -1794,7 +1831,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getArg_List()
    * @generated
    */
-  int ARG_LIST = 29;
+  int ARG_LIST = 30;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1831,7 +1868,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getNumeric_Expression_NR()
    * @generated
    */
-  int NUMERIC_EXPRESSION_NR = 30;
+  int NUMERIC_EXPRESSION_NR = 31;
 
   /**
    * The feature id for the '<em><b>Sinal numeric</b></em>' attribute.
@@ -1868,7 +1905,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSwitch_statement()
    * @generated
    */
-  int SWITCH_STATEMENT = 31;
+  int SWITCH_STATEMENT = 32;
 
   /**
    * The feature id for the '<em><b>LParen</b></em>' attribute.
@@ -1932,7 +1969,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getWhile_Statement()
    * @generated
    */
-  int WHILE_STATEMENT = 32;
+  int WHILE_STATEMENT = 33;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1978,7 +2015,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getDo_Statement()
    * @generated
    */
-  int DO_STATEMENT = 33;
+  int DO_STATEMENT = 34;
 
   /**
    * The feature id for the '<em><b>Do Statement</b></em>' containment reference.
@@ -2024,7 +2061,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getIf_statement()
    * @generated
    */
-  int IF_STATEMENT = 34;
+  int IF_STATEMENT = 35;
 
   /**
    * The feature id for the '<em><b>Lparen</b></em>' attribute.
@@ -2088,7 +2125,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getTry_statement()
    * @generated
    */
-  int TRY_STATEMENT = 35;
+  int TRY_STATEMENT = 36;
 
   /**
    * The feature id for the '<em><b>Try Statement</b></em>' containment reference.
@@ -2161,7 +2198,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getImport_statement()
    * @generated
    */
-  int IMPORT_STATEMENT = 36;
+  int IMPORT_STATEMENT = 37;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -2198,7 +2235,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPackage_statement()
    * @generated
    */
-  int PACKAGE_STATEMENT = 37;
+  int PACKAGE_STATEMENT = 38;
 
   /**
    * The feature id for the '<em><b>Pac Name</b></em>' attribute.
@@ -2931,15 +2968,15 @@ public interface MyDslPackage extends EPackage
   EClass getType();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Type#getTypeSpecifier <em>Type Specifier</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Type#getTypeSpecifier <em>Type Specifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Specifier</em>'.
+   * @return the meta object for the containment reference '<em>Type Specifier</em>'.
    * @see org.xtext.example.mydsl.myDsl.Type#getTypeSpecifier()
    * @see #getType()
    * @generated
    */
-  EAttribute getType_TypeSpecifier();
+  EReference getType_TypeSpecifier();
 
   /**
    * Returns the meta object for the attribute list '{@link org.xtext.example.mydsl.myDsl.Type#getTypeVector <em>Type Vector</em>}'.
@@ -2951,6 +2988,38 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EAttribute getType_TypeVector();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Type_specifier <em>Type specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type specifier</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type_specifier
+   * @generated
+   */
+  EClass getType_specifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Type_specifier#getPrimitiveType <em>Primitive Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Primitive Type</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type_specifier#getPrimitiveType()
+   * @see #getType_specifier()
+   * @generated
+   */
+  EAttribute getType_specifier_PrimitiveType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Type_specifier#getClassName <em>Class Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Class Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type_specifier#getClassName()
+   * @see #getType_specifier()
+   * @generated
+   */
+  EAttribute getType_specifier_ClassName();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Static_initializer <em>Static initializer</em>}'.
@@ -3300,15 +3369,15 @@ public interface MyDslPackage extends EPackage
   EClass getPrimitive_type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Primitive_type#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Primitive_type#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the containment reference '<em>Name</em>'.
    * @see org.xtext.example.mydsl.myDsl.Primitive_type#getName()
    * @see #getPrimitive_type()
    * @generated
    */
-  EAttribute getPrimitive_type_Name();
+  EReference getPrimitive_type_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Expression <em>Expression</em>}'.
@@ -3822,15 +3891,15 @@ public interface MyDslPackage extends EPackage
   EReference getCreating_Expression_ArgList();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier <em>Type Specifier</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier <em>Type Specifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type Specifier</em>'.
+   * @return the meta object for the containment reference '<em>Type Specifier</em>'.
    * @see org.xtext.example.mydsl.myDsl.Creating_Expression#getTypeSpecifier()
    * @see #getCreating_Expression()
    * @generated
    */
-  EAttribute getCreating_Expression_TypeSpecifier();
+  EReference getCreating_Expression_TypeSpecifier();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Creating_Expression#getExpression <em>Expression</em>}'.
@@ -4941,12 +5010,12 @@ public interface MyDslPackage extends EPackage
     EClass TYPE = eINSTANCE.getType();
 
     /**
-     * The meta object literal for the '<em><b>Type Specifier</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type Specifier</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE__TYPE_SPECIFIER = eINSTANCE.getType_TypeSpecifier();
+    EReference TYPE__TYPE_SPECIFIER = eINSTANCE.getType_TypeSpecifier();
 
     /**
      * The meta object literal for the '<em><b>Type Vector</b></em>' attribute list feature.
@@ -4955,6 +5024,32 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EAttribute TYPE__TYPE_VECTOR = eINSTANCE.getType_TypeVector();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Type_specifierImpl <em>Type specifier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.Type_specifierImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getType_specifier()
+     * @generated
+     */
+    EClass TYPE_SPECIFIER = eINSTANCE.getType_specifier();
+
+    /**
+     * The meta object literal for the '<em><b>Primitive Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SPECIFIER__PRIMITIVE_TYPE = eINSTANCE.getType_specifier_PrimitiveType();
+
+    /**
+     * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SPECIFIER__CLASS_NAME = eINSTANCE.getType_specifier_ClassName();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.Static_initializerImpl <em>Static initializer</em>}' class.
@@ -5223,12 +5318,12 @@ public interface MyDslPackage extends EPackage
     EClass PRIMITIVE_TYPE = eINSTANCE.getPrimitive_type();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PRIMITIVE_TYPE__NAME = eINSTANCE.getPrimitive_type_Name();
+    EReference PRIMITIVE_TYPE__NAME = eINSTANCE.getPrimitive_type_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -5619,12 +5714,12 @@ public interface MyDslPackage extends EPackage
     EReference CREATING_EXPRESSION__ARG_LIST = eINSTANCE.getCreating_Expression_ArgList();
 
     /**
-     * The meta object literal for the '<em><b>Type Specifier</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type Specifier</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CREATING_EXPRESSION__TYPE_SPECIFIER = eINSTANCE.getCreating_Expression_TypeSpecifier();
+    EReference CREATING_EXPRESSION__TYPE_SPECIFIER = eINSTANCE.getCreating_Expression_TypeSpecifier();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.

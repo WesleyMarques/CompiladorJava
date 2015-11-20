@@ -15,6 +15,7 @@ import org.xtext.example.mydsl.myDsl.Arg_List;
 import org.xtext.example.mydsl.myDsl.Creating_Expression;
 import org.xtext.example.mydsl.myDsl.Expression;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
+import org.xtext.example.mydsl.myDsl.Type_specifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,24 +66,14 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
   protected Arg_List argList;
 
   /**
-   * The default value of the '{@link #getTypeSpecifier() <em>Type Specifier</em>}' attribute.
+   * The cached value of the '{@link #getTypeSpecifier() <em>Type Specifier</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTypeSpecifier()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_SPECIFIER_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTypeSpecifier() <em>Type Specifier</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTypeSpecifier()
-   * @generated
-   * @ordered
-   */
-  protected String typeSpecifier = TYPE_SPECIFIER_EDEFAULT;
+  protected Type_specifier typeSpecifier;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -191,7 +182,7 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTypeSpecifier()
+  public Type_specifier getTypeSpecifier()
   {
     return typeSpecifier;
   }
@@ -201,12 +192,37 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeSpecifier(String newTypeSpecifier)
+  public NotificationChain basicSetTypeSpecifier(Type_specifier newTypeSpecifier, NotificationChain msgs)
   {
-    String oldTypeSpecifier = typeSpecifier;
+    Type_specifier oldTypeSpecifier = typeSpecifier;
     typeSpecifier = newTypeSpecifier;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER, oldTypeSpecifier, typeSpecifier));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER, oldTypeSpecifier, newTypeSpecifier);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeSpecifier(Type_specifier newTypeSpecifier)
+  {
+    if (newTypeSpecifier != typeSpecifier)
+    {
+      NotificationChain msgs = null;
+      if (typeSpecifier != null)
+        msgs = ((InternalEObject)typeSpecifier).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER, null, msgs);
+      if (newTypeSpecifier != null)
+        msgs = ((InternalEObject)newTypeSpecifier).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER, null, msgs);
+      msgs = basicSetTypeSpecifier(newTypeSpecifier, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER, newTypeSpecifier, newTypeSpecifier));
   }
 
   /**
@@ -269,6 +285,8 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
     {
       case MyDslPackage.CREATING_EXPRESSION__ARG_LIST:
         return basicSetArgList(null, msgs);
+      case MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER:
+        return basicSetTypeSpecifier(null, msgs);
       case MyDslPackage.CREATING_EXPRESSION__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
@@ -314,7 +332,7 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
         setArgList((Arg_List)newValue);
         return;
       case MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER:
-        setTypeSpecifier((String)newValue);
+        setTypeSpecifier((Type_specifier)newValue);
         return;
       case MyDslPackage.CREATING_EXPRESSION__EXPRESSION:
         setExpression((Expression)newValue);
@@ -340,7 +358,7 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
         setArgList((Arg_List)null);
         return;
       case MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER:
-        setTypeSpecifier(TYPE_SPECIFIER_EDEFAULT);
+        setTypeSpecifier((Type_specifier)null);
         return;
       case MyDslPackage.CREATING_EXPRESSION__EXPRESSION:
         setExpression((Expression)null);
@@ -364,7 +382,7 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
       case MyDslPackage.CREATING_EXPRESSION__ARG_LIST:
         return argList != null;
       case MyDslPackage.CREATING_EXPRESSION__TYPE_SPECIFIER:
-        return TYPE_SPECIFIER_EDEFAULT == null ? typeSpecifier != null : !TYPE_SPECIFIER_EDEFAULT.equals(typeSpecifier);
+        return typeSpecifier != null;
       case MyDslPackage.CREATING_EXPRESSION__EXPRESSION:
         return expression != null;
     }
@@ -384,8 +402,6 @@ public class Creating_ExpressionImpl extends MinimalEObjectImpl.Container implem
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (className: ");
     result.append(className);
-    result.append(", typeSpecifier: ");
-    result.append(typeSpecifier);
     result.append(')');
     return result.toString();
   }

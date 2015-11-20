@@ -96,7 +96,7 @@ terminal CHAR:
 ;
 
 Type_specifier:
-	"boolean" 
+	primitiveType = ("boolean" 
       | "byte" 
       | "char" 
       | "short" 
@@ -104,8 +104,8 @@ Type_specifier:
       | "float" 
       | "long" 
       | "double"
-      | "void" 
-      | Class_name
+      | "void") 
+      | className = Class_name
 ;
 
 Modifier:

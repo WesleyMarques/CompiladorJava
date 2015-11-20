@@ -79,6 +79,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.VARIABLE_INITIALIZER: return createVariable_initializer();
       case MyDslPackage.ARRAY_INITIALIZER: return createArray_initializer();
       case MyDslPackage.TYPE: return createType();
+      case MyDslPackage.TYPE_SPECIFIER: return createType_specifier();
       case MyDslPackage.STATIC_INITIALIZER: return createStatic_initializer();
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
@@ -270,6 +271,17 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     TypeImpl type = new TypeImpl();
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type_specifier createType_specifier()
+  {
+    Type_specifierImpl type_specifier = new Type_specifierImpl();
+    return type_specifier;
   }
 
   /**
