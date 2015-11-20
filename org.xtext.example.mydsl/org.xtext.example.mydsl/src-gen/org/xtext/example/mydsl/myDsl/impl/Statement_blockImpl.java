@@ -28,12 +28,12 @@ import org.xtext.example.mydsl.myDsl.Statement_block;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl#getRCurly <em>RCurly</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl#getStatments <em>Statments</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Statement_blockImpl#getLCurly <em>LCurly</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

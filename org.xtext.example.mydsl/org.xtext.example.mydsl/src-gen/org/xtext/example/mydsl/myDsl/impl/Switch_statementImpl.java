@@ -29,6 +29,7 @@ import org.xtext.example.mydsl.myDsl.Switch_statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Switch_statementImpl#getLParen <em>LParen</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Switch_statementImpl#getExpression <em>Expression</em>}</li>
@@ -36,7 +37,6 @@ import org.xtext.example.mydsl.myDsl.Switch_statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Switch_statementImpl#getExpression2 <em>Expression2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Switch_statementImpl#getSwitchStatements <em>Switch Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

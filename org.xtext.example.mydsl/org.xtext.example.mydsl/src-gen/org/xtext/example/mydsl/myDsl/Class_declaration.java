@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Class_declaration#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Class_declaration#getClassName <em>Class Name</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Class_declaration#getInterfacesImplementadas <em>Interfaces Implementadas</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Class_declaration#getFieldsDeclaration <em>Fields Declaration</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getClass_declaration()
  * @model

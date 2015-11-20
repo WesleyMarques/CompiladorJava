@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Variable_initializer#getArray_init <em>Array init</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Variable_initializer#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVariable_initializer()
  * @model

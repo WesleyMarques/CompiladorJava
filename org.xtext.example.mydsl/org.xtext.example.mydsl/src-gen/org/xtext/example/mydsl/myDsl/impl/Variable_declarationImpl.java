@@ -30,13 +30,13 @@ import org.xtext.example.mydsl.myDsl.Variable_declarator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declarationImpl#getModifiersVariable <em>Modifiers Variable</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declarationImpl#getNameVariable <em>Name Variable</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declarationImpl#getNames <em>Names</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

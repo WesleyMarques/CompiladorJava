@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Switch_statement#getLParen <em>LParen</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Switch_statement#getExpression <em>Expression</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Switch_statement#getExpression2 <em>Expression2</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Switch_statement#getSwitchStatements <em>Switch Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getSwitch_statement()
  * @model

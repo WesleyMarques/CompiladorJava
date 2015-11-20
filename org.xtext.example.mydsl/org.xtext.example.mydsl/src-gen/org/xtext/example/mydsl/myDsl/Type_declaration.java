@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type_declaration#getComment <em>Comment</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type_declaration#getClassDec <em>Class Dec</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type_declaration#getInterfaceDec <em>Interface Dec</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType_declaration()
  * @model

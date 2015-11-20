@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Field_declaration#getComment <em>Comment</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Field_declaration#getVariableDeclaration <em>Variable Declaration</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Field_declaration#getMethodName <em>Method Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Field_declaration#getStaticinitializer <em>Staticinitializer</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getField_declaration()
  * @model

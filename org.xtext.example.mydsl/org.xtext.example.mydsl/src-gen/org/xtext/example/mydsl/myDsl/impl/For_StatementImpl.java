@@ -23,6 +23,7 @@ import org.xtext.example.mydsl.myDsl.Variable_declaration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.For_StatementImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.For_StatementImpl#getExpression <em>Expression</em>}</li>
@@ -30,7 +31,6 @@ import org.xtext.example.mydsl.myDsl.Variable_declaration;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.For_StatementImpl#getExpression3 <em>Expression3</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.For_StatementImpl#getStatement <em>Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -22,12 +22,12 @@ import org.xtext.example.mydsl.myDsl.While_Statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.While_StatementImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.While_StatementImpl#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.While_StatementImpl#getWhileStatement <em>While Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

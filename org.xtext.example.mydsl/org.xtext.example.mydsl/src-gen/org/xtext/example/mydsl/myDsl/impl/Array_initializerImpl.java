@@ -26,10 +26,10 @@ import org.xtext.example.mydsl.myDsl.Variable_initializer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Array_initializerImpl#getVariableinitializer <em>Variableinitializer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

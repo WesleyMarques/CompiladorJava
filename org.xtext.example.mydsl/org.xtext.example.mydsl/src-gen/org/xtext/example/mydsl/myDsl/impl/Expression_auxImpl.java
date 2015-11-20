@@ -23,6 +23,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getArgList <em>Arg List</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getAux <em>Aux</em>}</li>
@@ -42,7 +43,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getLogicOp <em>Logic Op</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Expression_auxImpl#getLogicExp <em>Logic Exp</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

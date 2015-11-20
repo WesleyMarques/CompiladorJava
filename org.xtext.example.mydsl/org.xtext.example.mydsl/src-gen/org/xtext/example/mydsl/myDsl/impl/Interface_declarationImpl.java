@@ -29,6 +29,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getInterfaceName <em>Interface Name</em>}</li>
@@ -36,7 +37,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getInterfacesHerdadas <em>Interfaces Herdadas</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Interface_declarationImpl#getFieldsDeclaration <em>Fields Declaration</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

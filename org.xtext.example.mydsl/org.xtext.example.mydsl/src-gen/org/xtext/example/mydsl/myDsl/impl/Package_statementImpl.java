@@ -18,10 +18,10 @@ import org.xtext.example.mydsl.myDsl.Package_statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Package_statementImpl#getPacName <em>Pac Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

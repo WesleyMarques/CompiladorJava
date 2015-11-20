@@ -23,13 +23,13 @@ import org.xtext.example.mydsl.myDsl.Type_specifier;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl#getArgList <em>Arg List</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl#getTypeSpecifier <em>Type Specifier</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Creating_ExpressionImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

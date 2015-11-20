@@ -96,7 +96,7 @@ ruleModel returns [EObject current=null]
        			$current, 
        			"greetings",
         		lv_greetings_0_0, 
-        		"Compilation_unit");
+        		"org.xtext.example.mydsl.MyDsl.Compilation_unit");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -144,7 +144,7 @@ ruleCompilation_unit returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"Package_statement");
+        		"org.xtext.example.mydsl.MyDsl.Package_statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -162,7 +162,7 @@ ruleCompilation_unit returns [EObject current=null]
        			$current, 
        			"imports",
         		lv_imports_2_0, 
-        		"Import_statement");
+        		"org.xtext.example.mydsl.MyDsl.Import_statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -180,7 +180,7 @@ ruleCompilation_unit returns [EObject current=null]
        			$current, 
        			"typeDeclarations",
         		lv_typeDeclarations_3_0, 
-        		"Type_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Type_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -220,7 +220,7 @@ ruleType_declaration returns [EObject current=null]
        			$current, 
        			"comment",
         		lv_comment_0_0, 
-        		"DOC_COMMENT");
+        		"org.xtext.example.mydsl.MyDsl.DOC_COMMENT");
 	    }
 
 )
@@ -237,7 +237,7 @@ ruleType_declaration returns [EObject current=null]
        			$current, 
        			"classDec",
         		lv_classDec_1_0, 
-        		"Class_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Class_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -256,7 +256,7 @@ ruleType_declaration returns [EObject current=null]
        			$current, 
        			"interfaceDec",
         		lv_interfaceDec_2_0, 
-        		"Interface_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Interface_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -299,7 +299,7 @@ ruleInterface_declaration returns [EObject current=null]
        			$current, 
        			"modifiers",
         		lv_modifiers_0_0, 
-        		"Modifier");
+        		"org.xtext.example.mydsl.MyDsl.Modifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -322,7 +322,7 @@ ruleInterface_declaration returns [EObject current=null]
        			$current, 
        			"interfaceName",
         		lv_interfaceName_2_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -343,7 +343,7 @@ ruleInterface_declaration returns [EObject current=null]
        			$current, 
        			"interfaceHerdada",
         		lv_interfaceHerdada_4_0, 
-        		"Interface_name");
+        		"org.xtext.example.mydsl.MyDsl.Interface_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -365,7 +365,7 @@ ruleInterface_declaration returns [EObject current=null]
        			$current, 
        			"interfacesHerdadas",
         		lv_interfacesHerdadas_6_0, 
-        		"Interface_name");
+        		"org.xtext.example.mydsl.MyDsl.Interface_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -387,7 +387,7 @@ ruleInterface_declaration returns [EObject current=null]
        			$current, 
        			"fieldsDeclaration",
         		lv_fieldsDeclaration_8_0, 
-        		"Field_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Field_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -430,7 +430,7 @@ ruleClass_declaration returns [EObject current=null]
        			$current, 
        			"modifiers",
         		lv_modifiers_0_0, 
-        		"Modifier");
+        		"org.xtext.example.mydsl.MyDsl.Modifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -453,7 +453,7 @@ ruleClass_declaration returns [EObject current=null]
        			$current, 
        			"className",
         		lv_className_2_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -474,7 +474,7 @@ ruleClass_declaration returns [EObject current=null]
        			$current, 
        			"classHerdada",
         		lv_classHerdada_4_0, 
-        		"Class_name");
+        		"org.xtext.example.mydsl.MyDsl.Class_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -496,7 +496,7 @@ ruleClass_declaration returns [EObject current=null]
        			$current, 
        			"interfaceImplementada",
         		lv_interfaceImplementada_6_0, 
-        		"Interface_name");
+        		"org.xtext.example.mydsl.MyDsl.Interface_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -518,7 +518,7 @@ ruleClass_declaration returns [EObject current=null]
        			$current, 
        			"interfacesImplementadas",
         		lv_interfacesImplementadas_8_0, 
-        		"Interface_name");
+        		"org.xtext.example.mydsl.MyDsl.Interface_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -540,7 +540,7 @@ ruleClass_declaration returns [EObject current=null]
        			$current, 
        			"fieldsDeclaration",
         		lv_fieldsDeclaration_10_0, 
-        		"Field_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Field_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -584,7 +584,7 @@ ruleField_declaration returns [EObject current=null]
        			$current, 
        			"comment",
         		lv_comment_0_0, 
-        		"DOC_COMMENT");
+        		"org.xtext.example.mydsl.MyDsl.DOC_COMMENT");
 	    }
 
 )
@@ -601,7 +601,7 @@ ruleField_declaration returns [EObject current=null]
        			$current, 
        			"variableDeclaration",
         		lv_variableDeclaration_1_0, 
-        		"Variable_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Variable_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -620,7 +620,7 @@ ruleField_declaration returns [EObject current=null]
        			$current, 
        			"contructorName",
         		lv_contructorName_2_0, 
-        		"Constructor_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Constructor_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -639,7 +639,7 @@ ruleField_declaration returns [EObject current=null]
        			$current, 
        			"methodName",
         		lv_methodName_3_0, 
-        		"Method_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Method_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -658,7 +658,7 @@ ruleField_declaration returns [EObject current=null]
        			$current, 
        			"staticinitializer",
         		lv_staticinitializer_4_0, 
-        		"Static_initializer");
+        		"org.xtext.example.mydsl.MyDsl.Static_initializer");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -711,7 +711,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"modifiersMethod",
         		lv_modifiersMethod_0_0, 
-        		"Modifier");
+        		"org.xtext.example.mydsl.MyDsl.Modifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -729,7 +729,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"typeMethod",
         		lv_typeMethod_1_0, 
-        		"Type");
+        		"org.xtext.example.mydsl.MyDsl.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -748,7 +748,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"nameMethod",
         		lv_nameMethod_2_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -766,7 +766,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"lParen",
         		lv_lParen_3_0, 
-        		"LPAREN");
+        		"org.xtext.example.mydsl.MyDsl.LPAREN");
 	    }
 
 )
@@ -783,7 +783,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"parameterListMethod",
         		lv_parameterListMethod_4_0, 
-        		"Parameter_list");
+        		"org.xtext.example.mydsl.MyDsl.Parameter_list");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -802,7 +802,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_5_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -827,7 +827,7 @@ ruleMethod_declaration returns [EObject current=null]
        			$current, 
        			"statementMethod",
         		lv_statementMethod_8_0, 
-        		"Statement_block");
+        		"org.xtext.example.mydsl.MyDsl.Statement_block");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -882,7 +882,7 @@ ruleConstructor_declaration returns [EObject current=null]
        			$current, 
        			"modifiersConstructor",
         		lv_modifiersConstructor_0_0, 
-        		"Modifier");
+        		"org.xtext.example.mydsl.MyDsl.Modifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -901,7 +901,7 @@ ruleConstructor_declaration returns [EObject current=null]
        			$current, 
        			"nameConstructor",
         		lv_nameConstructor_1_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -919,7 +919,7 @@ ruleConstructor_declaration returns [EObject current=null]
        			$current, 
        			"lParen",
         		lv_lParen_2_0, 
-        		"LPAREN");
+        		"org.xtext.example.mydsl.MyDsl.LPAREN");
 	    }
 
 )
@@ -936,7 +936,7 @@ ruleConstructor_declaration returns [EObject current=null]
        			$current, 
        			"parameterListConstructor",
         		lv_parameterListConstructor_3_0, 
-        		"Parameter_list");
+        		"org.xtext.example.mydsl.MyDsl.Parameter_list");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -955,7 +955,7 @@ ruleConstructor_declaration returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_4_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -972,7 +972,7 @@ ruleConstructor_declaration returns [EObject current=null]
        			$current, 
        			"statementConstructor",
         		lv_statementConstructor_5_0, 
-        		"Statement_block");
+        		"org.xtext.example.mydsl.MyDsl.Statement_block");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1011,7 +1011,7 @@ ruleParameter_list returns [EObject current=null]
        			$current, 
        			"parameter",
         		lv_parameter_0_0, 
-        		"Parameter");
+        		"org.xtext.example.mydsl.MyDsl.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1033,7 +1033,7 @@ ruleParameter_list returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_2_0, 
-        		"Parameter");
+        		"org.xtext.example.mydsl.MyDsl.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1072,7 +1072,7 @@ ruleParameter returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"Type");
+        		"org.xtext.example.mydsl.MyDsl.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1091,7 +1091,7 @@ ruleParameter returns [EObject current=null]
        			$current, 
        			"parameterName",
         		lv_parameterName_1_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -1142,7 +1142,7 @@ ruleVariable_declaration returns [EObject current=null]
        			$current, 
        			"modifiersVariable",
         		lv_modifiersVariable_0_0, 
-        		"Modifier");
+        		"org.xtext.example.mydsl.MyDsl.Modifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1160,7 +1160,7 @@ ruleVariable_declaration returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_1_0, 
-        		"Type");
+        		"org.xtext.example.mydsl.MyDsl.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1178,7 +1178,7 @@ ruleVariable_declaration returns [EObject current=null]
        			$current, 
        			"nameVariable",
         		lv_nameVariable_2_0, 
-        		"Variable_declarator");
+        		"org.xtext.example.mydsl.MyDsl.Variable_declarator");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1200,7 +1200,7 @@ ruleVariable_declaration returns [EObject current=null]
        			$current, 
        			"names",
         		lv_names_4_0, 
-        		"Variable_declarator");
+        		"org.xtext.example.mydsl.MyDsl.Variable_declarator");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1244,7 +1244,7 @@ ruleVariable_declarator returns [EObject current=null]
        			$current, 
        			"nameVariable",
         		lv_nameVariable_0_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -1300,7 +1300,7 @@ ruleVariable_declarator returns [EObject current=null]
        			$current, 
        			"vari",
         		lv_vari_5_0, 
-        		"Variable_initializer");
+        		"org.xtext.example.mydsl.MyDsl.Variable_initializer");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1339,7 +1339,7 @@ ruleVariable_initializer returns [EObject current=null]
        			$current, 
        			"array_init",
         		lv_array_init_0_0, 
-        		"Array_initializer");
+        		"org.xtext.example.mydsl.MyDsl.Array_initializer");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1358,7 +1358,7 @@ ruleVariable_initializer returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_1_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1410,7 +1410,7 @@ ruleArray_initializer returns [EObject current=null]
        			$current, 
        			"variableinitializer",
         		lv_variableinitializer_2_0, 
-        		"Variable_initializer");
+        		"org.xtext.example.mydsl.MyDsl.Variable_initializer");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1432,7 +1432,7 @@ ruleArray_initializer returns [EObject current=null]
        			$current, 
        			"variableinitializer",
         		lv_variableinitializer_4_0, 
-        		"Variable_initializer");
+        		"org.xtext.example.mydsl.MyDsl.Variable_initializer");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1479,7 +1479,7 @@ ruleType returns [EObject current=null]
        			$current, 
        			"typeSpecifier",
         		lv_typeSpecifier_0_0, 
-        		"Type_specifier");
+        		"org.xtext.example.mydsl.MyDsl.Type_specifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1648,7 +1648,7 @@ ruleType_specifier returns [EObject current=null]
        			$current, 
        			"className",
         		lv_className_1_0, 
-        		"Class_name");
+        		"org.xtext.example.mydsl.MyDsl.Class_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1724,7 +1724,7 @@ ruleStatic_initializer returns [EObject current=null]
        			$current, 
        			"static",
         		lv_static_0_0, 
-        		"STATIC");
+        		"org.xtext.example.mydsl.MyDsl.STATIC");
 	    }
 
 )
@@ -1741,7 +1741,7 @@ ruleStatic_initializer returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"Statement_block");
+        		"org.xtext.example.mydsl.MyDsl.Statement_block");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1790,7 +1790,7 @@ ruleStatement_block returns [EObject current=null]
        			$current, 
        			"rCurly",
         		lv_rCurly_1_0, 
-        		"R_CURLY_BRACE");
+        		"org.xtext.example.mydsl.MyDsl.R_CURLY_BRACE");
 	    }
 
 )
@@ -1807,7 +1807,7 @@ ruleStatement_block returns [EObject current=null]
        			$current, 
        			"statments",
         		lv_statments_2_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1826,7 +1826,7 @@ ruleStatement_block returns [EObject current=null]
        			$current, 
        			"lCurly",
         		lv_lCurly_3_0, 
-        		"L_CURLY_BRACE");
+        		"org.xtext.example.mydsl.MyDsl.L_CURLY_BRACE");
 	    }
 
 )
@@ -1864,7 +1864,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"variableDeclaration",
         		lv_variableDeclaration_0_0, 
-        		"Variable_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Variable_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1883,7 +1883,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"expressionStatement",
         		lv_expressionStatement_1_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1917,7 +1917,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"ifStatement",
         		lv_ifStatement_3_0, 
-        		"If_statement");
+        		"org.xtext.example.mydsl.MyDsl.If_statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1936,7 +1936,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"doStatement",
         		lv_doStatement_4_0, 
-        		"Do_Statement");
+        		"org.xtext.example.mydsl.MyDsl.Do_Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1955,7 +1955,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"whileStatement",
         		lv_whileStatement_5_0, 
-        		"While_Statement");
+        		"org.xtext.example.mydsl.MyDsl.While_Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1974,7 +1974,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"forStatement",
         		lv_forStatement_6_0, 
-        		"For_Statement");
+        		"org.xtext.example.mydsl.MyDsl.For_Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1993,7 +1993,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"switchStatement",
         		lv_switchStatement_7_0, 
-        		"Switch_statement");
+        		"org.xtext.example.mydsl.MyDsl.Switch_statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2016,7 +2016,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_9_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2035,7 +2035,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_10_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -2052,7 +2052,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"syncStatement",
         		lv_syncStatement_11_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2095,7 +2095,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_14_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2131,7 +2131,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_18_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2154,7 +2154,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"statementBlock",
         		lv_statementBlock_20_0, 
-        		"Statement_block");
+        		"org.xtext.example.mydsl.MyDsl.Statement_block");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2173,7 +2173,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"tryStatement",
         		lv_tryStatement_21_0, 
-        		"Try_statement");
+        		"org.xtext.example.mydsl.MyDsl.Try_statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2193,7 +2193,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"nameStatement",
         		lv_nameStatement_22_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -2214,7 +2214,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"statement",
         		lv_statement_24_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2247,7 +2247,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_27_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -2283,7 +2283,7 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_31_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -2347,7 +2347,7 @@ this_LPAREN_1=RULE_LPAREN
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"Variable_declaration");
+        		"org.xtext.example.mydsl.MyDsl.Variable_declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2371,7 +2371,7 @@ this_LPAREN_1=RULE_LPAREN
        			$current, 
        			"expression",
         		lv_expression_4_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2393,7 +2393,7 @@ this_LPAREN_1=RULE_LPAREN
        			$current, 
        			"expression2",
         		lv_expression2_6_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2415,7 +2415,7 @@ this_LPAREN_1=RULE_LPAREN
        			$current, 
        			"expression3",
         		lv_expression3_8_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2437,7 +2437,7 @@ this_LPAREN_1=RULE_LPAREN
        			$current, 
        			"statement",
         		lv_statement_10_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2480,7 +2480,7 @@ ruleNumeric_Expression_NR
        			$current, 
        			"numericExpression3",
         		lv_numericExpression3_0_0, 
-        		"Numeric_Expression_NR");
+        		"org.xtext.example.mydsl.MyDsl.Numeric_Expression_NR");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2498,7 +2498,7 @@ ruleNumeric_Expression_NR
        			$current, 
        			"aux",
         		lv_aux_1_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2517,7 +2517,7 @@ ruleNumeric_Expression_NR
        			$current, 
        			"logicalExpression",
         		lv_logicalExpression_2_0, 
-        		"Logical_Expression_NR");
+        		"org.xtext.example.mydsl.MyDsl.Logical_Expression_NR");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2535,7 +2535,7 @@ ruleNumeric_Expression_NR
        			$current, 
        			"aux",
         		lv_aux_3_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2554,7 +2554,7 @@ ruleNumeric_Expression_NR
        			$current, 
        			"bitExpression",
         		lv_bitExpression_4_0, 
-        		"Bit_Expression_NR");
+        		"org.xtext.example.mydsl.MyDsl.Bit_Expression_NR");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2572,7 +2572,7 @@ ruleNumeric_Expression_NR
        			$current, 
        			"aux",
         		lv_aux_5_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2595,7 +2595,7 @@ ruleCast_Expression
        			$current, 
        			"castExpression",
         		lv_castExpression_6_0, 
-        		"Cast_Expression");
+        		"org.xtext.example.mydsl.MyDsl.Cast_Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2613,7 +2613,7 @@ ruleCast_Expression
        			$current, 
        			"aux",
         		lv_aux_7_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2636,7 +2636,7 @@ ruleCreating_Expression
        			$current, 
        			"creatingExpression",
         		lv_creatingExpression_8_0, 
-        		"Creating_Expression");
+        		"org.xtext.example.mydsl.MyDsl.Creating_Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2654,7 +2654,7 @@ ruleCreating_Expression
        			$current, 
        			"aux",
         		lv_aux_9_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2673,7 +2673,7 @@ ruleCreating_Expression
        			$current, 
        			"literalExpression",
         		lv_literalExpression_10_0, 
-        		"Literal_Expression");
+        		"org.xtext.example.mydsl.MyDsl.Literal_Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2691,7 +2691,7 @@ ruleCreating_Expression
        			$current, 
        			"aux",
         		lv_aux_11_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2711,7 +2711,7 @@ ruleCreating_Expression
        			$current, 
        			"null",
         		lv_null_12_0, 
-        		"NULL");
+        		"org.xtext.example.mydsl.MyDsl.NULL");
 	    }
 
 )
@@ -2728,7 +2728,7 @@ ruleCreating_Expression
        			$current, 
        			"aux",
         		lv_aux_13_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2748,7 +2748,7 @@ ruleCreating_Expression
        			$current, 
        			"super",
         		lv_super_14_0, 
-        		"SUPER");
+        		"org.xtext.example.mydsl.MyDsl.SUPER");
 	    }
 
 )
@@ -2765,7 +2765,7 @@ ruleCreating_Expression
        			$current, 
        			"aux",
         		lv_aux_15_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2785,7 +2785,7 @@ ruleCreating_Expression
        			$current, 
        			"this",
         		lv_this_16_0, 
-        		"THIS");
+        		"org.xtext.example.mydsl.MyDsl.THIS");
 	    }
 
 )
@@ -2802,7 +2802,7 @@ ruleCreating_Expression
        			$current, 
        			"aux",
         		lv_aux_17_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2822,7 +2822,7 @@ ruleCreating_Expression
        			$current, 
        			"name",
         		lv_name_18_0, 
-        		"ID");
+        		"org.xtext.example.mydsl.MyDsl.ID");
 	    }
 
 )
@@ -2839,7 +2839,7 @@ ruleCreating_Expression
        			$current, 
        			"aux",
         		lv_aux_19_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2882,7 +2882,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"argList",
         		lv_argList_1_0, 
-        		"Arg_List");
+        		"org.xtext.example.mydsl.MyDsl.Arg_List");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2904,7 +2904,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_3_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2927,7 +2927,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"expression2",
         		lv_expression2_5_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2949,7 +2949,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_7_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2972,7 +2972,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"expression2",
         		lv_expression2_9_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2990,7 +2990,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_10_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3013,7 +3013,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"expressionComma",
         		lv_expressionComma_12_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3031,7 +3031,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_13_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3054,7 +3054,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_15_0, 
-        		"Class_name");
+        		"org.xtext.example.mydsl.MyDsl.Class_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3072,7 +3072,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_16_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3093,7 +3093,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"sgin",
         		lv_sgin_17_1, 
-        		"INCREMENT");
+        		"org.xtext.example.mydsl.MyDsl.INCREMENT");
 	    }
 
     |		lv_sgin_17_2=RULE_DECREMENT
@@ -3108,7 +3108,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"sgin",
         		lv_sgin_17_2, 
-        		"DECREMENT");
+        		"org.xtext.example.mydsl.MyDsl.DECREMENT");
 	    }
 
 )
@@ -3127,7 +3127,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_18_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3160,7 +3160,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_2, 
-        		"PLUS_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.PLUS_EQUAL");
 	    }
 
     |		lv_numericSign_19_3=	'-' 
@@ -3187,7 +3187,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_4, 
-        		"MINUS_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.MINUS_EQUAL");
 	    }
 
     |		lv_numericSign_19_5=RULE_MULTIPLY
@@ -3202,7 +3202,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_5, 
-        		"MULTIPLY");
+        		"org.xtext.example.mydsl.MyDsl.MULTIPLY");
 	    }
 
     |		lv_numericSign_19_6=RULE_MULTIPLY_EQUAL
@@ -3217,7 +3217,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_6, 
-        		"MULTIPLY_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.MULTIPLY_EQUAL");
 	    }
 
     |		lv_numericSign_19_7=RULE_DIVIDE
@@ -3232,7 +3232,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_7, 
-        		"DIVIDE");
+        		"org.xtext.example.mydsl.MyDsl.DIVIDE");
 	    }
 
     |		lv_numericSign_19_8=RULE_DIVIDE_EQUAL
@@ -3247,7 +3247,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_8, 
-        		"DIVIDE_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.DIVIDE_EQUAL");
 	    }
 
     |		lv_numericSign_19_9=RULE_MODULE
@@ -3262,7 +3262,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_9, 
-        		"MODULE");
+        		"org.xtext.example.mydsl.MyDsl.MODULE");
 	    }
 
     |		lv_numericSign_19_10=RULE_MODULE_EQUAL
@@ -3277,7 +3277,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"numericSign",
         		lv_numericSign_19_10, 
-        		"MODULE_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.MODULE_EQUAL");
 	    }
 
 )
@@ -3296,7 +3296,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"exp2",
         		lv_exp2_20_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3314,7 +3314,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_21_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3335,7 +3335,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"testingSign",
         		lv_testingSign_22_1, 
-        		"BT");
+        		"org.xtext.example.mydsl.MyDsl.BT");
 	    }
 
     |		lv_testingSign_22_2=RULE_ST
@@ -3350,7 +3350,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"testingSign",
         		lv_testingSign_22_2, 
-        		"ST");
+        		"org.xtext.example.mydsl.MyDsl.ST");
 	    }
 
     |		lv_testingSign_22_3=RULE_BE
@@ -3365,7 +3365,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"testingSign",
         		lv_testingSign_22_3, 
-        		"BE");
+        		"org.xtext.example.mydsl.MyDsl.BE");
 	    }
 
     |		lv_testingSign_22_4=RULE_SE
@@ -3380,7 +3380,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"testingSign",
         		lv_testingSign_22_4, 
-        		"SE");
+        		"org.xtext.example.mydsl.MyDsl.SE");
 	    }
 
     |		lv_testingSign_22_5=RULE_DOUBLE_EQUAL
@@ -3395,7 +3395,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"testingSign",
         		lv_testingSign_22_5, 
-        		"DOUBLE_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.DOUBLE_EQUAL");
 	    }
 
     |		lv_testingSign_22_6=RULE_DIFFERENT
@@ -3410,7 +3410,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"testingSign",
         		lv_testingSign_22_6, 
-        		"DIFFERENT");
+        		"org.xtext.example.mydsl.MyDsl.DIFFERENT");
 	    }
 
 )
@@ -3429,7 +3429,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"exp1",
         		lv_exp1_23_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3447,7 +3447,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_24_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3468,7 +3468,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_1, 
-        		"OR");
+        		"org.xtext.example.mydsl.MyDsl.OR");
 	    }
 
     |		lv_logicalSign_25_2=RULE_OR_EQUAL
@@ -3483,7 +3483,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_2, 
-        		"OR_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.OR_EQUAL");
 	    }
 
     |		lv_logicalSign_25_3=RULE_EXP
@@ -3498,7 +3498,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_3, 
-        		"EXP");
+        		"org.xtext.example.mydsl.MyDsl.EXP");
 	    }
 
     |		lv_logicalSign_25_4=RULE_EXP_EQUAL
@@ -3513,7 +3513,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_4, 
-        		"EXP_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.EXP_EQUAL");
 	    }
 
     |		lv_logicalSign_25_5=RULE_DOUBLE_OR_EQUAL
@@ -3528,7 +3528,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_5, 
-        		"DOUBLE_OR_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.DOUBLE_OR_EQUAL");
 	    }
 
     |		lv_logicalSign_25_6=RULE_MODULE
@@ -3543,7 +3543,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_6, 
-        		"MODULE");
+        		"org.xtext.example.mydsl.MyDsl.MODULE");
 	    }
 
     |		lv_logicalSign_25_7=RULE_MODULE_EQUAL
@@ -3558,7 +3558,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicalSign",
         		lv_logicalSign_25_7, 
-        		"MODULE_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.MODULE_EQUAL");
 	    }
 
 )
@@ -3578,7 +3578,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"ampersand",
         		lv_ampersand_26_0, 
-        		"Ampersand_Rule");
+        		"org.xtext.example.mydsl.MyDsl.Ampersand_Rule");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3596,7 +3596,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"exp1",
         		lv_exp1_27_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3614,7 +3614,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_28_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3637,7 +3637,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"exp1",
         		lv_exp1_30_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3659,7 +3659,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"exp2",
         		lv_exp2_32_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3677,7 +3677,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_33_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3710,7 +3710,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"stringSign",
         		lv_stringSign_34_2, 
-        		"PLUS_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.PLUS_EQUAL");
 	    }
 
 )
@@ -3729,7 +3729,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"exp1",
         		lv_exp1_35_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3747,7 +3747,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_36_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3768,7 +3768,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"bitSign",
         		lv_bitSign_37_1, 
-        		"R_SHIFT_EQUAL");
+        		"org.xtext.example.mydsl.MyDsl.R_SHIFT_EQUAL");
 	    }
 
     |		lv_bitSign_37_2=RULE_L_SHIFT
@@ -3783,7 +3783,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"bitSign",
         		lv_bitSign_37_2, 
-        		"L_SHIFT");
+        		"org.xtext.example.mydsl.MyDsl.L_SHIFT");
 	    }
 
     |		lv_bitSign_37_3=RULE_R_SHIFT
@@ -3798,7 +3798,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"bitSign",
         		lv_bitSign_37_3, 
-        		"R_SHIFT");
+        		"org.xtext.example.mydsl.MyDsl.R_SHIFT");
 	    }
 
     |		lv_bitSign_37_4=RULE_SUPER_SHIFT
@@ -3813,7 +3813,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"bitSign",
         		lv_bitSign_37_4, 
-        		"SUPER_SHIFT");
+        		"org.xtext.example.mydsl.MyDsl.SUPER_SHIFT");
 	    }
 
 )
@@ -3832,7 +3832,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"expressionBit",
         		lv_expressionBit_38_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3850,7 +3850,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"aux",
         		lv_aux_39_0, 
-        		"Expression_aux");
+        		"org.xtext.example.mydsl.MyDsl.Expression_aux");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3871,7 +3871,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicOp",
         		lv_logicOp_40_1, 
-        		"OR_LOGIC");
+        		"org.xtext.example.mydsl.MyDsl.OR_LOGIC");
 	    }
 
     |		lv_logicOp_40_2=RULE_AND
@@ -3886,7 +3886,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicOp",
         		lv_logicOp_40_2, 
-        		"AND");
+        		"org.xtext.example.mydsl.MyDsl.AND");
 	    }
 
 )
@@ -3905,7 +3905,7 @@ ruleExpression_aux returns [EObject current=null]
        			$current, 
        			"logicExp",
         		lv_logicExp_41_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3955,7 +3955,7 @@ ruleAmpersand_Rule returns [EObject current=null]
        			$current, 
        			"a1",
         		lv_a1_0_0, 
-        		"AMPERSAND");
+        		"org.xtext.example.mydsl.MyDsl.AMPERSAND");
 	    }
 
 )
@@ -3973,7 +3973,7 @@ ruleAmpersand_Rule returns [EObject current=null]
        			$current, 
        			"a2",
         		lv_a2_1_0, 
-        		"AMPERSAND");
+        		"org.xtext.example.mydsl.MyDsl.AMPERSAND");
 	    }
 
 )
@@ -4017,7 +4017,7 @@ ruleFloat_Literal returns [EObject current=null]
        			$current, 
        			"decimalDigits1",
         		lv_decimalDigits1_0_0, 
-        		"DECIMAL_DIGITS");
+        		"org.xtext.example.mydsl.MyDsl.DECIMAL_DIGITS");
 	    }
 
 )
@@ -4039,7 +4039,7 @@ ruleFloat_Literal returns [EObject current=null]
        			$current, 
        			"decimalDigits2",
         		lv_decimalDigits2_2_0, 
-        		"DECIMAL_DIGITS");
+        		"org.xtext.example.mydsl.MyDsl.DECIMAL_DIGITS");
 	    }
 
 )
@@ -4056,7 +4056,7 @@ ruleFloat_Literal returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_3_0, 
-        		"EXPOENT_PART");
+        		"org.xtext.example.mydsl.MyDsl.EXPOENT_PART");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4075,7 +4075,7 @@ ruleFloat_Literal returns [EObject current=null]
        			$current, 
        			"floatTypeSufix",
         		lv_floatTypeSufix_4_0, 
-        		"FLOAT_TYPE_SUFIX");
+        		"org.xtext.example.mydsl.MyDsl.FLOAT_TYPE_SUFIX");
 	    }
 
 )
@@ -4114,7 +4114,7 @@ ruleLiteral_Expression returns [EObject current=null]
        			$current, 
        			"exp",
         		lv_exp_0_0, 
-        		"HEXA");
+        		"org.xtext.example.mydsl.MyDsl.HEXA");
 	    }
 
 )
@@ -4137,7 +4137,7 @@ ruleLiteral_Expression returns [EObject current=null]
        			$current, 
        			"exp1",
         		lv_exp1_2_0, 
-        		"DECIMAL_DIGITS");
+        		"org.xtext.example.mydsl.MyDsl.DECIMAL_DIGITS");
 	    }
 
 )
@@ -4159,7 +4159,7 @@ ruleLiteral_Expression returns [EObject current=null]
        			$current, 
        			"exp2",
         		lv_exp2_4_0, 
-        		"Float_Literal");
+        		"org.xtext.example.mydsl.MyDsl.Float_Literal");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4179,7 +4179,7 @@ ruleLiteral_Expression returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_5_0, 
-        		"STRING");
+        		"org.xtext.example.mydsl.MyDsl.STRING");
 	    }
 
 )
@@ -4198,7 +4198,7 @@ ruleLiteral_Expression returns [EObject current=null]
        			$current, 
        			"charLit",
         		lv_charLit_6_0, 
-        		"CHAR");
+        		"org.xtext.example.mydsl.MyDsl.CHAR");
 	    }
 
 )
@@ -4240,7 +4240,7 @@ ruleCreating_Expression returns [EObject current=null]
        			$current, 
        			"className",
         		lv_className_1_0, 
-        		"Class_name");
+        		"org.xtext.example.mydsl.MyDsl.Class_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4262,7 +4262,7 @@ ruleCreating_Expression returns [EObject current=null]
        			$current, 
        			"argList",
         		lv_argList_3_0, 
-        		"Arg_List");
+        		"org.xtext.example.mydsl.MyDsl.Arg_List");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4285,7 +4285,7 @@ ruleCreating_Expression returns [EObject current=null]
        			$current, 
        			"typeSpecifier",
         		lv_typeSpecifier_5_0, 
-        		"Type_specifier");
+        		"org.xtext.example.mydsl.MyDsl.Type_specifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4307,7 +4307,7 @@ ruleCreating_Expression returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_7_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4352,7 +4352,7 @@ ruleCreating_Expression returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_14_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4399,7 +4399,7 @@ ruleCast_Expression returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_1_0, 
-        		"Type");
+        		"org.xtext.example.mydsl.MyDsl.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4421,7 +4421,7 @@ ruleCast_Expression returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_3_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4464,7 +4464,7 @@ ruleBit_Expression_NR returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_1_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4504,7 +4504,7 @@ ruleLogical_Expression_NR returns [EObject current=null]
        			$current, 
        			"exclamation",
         		lv_exclamation_0_0, 
-        		"EXCLAMATION");
+        		"org.xtext.example.mydsl.MyDsl.EXCLAMATION");
 	    }
 
 )
@@ -4521,7 +4521,7 @@ ruleLogical_Expression_NR returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_1_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4544,7 +4544,7 @@ ruleLogical_Expression_NR returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_3_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4571,7 +4571,7 @@ ruleLogical_Expression_NR returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_6_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4595,7 +4595,7 @@ ruleLogical_Expression_NR returns [EObject current=null]
        			$current, 
        			"true",
         		lv_true_8_0, 
-        		"TRUE");
+        		"org.xtext.example.mydsl.MyDsl.TRUE");
 	    }
 
 )
@@ -4614,7 +4614,7 @@ ruleLogical_Expression_NR returns [EObject current=null]
        			$current, 
        			"false",
         		lv_false_9_0, 
-        		"FALSE");
+        		"org.xtext.example.mydsl.MyDsl.FALSE");
 	    }
 
 )
@@ -4652,7 +4652,7 @@ ruleArg_List returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_0_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4674,7 +4674,7 @@ ruleArg_List returns [EObject current=null]
        			$current, 
        			"expressions",
         		lv_expressions_2_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4727,7 +4727,7 @@ ruleNumeric_Expression_NR returns [EObject current=null]
        			$current, 
        			"sinal_numeric",
         		lv_sinal_numeric_0_2, 
-        		"INCREMENT");
+        		"org.xtext.example.mydsl.MyDsl.INCREMENT");
 	    }
 
     |		lv_sinal_numeric_0_3=RULE_DECREMENT
@@ -4742,7 +4742,7 @@ ruleNumeric_Expression_NR returns [EObject current=null]
        			$current, 
        			"sinal_numeric",
         		lv_sinal_numeric_0_3, 
-        		"DECREMENT");
+        		"org.xtext.example.mydsl.MyDsl.DECREMENT");
 	    }
 
 )
@@ -4761,7 +4761,7 @@ ruleNumeric_Expression_NR returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_1_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4814,7 +4814,7 @@ ruleSwitch_statement returns [EObject current=null]
        			$current, 
        			"lParen",
         		lv_lParen_2_0, 
-        		"LPAREN");
+        		"org.xtext.example.mydsl.MyDsl.LPAREN");
 	    }
 
 )
@@ -4831,7 +4831,7 @@ ruleSwitch_statement returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_3_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4850,7 +4850,7 @@ ruleSwitch_statement returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_4_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -4875,7 +4875,7 @@ ruleSwitch_statement returns [EObject current=null]
        			$current, 
        			"expression2",
         		lv_expression2_7_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4907,7 +4907,7 @@ this_COLON_10=RULE_COLON
        			$current, 
        			"switchStatements",
         		lv_switchStatements_11_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4954,7 +4954,7 @@ ruleWhile_Statement returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_1_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4973,7 +4973,7 @@ ruleWhile_Statement returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_2_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -4990,7 +4990,7 @@ ruleWhile_Statement returns [EObject current=null]
        			$current, 
        			"whileStatement",
         		lv_whileStatement_3_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5033,7 +5033,7 @@ ruleDo_Statement returns [EObject current=null]
        			$current, 
        			"doStatement",
         		lv_doStatement_1_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5056,7 +5056,7 @@ ruleDo_Statement returns [EObject current=null]
        			$current, 
        			"lparent",
         		lv_lparent_3_0, 
-        		"LPAREN");
+        		"org.xtext.example.mydsl.MyDsl.LPAREN");
 	    }
 
 )
@@ -5074,7 +5074,7 @@ ruleDo_Statement returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_4_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -5121,7 +5121,7 @@ ruleIf_statement returns [EObject current=null]
        			$current, 
        			"lparen",
         		lv_lparen_1_0, 
-        		"LPAREN");
+        		"org.xtext.example.mydsl.MyDsl.LPAREN");
 	    }
 
 )
@@ -5138,7 +5138,7 @@ ruleIf_statement returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_2_0, 
-        		"Expression");
+        		"org.xtext.example.mydsl.MyDsl.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5157,7 +5157,7 @@ ruleIf_statement returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_3_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -5174,7 +5174,7 @@ ruleIf_statement returns [EObject current=null]
        			$current, 
        			"idStatement",
         		lv_idStatement_4_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5197,7 +5197,7 @@ ruleIf_statement returns [EObject current=null]
        			$current, 
        			"elseStatement",
         		lv_elseStatement_6_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5240,7 +5240,7 @@ ruleTry_statement returns [EObject current=null]
        			$current, 
        			"tryStatement",
         		lv_tryStatement_1_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5264,7 +5264,7 @@ ruleTry_statement returns [EObject current=null]
        			$current, 
        			"lParen",
         		lv_lParen_3_0, 
-        		"LPAREN");
+        		"org.xtext.example.mydsl.MyDsl.LPAREN");
 	    }
 
 )
@@ -5281,7 +5281,7 @@ ruleTry_statement returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_4_0, 
-        		"Parameter");
+        		"org.xtext.example.mydsl.MyDsl.Parameter");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5300,7 +5300,7 @@ ruleTry_statement returns [EObject current=null]
        			$current, 
        			"rparent",
         		lv_rparent_5_0, 
-        		"RPAREN");
+        		"org.xtext.example.mydsl.MyDsl.RPAREN");
 	    }
 
 )
@@ -5317,7 +5317,7 @@ ruleTry_statement returns [EObject current=null]
        			$current, 
        			"catchStatement",
         		lv_catchStatement_6_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5340,7 +5340,7 @@ ruleTry_statement returns [EObject current=null]
        			$current, 
        			"finallyStatement",
         		lv_finallyStatement_8_0, 
-        		"Statement");
+        		"org.xtext.example.mydsl.MyDsl.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5383,7 +5383,7 @@ ruleImport_statement returns [EObject current=null]
        			$current, 
        			"className",
         		lv_className_1_0, 
-        		"Class_name");
+        		"org.xtext.example.mydsl.MyDsl.Class_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5406,7 +5406,7 @@ ruleImport_statement returns [EObject current=null]
        			$current, 
        			"pacName",
         		lv_pacName_3_0, 
-        		"Package_name");
+        		"org.xtext.example.mydsl.MyDsl.Package_name");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5517,7 +5517,7 @@ rulePackage_statement returns [EObject current=null]
        			$current, 
        			"pacName",
         		lv_pacName_1_0, 
-        		"Package_name");
+        		"org.xtext.example.mydsl.MyDsl.Package_name");
 	        afterParserOrEnumRuleCall();
 	    }
 

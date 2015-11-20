@@ -21,11 +21,11 @@ import org.xtext.example.mydsl.myDsl.Static_initializer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Static_initializerImpl#getStatic <em>Static</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Static_initializerImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -18,11 +18,11 @@ import org.xtext.example.mydsl.myDsl.Type_specifier;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Type_specifierImpl#getPrimitiveType <em>Primitive Type</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Type_specifierImpl#getClassName <em>Class Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

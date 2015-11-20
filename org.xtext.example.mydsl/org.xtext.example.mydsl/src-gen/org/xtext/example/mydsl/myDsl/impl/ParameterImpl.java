@@ -21,11 +21,11 @@ import org.xtext.example.mydsl.myDsl.Type;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ParameterImpl#getParameterName <em>Parameter Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

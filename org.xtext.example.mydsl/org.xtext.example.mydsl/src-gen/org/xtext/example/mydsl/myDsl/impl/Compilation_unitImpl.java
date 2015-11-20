@@ -30,12 +30,12 @@ import org.xtext.example.mydsl.myDsl.Type_declaration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Compilation_unitImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Compilation_unitImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Compilation_unitImpl#getTypeDeclarations <em>Type Declarations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

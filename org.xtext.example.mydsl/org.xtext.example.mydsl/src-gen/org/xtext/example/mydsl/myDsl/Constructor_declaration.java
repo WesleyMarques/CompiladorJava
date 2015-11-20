@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Constructor_declaration#getModifiersConstructor <em>Modifiers Constructor</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Constructor_declaration#getNameConstructor <em>Name Constructor</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Constructor_declaration#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Constructor_declaration#getStatementConstructor <em>Statement Constructor</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getConstructor_declaration()
  * @model

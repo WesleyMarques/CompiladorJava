@@ -36,6 +36,7 @@ import org.xtext.example.mydsl.myDsl.While_Statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getVariableDeclaration <em>Variable Declaration</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getExpressionStatement <em>Expression Statement</em>}</li>
@@ -55,7 +56,6 @@ import org.xtext.example.mydsl.myDsl.While_Statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getStatement <em>Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.StatementImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

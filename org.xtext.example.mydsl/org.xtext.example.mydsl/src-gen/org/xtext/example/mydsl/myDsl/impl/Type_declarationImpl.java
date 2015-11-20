@@ -22,12 +22,12 @@ import org.xtext.example.mydsl.myDsl.Type_declaration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Type_declarationImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Type_declarationImpl#getClassDec <em>Class Dec</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Type_declarationImpl#getInterfaceDec <em>Interface Dec</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

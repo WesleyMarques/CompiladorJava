@@ -27,6 +27,7 @@ import org.xtext.example.mydsl.myDsl.Numeric_Expression_NR;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl#getNumericExpression3 <em>Numeric Expression3</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl#getAux <em>Aux</em>}</li>
@@ -40,7 +41,6 @@ import org.xtext.example.mydsl.myDsl.Numeric_Expression_NR;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl#getThis <em>This</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExpressionImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Method_declaration#getModifiersMethod <em>Modifiers Method</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Method_declaration#getTypeMethod <em>Type Method</em>}</li>
@@ -23,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Method_declaration#getStatementMethod <em>Statement Method</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Method_declaration#getDebug <em>Debug</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getMethod_declaration()
  * @model

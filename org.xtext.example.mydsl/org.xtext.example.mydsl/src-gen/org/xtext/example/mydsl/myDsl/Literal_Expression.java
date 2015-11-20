@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getExp1 <em>Exp1</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getString <em>String</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Literal_Expression#getCharLit <em>Char Lit</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLiteral_Expression()
  * @model

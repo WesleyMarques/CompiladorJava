@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.If_statement#getLparen <em>Lparen</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.If_statement#getExpression <em>Expression</em>}</li>
@@ -18,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.If_statement#getIdStatement <em>Id Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.If_statement#getElseStatement <em>Else Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getIf_statement()
  * @model

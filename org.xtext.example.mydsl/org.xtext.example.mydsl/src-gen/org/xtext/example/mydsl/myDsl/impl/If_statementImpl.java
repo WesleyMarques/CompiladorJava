@@ -22,6 +22,7 @@ import org.xtext.example.mydsl.myDsl.Statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.If_statementImpl#getLparen <em>Lparen</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.If_statementImpl#getExpression <em>Expression</em>}</li>
@@ -29,7 +30,6 @@ import org.xtext.example.mydsl.myDsl.Statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.If_statementImpl#getIdStatement <em>Id Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.If_statementImpl#getElseStatement <em>Else Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

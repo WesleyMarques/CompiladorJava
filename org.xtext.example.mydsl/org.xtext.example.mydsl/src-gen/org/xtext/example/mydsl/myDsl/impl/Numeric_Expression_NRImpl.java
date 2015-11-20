@@ -21,11 +21,11 @@ import org.xtext.example.mydsl.myDsl.Numeric_Expression_NR;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Numeric_Expression_NRImpl#getSinal_numeric <em>Sinal numeric</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Numeric_Expression_NRImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement_block#getRCurly <em>RCurly</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement_block#getStatments <em>Statments</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement_block#getLCurly <em>LCurly</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement_block()
  * @model

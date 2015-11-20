@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Variable_declaration#getModifiersVariable <em>Modifiers Variable</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Variable_declaration#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Variable_declaration#getNameVariable <em>Name Variable</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Variable_declaration#getNames <em>Names</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getVariable_declaration()
  * @model

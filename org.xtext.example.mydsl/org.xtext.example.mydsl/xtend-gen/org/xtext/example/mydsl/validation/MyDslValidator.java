@@ -18,6 +18,7 @@ import org.xtext.example.mydsl.myDsl.Expression;
 import org.xtext.example.mydsl.myDsl.Expression_aux;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
+import org.xtext.example.mydsl.myDsl.Logical_Expression_NR;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
@@ -27,6 +28,7 @@ import org.xtext.example.mydsl.myDsl.Type_specifier;
 import org.xtext.example.mydsl.myDsl.Variable_declaration;
 import org.xtext.example.mydsl.myDsl.Variable_declarator;
 import org.xtext.example.mydsl.myDsl.Variable_initializer;
+import org.xtext.example.mydsl.myDsl.While_Statement;
 import org.xtext.example.mydsl.validation.AbstractMyDslValidator;
 import org.xtext.example.mydsl.validation.utils.Classes;
 import org.xtext.example.mydsl.validation.utils.ConstructorObj;
@@ -233,6 +235,25 @@ public class MyDslValidator extends AbstractMyDslValidator {
           }
         }
       }
+    }
+  }
+  
+  @Check
+  public void whileValid(final While_Statement whileStm) {
+    boolean _and = false;
+    Expression _expression = whileStm.getExpression();
+    boolean _notEquals = (!Objects.equal(_expression, null));
+    if (!_notEquals) {
+      _and = false;
+    } else {
+      Expression _expression_1 = whileStm.getExpression();
+      Logical_Expression_NR _logicalExpression = _expression_1.getLogicalExpression();
+      boolean _equals = Objects.equal(_logicalExpression, null);
+      _and = _equals;
+    }
+    if (_and) {
+      Expression _expression_2 = whileStm.getExpression();
+      this.error("Only boolean type is permited", _expression_2, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
     }
   }
   

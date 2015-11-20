@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Compilation_unit#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Compilation_unit#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Compilation_unit#getTypeDeclarations <em>Type Declarations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCompilation_unit()
  * @model

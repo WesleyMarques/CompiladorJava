@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getModifiers <em>Modifiers</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getInterfaceName <em>Interface Name</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getInterfacesHerdadas <em>Interfaces Herdadas</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Interface_declaration#getFieldsDeclaration <em>Fields Declaration</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getInterface_declaration()
  * @model

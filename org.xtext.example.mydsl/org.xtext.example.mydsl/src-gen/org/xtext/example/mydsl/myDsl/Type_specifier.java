@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type_specifier#getPrimitiveType <em>Primitive Type</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type_specifier#getClassName <em>Class Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType_specifier()
  * @model

@@ -29,6 +29,7 @@ import org.xtext.example.mydsl.myDsl.Type;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Method_declarationImpl#getModifiersMethod <em>Modifiers Method</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Method_declarationImpl#getTypeMethod <em>Type Method</em>}</li>
@@ -39,7 +40,6 @@ import org.xtext.example.mydsl.myDsl.Type;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Method_declarationImpl#getStatementMethod <em>Statement Method</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Method_declarationImpl#getDebug <em>Debug</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

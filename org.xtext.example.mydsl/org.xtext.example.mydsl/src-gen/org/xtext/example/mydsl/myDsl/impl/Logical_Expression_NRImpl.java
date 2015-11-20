@@ -21,13 +21,13 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getExclamation <em>Exclamation</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getTrue <em>True</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Logical_Expression_NRImpl#getFalse <em>False</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Cast_Expression#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Cast_Expression#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCast_Expression()
  * @model

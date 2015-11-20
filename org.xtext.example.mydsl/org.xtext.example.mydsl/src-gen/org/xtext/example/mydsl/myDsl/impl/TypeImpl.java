@@ -27,11 +27,11 @@ import org.xtext.example.mydsl.myDsl.Type_specifier;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getTypeSpecifier <em>Type Specifier</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getTypeVector <em>Type Vector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -28,6 +28,7 @@ import org.xtext.example.mydsl.myDsl.Statement_block;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Constructor_declarationImpl#getModifiersConstructor <em>Modifiers Constructor</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Constructor_declarationImpl#getNameConstructor <em>Name Constructor</em>}</li>
@@ -36,7 +37,6 @@ import org.xtext.example.mydsl.myDsl.Statement_block;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Constructor_declarationImpl#getRparent <em>Rparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Constructor_declarationImpl#getStatementConstructor <em>Statement Constructor</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

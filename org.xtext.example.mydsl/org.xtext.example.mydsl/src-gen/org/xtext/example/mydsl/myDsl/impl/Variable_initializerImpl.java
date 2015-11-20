@@ -22,11 +22,11 @@ import org.xtext.example.mydsl.myDsl.Variable_initializer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_initializerImpl#getArray_init <em>Array init</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_initializerImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

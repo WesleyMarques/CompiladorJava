@@ -27,12 +27,12 @@ import org.xtext.example.mydsl.myDsl.Variable_initializer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declaratorImpl#getNameVariable <em>Name Variable</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declaratorImpl#getLenVector <em>Len Vector</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Variable_declaratorImpl#getVari <em>Vari</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

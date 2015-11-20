@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExclamation <em>Exclamation</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getTrue <em>True</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Logical_Expression_NR#getFalse <em>False</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLogical_Expression_NR()
  * @model

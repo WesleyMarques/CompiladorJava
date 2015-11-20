@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getVariableDeclaration <em>Variable Declaration</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getExpressionStatement <em>Expression Statement</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getStatement <em>Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Statement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getStatement()
  * @model

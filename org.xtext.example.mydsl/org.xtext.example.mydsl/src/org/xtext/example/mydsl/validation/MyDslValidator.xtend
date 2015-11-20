@@ -26,6 +26,7 @@ import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
 import org.xtext.example.mydsl.validation.utils.Util
 import org.xtext.example.mydsl.validation.utils.Variable
+import org.xtext.example.mydsl.myDsl.While_Statement
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -119,6 +120,13 @@ class MyDslValidator extends AbstractMyDslValidator {
 			}
 		}
 
+	}
+	
+	@Check
+	def whileValid(While_Statement whileStm){
+		if(whileStm.expression != null && whileStm.expression.logicalExpression == null){
+			error("Only boolean type is permited", whileStm.expression, MyDslPackage.Literals.EXPRESSION__LOGICAL_EXPRESSION);
+		}
 	}
 
 	@Check

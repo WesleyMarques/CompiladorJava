@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.Variable_declaration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Field_declarationImpl#getComment <em>Comment</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Field_declarationImpl#getVariableDeclaration <em>Variable Declaration</em>}</li>
@@ -31,7 +32,6 @@ import org.xtext.example.mydsl.myDsl.Variable_declaration;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Field_declarationImpl#getMethodName <em>Method Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Field_declarationImpl#getStaticinitializer <em>Staticinitializer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

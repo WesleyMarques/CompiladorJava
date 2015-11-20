@@ -21,6 +21,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getExp1 <em>Exp1</em>}</li>
@@ -28,7 +29,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getString <em>String</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Literal_ExpressionImpl#getCharLit <em>Char Lit</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -30,6 +30,7 @@ import org.xtext.example.mydsl.myDsl.Try_statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Try_statementImpl#getTryStatement <em>Try Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Try_statementImpl#getLParen <em>LParen</em>}</li>
@@ -38,7 +39,6 @@ import org.xtext.example.mydsl.myDsl.Try_statement;
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Try_statementImpl#getCatchStatement <em>Catch Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Try_statementImpl#getFinallyStatement <em>Finally Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

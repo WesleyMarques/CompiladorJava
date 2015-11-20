@@ -21,12 +21,12 @@ import org.xtext.example.mydsl.myDsl.Statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Do_StatementImpl#getDoStatement <em>Do Statement</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Do_StatementImpl#getLparent <em>Lparent</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.Do_StatementImpl#getRparent <em>Rparent</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
