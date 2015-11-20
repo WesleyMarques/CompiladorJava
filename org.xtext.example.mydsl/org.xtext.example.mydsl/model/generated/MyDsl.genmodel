@@ -129,9 +129,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//For_Statement/expression3"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//For_Statement/statement"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Primitive_type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Primitive_type/name"/>
-    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression/numericExpression3"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expression/aux"/>

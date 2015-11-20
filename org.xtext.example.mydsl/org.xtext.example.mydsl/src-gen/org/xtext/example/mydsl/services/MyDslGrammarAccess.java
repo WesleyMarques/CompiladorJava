@@ -1364,22 +1364,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getStatementStatementParserRuleCall_7_0() { return cStatementStatementParserRuleCall_7_0; }
 	}
 
-	public class Primitive_typeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Primitive_type");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameType_specifierParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//Primitive_type:
-		//	name=Type_specifier;
-		@Override public ParserRule getRule() { return rule; }
-
-		//name=Type_specifier
-		public Assignment getNameAssignment() { return cNameAssignment; }
-
-		//Type_specifier
-		public RuleCall getNameType_specifierParserRuleCall_0() { return cNameType_specifierParserRuleCall_0; }
-	}
-
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -3201,7 +3185,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final Statement_blockElements pStatement_block;
 	private final StatementElements pStatement;
 	private final For_StatementElements pFor_Statement;
-	private final Primitive_typeElements pPrimitive_type;
 	private final ExpressionElements pExpression;
 	private final TerminalRule tNULL;
 	private final TerminalRule tTHIS;
@@ -3319,7 +3302,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStatement_block = new Statement_blockElements();
 		this.pStatement = new StatementElements();
 		this.pFor_Statement = new For_StatementElements();
-		this.pPrimitive_type = new Primitive_typeElements();
 		this.pExpression = new ExpressionElements();
 		this.tNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NULL");
 		this.tTHIS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "THIS");
@@ -3689,16 +3671,6 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFor_StatementRule() {
 		return getFor_StatementAccess().getRule();
-	}
-
-	//Primitive_type:
-	//	name=Type_specifier;
-	public Primitive_typeElements getPrimitive_typeAccess() {
-		return pPrimitive_type;
-	}
-	
-	public ParserRule getPrimitive_typeRule() {
-		return getPrimitive_typeAccess().getRule();
 	}
 
 	////################################## EXPRESSOES

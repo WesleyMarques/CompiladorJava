@@ -203,15 +203,6 @@ public interface MyDslFactory extends EFactory
   For_Statement createFor_Statement();
 
   /**
-   * Returns a new object of class '<em>Primitive type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primitive type</em>'.
-   * @generated
-   */
-  Primitive_type createPrimitive_type();
-
-  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

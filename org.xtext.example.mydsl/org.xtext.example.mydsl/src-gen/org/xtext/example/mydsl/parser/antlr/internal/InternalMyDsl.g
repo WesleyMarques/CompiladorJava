@@ -2449,8 +2449,6 @@ this_LPAREN_1=RULE_LPAREN
 
 
 
-
-
 // Entry rule entryRuleExpression
 entryRuleExpression returns [EObject current=null] 
 	:

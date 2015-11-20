@@ -37,7 +37,6 @@ import org.xtext.example.mydsl.myDsl.Numeric_Expression_NR;
 import org.xtext.example.mydsl.myDsl.Package_statement;
 import org.xtext.example.mydsl.myDsl.Parameter;
 import org.xtext.example.mydsl.myDsl.Parameter_list;
-import org.xtext.example.mydsl.myDsl.Primitive_type;
 import org.xtext.example.mydsl.myDsl.Statement;
 import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Static_initializer;
@@ -198,13 +197,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass for_StatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass primitive_typeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1420,26 +1412,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPrimitive_type()
-  {
-    return primitive_typeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getPrimitive_type_Name()
-  {
-    return (EReference)primitive_typeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -2557,9 +2529,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(for_StatementEClass, FOR_STATEMENT__EXPRESSION3);
     createEReference(for_StatementEClass, FOR_STATEMENT__STATEMENT);
 
-    primitive_typeEClass = createEClass(PRIMITIVE_TYPE);
-    createEReference(primitive_typeEClass, PRIMITIVE_TYPE__NAME);
-
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__NUMERIC_EXPRESSION3);
     createEReference(expressionEClass, EXPRESSION__AUX);
@@ -2828,9 +2797,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getFor_Statement_Expression2(), this.getExpression(), null, "expression2", null, 0, 1, For_Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Statement_Expression3(), this.getExpression(), null, "expression3", null, 0, 1, For_Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFor_Statement_Statement(), this.getStatement(), null, "statement", null, 0, 1, For_Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(primitive_typeEClass, Primitive_type.class, "Primitive_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPrimitive_type_Name(), this.getType_specifier(), null, "name", null, 0, 1, Primitive_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_NumericExpression3(), this.getNumeric_Expression_NR(), null, "numericExpression3", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

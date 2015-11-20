@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.validation.utils.ExpressionValidate
 import org.xtext.example.mydsl.validation.utils.MethodObj
 import org.xtext.example.mydsl.validation.utils.MethodValidate
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate
+import org.xtext.example.mydsl.validation.utils.Util
 import org.xtext.example.mydsl.validation.utils.Variable
 
 //import org.eclipse.xtext.validation.Check
@@ -143,14 +144,18 @@ class MyDslValidator extends AbstractMyDslValidator {
 			if (e.nodeError instanceof Variable_declaration) {
 				var Variable_declaration vd = e.nodeError as Variable_declaration;
 				error(e.message, vd, MyDslPackage.Literals.VARIABLE_DECLARATION__MODIFIERS_VARIABLE);
+			}else if(e.nodeError.size == 1){
+				var Variable_declaration vd = e.nodeError.get(0) as Variable_declaration;
+				error(e.message, vd.type, MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+			} else {
+				var MethodObj metAux;
+				for (Object methodsError : e.nodeError) {
+					metAux = methodsError as MethodObj;
+					error(e.message + (metAux.toString) + " in Type " + typeName, metAux.md,
+						MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+				}
 			}
 
-			var MethodObj metAux;
-			for (Object methodsError : e.nodeError) {
-				metAux = methodsError as MethodObj;
-				error(e.message + (metAux.toString) + " in Type " + typeName, metAux.md,
-					MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
-			}
 		}
 
 	}
@@ -196,15 +201,33 @@ class MyDslValidator extends AbstractMyDslValidator {
 					variable = new Variable(fd.getVariableDeclaration());
 				} catch (Exception e) {
 				}
-				
-				if(fd.variableDeclaration.type.typeSpecifier.className != null && !allClasses.classes.keySet.contains(variable.type) && !allClasses.interfaces.keySet.contains(variable.type)){
-					
-					error("Identifier " + fd.variableDeclaration.type.typeSpecifier.className + " not found.", fd.variableDeclaration.type,
-					MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+
+				if (fd.variableDeclaration.type.typeSpecifier.className != null &&
+					!allClasses.classes.keySet.contains(variable.type) &&
+					!allClasses.interfaces.keySet.contains(variable.type)) {
+
+					error("Identifier " + fd.variableDeclaration.type.typeSpecifier.className + " not found.",
+						fd.variableDeclaration.type, MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
 				}
-				
-				
-				
+
+				if (fd.variableDeclaration.nameVariable.vari != null &&
+					fd.variableDeclaration.nameVariable.vari.expression != null) {
+					try {
+						if (!Util.getTypeExp(fd.variableDeclaration.nameVariable.vari.expression).equals(
+							variable.type)) {
+							error(
+								variable.type + " can not be converted in " +
+									Util.getTypeExp(fd.variableDeclaration.nameVariable.vari.expression),
+								fd.variableDeclaration.nameVariable,
+								MyDslPackage.Literals.VARIABLE_DECLARATOR__NAME_VARIABLE
+							);
+						}
+					} catch (Exception e) {
+						error(e.message, fd.variableDeclaration.nameVariable.vari.expression.getAux(),
+							MyDslPackage.Literals.EXPRESSION_AUX__ARG_LIST);
+					}
+
+				}
 				allClasses.setGlobalVar(variable, typeName);
 				if (variable.getCountNames() > 0) {
 					for (Variable_declarator varDecl : fd.getVariableDeclaration().getNames()) {
@@ -212,32 +235,11 @@ class MyDslValidator extends AbstractMyDslValidator {
 						allClasses.setGlobalVar(variable, typeName);
 					}
 				}
-				if (fd.variableDeclaration.nameVariable.vari != null) {
-					
-				}
+
 			}
 
 		}
 
-	}
-
-	def getTypeExp(Expression exp) {
-		if (exp.name == null && exp.literalExpression == null && exp.logicalExpression == null) {
-			error("Invalid expression", exp.aux, MyDslPackage.Literals.EXPRESSION_AUX__ARG_LIST);
-			return null;
-		}
-		if (exp.literalExpression != null) {
-			if (exp.literalExpression.exp2 != null) {
-				return "float";
-			} else if (exp.literalExpression.string != null) {
-				return "String";
-			} else if (exp.literalExpression.charLit != null) {
-				return "char";
-			} else {
-				return "int";
-			}
-		} else if (exp.name != null) {
-		}
 	}
 
 	def validaContructor(EList<Field_declaration> list, String typeName) {

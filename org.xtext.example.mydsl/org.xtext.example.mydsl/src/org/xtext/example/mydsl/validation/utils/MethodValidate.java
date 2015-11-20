@@ -36,6 +36,25 @@ public class MethodValidate {
 						}catch(Exception e){						
 							excep = new MyDslException("Variable declaration error");
 							excep.setNodeError(actualStatement.getVariableDeclaration());
+							throw excep;
+						}
+						if(actualStatement.getVariableDeclaration().getNameVariable().getVari() != null &&
+								actualStatement.getVariableDeclaration().getNameVariable().getVari().getExpression() != null){
+							try{
+								if(!Util.getTypeExp(actualStatement.getVariableDeclaration().getNameVariable().getVari().getExpression())
+										.equals(variable.getType())){
+									excep = new MyDslException(variable.getType()+" can not be converted in "+Util.getTypeExp(actualStatement.getVariableDeclaration().getNameVariable().getVari().getExpression())
+									.equals(variable.getType()));
+									excep.setNodeError(actualStatement.getVariableDeclaration());
+									throw excep;
+									
+							}
+							}catch(Exception e){
+								excep = new MyDslException(e.getMessage());
+								excep.setNodeError(actualStatement.getVariableDeclaration());
+								throw excep;
+							}
+														
 						}
 						newMethod.setFields(variable);
 						if(variable.getCountNames() > 0){

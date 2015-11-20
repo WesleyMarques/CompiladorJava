@@ -178,10 +178,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" eType="#//Statement"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Primitive_type">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Type_specifier"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="numericExpression3" eType="#//Numeric_Expression_NR"
         containment="true"/>

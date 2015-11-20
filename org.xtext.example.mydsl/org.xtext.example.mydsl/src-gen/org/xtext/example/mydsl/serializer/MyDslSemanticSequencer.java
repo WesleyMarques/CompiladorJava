@@ -43,7 +43,6 @@ import org.xtext.example.mydsl.myDsl.Numeric_Expression_NR;
 import org.xtext.example.mydsl.myDsl.Package_statement;
 import org.xtext.example.mydsl.myDsl.Parameter;
 import org.xtext.example.mydsl.myDsl.Parameter_list;
-import org.xtext.example.mydsl.myDsl.Primitive_type;
 import org.xtext.example.mydsl.myDsl.Statement;
 import org.xtext.example.mydsl.myDsl.Statement_block;
 import org.xtext.example.mydsl.myDsl.Static_initializer;
@@ -144,9 +143,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.PARAMETER_LIST:
 				sequence_Parameter_list(context, (Parameter_list) semanticObject); 
-				return; 
-			case MyDslPackage.PRIMITIVE_TYPE:
-				sequence_Primitive_type(context, (Primitive_type) semanticObject); 
 				return; 
 			case MyDslPackage.STATEMENT:
 				sequence_Statement(context, (Statement) semanticObject); 
@@ -503,22 +499,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_Parameter_list(EObject context, Parameter_list semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=Type_specifier
-	 */
-	protected void sequence_Primitive_type(EObject context, Primitive_type semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.PRIMITIVE_TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.PRIMITIVE_TYPE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPrimitive_typeAccess().getNameType_specifierParserRuleCall_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	

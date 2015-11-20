@@ -212,13 +212,6 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.PRIMITIVE_TYPE:
-      {
-        Primitive_type primitive_type = (Primitive_type)theEObject;
-        T result = casePrimitive_type(primitive_type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyDslPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -665,22 +658,6 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFor_Statement(For_Statement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Primitive type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primitive type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePrimitive_type(Primitive_type object)
   {
     return null;
   }

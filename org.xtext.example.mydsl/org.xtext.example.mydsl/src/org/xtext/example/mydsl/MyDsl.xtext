@@ -154,9 +154,7 @@ For_Statement:
 ;
 
 
-Primitive_type:
-	name = Type_specifier
-;
+
 
 
 

@@ -17,10 +17,7 @@ import org.xtext.example.mydsl.myDsl.Constructor_declaration;
 import org.xtext.example.mydsl.myDsl.Expression;
 import org.xtext.example.mydsl.myDsl.Expression_aux;
 import org.xtext.example.mydsl.myDsl.Field_declaration;
-import org.xtext.example.mydsl.myDsl.Float_Literal;
 import org.xtext.example.mydsl.myDsl.Interface_declaration;
-import org.xtext.example.mydsl.myDsl.Literal_Expression;
-import org.xtext.example.mydsl.myDsl.Logical_Expression_NR;
 import org.xtext.example.mydsl.myDsl.Method_declaration;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Statement_block;
@@ -38,6 +35,7 @@ import org.xtext.example.mydsl.validation.utils.ExpressionValidate;
 import org.xtext.example.mydsl.validation.utils.MethodObj;
 import org.xtext.example.mydsl.validation.utils.MethodValidate;
 import org.xtext.example.mydsl.validation.utils.ModifiersValidate;
+import org.xtext.example.mydsl.validation.utils.Util;
 import org.xtext.example.mydsl.validation.utils.Variable;
 
 /**
@@ -273,20 +271,33 @@ public class MyDslValidator extends AbstractMyDslValidator {
           Variable_declaration vd = ((Variable_declaration) _nodeError_1);
           String _message = e.getMessage();
           this.error(_message, vd, MyDslPackage.Literals.VARIABLE_DECLARATION__MODIFIERS_VARIABLE);
-        }
-        MethodObj metAux = null;
-        List<Object> _nodeError_2 = e.getNodeError();
-        for (final Object methodsError : _nodeError_2) {
-          {
-            metAux = ((MethodObj) methodsError);
+        } else {
+          List<Object> _nodeError_2 = e.getNodeError();
+          int _size = _nodeError_2.size();
+          boolean _equals = (_size == 1);
+          if (_equals) {
+            List<Object> _nodeError_3 = e.getNodeError();
+            Object _get = _nodeError_3.get(0);
+            Variable_declaration vd_1 = ((Variable_declaration) _get);
             String _message_1 = e.getMessage();
-            String _string = metAux.toString();
-            String _plus = (_message_1 + _string);
-            String _plus_1 = (_plus + " in Type ");
-            String _plus_2 = (_plus_1 + typeName);
-            Method_declaration _md = metAux.getMd();
-            this.error(_plus_2, _md, 
-              MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+            Type _type = vd_1.getType();
+            this.error(_message_1, _type, MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+          } else {
+            MethodObj metAux = null;
+            List<Object> _nodeError_4 = e.getNodeError();
+            for (final Object methodsError : _nodeError_4) {
+              {
+                metAux = ((MethodObj) methodsError);
+                String _message_2 = e.getMessage();
+                String _string = metAux.toString();
+                String _plus = (_message_2 + _string);
+                String _plus_1 = (_plus + " in Type ");
+                String _plus_2 = (_plus_1 + typeName);
+                Method_declaration _md = metAux.getMd();
+                this.error(_plus_2, _md, 
+                  MyDslPackage.Literals.METHOD_DECLARATION__NAME_METHOD);
+              }
+            }
           }
         }
       } else {
@@ -400,97 +411,79 @@ public class MyDslValidator extends AbstractMyDslValidator {
           String _plus_1 = (_plus + " not found.");
           Variable_declaration _variableDeclaration_4 = fd.getVariableDeclaration();
           Type _type_4 = _variableDeclaration_4.getType();
-          this.error(_plus_1, _type_4, 
-            MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+          this.error(_plus_1, _type_4, MyDslPackage.Literals.TYPE__TYPE_SPECIFIER);
+        }
+        boolean _and_2 = false;
+        Variable_declaration _variableDeclaration_5 = fd.getVariableDeclaration();
+        Variable_declarator _nameVariable = _variableDeclaration_5.getNameVariable();
+        Variable_initializer _vari = _nameVariable.getVari();
+        boolean _notEquals_2 = (!Objects.equal(_vari, null));
+        if (!_notEquals_2) {
+          _and_2 = false;
+        } else {
+          Variable_declaration _variableDeclaration_6 = fd.getVariableDeclaration();
+          Variable_declarator _nameVariable_1 = _variableDeclaration_6.getNameVariable();
+          Variable_initializer _vari_1 = _nameVariable_1.getVari();
+          Expression _expression = _vari_1.getExpression();
+          boolean _notEquals_3 = (!Objects.equal(_expression, null));
+          _and_2 = _notEquals_3;
+        }
+        if (_and_2) {
+          try {
+            Variable_declaration _variableDeclaration_7 = fd.getVariableDeclaration();
+            Variable_declarator _nameVariable_2 = _variableDeclaration_7.getNameVariable();
+            Variable_initializer _vari_2 = _nameVariable_2.getVari();
+            Expression _expression_1 = _vari_2.getExpression();
+            String _typeExp = Util.getTypeExp(_expression_1);
+            String _type_5 = variable.getType();
+            boolean _equals = _typeExp.equals(_type_5);
+            boolean _not_2 = (!_equals);
+            if (_not_2) {
+              String _type_6 = variable.getType();
+              String _plus_2 = (_type_6 + " can not be converted in ");
+              Variable_declaration _variableDeclaration_8 = fd.getVariableDeclaration();
+              Variable_declarator _nameVariable_3 = _variableDeclaration_8.getNameVariable();
+              Variable_initializer _vari_3 = _nameVariable_3.getVari();
+              Expression _expression_2 = _vari_3.getExpression();
+              String _typeExp_1 = Util.getTypeExp(_expression_2);
+              String _plus_3 = (_plus_2 + _typeExp_1);
+              Variable_declaration _variableDeclaration_9 = fd.getVariableDeclaration();
+              Variable_declarator _nameVariable_4 = _variableDeclaration_9.getNameVariable();
+              this.error(_plus_3, _nameVariable_4, 
+                MyDslPackage.Literals.VARIABLE_DECLARATOR__NAME_VARIABLE);
+            }
+          } catch (final Throwable _t_1) {
+            if (_t_1 instanceof Exception) {
+              final Exception e_1 = (Exception)_t_1;
+              String _message = e_1.getMessage();
+              Variable_declaration _variableDeclaration_10 = fd.getVariableDeclaration();
+              Variable_declarator _nameVariable_5 = _variableDeclaration_10.getNameVariable();
+              Variable_initializer _vari_4 = _nameVariable_5.getVari();
+              Expression _expression_3 = _vari_4.getExpression();
+              Expression_aux _aux = _expression_3.getAux();
+              this.error(_message, _aux, 
+                MyDslPackage.Literals.EXPRESSION_AUX__ARG_LIST);
+            } else {
+              throw Exceptions.sneakyThrow(_t_1);
+            }
+          }
         }
         this.allClasses.setGlobalVar(variable, typeName);
         int _countNames = variable.getCountNames();
         boolean _greaterThan = (_countNames > 0);
         if (_greaterThan) {
-          Variable_declaration _variableDeclaration_5 = fd.getVariableDeclaration();
-          EList<Variable_declarator> _names = _variableDeclaration_5.getNames();
+          Variable_declaration _variableDeclaration_11 = fd.getVariableDeclaration();
+          EList<Variable_declarator> _names = _variableDeclaration_11.getNames();
           for (final Variable_declarator varDecl : _names) {
             {
-              String _nameVariable = varDecl.getNameVariable();
-              variable.setName(_nameVariable);
+              String _nameVariable_6 = varDecl.getNameVariable();
+              variable.setName(_nameVariable_6);
               this.allClasses.setGlobalVar(variable, typeName);
             }
           }
         }
-        Variable_declaration _variableDeclaration_6 = fd.getVariableDeclaration();
-        Variable_declarator _nameVariable = _variableDeclaration_6.getNameVariable();
-        Variable_initializer _vari = _nameVariable.getVari();
-        boolean _notEquals_2 = (!Objects.equal(_vari, null));
-        if (_notEquals_2) {
-        }
       }
     }
-  }
-  
-  public String getTypeExp(final Expression exp) {
-    Object _xblockexpression = null;
-    {
-      boolean _and = false;
-      boolean _and_1 = false;
-      String _name = exp.getName();
-      boolean _equals = Objects.equal(_name, null);
-      if (!_equals) {
-        _and_1 = false;
-      } else {
-        Literal_Expression _literalExpression = exp.getLiteralExpression();
-        boolean _equals_1 = Objects.equal(_literalExpression, null);
-        _and_1 = _equals_1;
-      }
-      if (!_and_1) {
-        _and = false;
-      } else {
-        Logical_Expression_NR _logicalExpression = exp.getLogicalExpression();
-        boolean _equals_2 = Objects.equal(_logicalExpression, null);
-        _and = _equals_2;
-      }
-      if (_and) {
-        Expression_aux _aux = exp.getAux();
-        this.error("Invalid expression", _aux, MyDslPackage.Literals.EXPRESSION_AUX__ARG_LIST);
-        return null;
-      }
-      Object _xifexpression = null;
-      Literal_Expression _literalExpression_1 = exp.getLiteralExpression();
-      boolean _notEquals = (!Objects.equal(_literalExpression_1, null));
-      if (_notEquals) {
-        Literal_Expression _literalExpression_2 = exp.getLiteralExpression();
-        Float_Literal _exp2 = _literalExpression_2.getExp2();
-        boolean _notEquals_1 = (!Objects.equal(_exp2, null));
-        if (_notEquals_1) {
-          return "float";
-        } else {
-          Literal_Expression _literalExpression_3 = exp.getLiteralExpression();
-          String _string = _literalExpression_3.getString();
-          boolean _notEquals_2 = (!Objects.equal(_string, null));
-          if (_notEquals_2) {
-            return "String";
-          } else {
-            Literal_Expression _literalExpression_4 = exp.getLiteralExpression();
-            String _charLit = _literalExpression_4.getCharLit();
-            boolean _notEquals_3 = (!Objects.equal(_charLit, null));
-            if (_notEquals_3) {
-              return "char";
-            } else {
-              return "int";
-            }
-          }
-        }
-      } else {
-        Object _xifexpression_1 = null;
-        String _name_1 = exp.getName();
-        boolean _notEquals_4 = (!Objects.equal(_name_1, null));
-        if (_notEquals_4) {
-          _xifexpression_1 = null;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xblockexpression = _xifexpression;
-    }
-    return ((String)_xblockexpression);
   }
   
   public void validaContructor(final EList<Field_declaration> list, final String typeName) {

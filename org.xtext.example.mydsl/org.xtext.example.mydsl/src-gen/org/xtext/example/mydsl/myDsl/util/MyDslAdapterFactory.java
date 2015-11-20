@@ -175,11 +175,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createFor_StatementAdapter();
       }
       @Override
-      public Adapter casePrimitive_type(Primitive_type object)
-      {
-        return createPrimitive_typeAdapter();
-      }
-      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -587,21 +582,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFor_StatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Primitive_type <em>Primitive type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Primitive_type
-   * @generated
-   */
-  public Adapter createPrimitive_typeAdapter()
   {
     return null;
   }

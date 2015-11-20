@@ -84,7 +84,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.STATEMENT_BLOCK: return createStatement_block();
       case MyDslPackage.STATEMENT: return createStatement();
       case MyDslPackage.FOR_STATEMENT: return createFor_Statement();
-      case MyDslPackage.PRIMITIVE_TYPE: return createPrimitive_type();
       case MyDslPackage.EXPRESSION: return createExpression();
       case MyDslPackage.EXPRESSION_AUX: return createExpression_aux();
       case MyDslPackage.AMPERSAND_RULE: return createAmpersand_Rule();
@@ -326,17 +325,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     For_StatementImpl for_Statement = new For_StatementImpl();
     return for_Statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Primitive_type createPrimitive_type()
-  {
-    Primitive_typeImpl primitive_type = new Primitive_typeImpl();
-    return primitive_type;
   }
 
   /**
